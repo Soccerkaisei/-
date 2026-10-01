@@ -1,11 +1,17 @@
 // ---------------- レポート（毎朝、先頭の「report」シートにまとめる） ----------------
-// 初回だけ: 関数「setupReport」を選んで「実行」。以降は毎朝 7 時台に自動で作り直します。
+// 初回だけ: 関数「setupReport」を選んで「実行」。以降は毎朝 5 時台に GA4 取り込み → レポート作成 を続けて行います。
 
 function setupReport() {
   ScriptApp.getProjectTriggers().forEach(function (tr) {
-    if (tr.getHandlerFunction() === 'buildReport') ScriptApp.deleteTrigger(tr);
+    var f = tr.getHandlerFunction();
+    if (f === 'buildReport' || f === 'updateAll' || f === 'dailyAll') ScriptApp.deleteTrigger(tr);
   });
-  ScriptApp.newTrigger('buildReport').timeBased().everyDays(1).atHour(7).inTimezone('Asia/Tokyo').create();
+  ScriptApp.newTrigger('dailyAll').timeBased().everyDays(1).atHour(5).inTimezone('Asia/Tokyo').create();
+  buildReport();
+}
+
+function dailyAll() {
+  updateAll();
   buildReport();
 }
 
