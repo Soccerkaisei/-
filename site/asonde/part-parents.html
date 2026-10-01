@@ -1,0 +1,95 @@
+  <section class="tjg-parents">
+    <span class="tjg-parents-eyebrow">FOR PARENTS</span>
+    <h2 class="tjg-parents-title">保護者の方へ</h2>
+    <p class="tjg-parents-lead">海外で育つ子どもにとって、日本語は「勉強しなさい」と言われるほど遠ざかりがちです。ここにあるゲームは、すべて無料・登録不要。親子で点数を競ったり、日本の文化について話したりする、きっかけにしてください。</p>
+    <ul class="tjg-points">
+      <li><strong>漢字・ことば・あいさつ</strong>日本の学校で出会うことばや漢字を、クイズで楽しくくり返せます。</li>
+      <li><strong>1回数分、スマホでも</strong>すきま時間に、スマホやタブレットからそのまま遊べます。</li>
+      <li><strong>「やりたい」から続く</strong>ともだちじゃぱんの授業も同じ考え方。日本の同世代の友達と、毎日日本語で話す学校です。</li>
+    </ul>
+    <a class="tjg-cta" href="/waitlist/?utm_source=asonde&amp;utm_medium=top&amp;utm_campaign=asonde-shiryou">📩 学校案内を受け取る（無料・1分）</a>
+    <p class="tjg-cta-note">2026年12月開校・1期生は入会金無料</p>
+  </section>
+
+<style>
+.tjg-parents{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+  margin:56px auto 0;
+  padding:36px 32px 32px;
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  text-align:center;
+}
+.tjg-parents-eyebrow{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  color:var(--tjx-coral,#f0655a);
+  margin-bottom:6px;
+}
+.tjg-parents-title{
+  background:none;
+  border:none;
+  padding:0;
+  margin:0 0 14px;
+  font-size:clamp(20px,3vw,26px);
+  font-weight:800;
+  color:var(--tjx-ink,#2b3b42);
+}
+.tjg-parents-lead{
+  font-size:14px;
+  line-height:1.9;
+  color:var(--tjx-soft,#586a70);
+  margin:0 auto 24px;
+  max-width:600px;
+  text-align:left;
+}
+.tjg-points{
+  list-style:none;
+  margin:0 0 28px;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  text-align:left;
+}
+.tjg-points li{
+  margin:0;
+  padding:14px 14px 16px;
+  background:var(--tjx-tint,#eaf3f4);
+  border-radius:12px;
+  font-size:12px;
+  line-height:1.7;
+  color:var(--tjx-soft,#586a70);
+}
+.tjg-points li::before{display:none;}
+.tjg-points strong{
+  display:block;
+  font-size:14px;
+  color:var(--tjx-ink,#2b3b42);
+  margin-bottom:4px;
+}
+.tjg-cta{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:999px;
+  background:var(--tjx-coral,#f0655a);
+  color:#fff!important;
+  font-size:15px;
+  font-weight:800;
+  text-decoration:none!important;
+  box-shadow:0 6px 14px rgba(240,101,90,.35);
+  transition:transform .2s ease;
+}
+.tjg-cta:hover{transform:translateY(-2px);}
+.tjg-cta-note{margin:10px 0 0;font-size:12px;color:var(--tjx-soft,#586a70);}
+
+@media (max-width:640px){
+  .tjg-parents{margin:40px 16px 0;padding:28px 20px 24px;}
+  .tjg-points{grid-template-columns:1fr;}
+}
+</style>
