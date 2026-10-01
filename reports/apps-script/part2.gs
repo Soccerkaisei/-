@@ -62,7 +62,8 @@ function runGa4Report_(property, dimensions, metrics, dateRanges) {
     offset += limit;
     if (!res.rowCount || offset >= res.rowCount) break;
   }
-  if (dimensions[0] === 'date') rows.sort(function (a, b) { return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0; });
+  // 新しい日付を上に
+  if (dimensions[0] === 'date') rows.sort(function (a, b) { return a[0] < b[0] ? 1 : a[0] > b[0] ? -1 : 0; });
   return rows;
 }
 
