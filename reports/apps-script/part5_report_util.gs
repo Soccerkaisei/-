@@ -38,7 +38,7 @@ function values_(name) { var s = SpreadsheetApp.getActiveSpreadsheet().getSheetB
 
 function cat_(p) {
   p = String(p);
-  if (/kyoin|haken|kyuryo|koshi|recruit|bairitsu/i.test(p)) return '先生向け';
+  if (/kyoin|haken|kyuryo|koshi|recruit|bairitsu|teacher-form/i.test(p)) return '先生向け';
   if (/quotes|anime|naruto|jutsu|zelda|genshin|doraemon|tsundere|honorific|demon-slayer|death-note|one-piece|attack-on-titan|blue-lock/i.test(p)) return 'アニメ';
   if (/\?/.test(p)) return 'その他';
   return '親・一般';
