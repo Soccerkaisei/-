@@ -1,0 +1,35 @@
+<!--
+  開校メール登録（Contact Form 7）の送信完了を GA4 に送るコード
+
+  使い方:
+  1. WordPress にプラグイン「WPCode」を入れる
+  2. WPCode → Code Snippets → Add Snippet → 「Add Your Custom Code」→ 種類は「HTML Snippet」
+  3. このファイルの <script> 〜 </script> を貼り付け、挿入場所は「Site Wide Footer」で有効化
+  4. 下の SIGNUP_FORM_ID を、開校メール登録フォームの ID に書き換える
+     （お問い合わせ → コンタクトフォーム一覧のショートコード [contact-form-7 id="xxxx"] の xxxx）
+  5. GA4 管理 → データの表示 → イベント → キーイベント → 「新しいキーイベント」で
+     イベント名「school_signup」を登録する
+
+  送信が「完了」したとき（wpcf7mailsent）だけ数えるので、入力エラーや送信失敗は数えません。
+-->
+<script>
+(function () {
+  var SIGNUP_FORM_ID = 'xxxx'; // ← 開校メール登録フォームの ID に書き換える
+
+  document.addEventListener('wpcf7mailsent', function (event) {
+    var formId = String(event.detail.contactFormId);
+    if (formId !== SIGNUP_FORM_ID && event.detail.unitTag.indexOf(SIGNUP_FORM_ID) === -1) return;
+
+    var params = { form_id: formId, page_path: location.pathname };
+
+    if (typeof gtag === 'function') {
+      // GA4 をタグ（gtag.js / Site Kit）で入れている場合
+      gtag('event', 'school_signup', params);
+    } else {
+      // Google タグマネージャー経由で入れている場合
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: 'school_signup' }, params));
+    }
+  }, false);
+})();
+</script>
