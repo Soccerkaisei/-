@@ -13,13 +13,13 @@
     <div class="tjg-storyhero-inner">
       <span class="tjg-storyhero-eyebrow">PLAY &amp; LEARN</span>
       <h1 class="tjg-storyhero-title">日本語の勉強は、<br>まるで<span class="hl">あそび</span>だった。</h1>
-      <p class="tjg-storyhero-desc">机に向かう勉強がにがてな子も、クイズなら夢中になれる。<br>ゲームであそびながら、日本語と日本文化を自然に身につけよう。</p>
+      <p class="tjg-storyhero-desc"><span class="nw">机に向かう勉強が</span><span class="nw">苦手な子も、</span><span class="nw">クイズなら夢中になれる。</span><br class="pc"><span class="nw">ゲームで遊びながら、</span><span class="nw">日本語と日本文化を</span><span class="nw">自然に身につけよう。</span></p>
     </div>
   </div>
 
   <div class="tjg-hero">
     
-    <h2 class="tjg-heading">ゲームで あそびながら<br>にほんごを おぼえよう！</h2>
+    <h2 class="tjg-heading">ゲームで遊びながら<br>日本語を覚えよう！</h2>
   </div>
 
   <div class="tjg-grid">
@@ -31,7 +31,7 @@
       <div class="tjg-body">
         <span class="tjg-eng">Word Quiz</span>
         <h3>ことばクイズ</h3>
-        <p>絵文字を見て、ことばをあてよう。3レベル。</p>
+        <p><span class="nw">絵文字を見て、</span><span class="nw">言葉を当てよう。</span><span class="nw">3レベル。</span></p>
       </div>
     </a>
 
@@ -41,8 +41,8 @@
       </div>
       <div class="tjg-body">
         <span class="tjg-eng">What Do You Say?</span>
-        <h3>なんていう？クイズ</h3>
-        <p>その場面にあう、ことばをえらぼう。</p>
+        <h3><span class="nw">なんていう？</span><span class="nw">クイズ</span></h3>
+        <p><span class="nw">その場面に合う</span><span class="nw">言葉を選ぼう。</span></p>
       </div>
     </a>
 
@@ -52,8 +52,8 @@
       </div>
       <div class="tjg-body">
         <span class="tjg-eng">Culture Quiz</span>
-        <h3>日本文化を知ろう！</h3>
-        <p>★1〜★3のレベルにちょうせん。</p>
+        <h3><span class="nw">日本文化を</span><span class="nw">知ろう！</span></h3>
+        <p><span class="nw">★1〜★3のレベルに</span><span class="nw">挑戦しよう。</span></p>
       </div>
     </a>
 
@@ -64,7 +64,7 @@
       <div class="tjg-body">
         <span class="tjg-eng">Kanji Quiz</span>
         <h3>漢字クイズ</h3>
-        <p>よめるかな？かんじにちょうせん。</p>
+        <p><span class="nw">読めるかな？</span><span class="nw">漢字に挑戦しよう。</span></p>
       </div>
     </a>
 
@@ -74,8 +74,8 @@
       </div>
       <div class="tjg-body">
         <span class="tjg-eng">Teacher Type</span>
-        <h3>先生タイプ診断</h3>
-        <p>あなたにぴったりの先生は？</p>
+        <h3><span class="nw">先生タイプ</span><span class="nw">診断</span></h3>
+        <p><span class="nw">お子さまに</span><span class="nw">ぴったりの先生は？</span></p>
       </div>
     </a>
 
@@ -211,6 +211,7 @@
 }
 
 .tjg-card{
+  box-sizing:border-box;
   flex:0 0 auto;
   width:250px;
   display:block;
@@ -243,9 +244,15 @@
 }
 .tjg-body h3{margin:0 0 4px;font-size:15px;font-weight:800;color:var(--tjx-ink,#2b3b42);}
 .tjg-body p{margin:0;font-size:12px;color:var(--tjx-soft,#586a70);line-height:1.5;}
+.tjg-page .nw{display:inline-block;}
+.tjg-page{word-break:auto-phrase;}
 
 @media (max-width:640px){
   .tjg-card{width:calc(50% - 15px);}
+  .tjg-page br.pc{display:none;}
+  .tjg-heading{font-size:22px;}
+  .tjg-body{padding:12px 12px 14px;}
+  .tjg-body h3{font-size:14px;}
 }
 </style>
 
