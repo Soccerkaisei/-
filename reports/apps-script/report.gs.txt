@@ -1,17 +1,15 @@
 // ---------------- レポート（毎朝、先頭の「report」シートにまとめる） ----------------
-// 初回だけ: 関数「setupReport」を選んで「実行」。以降は毎朝 5 時台に GA4 取り込み → レポート作成 を続けて行います。
+// 初回だけ: 関数「setupReport」を選んで「実行」。
+// 毎朝 4 時台に GA4 取り込み（updateAll）、5 時台にレポート作成（buildReport）を別々に動かします
+// （1回の実行は6分までなので、2つに分けています）。
 
 function setupReport() {
   ScriptApp.getProjectTriggers().forEach(function (tr) {
     var f = tr.getHandlerFunction();
     if (f === 'buildReport' || f === 'updateAll' || f === 'dailyAll') ScriptApp.deleteTrigger(tr);
   });
-  ScriptApp.newTrigger('dailyAll').timeBased().everyDays(1).atHour(5).inTimezone('Asia/Tokyo').create();
-  buildReport();
-}
-
-function dailyAll() {
-  updateAll();
+  ScriptApp.newTrigger('updateAll').timeBased().everyDays(1).atHour(4).inTimezone('Asia/Tokyo').create();
+  ScriptApp.newTrigger('buildReport').timeBased().everyDays(1).atHour(5).inTimezone('Asia/Tokyo').create();
   buildReport();
 }
 
@@ -42,6 +40,23 @@ function buildReport() {
     landing[norm_(r[0])] = r[4];
     if (r[4] > 0) row([r[0], r[1], r[4], cat_(r[0])]);
   });
+
+  // あそんでみよう（28日）
+  var asonde = {};
+  values_('signup_pages_28d').slice(1).forEach(function (r) {
+    var p = norm_(r[1]);
+    if (!/^\/asonde/.test(p)) return;
+    var x = asonde[p] || (asonde[p] = { views: 0, users: 0, sessions: 0 });
+    if (r[0] === 'page_view') { x.views += r[2]; x.users += r[3]; }
+  });
+  values_('landing_28d').slice(1).forEach(function (r) {
+    var p = norm_(r[0]);
+    if (/^\/asonde/.test(p)) (asonde[p] || (asonde[p] = { views: 0, users: 0, sessions: 0 })).sessions += r[1];
+  });
+  section('あそんでみよう（GA4・28日）');
+  row(['page', 'page_views', 'users', '入口になった回数']);
+  Object.keys(asonde).sort(function (a, b) { return asonde[b].views - asonde[a].views; })
+    .forEach(function (p) { row([p, asonde[p].views, asonde[p].users, asonde[p].sessions]); });
 
   // Search Console（直近28日）
   var gsc = loadGsc_();
