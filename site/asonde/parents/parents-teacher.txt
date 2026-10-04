@@ -1,0 +1,36 @@
+<!-- wp:html -->
+<section class="tjp-wrap">
+  <span class="tjp-eyebrow">FOR PARENTS</span>
+  <h2 class="tjp-title">保護者の方へ</h2>
+  <p class="tjp-lead">7つの質問に答えるだけで、お子さまに合いそうな「ともだちじゃぱん」の先生のタイプがわかります。所要時間は約1分です。</p>
+  <ul class="tjp-points">
+    <li><strong>わかること</strong>お子さまの性格や好きなことから、合いそうな先生のタイプ。結果から、その先生の紹介ページを見られます。</li>
+    <li><strong>おすすめの使い方</strong>お子さまと一緒に答えてみてください。「どんな先生がいい？」と話すこと自体が、学校選びのヒントになります。</li>
+    <li><strong>ともだちじゃぱんの先生</strong>8人の少人数クラスを担任する、現役水準の先生たちです。教えるより、いっしょに話すことを大切にしています。</li>
+  </ul>
+  <div class="tjp-cta-wrap">
+    <a class="tjp-cta" href="/waitlist/?utm_source=asonde&amp;utm_medium=teacher-shindan&amp;utm_campaign=asonde-shiryou">📩 学校案内を受け取る（無料・1分）</a>
+    <p class="tjp-note">ともだちじゃぱんは、海外に住む子どもが日本の同世代と毎日日本語で話す、オンラインの学校です。</p>
+  </div>
+  <p class="tjp-more">ほかのゲームでも遊んでみよう<br><a href="/asonde-kanji-game/">漢字クイズ</a> <a href="/asonde-kotoba-quiz/">ことばクイズ</a> <a href="/asonde-nante-iu/">なんていう？クイズ</a> <a href="/asonde-nihon-bunka/">日本文化クイズ</a> <a href="/asonde/">あそんでみよう トップ</a></p>
+</section>
+<style>
+.tjp-wrap{max-width:720px;margin:40px auto 56px;padding:32px 28px 28px;background:#fff;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.08);font-family:inherit;color:#2b3b42;box-sizing:border-box}
+.tjp-wrap *{box-sizing:border-box}
+.tjp-eyebrow{display:block;text-align:center;font-size:11px;font-weight:700;letter-spacing:.12em;color:#f0655a;margin-bottom:6px}
+.tjp-title{background:none!important;border:none!important;padding:0!important;margin:0 0 14px!important;text-align:center;font-size:clamp(20px,3vw,24px)!important;font-weight:800;color:#2b3b42!important}
+.tjp-title::before,.tjp-title::after{display:none!important}
+.tjp-lead{font-size:14px;line-height:1.9;color:#586a70;margin:0 0 20px}
+.tjp-points{list-style:none!important;margin:0 0 24px!important;padding:0!important;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tjp-points li{margin:0!important;padding:14px!important;background:#eaf3f4;border-radius:12px;font-size:12px;line-height:1.7;color:#586a70}
+.tjp-points li::before{display:none!important}
+.tjp-points strong{display:block;font-size:14px;color:#2b3b42;margin-bottom:4px}
+.tjp-cta-wrap{text-align:center}
+.tjp-cta{display:inline-block;padding:14px 28px;border-radius:999px;background:#f0655a;color:#fff!important;font-size:15px;font-weight:800;text-decoration:none!important;box-shadow:0 6px 14px rgba(240,101,90,.35)}
+.tjp-note{margin:10px 0 0;font-size:12px;color:#586a70;text-align:center}
+.tjp-more{margin:24px 0 0;padding-top:18px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#586a70}
+.tjp-more a{display:inline-block;margin:4px 6px;padding:6px 12px;border-radius:999px;background:#fff5e1;color:#2b3b42!important;text-decoration:none!important;font-weight:700}
+.tjp-wrap .nw{display:inline-block}
+@media (max-width:640px){.tjp-wrap{margin:32px 16px 48px;padding:26px 18px 22px}.tjp-points{grid-template-columns:1fr}}
+</style>
+<!-- /wp:html -->
