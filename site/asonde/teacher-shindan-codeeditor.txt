@@ -1,0 +1,600 @@
+<!-- wp:html -->
+<meta charset="UTF-8">
+<title>先生タイプ診断｜ともだちじゃぱん</title>
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0;background:#FDFBF7;}</style>
+
+
+<style>
+  .l-header,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv{display:none!important}
+  body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
+</style>
+
+<div class="tjxquiz-scope" id="teacher-quiz" style="display:flex;justify-content:center;padding:24px 12px;font-family:'Hiragino Sans','Yu Gothic',sans-serif;">
+<style>
+
+  :root{
+    color-scheme:light;
+    --teal:#1a6b5c;
+    --teal-dark:#0f4a3f;
+    --cream:#fdf6ec;
+    --coral:#e8556b;
+    --gold:#e8b84b;
+    --text:#2d2d2d;
+    --t-hikarun:#1a6b5c;
+    --t-shota:#e8556b;
+    --t-mayu:#d79a2c;
+    --t-hii:#b06bab;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin:0;
+    font-family: "Hiragino Sans","Yu Gothic",sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    display:flex;
+    justify-content:center;
+    padding: 24px 12px;
+  }
+  .tjxquiz-card {
+    width:100%;
+    max-width:460px;
+    min-width:0;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.08);
+    overflow:hidden;
+  }
+  @media (min-width:640px){
+    .tjxquiz-card{ max-width:640px; }
+  }
+  .tjxquiz-header {
+    background:var(--teal);
+    color:#fff;
+    padding:20px 24px;
+    text-align:center;
+  }
+  .tjxquiz-header .tjxquiz-back-link{
+    display:inline-block;
+    color:#fff;
+    opacity:1;
+    font-size:11px;
+    text-decoration:underline;
+    margin-bottom:8px;
+  }
+  .tjxquiz-header .tjxquiz-logo {
+    font-size:14px;
+    letter-spacing:2px;
+    opacity:1;
+    color:#fff;
+    margin-bottom:4px;
+  }
+  .tjxquiz-header h1 {
+    font-size:20px;
+    margin:0;
+  }
+  .tjxquiz-header .tjxquiz-subtitle {
+    font-size:12px;
+    font-weight:700;
+    opacity:1;
+    color:#fff;
+    margin-top:4px;
+  }
+  .tjxquiz-hero{
+    width:100%;
+    max-height:200px;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    transition:max-height .25s ease;
+  }
+  .tjxquiz-hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .tjxquiz-hero.tjxquiz-hidden{
+    max-height:0;
+  }
+  .tjxquiz-progress-wrap {
+    padding:16px 24px 0;
+  }
+  .tjxquiz-progress-bar {
+    height:6px;
+    background:#eee;
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .tjxquiz-progress-fill {
+    height:100%;
+    background:var(--gold);
+    width:0%;
+    transition:width .3s ease;
+  }
+  .tjxquiz-progress-label {
+    font-size:12px;
+    color:#888;
+    margin-top:6px;
+    text-align:right;
+  }
+  .tjxquiz-screen { padding:24px; min-width:0; }
+  .tjxquiz-screen.tjxquiz-hidden { display:none; }
+
+  .tjxquiz-intro p { line-height:1.8; font-size:15px; }
+  .tjxquiz-start-btn, .tjxquiz-option-btn, .tjxquiz-restart-btn, .tjxquiz-cta-btn, .tjxquiz-share-btn {
+    display:block;
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:12px;
+    transition:transform .1s ease, opacity .2s ease;
+  }
+  .tjxquiz-start-btn, .tjxquiz-cta-btn {
+    background:var(--coral);
+    color:#fff;
+  }
+  .tjxquiz-start-btn:hover, .tjxquiz-cta-btn:hover { opacity:0.92; }
+  .tjxquiz-option-btn {
+    background:var(--cream);
+    border:2px solid #eee;
+    color:var(--text);
+    text-align:left;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+  }
+  .tjxquiz-option-btn .tjxquiz-opt-emoji{
+    font-size:19px;
+    flex:0 0 auto;
+  }
+  .tjxquiz-option-btn .tjxquiz-opt-text{
+    min-width:0;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .tjxquiz-option-btn:hover {
+    border-color:var(--teal);
+    background:#f4f9f7;
+  }
+  .tjxquiz-option-btn:disabled{
+    cursor:default;
+    opacity:.55;
+  }
+  .tjxquiz-option-btn.tjxquiz-picked{
+    border-color:var(--teal);
+    background:#f4f9f7;
+    opacity:1;
+  }
+  .tjxquiz-q-title {
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:16px;
+    line-height:1.6;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .tjxquiz-q-number {
+    font-size:12px;
+    color:var(--teal);
+    font-weight:bold;
+    margin-bottom:8px;
+  }
+  .tjxquiz-feedback{
+    font-size:13px;
+    font-weight:bold;
+    color:var(--teal);
+    margin-top:12px;
+    min-height:1.4em;
+    text-align:center;
+  }
+
+  .tjxquiz-result-badge {
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    font-size:12px;
+    font-weight:bold;
+    padding:4px 12px;
+    border-radius:999px;
+    margin-bottom:10px;
+  }
+  .tjxquiz-avatar {
+    width:88px;
+    height:88px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--teal), var(--teal-dark));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:30px;
+    font-weight:bold;
+    margin:0 auto 14px;
+    overflow:hidden;
+    border:3px solid #fff;
+    box-shadow:0 0 0 2px var(--teal);
+  }
+  .tjxquiz-avatar img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .tjxquiz-result-name {
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:6px;
+  }
+  .tjxquiz-result-quote {
+    text-align:center;
+    background:var(--cream);
+    border:1px solid #eee;
+    border-radius:12px;
+    padding:14px;
+    font-size:14px;
+    line-height:1.7;
+    margin:14px 0;
+  }
+  .tjxquiz-result-desc {
+    font-size:14px;
+    line-height:1.8;
+    color:#555;
+    margin-bottom:8px;
+  }
+  .tjxquiz-score-wrap{
+    margin:18px 0 4px;
+  }
+  .tjxquiz-score-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    font-size:12px;
+  }
+  .tjxquiz-score-photo{
+    flex:0 0 32px;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #fff;
+    box-shadow:0 0 0 1px #eee;
+  }
+  .tjxquiz-score-name{
+    flex:0 0 110px;
+    font-weight:bold;
+    color:var(--text);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  @media (min-width:640px){
+    .tjxquiz-score-name{ flex-basis:130px; font-size:13px; }
+  }
+  .tjxquiz-score-bar-bg{
+    flex:1;
+    height:8px;
+    background:#eee;
+    border-radius:99px;
+    overflow:hidden;
+  }
+  .tjxquiz-score-bar-fill{
+    display:block;
+    height:100%;
+    border-radius:99px;
+    transition:width .4s ease;
+  }
+  .tjxquiz-score-pct{
+    flex:0 0 34px;
+    text-align:right;
+    font-weight:bold;
+    color:#888;
+  }
+  .tjxquiz-restart-btn {
+    background:#fff;
+    color:var(--teal);
+    border:2px solid var(--teal);
+  }
+  .tjxquiz-share-btn{
+    background:#fff;
+    color:var(--coral);
+    border:2px solid var(--coral);
+  }
+  .tjxquiz-share-btn:hover{ background:#fdf0f1; }
+  .tjxquiz-share-msg{
+    font-size:12px;
+    color:var(--teal);
+    font-weight:bold;
+    text-align:center;
+    min-height:1.2em;
+    margin-top:8px;
+  }
+
+</style>
+
+
+<div class="tjxquiz-card">
+  <div class="tjxquiz-header">
+    <a class="tjxquiz-back-link" href="https://tomodachi-japan.nijin.co.jp/asonde/">← あそんでみるトップに戻る</a>
+    <div class="tjxquiz-logo">TOMODACHI JAPAN</div>
+    <h1>先生タイプ診断</h1>
+    <div class="tjxquiz-subtitle">Which Teacher Suits You?</div>
+  </div>
+
+  <div class="tjxquiz-hero" id="heroBlock">
+    <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_16_48.png" alt="">
+  </div>
+
+  <div class="tjxquiz-progress-wrap" id="progressWrap" style="display:none;">
+    <div class="tjxquiz-progress-bar"><div class="tjxquiz-progress-fill" id="progressFill"></div></div>
+    <div class="tjxquiz-progress-label" id="progressLabel">質問 1 / 7</div>
+  </div>
+
+  <!-- イントロ -->
+  <div class="tjxquiz-screen tjxquiz-intro" id="screen-intro">
+    <p>7つの質問に答えるだけで、<br>お子さまに合いそうな「ともだちじゃぱん」の先生がわかります。</p>
+    <p style="font-size:13px;color:#999;">所要時間 約1分</p>
+    <button class="tjxquiz-start-btn" onclick="startQuiz()">診断をはじめる</button>
+  </div>
+
+  <!-- 質問画面 -->
+  <div class="tjxquiz-screen tjxquiz-hidden" id="screen-quiz">
+    <div class="tjxquiz-q-number" id="qNumber"></div>
+    <div class="tjxquiz-q-title" id="qTitle"></div>
+    <div id="qOptions"></div>
+    <div class="tjxquiz-feedback" id="qFeedback"></div>
+  </div>
+
+  <!-- 結果画面 -->
+  <div class="tjxquiz-screen tjxquiz-hidden" id="screen-result">
+    <div class="tjxquiz-result-badge">診断結果</div>
+    <div class="tjxquiz-avatar" id="resultAvatar"></div>
+    <div class="tjxquiz-result-name" id="resultName"></div>
+    <div class="tjxquiz-result-quote" id="resultQuote"></div>
+    <div class="tjxquiz-result-desc" id="resultDesc"></div>
+    <div class="tjxquiz-score-wrap" id="scoreWrap"></div>
+    <a class="tjxquiz-cta-btn" id="ctaBtn" href="#" style="text-decoration:none;display:block;text-align:center;">この先生の体験に申し込む</a>
+    <button class="tjxquiz-share-btn" id="shareBtn">🔗 ともだちにおしえる</button>
+    <div class="tjxquiz-share-msg" id="shareMsg"></div>
+    <button class="tjxquiz-restart-btn" onclick="restartQuiz()">もう一度診断する</button>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    title: "お子さんはどんなタイプ？",
+    options: [
+      { text: "のんびり、じっくり話すのが好き", teacher: "hikarun" },
+      { text: "元気いっぱい、体を動かすのが好き", teacher: "shota" },
+      { text: "甘えん坊、安心できる場所が好き", teacher: "hii" }
+    ]
+  },
+  {
+    title: "好きなものは？",
+    options: [
+      { text: "日本の文化や工作", teacher: "hikarun" },
+      { text: "アニメ・マンガ・スポーツ", teacher: "shota" },
+      { text: "まったり系、おうち時間", teacher: "hii" }
+    ]
+  },
+  {
+    title: "保護者として先生に求めるものは？",
+    options: [
+      { text: "じっくり見てくれる安心感", teacher: "hikarun" },
+      { text: "子どもと対等に楽しんでくれる感じ", teacher: "shota" },
+      { text: "親子ともに笑顔になれる温かさ", teacher: "hii" }
+    ]
+  },
+  {
+    title: "オンライン授業で、どんな先生がいい？",
+    options: [
+      { text: "落ち着いて話を聞いてくれる先生", teacher: "hikarun" },
+      { text: "一緒に好きな話で盛り上がれる先生", teacher: "shota" },
+      { text: "優しく包んでくれる先生", teacher: "hii" }
+    ]
+  },
+  {
+    title: "好きな遊び方は？",
+    options: [
+      { text: "のんびり工作やお絵描き", teacher: "hikarun" },
+      { text: "外で元気に体を動かす", teacher: "shota" },
+      { text: "おうちでまったりゲーム", teacher: "hii" }
+    ]
+  },
+  {
+    title: "宿題や勉強への向き合い方は？",
+    options: [
+      { text: "時間をかけて丁寧にやる", teacher: "hikarun" },
+      { text: "サクサク終わらせて遊びたい", teacher: "shota" },
+      { text: "誰かと一緒なら頑張れる", teacher: "hii" }
+    ]
+  },
+  {
+    title: "お子さんの性格に近いのは？",
+    options: [
+      { text: "物静かで思いやりがある", teacher: "hikarun" },
+      { text: "社交的でムードメーカー", teacher: "shota" },
+      { text: "甘えん坊で愛され系", teacher: "hii" }
+    ]
+  }
+];
+
+const teachers = {
+  hikarun: {
+    name: "ひかるん先生",
+    initial: "ひ",
+    emoji: "🌱",
+    quote: "ともだちといっしょに たのしくにほんごをはなそう！",
+    desc: "日本の文化が好きで日本語教師の道へ。じっくり向き合って、お子さまの「話したい」気持ちを育てます。",
+    photo: "https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5411-2-scaled.jpg",
+    url: "https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken",
+    color: "var(--t-hikarun)"
+  },
+  shota: {
+    name: "しょーた先生",
+    initial: "し",
+    emoji: "⚡",
+    quote: "ともだちつくりに来ない？",
+    desc: "言語交換アプリで生まれた「友達になりたい」という気持ちが原点。スポーツやアニメの話で自然と距離が縮まります。",
+    photo: "https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5792-1.jpg",
+    url: "https://tomodachi-japan.nijin.co.jp/teachers/shota/#taiken",
+    color: "var(--t-shota)"
+  },
+  hii: {
+    name: "ひい先生",
+    initial: "ひ",
+    emoji: "🤗",
+    quote: "よーし！いっしょに勝負しよう！",
+    desc: "子どもも保護者も笑顔にしたい先生。あたたかく、安心できる雰囲気でお子さまを迎えます。",
+    photo: "https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/91503.jpg",
+    url: "https://tomodachi-japan.nijin.co.jp/teachers/hii/#taiken",
+    color: "var(--t-hii)"
+  }
+};
+
+const feedbackPhrases = ["なるほど！","いいね！","その調子！","らしさが出てきた！","いいチョイス！","あと少し！","ラストスパート！"];
+
+let currentQ = 0;
+let scores = { hikarun:0, shota:0, hii:0 };
+const heroEl = document.getElementById('heroBlock');
+
+function startQuiz(){
+  document.getElementById('screen-intro').classList.add('tjxquiz-hidden');
+  document.getElementById('screen-quiz').classList.remove('tjxquiz-hidden');
+  document.getElementById('progressWrap').style.display = 'block';
+  heroEl.classList.add('tjxquiz-hidden');
+  currentQ = 0;
+  scores = { hikarun:0, shota:0, hii:0 };
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q = questions[currentQ];
+  document.getElementById('qNumber').textContent = `Q${currentQ+1}`;
+  document.getElementById('qTitle').textContent = q.title;
+  document.getElementById('qFeedback').textContent = '';
+  document.getElementById('progressLabel').textContent = `質問 ${currentQ+1} / ${questions.length}`;
+  document.getElementById('progressFill').style.width = `${(currentQ)/questions.length*100}%`;
+
+  const wrap = document.getElementById('qOptions');
+  wrap.innerHTML = '';
+  q.options.forEach(opt=>{
+    const btn = document.createElement('button');
+    btn.className='tjxquiz-option-btn';
+    const emoji = teachers[opt.teacher].emoji;
+    btn.innerHTML = `<span class="tjxquiz-opt-emoji">${emoji}</span><span class="tjxquiz-opt-text">${opt.text}</span>`;
+    btn.onclick = ()=> answer(opt.teacher, btn);
+    wrap.appendChild(btn);
+  });
+}
+
+function answer(teacherKey, btnEl){
+  const allBtns = document.querySelectorAll('#qOptions .tjxquiz-option-btn');
+  allBtns.forEach(b=> b.disabled = true);
+  btnEl.classList.add('tjxquiz-picked');
+
+  scores[teacherKey]++;
+  document.getElementById('qFeedback').textContent =
+    feedbackPhrases[Math.min(currentQ, feedbackPhrases.length-1)];
+
+  setTimeout(()=>{
+    currentQ++;
+    if(currentQ < questions.length){
+      renderQuestion();
+    } else {
+      document.getElementById('progressFill').style.width = '100%';
+      showResult();
+    }
+  }, 450);
+}
+
+function showResult(){
+  document.getElementById('screen-quiz').classList.add('tjxquiz-hidden');
+  document.getElementById('progressWrap').style.display = 'none';
+
+  let top = 'hikarun';
+  let max = -1;
+  for(const key in scores){
+    if(scores[key] > max){ max = scores[key]; top = key; }
+  }
+  const t = teachers[top];
+  document.getElementById('resultAvatar').innerHTML = `<img decoding="async" src="${t.photo}" alt="${t.name}">`;
+  document.getElementById('resultName').textContent = t.name;
+  document.getElementById('resultQuote').textContent = `「${t.quote}」`;
+  document.getElementById('resultDesc').textContent = t.desc;
+  document.getElementById('ctaBtn').href = t.url;
+
+  const total = questions.length;
+  const order = ['hikarun','shota','hii'];
+  const scoreWrap = document.getElementById('scoreWrap');
+  scoreWrap.innerHTML = '';
+  order.forEach(key=>{
+    const tc = teachers[key];
+    const pct = Math.round((scores[key] / total) * 100);
+    const row = document.createElement('div');
+    row.className = 'tjxquiz-score-row';
+    row.innerHTML = `
+      <img decoding="async" class="tjxquiz-score-photo" src="${tc.photo}" alt="${tc.name}">
+      <span class="tjxquiz-score-name">${tc.name}</span>
+      <span class="tjxquiz-score-bar-bg"><span class="tjxquiz-score-bar-fill" style="width:${pct}%;background:${tc.color}"></span></span>
+      <span class="tjxquiz-score-pct">${pct}%</span>
+    `;
+    scoreWrap.appendChild(row);
+  });
+
+  document.getElementById('shareMsg').textContent = '';
+  document.getElementById('screen-result').classList.remove('tjxquiz-hidden');
+}
+
+function restartQuiz(){
+  document.getElementById('screen-result').classList.add('tjxquiz-hidden');
+  document.getElementById('screen-intro').classList.remove('tjxquiz-hidden');
+  heroEl.classList.remove('tjxquiz-hidden');
+}
+
+document.getElementById('shareBtn').addEventListener('click', async ()=>{
+  const shareData = {
+    title: '先生タイプ診断｜ともだちじゃぱん',
+    text: '先生タイプ診断やってみたよ！あなたはどのタイプ？',
+    url: window.location.href
+  };
+  const shareMsg = document.getElementById('shareMsg');
+  if(navigator.share){
+    try{ await navigator.share(shareData); }catch(e){}
+  } else if(navigator.clipboard){
+    try{
+      await navigator.clipboard.writeText(shareData.url);
+      shareMsg.textContent = 'URLを コピーしました！';
+    }catch(e){ shareMsg.textContent = shareData.url; }
+  } else {
+    shareMsg.textContent = shareData.url;
+  }
+});
+</script>
+
+
+</div>
+<script>
+(function(){
+  function tjSendHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    parent.postMessage({ tjQuizHeight: h }, '*');
+  }
+  if (window.ResizeObserver) {
+    new ResizeObserver(tjSendHeight).observe(document.body);
+  }
+  window.addEventListener('load', tjSendHeight);
+  window.addEventListener('resize', tjSendHeight);
+  setTimeout(tjSendHeight, 200);
+  setTimeout(tjSendHeight, 800);
+})();
+</script>
+<!-- /wp:html -->
