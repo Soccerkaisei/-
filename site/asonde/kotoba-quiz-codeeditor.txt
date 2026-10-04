@@ -1,0 +1,458 @@
+<!-- wp:html -->
+<meta charset="UTF-8">
+<title>ことばクイズ｜ともだちじゃぱん</title>
+<meta name="color-scheme" content="light only">
+<style>
+:root{
+  color-scheme:light;
+  --teal:#2d7694;--teal-dark:#1c5468;--coral:#f0655a;--coral-dark:#d94b41;
+  --sun:#ffc24b;--cream:#fff5e1;--tint:#eaf3f4;--ink:#2b3b42;--soft:#586a70;
+  --green:#4caf7d;--green-dark:#2f8f5b;
+  --disp:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:var(--disp);background:
+    radial-gradient(60% 50% at 10% 0%, var(--cream), transparent),
+    radial-gradient(60% 50% at 90% 100%, var(--tint), transparent),
+    #FDFBF7;
+  display:flex;align-items:flex-start;justify-content:center;padding:24px 14px;
+}
+.wrap{max-width:520px;width:100%;margin:0 auto;}
+.card{background:#fff;border-radius:32px;box-shadow:0 20px 50px -20px rgba(40,60,70,.35);overflow:hidden}
+.head{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:22px 24px;text-align:center}
+.head .back-link{display:inline-block;color:#fff;opacity:1;font-size:11px;text-decoration:underline;margin-bottom:8px}
+.head .logo{font-size:.72rem;letter-spacing:.2em;opacity:1;font-weight:700;color:#fff}
+.head h1{margin:6px 0 0;font-size:1.28rem;font-weight:800}
+.head .subtitle{font-size:.72rem;font-weight:700;opacity:1;margin-top:4px;color:#fff}
+.body{padding:28px 26px 30px}
+[hidden]{display:none !important}
+
+.tkw-lead{color:var(--soft);margin:0 0 16px;font-size:15px;text-align:center;}
+.tkw-hero{width:100%;max-height:200px;aspect-ratio:16/9;overflow:hidden;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.08);margin:0 0 20px;}
+.tkw-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.tkw-lgrid{display:flex;flex-direction:column;gap:12px;}
+.tkw-lbtn{display:flex;flex-direction:column;gap:4px;padding:18px 20px;border:2px solid var(--tint);border-radius:14px;background:#fff;cursor:pointer;text-align:left;transition:.2s;font-family:var(--disp);}
+.tkw-lbtn:hover{border-color:var(--green);transform:translateY(-2px);}
+.tkw-lname{font-size:17px;font-weight:800;color:var(--ink);}
+.tkw-lsub{font-size:13px;color:var(--soft);}
+
+.tkw-progress{width:100%;height:9px;background:var(--tint);border-radius:99px;overflow:hidden;margin-top:8px;}
+.tkw-bar{height:100%;background:var(--green);width:0%;transition:width .3s ease;}
+.tkw-qnum{text-align:center;font-size:.78rem;color:var(--soft);font-weight:700;margin:8px 0 0;}
+.tkw-card{background:var(--cream);border-radius:24px;box-shadow:none;padding:24px 18px;margin-top:16px;}
+
+.tkw-layout{display:flex;flex-direction:column;gap:20px;}
+.tkw-media{display:flex;align-items:center;justify-content:center;}
+.tkw-emoji{font-size:72px;line-height:1;}
+.tkw-content{display:flex;flex-direction:column;min-width:0;}
+.tkw-q{font-size:1.02rem;font-weight:700;color:var(--ink);margin:0 0 18px;text-align:center;}
+.tkw-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-width:0;}
+.tkw-opt{padding:14px 8px;border:2.5px solid var(--tint);border-radius:16px;background:#fff;font-family:var(--disp);font-weight:800;font-size:1rem;color:var(--ink);cursor:pointer;transition:transform .1s,border-color .1s,background .1s;min-width:0;overflow-wrap:break-word;}
+.tkw-opt:hover{transform:translateY(-2px);border-color:var(--green);}
+.tkw-opt:disabled{cursor:default;}
+.tkw-opt.correct{border-color:var(--green);background:#eefaf3;color:var(--green-dark);}
+.tkw-opt.wrong{border-color:var(--coral);background:#fdecea;color:var(--coral-dark);}
+.tkw-reveal{display:block;font-size:.68rem;font-weight:700;color:var(--soft);margin-top:4px;}
+.tkw-opt.correct .tkw-reveal{color:var(--green-dark);}
+.tkw-opt.wrong .tkw-reveal{color:var(--coral-dark);}
+.tkw-feedback{margin-top:16px;text-align:center;font-weight:800;font-size:1.02rem;min-height:1.4em;}
+.tkw-feedback.correct{color:var(--green-dark);}
+.tkw-feedback.wrong{color:var(--coral-dark);}
+.tkw-next{display:block;width:100%;margin-top:18px;background:var(--green);color:#fff;border:none;border-radius:999px;padding:15px;font-family:var(--disp);font-weight:800;font-size:1rem;cursor:pointer;}
+.tkw-next:hover{background:var(--green-dark);}
+
+.tkw-result{text-align:center;padding:10px 4px 4px;}
+.tkw-score{font-family:var(--disp);font-weight:800;font-size:2.2rem;color:var(--green-dark);margin:6px 0 2px;}
+.tkw-msg{color:var(--soft);font-size:.9rem;line-height:1.8;margin:8px 0 24px;}
+.tkw-resultbtns{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.tkw-retry{display:block;width:100%;max-width:280px;background:var(--coral);color:#fff;border:none;border-radius:999px;padding:15px;font-family:var(--disp);font-weight:800;font-size:1rem;cursor:pointer;}
+.tkw-retry:hover{background:var(--coral-dark);}
+.tkw-back{display:block;width:100%;max-width:280px;background:#fff;color:var(--green-dark);border:2px solid var(--green);border-radius:999px;padding:13px;font-family:var(--disp);font-weight:800;font-size:.96rem;cursor:pointer;}
+.tkw-back:hover{background:var(--tint);}
+
+@media (max-width:420px){
+  .tkw-opts{grid-template-columns:1fr;}
+}
+@media (min-width:700px){
+  .wrap{max-width:760px}
+  .tkw-layout{flex-direction:row;align-items:flex-start;gap:28px;}
+  .tkw-media{flex:0 0 200px;}
+  .tkw-content{flex:1;}
+}
+</style>
+
+
+<style>
+  .l-header,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv{display:none!important}
+  body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
+</style>
+
+<div class="wrap">
+  <div class="card">
+    <div class="head">
+      <a class="back-link" href="https://tomodachi-japan.nijin.co.jp/asonde/">← あそんでみるトップに戻る</a>
+      <div class="logo">TOMODACHI JAPAN</div>
+      <h1>📚 ことばクイズ</h1>
+      <div class="subtitle">Japanese Word Quiz</div>
+    </div>
+
+    <div class="body">
+
+      <div class="tkw-levelselect" id="tkwLevelSelect">
+        <p class="tkw-lead">絵文字を見て、あう ことばを えらんでね</p>
+        <div class="tkw-hero">
+          <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_10_34.png" alt="ことばクイズ">
+        </div>
+        <div class="tkw-lgrid">
+          <button class="tkw-lbtn" data-level="easy">
+            <span class="tkw-lname">かんたん</span>
+            <span class="tkw-lsub">どうぶつ・くだもの・みのまわり</span>
+          </button>
+          <button class="tkw-lbtn" data-level="normal">
+            <span class="tkw-lname">ふつう</span>
+            <span class="tkw-lsub">たべもの・のりもの・スポーツ</span>
+          </button>
+          <button class="tkw-lbtn" data-level="hard">
+            <span class="tkw-lname">むずかしい</span>
+            <span class="tkw-lsub">うみ・むしのいきもの・にほんのもの</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="tkw-body" id="tkwBody" hidden>
+        <div class="tkw-progress"><div class="tkw-bar" id="tkwBar"></div></div>
+        <p class="tkw-qnum" id="tkwQnum"></p>
+        <div class="tkw-card">
+          <div class="tkw-layout">
+            <div class="tkw-media">
+              <div class="tkw-emoji" id="tkwEmoji"></div>
+            </div>
+            <div class="tkw-content">
+              <p class="tkw-q">これは なに？</p>
+              <div class="tkw-opts" id="tkwOpts"></div>
+              <div class="tkw-feedback" id="tkwFeedback" hidden></div>
+              <button class="tkw-next" id="tkwNext" hidden>つぎへ →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tkw-result" id="tkwResult" hidden>
+        <p class="tkw-score" id="tkwScore"></p>
+        <p class="tkw-msg" id="tkwMsg"></p>
+        <div class="tkw-resultbtns">
+          <button class="tkw-retry" id="tkwRetry">もういちどあそぶ</button>
+          <button class="tkw-back" id="tkwBack">レベルをえらびなおす</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // [ことば, 絵文字, えいご]
+  var wordbank = {
+    easy: [
+      ["りんご","🍎","Apple"],
+      ["バナナ","🍌","Banana"],
+      ["いちご","🍓","Strawberry"],
+      ["ぶどう","🍇","Grapes"],
+      ["すいか","🍉","Watermelon"],
+      ["みかん","🍊","Mandarin orange"],
+      ["トマト","🍅","Tomato"],
+      ["にんじん","🥕","Carrot"],
+      ["たまご","🥚","Egg"],
+      ["パン","🍞","Bread"],
+      ["いぬ","🐶","Dog"],
+      ["ねこ","🐱","Cat"],
+      ["うさぎ","🐰","Rabbit"],
+      ["ぞう","🐘","Elephant"],
+      ["さる","🐵","Monkey"],
+      ["くま","🐻","Bear"],
+      ["ぶた","🐷","Pig"],
+      ["うし","🐮","Cow"],
+      ["かめ","🐢","Turtle"],
+      ["さかな","🐟","Fish"],
+      ["ライオン","🦁","Lion"],
+      ["ペンギン","🐧","Penguin"],
+      ["くるま","🚗","Car"],
+      ["バス","🚌","Bus"],
+      ["ひこうき","✈️","Airplane"],
+      ["ふね","🚢","Ship"],
+      ["じてんしゃ","🚲","Bicycle"],
+      ["かさ","☂️","Umbrella"],
+      ["えんぴつ","✏️","Pencil"],
+      ["めがね","👓","Glasses"],
+      ["くつ","👟","Shoes"],
+      ["いえ","🏠","House"],
+      ["ひまわり","🌻","Sunflower"],
+      ["つき","🌙","Moon"],
+      ["ほし","⭐","Star"],
+      ["たいよう","☀️","Sun"],
+      ["にじ","🌈","Rainbow"],
+      ["ゆきだるま","⛄","Snowman"]
+    ],
+    normal: [
+      ["すし","🍣","Sushi"],
+      ["ラーメン","🍜","Ramen"],
+      ["カレーライス","🍛","Curry and rice"],
+      ["おにぎり","🍙","Rice ball"],
+      ["めだまやき","🍳","Fried egg"],
+      ["ケーキ","🍰","Cake"],
+      ["ソフトクリーム","🍦","Soft-serve ice cream"],
+      ["ドーナツ","🍩","Donut"],
+      ["ピザ","🍕","Pizza"],
+      ["ハンバーガー","🍔","Hamburger"],
+      ["とうもろこし","🌽","Corn"],
+      ["ぎゅうにゅう","🥛","Milk"],
+      ["おだんご","🍡","Dango"],
+      ["しょうぼうしゃ","🚒","Fire truck"],
+      ["きゅうきゅうしゃ","🚑","Ambulance"],
+      ["パトカー","🚓","Police car"],
+      ["タクシー","🚕","Taxi"],
+      ["しんかんせん","🚄","Bullet train"],
+      ["ヘリコプター","🚁","Helicopter"],
+      ["ロケット","🚀","Rocket"],
+      ["トラック","🚚","Truck"],
+      ["サッカー","⚽","Soccer"],
+      ["やきゅう","⚾","Baseball"],
+      ["バスケットボール","🏀","Basketball"],
+      ["テニス","🎾","Tennis"],
+      ["はさみ","✂️","Scissors"],
+      ["かぎ","🔑","Key"],
+      ["ふうせん","🎈","Balloon"],
+      ["プレゼント","🎁","Present"],
+      ["テレビ","📺","TV"],
+      ["カメラ","📷","Camera"],
+      ["ギター","🎸","Guitar"],
+      ["ピアノ","🎹","Piano"],
+      ["たいこ","🥁","Drum"]
+    ],
+    hard: [
+      ["たこ","🐙","Octopus"],
+      ["いか","🦑","Squid"],
+      ["かに","🦀","Crab"],
+      ["えび","🦐","Shrimp"],
+      ["くじら","🐳","Whale"],
+      ["いるか","🐬","Dolphin"],
+      ["さめ","🦈","Shark"],
+      ["わに","🐊","Crocodile"],
+      ["きりん","🦒","Giraffe"],
+      ["しまうま","🦓","Zebra"],
+      ["らくだ","🐫","Camel"],
+      ["カンガルー","🦘","Kangaroo"],
+      ["コアラ","🐨","Koala"],
+      ["パンダ","🐼","Panda"],
+      ["ハリネズミ","🦔","Hedgehog"],
+      ["ふくろう","🦉","Owl"],
+      ["こうもり","🦇","Bat"],
+      ["へび","🐍","Snake"],
+      ["とかげ","🦎","Lizard"],
+      ["かたつむり","🐌","Snail"],
+      ["てんとうむし","🐞","Ladybug"],
+      ["あり","🐜","Ant"],
+      ["ちょうちょ","🦋","Butterfly"],
+      ["みつばち","🐝","Bee"],
+      ["くも","🕷️","Spider"],
+      ["ふじさん","🗻","Mt. Fuji"],
+      ["とうきょうタワー","🗼","Tokyo Tower"],
+      ["おしろ","🏯","Castle"],
+      ["とりい","⛩️","Torii gate"],
+      ["きもの","👘","Kimono"],
+      ["こいのぼり","🎏","Carp streamers"],
+      ["ちょうちん","🏮","Paper lantern"],
+      ["ひなにんぎょう","🎎","Hina dolls"],
+      ["かざん","🌋","Volcano"],
+      ["ゆき","❄️","Snow"],
+      ["おに","👹","Oni (ogre)"],
+      ["てんぐ","👺","Tengu"],
+      ["おばけ","👻","Ghost"],
+      ["にんじゃ","🥷","Ninja"],
+      ["りゅう","🐉","Dragon"]
+    ]
+  };
+
+  var ROUND_LEN = 10;
+
+  var levelSelect = document.getElementById('tkwLevelSelect');
+  var body = document.getElementById('tkwBody');
+  var result = document.getElementById('tkwResult');
+  var emojiEl = document.getElementById('tkwEmoji');
+  var optsEl = document.getElementById('tkwOpts');
+  var feedbackEl = document.getElementById('tkwFeedback');
+  var nextBtn = document.getElementById('tkwNext');
+  var barEl = document.getElementById('tkwBar');
+  var qnumEl = document.getElementById('tkwQnum');
+  var scoreEl = document.getElementById('tkwScore');
+  var msgEl = document.getElementById('tkwMsg');
+  var retryBtn = document.getElementById('tkwRetry');
+  var backBtn = document.getElementById('tkwBack');
+
+  var currentLevel = 'easy';
+  var pool = [], idx = 0, score = 0;
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function startRound(level){
+    currentLevel = level;
+    pool = shuffle(wordbank[level]).slice(0, ROUND_LEN);
+    idx = 0;
+    score = 0;
+    levelSelect.hidden = true;
+    result.hidden = true;
+    body.hidden = false;
+    render();
+  }
+
+  document.querySelectorAll('.tkw-lbtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      startRound(btn.getAttribute('data-level'));
+    });
+  });
+
+  function render(){
+    feedbackEl.hidden = true;
+    feedbackEl.className = 'tkw-feedback';
+    feedbackEl.textContent = '';
+    nextBtn.hidden = true;
+
+    var item = pool[idx];
+    var correctWord = item[0];
+    emojiEl.textContent = item[1];
+    qnumEl.textContent = (idx + 1) + ' / ' + pool.length + ' もん';
+    barEl.style.width = Math.round((idx / pool.length) * 100) + '%';
+
+    var bank = wordbank[currentLevel];
+    var others = shuffle(bank.filter(function(w){ return w[0] !== correctWord; })).slice(0, 3).map(function(w){ return w[0]; });
+    var options = shuffle([correctWord].concat(others));
+
+    optsEl.innerHTML = '';
+    options.forEach(function(word){
+      var b = document.createElement('button');
+      b.className = 'tkw-opt';
+      b.textContent = word;
+      b.addEventListener('click', function(){ answer(b, word, correctWord); });
+      optsEl.appendChild(b);
+    });
+  }
+
+  function answer(btn, picked, correctWord){
+    var buttons = optsEl.querySelectorAll('.tkw-opt');
+    var enDict = {};
+    wordbank[currentLevel].forEach(function(x){ enDict[x[0]] = x[2]; });
+    buttons.forEach(function(b){
+      b.disabled = true;
+      var w = b.textContent;
+      if (w === correctWord) b.classList.add('correct');
+      if (b === btn && picked !== correctWord) b.classList.add('wrong');
+      var reveal = document.createElement('span');
+      reveal.className = 'tkw-reveal';
+      reveal.textContent = enDict[w] || '';
+      b.appendChild(reveal);
+    });
+
+    feedbackEl.hidden = false;
+    if (picked === correctWord){
+      score++;
+      feedbackEl.classList.add('correct');
+      feedbackEl.textContent = '◯ せいかい！';
+    } else {
+      feedbackEl.classList.add('wrong');
+      feedbackEl.textContent = '✕ おしい！せいかいは「' + correctWord + '」';
+    }
+    nextBtn.hidden = false;
+  }
+
+  nextBtn.addEventListener('click', function(){
+    idx++;
+    if (idx < pool.length){
+      render();
+    } else {
+      barEl.style.width = '100%';
+      body.hidden = true;
+      result.hidden = false;
+      scoreEl.textContent = score + ' / ' + pool.length + ' もん せいかい！';
+      var pct = score / pool.length;
+      if (pct === 1){
+        msgEl.textContent = 'ぜんもんせいかい！すごい！';
+      } else if (pct >= 0.6){
+        msgEl.textContent = 'よくできました！';
+      } else {
+        msgEl.textContent = 'また ちょうせんしてね！';
+      }
+    }
+  });
+
+  retryBtn.addEventListener('click', function(){
+    startRound(currentLevel);
+  });
+
+  backBtn.addEventListener('click', function(){
+    result.hidden = true;
+    levelSelect.hidden = false;
+  });
+})();
+</script>
+<script>
+(function(){
+  function tjSendHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    parent.postMessage({ tjQuizHeight: h }, '*');
+  }
+  if (window.ResizeObserver) {
+    new ResizeObserver(tjSendHeight).observe(document.body);
+  }
+  window.addEventListener('load', tjSendHeight);
+  window.addEventListener('resize', tjSendHeight);
+  setTimeout(tjSendHeight, 200);
+  setTimeout(tjSendHeight, 800);
+})();
+</script>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="tjp-wrap">
+  <span class="tjp-eyebrow">FOR PARENTS</span>
+  <h2 class="tjp-title">保護者の方へ</h2>
+  <p class="tjp-lead">絵文字を見て、あう日本語のことばを選ぶクイズです。「どうぶつ・くだもの」から「のりもの・スポーツ」「うみのいきもの・にほんのもの」まで、3つのレベルがあります。</p>
+  <ul class="tjp-points">
+    <li><strong>身につくこと</strong>身のまわりのことば（語彙）。絵を手がかりにするので、ひらがなを読み始めた子でも楽しめます。</li>
+    <li><strong>遊び方のコツ</strong>答えたあとに「これ、英語（現地のことば）だと何て言う？」と聞くと、2つのことばがつながります。</li>
+    <li><strong>こんな子に</strong>日本語の単語がなかなか出てこない子や、日本語を話すきっかけがほしい子に。</li>
+  </ul>
+  <div class="tjp-cta-wrap">
+    <a class="tjp-cta" href="/waitlist/?utm_source=asonde&amp;utm_medium=kotoba-quiz&amp;utm_campaign=asonde-shiryou">📩 学校案内を受け取る（無料・1分）</a>
+    <p class="tjp-note">ともだちじゃぱんは、海外に住む子どもが日本の同世代と毎日日本語で話す、オンラインの学校です。</p>
+  </div>
+  <p class="tjp-more">ほかのゲームでも遊んでみよう<br><a href="/asonde-kanji-game/">漢字クイズ</a> <a href="/asonde-nante-iu/">なんていう？クイズ</a> <a href="/asonde-nihon-bunka/">日本文化クイズ</a> <a href="/asonde-teacher-shindan/">先生タイプ診断</a> <a href="/asonde/">あそんでみよう トップ</a></p>
+</section>
+<style>
+.tjp-wrap{max-width:720px;margin:40px auto 56px;padding:32px 28px 28px;background:#fff;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.08);font-family:inherit;color:#2b3b42;box-sizing:border-box}
+.tjp-wrap *{box-sizing:border-box}
+.tjp-eyebrow{display:block;text-align:center;font-size:11px;font-weight:700;letter-spacing:.12em;color:#f0655a;margin-bottom:6px}
+.tjp-title{background:none!important;border:none!important;padding:0!important;margin:0 0 14px!important;text-align:center;font-size:clamp(20px,3vw,24px)!important;font-weight:800;color:#2b3b42!important}
+.tjp-title::before,.tjp-title::after{display:none!important}
+.tjp-lead{font-size:14px;line-height:1.9;color:#586a70;margin:0 0 20px}
+.tjp-points{list-style:none!important;margin:0 0 24px!important;padding:0!important;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tjp-points li{margin:0!important;padding:14px!important;background:#eaf3f4;border-radius:12px;font-size:12px;line-height:1.7;color:#586a70}
+.tjp-points li::before{display:none!important}
+.tjp-points strong{display:block;font-size:14px;color:#2b3b42;margin-bottom:4px}
+.tjp-cta-wrap{text-align:center}
+.tjp-cta{display:inline-block;padding:14px 28px;border-radius:999px;background:#f0655a;color:#fff!important;font-size:15px;font-weight:800;text-decoration:none!important;box-shadow:0 6px 14px rgba(240,101,90,.35)}
+.tjp-note{margin:10px 0 0;font-size:12px;color:#586a70;text-align:center}
+.tjp-more{margin:24px 0 0;padding-top:18px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#586a70}
+.tjp-more a{display:inline-block;margin:4px 6px;padding:6px 12px;border-radius:999px;background:#fff5e1;color:#2b3b42!important;text-decoration:none!important;font-weight:700}
+.tjp-wrap .nw{display:inline-block}
+@media (max-width:640px){.tjp-wrap{margin:32px 16px 48px;padding:26px 18px 22px}.tjp-points{grid-template-columns:1fr}}
+</style>
+<!-- /wp:html -->
