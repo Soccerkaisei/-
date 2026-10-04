@@ -1,0 +1,399 @@
+<!-- wp:html -->
+<meta charset="UTF-8">
+<title>かんじあてゲーム｜ともだちじゃぱん</title>
+<meta name="color-scheme" content="light only">
+<style>
+:root{
+  color-scheme:light;
+  --teal:#2d7694;--teal-dark:#1c5468;--coral:#f0655a;--coral-dark:#d94b41;
+  --sun:#ffc24b;--cream:#fff5e1;--tint:#eaf3f4;--ink:#2b3b42;--soft:#586a70;
+  --green:#4caf7d;--indigo:#5c6bc0;--indigo-dark:#3949ab;
+  --disp:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:var(--disp);background:
+    radial-gradient(60% 50% at 10% 0%, var(--cream), transparent),
+    radial-gradient(60% 50% at 90% 100%, var(--tint), transparent),
+    #FDFBF7;
+  display:flex;align-items:flex-start;justify-content:center;padding:24px 14px;
+}
+.wrap{max-width:520px;width:100%;margin:0 auto;}
+.card{background:#fff;border-radius:32px;box-shadow:0 20px 50px -20px rgba(40,60,70,.35);overflow:hidden}
+.head{background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));color:#fff;padding:22px 24px;text-align:center}
+.head .logo{font-size:.72rem;letter-spacing:.2em;opacity:1;font-weight:700;color:#fff}
+.head h1{margin:6px 0 0;font-size:1.28rem;font-weight:800}
+.head .subtitle{font-size:.72rem;font-weight:700;opacity:1;margin-top:4px;color:#fff}
+.hero{width:100%;max-height:200px;aspect-ratio:16/9;overflow:hidden;transition:max-height .25s ease}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero.hidden{max-height:0}
+.body{padding:28px 26px 30px}
+.hidden{display:none !important}
+ruby{ruby-align:center}
+rt{font-size:.6em;color:var(--soft);font-weight:600}
+
+.intro p{color:var(--soft);line-height:1.9;font-size:.98rem;text-align:center;margin:0 0 20px}
+.diff-grid{display:grid;gap:12px;margin-bottom:6px}
+.diff-btn{
+  display:flex;align-items:center;gap:14px;background:var(--tint);border:2px solid transparent;
+  border-radius:18px;padding:14px 18px;cursor:pointer;text-align:left;font-family:var(--disp);
+  transition:transform .12s,border-color .12s;
+}
+.diff-btn:hover{transform:translateY(-2px);border-color:var(--indigo)}
+.diff-btn .emoji{font-size:1.8rem}
+.diff-btn .label{font-weight:800;color:var(--ink);font-size:1.02rem}
+.diff-btn .sub{font-size:.78rem;color:var(--soft);margin-top:2px}
+.diff-btn[data-level="easy"]{background:#eaf7ef}
+.diff-btn[data-level="hard"]{background:#eef0fb}
+
+.progress-wrap{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.progress-bar{flex:1;height:9px;background:var(--tint);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:var(--indigo);border-radius:99px;transition:width .3s}
+.progress-label{font-size:.78rem;color:var(--soft);font-weight:700;white-space:nowrap}
+
+.game-layout{display:grid;grid-template-columns:1fr;gap:20px}
+.q-media{background:var(--cream);border-radius:24px;padding:30px 10px;text-align:center;min-width:0}
+.q-kanji{font-size:4.6rem;line-height:1;font-weight:700;color:var(--ink)}
+.q-emoji{font-size:3.6rem;line-height:1}
+.q-prompt{margin-top:10px;color:var(--soft);font-size:.9rem;font-weight:700}
+.q-content{display:flex;flex-direction:column;min-width:0}
+
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:0}
+.opt-btn{
+  background:#fff;border:2.5px solid var(--tint);border-radius:16px;padding:14px 8px;
+  font-family:var(--disp);font-weight:800;font-size:1.1rem;color:var(--ink);cursor:pointer;
+  transition:transform .1s,border-color .1s,background .1s;line-height:1.35;
+  min-width:0;overflow-wrap:anywhere;word-break:break-word;
+}
+.opt-btn:hover{transform:translateY(-2px);border-color:var(--indigo)}
+.opt-btn.correct{background:#e7f6ec;border-color:var(--green);color:var(--green)}
+.opt-btn.wrong{background:#fdecea;border-color:var(--coral);color:var(--coral-dark)}
+.opt-btn:disabled{cursor:default}
+.opt-reveal{display:block;font-size:.68rem;font-weight:700;color:var(--soft);margin-top:4px}
+.opt-btn.correct .opt-reveal{color:var(--green)}
+.opt-btn.wrong .opt-reveal{color:var(--coral-dark)}
+
+.feedback{margin-top:16px;text-align:center;font-weight:800;font-size:1.02rem;min-height:1.4em}
+.feedback.ok{color:var(--green)}
+.feedback.ng{color:var(--coral-dark)}
+.next-btn{
+  display:block;width:100%;margin-top:18px;background:var(--indigo);color:#fff;border:none;
+  border-radius:999px;padding:15px;font-family:var(--disp);font-weight:800;font-size:1rem;cursor:pointer;
+}
+.next-btn:hover{background:var(--indigo-dark)}
+
+.result{text-align:center}
+.result .medal{font-size:4rem;line-height:1;margin-bottom:6px}
+.result .score{font-family:var(--disp);font-weight:800;font-size:2.4rem;color:var(--indigo-dark);margin:6px 0 2px}
+.result .score small{font-size:1.1rem;color:var(--soft);font-weight:700}
+.result .msg{color:var(--ink);font-weight:800;font-size:1.08rem;margin:10px 0 6px}
+.result .sub{color:var(--soft);font-size:.9rem;line-height:1.8;margin-bottom:22px}
+.retry-btn{
+  display:block;width:100%;background:var(--teal);color:#fff;border:none;border-radius:999px;
+  padding:15px;font-family:var(--disp);font-weight:800;font-size:1rem;cursor:pointer;margin-bottom:10px;
+}
+.retry-btn:hover{background:var(--teal-dark)}
+.share-btn{
+  display:block;width:100%;background:#fff;color:var(--indigo-dark);border:2px solid var(--indigo);
+  border-radius:999px;padding:13px;font-family:var(--disp);font-weight:800;font-size:.96rem;
+  cursor:pointer;margin-bottom:14px;
+}
+.share-btn:hover{background:var(--tint)}
+.share-msg{font-size:.78rem;color:var(--green);font-weight:700;min-height:1.2em;margin-bottom:6px}
+.home-link{display:block;text-align:center;color:var(--soft);font-size:.85rem;text-decoration:underline;margin-top:8px}
+.footer-note{text-align:center;font-size:.78rem;color:#93999a;margin-top:20px;line-height:1.8}
+.footer-note a{color:var(--teal)}
+
+@media (min-width:700px){
+  .wrap{max-width:760px}
+  .game-layout{grid-template-columns:280px minmax(0,1fr);align-items:start}
+}
+</style>
+
+
+<style>
+  .l-header,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv{display:none!important}
+  body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
+</style>
+
+<div class="wrap">
+  <div class="card">
+    <div class="head">
+      <a href="https://tomodachi-japan.nijin.co.jp/asonde/" style="display:inline-block;color:#fff;opacity:.85;font-size:11px;text-decoration:underline;margin-bottom:8px;">← あそんでみるトップに戻る</a>
+      <div class="logo">TOMODACHI JAPAN</div>
+      <h1>🖌️ かんじあてゲーム</h1>
+      <div class="subtitle">Kanji Reading Game</div>
+    </div>
+
+    <div class="hero" id="heroBlock">
+      <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_24_27.png" alt="かんじあてゲーム">
+    </div>
+
+    <div class="body">
+
+      <div id="screen-start" class="intro">
+        <p>かんじを みて、なんて よむか あててみよう！<br>レベルを えらんで スタート！</p>
+        <div class="diff-grid">
+          <button class="diff-btn" data-level="easy">
+            <span class="emoji">🌱</span>
+            <span><span class="label">かんたん</span><br><span class="sub">EASY・1文字のかんじ</span></span>
+          </button>
+          <button class="diff-btn" data-level="hard">
+            <span class="emoji">🌳</span>
+            <span><span class="label">むずかしい</span><br><span class="sub">HARD・2字の じゅくご</span></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="screen-game" class="hidden">
+        <div class="progress-wrap">
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-label" id="progressLabel">1 / 10</div>
+        </div>
+        <div class="game-layout">
+          <div class="q-media">
+            <div class="q-kanji hidden" id="qKanji">山</div>
+            <div class="q-emoji hidden" id="qEmoji">🥷</div>
+            <div class="q-prompt" id="qPrompt">これは なんて よむ？</div>
+          </div>
+          <div class="q-content">
+            <div class="opts" id="optsWrap"></div>
+            <div class="feedback" id="feedback"></div>
+            <button class="next-btn hidden" id="nextBtn">つぎへ →</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen-result" class="result hidden">
+        <div class="medal" id="resultMedal">🏆</div>
+        <div class="score"><span id="scoreNum">10</span><small> / 10 もん せいかい！</small></div>
+        <div class="msg" id="resultMsg"></div>
+        <div class="sub" id="resultSub"></div>
+        <button class="retry-btn" id="retryBtn">もういちど あそぶ</button>
+        <button class="share-btn" id="shareBtn">🔗 ともだちに おしえる</button>
+        <div class="share-msg" id="shareMsg"></div>
+        <a class="home-link" href="https://tomodachi-japan.nijin.co.jp/">← ともだちじゃぱんの トップへ</a>
+      </div>
+
+      <div class="footer-note">
+        もっと かんじを おぼえたくなったら？<br>
+        <a href="https://tomodachi-japan.nijin.co.jp/waitlist/?utm_source=kidsgame&amp;utm_medium=footer&amp;utm_campaign=kanji-quiz">ともだちじゃぱんを のぞいてみる →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const R = (kanji, kana) => `<ruby>${kanji}<rt>${kana}</rt></ruby>`;
+
+const EASY = [
+  {kanji:"山", reading:"やま", en:"Mountain"},
+  {kanji:"川", reading:"かわ", en:"River"},
+  {kanji:"木", reading:"き", en:"Tree"},
+  {kanji:"日", reading:"ひ", en:"Sun / Day"},
+  {kanji:"月", reading:"つき", en:"Moon"},
+  {kanji:"水", reading:"みず", en:"Water"},
+  {kanji:"土", reading:"つち", en:"Earth / Soil"},
+  {kanji:"人", reading:"ひと", en:"Person"},
+  {kanji:"子", reading:"こ", en:"Child"},
+  {kanji:"女", reading:"おんな", en:"Woman"},
+  {kanji:"男", reading:"おとこ", en:"Man"},
+  {kanji:"大", reading:"だい（おおきい）", en:"Big"},
+  {kanji:"小", reading:"しょう（ちいさい）", en:"Small"},
+  {kanji:"上", reading:"うえ", en:"Up"},
+  {kanji:"下", reading:"した", en:"Down"},
+  {kanji:"中", reading:"なか", en:"Middle / Inside"},
+  {kanji:"本", reading:"ほん", en:"Book"},
+  {kanji:"花", reading:"はな", en:"Flower"},
+  {kanji:"雨", reading:"あめ", en:"Rain"},
+  {kanji:"石", reading:"いし", en:"Stone"},
+];
+
+const HARD = [
+  {kanji:"天気", reading:"てんき", en:"Weather"},
+  {kanji:"音楽", reading:"おんがく", en:"Music"},
+  {kanji:"勉強", reading:"べんきょう", en:"Study"},
+  {kanji:"世界", reading:"せかい", en:"World"},
+  {kanji:"家族", reading:"かぞく", en:"Family"},
+  {kanji:"学校", reading:"がっこう", en:"School"},
+  {kanji:"太陽", reading:"たいよう", en:"Sun"},
+  {kanji:"教室", reading:"きょうしつ", en:"Classroom"},
+  {kanji:"運動", reading:"うんどう", en:"Exercise"},
+  {kanji:"季節", reading:"きせつ", en:"Season"},
+  {kanji:"気分", reading:"きぶん", en:"Mood"},
+  {kanji:"希望", reading:"きぼう", en:"Hope"},
+  {kanji:"挑戦", reading:"ちょうせん", en:"Challenge"},
+  {kanji:"成長", reading:"せいちょう", en:"Growth"},
+  {kanji:"笑顔", reading:"えがお", en:"Smile"},
+  {kanji:"元気", reading:"げんき", en:"Energy / Well-being"},
+];
+
+let mode = 'easy';
+let quiz = [];
+let pool = [];
+let qIndex = 0;
+let score = 0;
+let answered = false;
+
+const heroEl = document.getElementById('heroBlock');
+const ROUND_LEN = 10;
+const $ = id => document.getElementById(id);
+
+function shuffle(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function show(id){
+  ['screen-start','screen-game','screen-result'].forEach(s => $(s).classList.toggle('hidden', s !== id));
+  heroEl.classList.toggle('hidden', id === 'screen-game');
+}
+
+function startGame(level){
+  mode = level;
+  pool = level === 'hard' ? HARD : EASY;
+  quiz = shuffle(pool).slice(0, Math.min(ROUND_LEN, pool.length));
+  qIndex = 0;
+  score = 0;
+  show('screen-game');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered = false;
+  const q = quiz[qIndex];
+  $('qKanji').textContent = q.kanji;
+  $('qKanji').classList.remove('hidden');
+  $('qEmoji').classList.add('hidden');
+  $('qPrompt').textContent = 'これは なんて よむ？';
+  $('progressLabel').textContent = (qIndex + 1) + ' / ' + quiz.length;
+  $('progressFill').style.width = Math.round(qIndex / quiz.length * 100) + '%';
+  $('feedback').textContent = '';
+  $('feedback').className = 'feedback';
+  $('nextBtn').classList.add('hidden');
+
+  const others = shuffle(pool.filter(x => x.reading !== q.reading)).slice(0, 3);
+  const options = shuffle([q].concat(others));
+  const wrap = $('optsWrap');
+  wrap.innerHTML = '';
+  options.forEach(o => {
+    const b = document.createElement('button');
+    b.className = 'opt-btn';
+    b.textContent = o.reading;
+    b.addEventListener('click', () => answer(b, o, q));
+    wrap.appendChild(b);
+  });
+}
+
+function answer(btn, picked, q){
+  if (answered) return;
+  answered = true;
+  const buttons = $('optsWrap').querySelectorAll('.opt-btn');
+  buttons.forEach(b => {
+    b.disabled = true;
+    const item = pool.find(x => x.reading === b.textContent);
+    if (item.reading === q.reading) b.classList.add('correct');
+    if (b === btn && picked.reading !== q.reading) b.classList.add('wrong');
+    const r = document.createElement('span');
+    r.className = 'opt-reveal';
+    r.textContent = item.kanji + '・' + item.en;
+    b.appendChild(r);
+  });
+  const fb = $('feedback');
+  if (picked.reading === q.reading){
+    score++;
+    fb.classList.add('ok');
+    fb.textContent = '◯ せいかい！ ' + q.kanji + '（' + q.reading + '）= ' + q.en;
+  } else {
+    fb.classList.add('ng');
+    fb.textContent = '✕ おしい！ せいかいは「' + q.reading + '」';
+  }
+  $('nextBtn').textContent = qIndex + 1 < quiz.length ? 'つぎへ →' : 'けっかを みる →';
+  $('nextBtn').classList.remove('hidden');
+}
+
+function showResult(){
+  $('progressFill').style.width = '100%';
+  show('screen-result');
+  $('scoreNum').textContent = score;
+  document.querySelector('.result .score small').textContent = ' / ' + quiz.length + ' もん せいかい！';
+  const pct = score / quiz.length;
+  let medal, msg, sub;
+  if (pct === 1){ medal = '🏆'; msg = 'ぜんもん せいかい！ かんじ マスター！'; sub = (mode === 'easy' ? 'つぎは「むずかしい」にも ちょうせんしてみよう！' : 'すごい！ ともだちにも おしえてあげてね。'); }
+  else if (pct >= 0.7){ medal = '🥇'; msg = 'よくできました！'; sub = 'あと すこしで ぜんもん せいかい！ もういちど やってみよう。'; }
+  else if (pct >= 0.4){ medal = '🥈'; msg = 'いいかんじ！'; sub = 'まちがえた かんじも、もういちど あそぶと おぼえられるよ。'; }
+  else { medal = '🌱'; msg = 'ナイス チャレンジ！'; sub = 'かんじは すこしずつ おぼえれば だいじょうぶ。また あそんでね！'; }
+  $('resultMedal').textContent = medal;
+  $('resultMsg').textContent = msg;
+  $('resultSub').textContent = sub;
+  $('shareMsg').textContent = '';
+}
+
+document.querySelectorAll('.diff-btn').forEach(b => {
+  b.addEventListener('click', () => startGame(b.getAttribute('data-level')));
+});
+
+$('nextBtn').addEventListener('click', () => {
+  qIndex++;
+  if (qIndex < quiz.length) renderQuestion(); else showResult();
+});
+
+$('retryBtn').addEventListener('click', () => show('screen-start'));
+
+$('shareBtn').addEventListener('click', () => {
+  const url = location.href.split('#')[0].split('?')[0];
+  const text = 'かんじあてゲームで ' + score + ' / ' + quiz.length + ' もん せいかい！ きみも やってみて！';
+  if (navigator.share){
+    navigator.share({ title: 'かんじあてゲーム｜ともだちじゃぱん', text: text, url: url }).catch(() => {});
+  } else if (navigator.clipboard){
+    navigator.clipboard.writeText(text + ' ' + url).then(() => {
+      $('shareMsg').textContent = 'リンクを コピーしたよ！ ともだちに おくってね。';
+    }).catch(() => { $('shareMsg').textContent = url; });
+  } else {
+    $('shareMsg').textContent = url;
+  }
+});
+</script>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section class="tjp-wrap">
+  <span class="tjp-eyebrow">FOR PARENTS</span>
+  <h2 class="tjp-title">保護者の方へ</h2>
+  <p class="tjp-lead">漢字を見て、読み方を当てるクイズです。「山」「川」「木」のような1年生で習う漢字から、「天気」「家族」「世界」などの熟語まで、2つのレベルで遊べます。</p>
+  <ul class="tjp-points">
+    <li><strong>身につくこと</strong>漢字の読み方。毎日の生活でよく目にする漢字から始められます。</li>
+    <li><strong>遊び方のコツ</strong>1回10問・数分。親子で点数を競ったり、読めた漢字を家の中で探したりすると、もっと覚えやすくなります。</li>
+    <li><strong>こんな子に</strong>漢字の書き取りがにがてな子も、まずは「読めた！」から。海外で日本語を学ぶ子にもおすすめです。</li>
+  </ul>
+  <div class="tjp-cta-wrap">
+    <a class="tjp-cta" href="/waitlist/?utm_source=asonde&amp;utm_medium=kanji-quiz&amp;utm_campaign=asonde-shiryou">📩 学校案内を受け取る（無料・1分）</a>
+    <p class="tjp-note">ともだちじゃぱんは、海外に住む子どもが日本の同世代と毎日日本語で話す、オンラインの学校です。</p>
+  </div>
+  <p class="tjp-more">ほかのゲームでも遊んでみよう<br><a href="/asonde-kotoba-quiz/">ことばクイズ</a> <a href="/asonde-nante-iu/">なんていう？クイズ</a> <a href="/asonde-nihon-bunka/">日本文化クイズ</a> <a href="/asonde-teacher-shindan/">先生タイプ診断</a> <a href="/asonde/">あそんでみよう トップ</a></p>
+</section>
+<style>
+.tjp-wrap{max-width:720px;margin:40px auto 56px;padding:32px 28px 28px;background:#fff;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.08);font-family:inherit;color:#2b3b42;box-sizing:border-box}
+.tjp-wrap *{box-sizing:border-box}
+.tjp-eyebrow{display:block;text-align:center;font-size:11px;font-weight:700;letter-spacing:.12em;color:#f0655a;margin-bottom:6px}
+.tjp-title{background:none!important;border:none!important;padding:0!important;margin:0 0 14px!important;text-align:center;font-size:clamp(20px,3vw,24px)!important;font-weight:800;color:#2b3b42!important}
+.tjp-title::before,.tjp-title::after{display:none!important}
+.tjp-lead{font-size:14px;line-height:1.9;color:#586a70;margin:0 0 20px}
+.tjp-points{list-style:none!important;margin:0 0 24px!important;padding:0!important;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tjp-points li{margin:0!important;padding:14px!important;background:#eaf3f4;border-radius:12px;font-size:12px;line-height:1.7;color:#586a70}
+.tjp-points li::before{display:none!important}
+.tjp-points strong{display:block;font-size:14px;color:#2b3b42;margin-bottom:4px}
+.tjp-cta-wrap{text-align:center}
+.tjp-cta{display:inline-block;padding:14px 28px;border-radius:999px;background:#f0655a;color:#fff!important;font-size:15px;font-weight:800;text-decoration:none!important;box-shadow:0 6px 14px rgba(240,101,90,.35)}
+.tjp-note{margin:10px 0 0;font-size:12px;color:#586a70;text-align:center}
+.tjp-more{margin:24px 0 0;padding-top:18px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#586a70}
+.tjp-more a{display:inline-block;margin:4px 6px;padding:6px 12px;border-radius:999px;background:#fff5e1;color:#2b3b42!important;text-decoration:none!important;font-weight:700}
+.tjp-wrap .nw{display:inline-block}
+@media (max-width:640px){.tjp-wrap{margin:32px 16px 48px;padding:26px 18px 22px}.tjp-points{grid-template-columns:1fr}}
+</style>
+<!-- /wp:html -->
