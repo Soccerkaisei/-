@@ -134,7 +134,7 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
 
   var BGS = [
     {id:'fuji', label:'ふじさんと はつひので', img:'bg-fuji'},
-    {id:'washi', label:'わがら'}
+    {id:'washi', label:'うめと きんの わがら', img:'bg-washi'}
   ];
   var MSGS = [
     {en:'Happy New Year!', ja:'あけまして おめでとう', ro:'akemashite omedetou'},
@@ -347,9 +347,9 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       if (!(HAS_IMG[st.eto.id] && drawPic(ctx, st.eto.id, W/2, 690, 380))){ ctx.font = '260px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.fillText(st.eto.e, W/2, 700); }
       fitText(ctx, st.msg.ja, W-200, 104, RNDFONT); outText(ctx, st.bg, st.msg.ja, W/2, 980); ctx.fillStyle = col;
-      ctx.font = '600 44px '+RNDFONT; ctx.globalAlpha = .8; ctx.fillText(st.msg.ro, W/2, 1065); ctx.fillText(st.msg.en, W/2, 1125); ctx.globalAlpha = 1;
-      ctx.font = 'bold 56px '+JPFONT; ctx.fillText(YEAR+'ねん がんたん', W/2, 1230);
-      if (st.name){ fitText(ctx, st.name+' より', W-200, 72, RNDFONT); ctx.fillText(st.name+' より', W/2, 1320); }
+      ctx.font = '600 44px '+RNDFONT; outText(ctx, st.bg, st.msg.ro, W/2, 1065); outText(ctx, st.bg, st.msg.en, W/2, 1125);
+      ctx.font = 'bold 56px '+JPFONT; outText(ctx, st.bg, YEAR+'ねん がんたん', W/2, 1230);
+      if (st.name){ fitText(ctx, st.name+' より', W-200, 72, RNDFONT); outText(ctx, st.bg, st.name+' より', W/2, 1320); }
     }
     chipList(document.querySelector('[data-bg="B"]'), BGS, function(b){ return (b.img ? '<img src="'+IMG_BASE+b.img+'.webp" alt="">' : '')+b.label; }, function(b){ st.bg = b.id; render(); }, false);
     document.querySelector('[data-bg="B"] .chip:nth-child(2)').classList.add('on');
