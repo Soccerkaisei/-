@@ -165,7 +165,7 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     {id:'tatsu',e:'🐲',l:'たつ Dragon'},{id:'mi',e:'🐍',l:'み Snake'},{id:'uma',e:'🐴',l:'うま Horse'},{id:'hitsuji',e:'🐑',l:'ひつじ Sheep 2027'},
     {id:'saru',e:'🐵',l:'さる Monkey'},{id:'tori',e:'🐔',l:'とり Rooster'},{id:'inu',e:'🐶',l:'いぬ Dog'},{id:'i',e:'🐗',l:'い Boar'}
   ];
-  var HAS_IMG = {hitsuji:1};
+  var HAS_IMG = {ne:1,ushi:1,tora:1,u:1,tatsu:1,mi:1,uma:1,hitsuji:1,saru:1,tori:1,inu:1,i:1};
   var TO = [{v:'ばあば',l:'ばあば'},{v:'じいじ',l:'じいじ'},{v:'じいじ ばあば',l:'じいじ ばあば'},{v:'おばあちゃん',l:'おばあちゃん'},{v:'おじいちゃん',l:'おじいちゃん'},{v:'みんな',l:'みんな'}];
 
   /* ---------- 描画（共通） ---------- */
@@ -308,7 +308,7 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     chipList(document.querySelector('[data-bg="A"]'), BGS, function(b){ return b.label; }, function(b){ st.bg = b.id; render(); }, true);
     var sb = document.getElementById('stampsA');
     KSTAMPS.forEach(function(k){ var b = el('button','chip kstamp',k); b.onclick = function(){ st.items.push({t:'k',v:k,x:W/2,y:H/2,s:k.length===4?240:180}); st.sel = st.items.length-1; render(); }; sb.appendChild(b); });
-    PICS.forEach(function(p){ var b = document.createElement('button'); b.className = 'chip pic'; b.innerHTML = '<img src="'+IMG_BASE+p.id+'.png" alt=""><small>'+p.l+'</small>';
+    PICS.concat(ETO.filter(function(e){ return e.id !== 'hitsuji'; }).map(function(e){ return {id:e.id, l:e.l.split(' ')[0]}; })).forEach(function(p){ var b = document.createElement('button'); b.className = 'chip pic'; b.innerHTML = '<img src="'+IMG_BASE+p.id+'.png" alt=""><small>'+p.l+'</small>';
       b.onclick = function(){ st.items.push({t:'i',v:p.id,x:W/2,y:H/2,s:300}); st.sel = st.items.length-1; render(); }; sb.appendChild(b); });
     chipList(document.querySelector('[data-msg="A"]'), MSGS, msgLabel, function(m){ st.items.push({t:'m',v:m.ja,x:W/2,y:1000,s:96}); st.sel = st.items.length-1; render(); }, false);
     document.querySelector('[data-photo="A"]').onchange = function(){ loadPhoto(this, function(img){ st.photo = img; render(); }); };
