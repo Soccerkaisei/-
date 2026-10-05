@@ -37,6 +37,7 @@ h1{font-size:1.3rem;text-align:center;margin:0 0 6px}
 .chip.on{border-color:var(--coral);background:#fff1ef}
 .chip small{display:block;font-weight:600;color:var(--soft);font-size:.72rem}
 .stamp{font-size:1.5rem;padding:6px 10px}
+.chip.pic{padding:6px 8px;text-align:center}.chip img{display:block;height:46px;margin:0 auto 2px}
 .kstamp{color:#fff;background:var(--red);border-color:var(--red)}
 input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padding:10px 12px;font:700 1rem var(--disp)}
 .file{display:inline-block;border:2px dashed var(--teal);border-radius:12px;padding:10px 14px;color:var(--teal);font-weight:800;cursor:pointer}
@@ -145,8 +146,26 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     {en:'I love you', ja:'だいすき', ro:'daisuki'}
   ];
   var KSTAMPS = ['謹賀新年','賀正','寿','福'];
-  var ESTAMPS = ['🐑','🎍','🌅','🗻','⛩️','🪁','🎎','🍡','🌸','⭐'];
-  var ETO = [{e:'🐑',l:'ひつじ Sheep 2027'},{e:'🐴',l:'うま Horse 2026'},{e:'🐵',l:'さる Monkey 2028'}];
+  // 画像スタンプ（WordPressではメディアのURLに置きかえる）
+  var IMG_BASE = 'img/';
+  var PICS = [
+    {id:'hitsuji', l:'ひつじ'}, {id:'kadomatsu', l:'かどまつ'}, {id:'kagamimochi', l:'かがみもち'}, {id:'tako', l:'たこ'},
+    {id:'hagoita', l:'はごいた'}, {id:'daruma', l:'だるま'}, {id:'ume', l:'うめ'}, {id:'shishimai', l:'ししまい'}
+  ];
+  var IMG = {}, rerenders = [];
+  function pic(id){ if (!IMG[id]){ IMG[id] = new Image(); IMG[id].onload = function(){ rerenders.forEach(function(f){ f(); }); }; IMG[id].src = IMG_BASE + id + '.png'; } return IMG[id]; }
+  function drawPic(ctx, id, cx, cy, h){
+    var im = pic(id); if (!im.complete || !im.naturalWidth) return false;
+    var w = h * im.naturalWidth / im.naturalHeight;
+    ctx.drawImage(im, cx - w/2, cy - h/2, w, h); return true;
+  }
+  // 十二支（画像ができたら img に追加。ないものは絵文字で代わりに表示）
+  var ETO = [
+    {id:'ne',e:'🐭',l:'ね Rat'},{id:'ushi',e:'🐮',l:'うし Ox'},{id:'tora',e:'🐯',l:'とら Tiger'},{id:'u',e:'🐰',l:'う Rabbit'},
+    {id:'tatsu',e:'🐲',l:'たつ Dragon'},{id:'mi',e:'🐍',l:'み Snake'},{id:'uma',e:'🐴',l:'うま Horse'},{id:'hitsuji',e:'🐑',l:'ひつじ Sheep 2027'},
+    {id:'saru',e:'🐵',l:'さる Monkey'},{id:'tori',e:'🐔',l:'とり Rooster'},{id:'inu',e:'🐶',l:'いぬ Dog'},{id:'i',e:'🐗',l:'い Boar'}
+  ];
+  var HAS_IMG = {hitsuji:1};
   var TO = [{v:'ばあば',l:'ばあば'},{v:'じいじ',l:'じいじ'},{v:'じいじ ばあば',l:'じいじ ばあば'},{v:'おばあちゃん',l:'おばあちゃん'},{v:'おじいちゃん',l:'おじいちゃん'},{v:'みんな',l:'みんな'}];
 
   /* ---------- 描画（共通） ---------- */
@@ -274,12 +293,13 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     var cv = document.getElementById('cvA'), ctx = cv.getContext('2d');
     var st = {bg:'fuji', photo:null, items:[], sel:-1};
     st.items.push({t:'k', v:'謹賀新年', x:780, y:200, s:260});
-    st.items.push({t:'e', v:'🐑', x:250, y:1130, s:220});
+    st.items.push({t:'i', v:'hitsuji', x:250, y:1130, s:320});
     function render(){
       drawBg(ctx, st.bg);
       if (st.photo) drawPhoto(ctx, st.photo, 200, 420, 600, 450, 30);
       st.items.forEach(function(it, i){
         if (it.t === 'k') drawKStamp(ctx, it.v, it.x, it.y, it.s);
+        else if (it.t === 'i'){ drawPic(ctx, it.v, it.x, it.y, it.s); }
         else if (it.t === 'e'){ ctx.font = it.s+'px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(it.v, it.x, it.y); }
         else { fitText(ctx, it.v, W-120, it.s, RNDFONT); ctx.fillStyle = textColor(st.bg); ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.lineWidth = 14; ctx.strokeStyle = st.bg==='snow' ? 'rgba(0,0,0,.25)' : 'rgba(255,255,255,.9)'; ctx.strokeText(it.v, it.x, it.y); ctx.fillText(it.v, it.x, it.y); }
         if (i === st.sel){ ctx.save(); ctx.setLineDash([16,10]); ctx.lineWidth = 5; ctx.strokeStyle = '#f0655a'; var hw = it.t==='m' ? (W-140)/2 : it.s/2+12; var hh = it.t==='m' ? it.s/2+14 : it.s/2+12; ctx.strokeRect(it.x-hw, it.y-hh, hw*2, hh*2); ctx.restore(); }
@@ -288,7 +308,8 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     chipList(document.querySelector('[data-bg="A"]'), BGS, function(b){ return b.label; }, function(b){ st.bg = b.id; render(); }, true);
     var sb = document.getElementById('stampsA');
     KSTAMPS.forEach(function(k){ var b = el('button','chip kstamp',k); b.onclick = function(){ st.items.push({t:'k',v:k,x:W/2,y:H/2,s:k.length===4?240:180}); st.sel = st.items.length-1; render(); }; sb.appendChild(b); });
-    ESTAMPS.forEach(function(e){ var b = el('button','chip stamp',e); b.onclick = function(){ st.items.push({t:'e',v:e,x:W/2,y:H/2,s:180}); st.sel = st.items.length-1; render(); }; sb.appendChild(b); });
+    PICS.forEach(function(p){ var b = document.createElement('button'); b.className = 'chip pic'; b.innerHTML = '<img src="'+IMG_BASE+p.id+'.png" alt=""><small>'+p.l+'</small>';
+      b.onclick = function(){ st.items.push({t:'i',v:p.id,x:W/2,y:H/2,s:300}); st.sel = st.items.length-1; render(); }; sb.appendChild(b); });
     chipList(document.querySelector('[data-msg="A"]'), MSGS, msgLabel, function(m){ st.items.push({t:'m',v:m.ja,x:W/2,y:1000,s:96}); st.sel = st.items.length-1; render(); }, false);
     document.querySelector('[data-photo="A"]').onchange = function(){ loadPhoto(this, function(img){ st.photo = img; render(); }); };
     document.getElementById('delA').onclick = function(){ if (st.sel >= 0){ st.items.splice(st.sel,1); st.sel = -1; render(); } };
@@ -305,19 +326,19 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     cv.addEventListener('pointermove', function(e){ if (!drag || st.sel < 0) return; var p = pos(e); st.items[st.sel].x = p.x-drag.dx; st.items[st.sel].y = p.y-drag.dy; render(); });
     cv.addEventListener('pointerup', function(){ drag = null; });
     outButtons('A', {toBlob:function(cb){ var s = st.sel; st.sel = -1; render(); cv.toBlob(function(b){ st.sel = s; render(); cb(b); }); }, toDataURL:function(){ var s = st.sel; st.sel = -1; render(); var u = cv.toDataURL('image/png'); st.sel = s; render(); return u; }}, function(){ return 'あけまして おめでとう！'; });
-    render();
+    rerenders.push(render); render();
   })();
 
   /* ---------- 案B：ステップ式（授業・印刷） ---------- */
   (function(){
     var cv = document.getElementById('cvB'), ctx = cv.getContext('2d');
-    var st = {bg:'washi', msg:MSGS[0], name:'', eto:'🐑'};
+    var st = {bg:'washi', msg:MSGS[0], name:'', eto:ETO[7]};
     function render(){
       drawBg(ctx, st.bg);
       var col = textColor(st.bg);
       drawKStamp(ctx, '謹賀新年', W/2, 330, 300);
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.font = '260px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.fillText(st.eto, W/2, 700);
+      if (!(HAS_IMG[st.eto.id] && drawPic(ctx, st.eto.id, W/2, 690, 380))){ ctx.font = '260px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.fillText(st.eto.e, W/2, 700); }
       fitText(ctx, st.msg.ja, W-200, 104, RNDFONT); outText(ctx, st.bg, st.msg.ja, W/2, 980); ctx.fillStyle = col;
       ctx.font = '600 44px '+RNDFONT; ctx.globalAlpha = .8; ctx.fillText(st.msg.ro, W/2, 1065); ctx.fillText(st.msg.en, W/2, 1125); ctx.globalAlpha = 1;
       ctx.font = 'bold 56px '+JPFONT; ctx.fillText(YEAR+'ねん がんたん', W/2, 1230);
@@ -328,11 +349,12 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     var rom = document.getElementById('romajiB');
     function showRom(){ rom.innerHTML = '<span class="jp-big">'+st.msg.ja+'</span><br><span class="romaji">'+st.msg.ro+'</span>'; }
     chipList(document.querySelector('[data-msg="B"]'), MSGS, msgLabel, function(m){ st.msg = m; showRom(); render(); }, true);
-    chipList(document.getElementById('eto'), ETO, function(e){ return e.e+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e.e; render(); }, true);
+    chipList(document.getElementById('eto'), ETO, function(e){ return (HAS_IMG[e.id] ? '<img src="'+IMG_BASE+e.id+'.png" alt="">' : e.e)+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e; render(); }, false);
+    document.querySelectorAll('#eto .chip')[7].classList.add('on');
     document.getElementById('nameB').oninput = function(){ st.name = this.value.trim(); render(); };
     document.getElementById('printB').onclick = function(){ var p = document.getElementById('printImg'); p.innerHTML = '<img src="'+cv.toDataURL('image/png')+'">'; setTimeout(function(){ window.print(); }, 100); };
     outButtons('B', cv, function(){ return st.msg.ja; });
-    showRom(); render();
+    rerenders.push(render); showRom(); render();
   })();
 
   /* ---------- 案C：家族に送る ---------- */
@@ -352,7 +374,7 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
       ctx.font = 'bold 84px '+RNDFONT; outText(ctx, st.bg, 'あけまして おめでとう', W/2, 990);
       fitText(ctx, st.msg.ja, W-200, 92, RNDFONT); outText(ctx, st.bg, st.msg.ja, W/2, 1110);
       if (st.name){ fitText(ctx, st.name+' より', W-200, 70, RNDFONT); outText(ctx, st.bg, st.name+' より', W/2, 1240); }
-      ctx.font = '120px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.fillText('🐑', 140, 1330);
+      drawPic(ctx, 'hitsuji', 150, 1320, 230); drawPic(ctx, 'kadomatsu', 870, 1300, 270);
     }
     chipList(document.getElementById('toC'), TO, function(t){ return t.l; }, function(t){ st.to = t.v; render(); }, true);
     chipList(document.querySelector('[data-msg="C"]'), MSGS.slice(1), msgLabel, function(m){ st.msg = m; render(); }, false);
@@ -361,7 +383,7 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
     document.querySelector('[data-photo="C"]').onchange = function(){ loadPhoto(this, function(img){ st.photo = img; render(); }); };
     document.getElementById('nameC').oninput = function(){ st.name = this.value.trim(); render(); };
     outButtons('C', cv, function(){ return st.to+' へ　あけまして おめでとう！'; });
-    render();
+    rerenders.push(render); render();
   })();
 
   /* タブ切り替え */
