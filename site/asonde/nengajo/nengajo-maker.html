@@ -1,0 +1,280 @@
+<style>
+.l-header,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
+body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
+.ng{--teal:#2d7694;--teal-dark:#1c5468;--coral:#f0655a;--coral-dark:#d94b41;--tint:#eaf3f4;--ink:#2b3b42;--soft:#586a70;--red:#c8312b;
+  --disp:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+  font-family:var(--disp);color:var(--ink);max-width:980px;margin:0 auto;padding:20px 14px 10px;box-sizing:border-box}
+.ng *{box-sizing:border-box}
+.ng [hidden]{display:none!important}
+.ng-head{background:linear-gradient(135deg,#d94b41,#c8312b);color:#fff;border-radius:24px;padding:20px 22px;text-align:center;margin-bottom:16px}
+.ng-head a{color:#fff;font-size:11px;text-decoration:underline}
+.ng-head .ng-logo{font-size:.72rem;letter-spacing:.2em;font-weight:700;margin-top:6px}
+.ng-head h1{margin:6px 0 2px;font-size:1.35rem;font-weight:800;color:#fff;background:none;padding:0;border:none}
+.ng-head h1::before,.ng-head h1::after{display:none}
+.ng-head p{margin:4px 0 0;font-size:.82rem;line-height:1.6}
+.ng-studio{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.ng-studio{grid-template-columns:360px 1fr;align-items:start}.ng-preview{position:sticky;top:12px}}
+.ng-preview{background:#fff;border-radius:18px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
+.ng-preview canvas{width:100%;max-width:340px;height:auto;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);background:#fff5e6}
+.ng-panel{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.ng-step{margin-bottom:18px}
+.ng-step h3{font-size:.95rem;margin:0 0 8px;display:flex;align-items:center;gap:8px;padding:0;background:none;border:none;color:var(--ink)}
+.ng-step h3::before,.ng-step h3::after{display:none}
+.ng-step h3 .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;font-size:.8rem;flex:0 0 24px}
+.ng-step h3 .opt{font-size:.72rem;color:var(--soft);font-weight:600}
+.ng-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ng-chip{border:2px solid var(--tint);background:#fff;border-radius:12px;padding:8px 10px;font:700 .86rem var(--disp);color:var(--ink);cursor:pointer;line-height:1.3;text-align:center}
+.ng-chip:hover{border-color:var(--teal)}
+.ng-chip.on{border-color:var(--coral);background:#fff1ef}
+.ng-chip small{display:block;font-weight:600;color:var(--soft);font-size:.72rem}
+.ng-chip img{display:block;height:46px;margin:0 auto 2px}
+.ng-bg .ng-chip{padding:5px;width:92px;font-size:.7rem}
+.ng-bg .ng-chip img{width:80px;height:118px;object-fit:cover;border-radius:6px}
+.ng input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padding:10px 12px;font:700 1rem var(--disp)}
+.ng-file{display:inline-block;border:2px dashed var(--teal);border-radius:12px;padding:10px 14px;color:var(--teal);font-weight:800;cursor:pointer}
+.ng-file input{display:none}
+.ng-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.ng-btn{display:inline-block;text-decoration:none!important;border:none;border-radius:999px;padding:12px 18px;font:800 .95rem var(--disp);cursor:pointer;color:#fff!important;background:var(--coral)}
+.ng-btn.teal{background:var(--teal)}
+.ng-btn.line{background:#06c755}
+.ng-btn.wa{background:#25d366}
+.ng-btn.ghost{background:#fff;color:var(--teal)!important;border:2px solid var(--teal)}
+.ng-hint{font-size:.78rem;color:var(--soft);margin:6px 0 0;line-height:1.6}
+.ng-ja{font-size:1.1rem;font-weight:800}
+.ng-msg{margin-top:8px;font-size:.82rem;color:var(--teal-dark);font-weight:700;min-height:1.2em}
+#ngPrint{display:none}
+@media print{body *{visibility:hidden}#ngPrint,#ngPrint *{visibility:visible}#ngPrint{position:fixed;inset:0;display:block!important}#ngPrint img{width:100mm;height:148mm}}
+</style>
+
+<div class="ng">
+  <div class="ng-head">
+    <a href="/asonde/">← あそんでみよう トップに もどる</a>
+    <div class="ng-logo">TOMODACHI JAPAN</div>
+    <h1>🎍 ねんがじょうを つくろう</h1>
+    <p>Make a Japanese New Year card (nengajo)!<br>えらぶだけで かんせい。じいじ・ばあばや ともだちに おくろう。</p>
+  </div>
+
+  <div class="ng-studio">
+    <div class="ng-preview"><canvas id="ngCv" width="1000" height="1480"></canvas></div>
+    <div class="ng-panel">
+      <div class="ng-step"><h3><span class="n">1</span>はいけい Background</h3><div class="ng-chips ng-bg" id="ngBg"></div></div>
+      <div class="ng-step"><h3><span class="n">2</span>ことば Message</h3><div class="ng-chips" id="ngMsg"></div>
+        <p class="ng-hint" id="ngRomaji"></p></div>
+      <div class="ng-step"><h3><span class="n">3</span>ことしの どうぶつ Animal of the year</h3><div class="ng-chips" id="ngEto"></div>
+        <p class="ng-hint">2027ねんは ひつじ（未）の としです。 2027 is the Year of the Sheep.</p></div>
+      <div class="ng-step"><h3><span class="n">4</span>だれに おくる？ To <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngTo"></div></div>
+      <div class="ng-step"><h3><span class="n">5</span>しゃしん Photo <span class="opt">（なくてもOK）</span></h3>
+        <label class="ng-file">📷 しゃしんを いれる<input type="file" accept="image/*" id="ngPhoto"></label>
+        <button class="ng-btn ghost" id="ngPhotoDel" hidden>しゃしんを はずす</button>
+        <p class="ng-hint">しゃしんは あなたの きかいの なかだけで つかわれます。どこにも おくられません。</p></div>
+      <div class="ng-step"><h3><span class="n">6</span>かざり Decoration <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngDeco"></div></div>
+      <div class="ng-step"><h3><span class="n">7</span>なまえ Your name</h3><input type="text" id="ngName" placeholder="Emma / えま" maxlength="14"></div>
+      <div class="ng-step"><h3><span class="n">8</span>ほぞん・おくる Save &amp; Send</h3>
+        <div class="ng-btns" id="ngOut"></div>
+        <div class="ng-msg" id="ngOutMsg"></div>
+        <p class="ng-hint">🍎 For teachers: free to use in your classroom. Print on postcard size.（じゅぎょうで じゆうに つかえます）</p></div>
+    </div>
+  </div>
+</div>
+<div id="ngPrint"></div>
+
+<script>
+(function(){
+  var IMG_BASE = '/wp-content/uploads/2026/10/';
+  var W = 1000, H = 1480, YEAR = 2027;
+  var PAGE = 'https://tomodachi-japan.nijin.co.jp/asonde-nengajo/';
+  var JPFONT = '"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif';
+  var RNDFONT = '"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif';
+
+  var BGS = [
+    {id:'bg-fuji', l:'ふじさん'}, {id:'bg-washi', l:'うめの わがら'}, {id:'bg-byobu', l:'きんの びょうぶ'},
+    {id:'bg-hatsumode', l:'はつもうで'}, {id:'bg-umi', l:'うみの ひので'}, {id:'bg-fuji-e', l:'ふじさん（え）'}
+  ];
+  var MSGS = [
+    {en:'Happy New Year!', ja:'あけまして おめでとう', ro:'akemashite omedetou'},
+    {en:'Thank you for last year', ja:'きょねんは ありがとう', ro:'kyonen wa arigatou'},
+    {en:'Let’s be friends this year too', ja:'ことしも なかよくしてね', ro:'kotoshi mo nakayoku shite ne'},
+    {en:'Let’s play together', ja:'いっしょに あそぼうね', ro:'issho ni asobou ne'},
+    {en:'Stay healthy', ja:'げんきで いてね', ro:'genki de ite ne'},
+    {en:'See you soon', ja:'また あおうね', ro:'mata aou ne'},
+    {en:'I love you', ja:'だいすき', ro:'daisuki'}
+  ];
+  var ETO = [
+    {id:'ne',l:'ねずみ Rat'},{id:'ushi',l:'うし Ox'},{id:'tora',l:'とら Tiger'},{id:'u',l:'うさぎ Rabbit'},
+    {id:'tatsu',l:'たつ Dragon'},{id:'mi',l:'へび Snake'},{id:'uma',l:'うま Horse'},{id:'hitsuji',l:'ひつじ Sheep'},
+    {id:'saru',l:'さる Monkey'},{id:'tori',l:'とり Rooster'},{id:'inu',l:'いぬ Dog'},{id:'i',l:'いのしし Boar'}
+  ];
+  var TO = [{v:'',l:'なし None'},{v:'ばあば',l:'ばあば'},{v:'じいじ',l:'じいじ'},{v:'じいじ ばあば',l:'じいじ ばあば'},
+    {v:'おばあちゃん',l:'おばあちゃん'},{v:'おじいちゃん',l:'おじいちゃん'},{v:'せんせい',l:'せんせい Teacher'},{v:'みんな',l:'みんな Everyone'}];
+  var DECO = [{id:'',l:'なし'},{id:'kadomatsu',l:'かどまつ'},{id:'kagamimochi',l:'かがみもち'},{id:'tako',l:'たこ'},
+    {id:'hagoita',l:'はごいた'},{id:'daruma',l:'だるま'},{id:'ume',l:'うめ'},{id:'shishimai',l:'ししまい'}];
+
+  var st = {bg:'bg-fuji', msg:MSGS[0], eto:'hitsuji', to:'', photo:null, deco:'kadomatsu', name:''};
+  var cv = document.getElementById('ngCv'), ctx = cv.getContext('2d');
+
+  /* 画像 */
+  var IMG = {};
+  function pic(id){
+    if (!IMG[id]){ IMG[id] = new Image(); IMG[id].onload = render; IMG[id].src = IMG_BASE + 'ng-' + id + '.webp'; }
+    return IMG[id];
+  }
+  function ready(im){ return im.complete && im.naturalWidth; }
+  function drawPic(id, cx, cy, h){
+    var im = pic(id); if (!ready(im)) return;
+    var w = h * im.naturalWidth / im.naturalHeight;
+    ctx.drawImage(im, cx - w/2, cy - h/2, w, h);
+  }
+
+  /* 描画の部品 */
+  function roundRect(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function hanko(text, cx, cy, size){
+    ctx.save(); ctx.fillStyle = '#c8312b';
+    roundRect(cx-size/2, cy-size/2, size, size, size*.12); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    if (text.length === 4){
+      ctx.font = 'bold '+(size*.36)+'px '+JPFONT;
+      ctx.fillText(text[0], cx+size*.21, cy-size*.2); ctx.fillText(text[1], cx+size*.21, cy+size*.2);
+      ctx.fillText(text[2], cx-size*.21, cy-size*.2); ctx.fillText(text[3], cx-size*.21, cy+size*.2);
+    } else {
+      ctx.font = 'bold '+(size*.4)+'px '+JPFONT;
+      ctx.fillText(text[0], cx, cy-size*.21); ctx.fillText(text[1], cx, cy+size*.22);
+    }
+    ctx.restore();
+  }
+  function outText(text, x, y, size, font, maxW){
+    var s = size;
+    do { ctx.font = 'bold '+s+'px '+font; s -= 4; } while (maxW && ctx.measureText(text).width > maxW && s > 24);
+    ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+    ctx.lineWidth = Math.max(8, s*.16); ctx.strokeStyle = 'rgba(255,255,255,.92)'; ctx.strokeText(text, x, y);
+    ctx.fillStyle = '#2b2b2b'; ctx.fillText(text, x, y); ctx.restore();
+  }
+  function drawPhoto(x, y, w, h, r){
+    var img = st.photo;
+    ctx.save(); roundRect(x,y,w,h,r); ctx.clip();
+    var s = Math.max(w/img.width, h/img.height);
+    ctx.drawImage(img, x+(w-img.width*s)/2, y+(h-img.height*s)/2, img.width*s, img.height*s);
+    ctx.restore();
+    ctx.lineWidth = 12; ctx.strokeStyle = '#fff'; roundRect(x,y,w,h,r); ctx.stroke();
+  }
+
+  /* カードを描く */
+  function render(){
+    var bg = pic(st.bg);
+    if (ready(bg)){ var s = Math.max(W/bg.naturalWidth, H/bg.naturalHeight); ctx.drawImage(bg, (W-bg.naturalWidth*s)/2, (H-bg.naturalHeight*s)/2, bg.naturalWidth*s, bg.naturalHeight*s); }
+    else { ctx.fillStyle = '#fff5e6'; ctx.fillRect(0,0,W,H); }
+
+    var topRight = !!(st.to || st.photo);
+    if (st.to) outText(st.to+' へ', 300, 150, 76, RNDFONT, 470);
+    if (topRight) hanko('謹賀新年', 830, 185, 230); else hanko('謹賀新年', W/2, 330, 300);
+
+    var y;
+    if (st.photo){
+      // はつもうでは、人がうつっている所を写真でかくす
+      var P = st.bg === 'bg-hatsumode' ? {x:40, y:600, w:920, h:400} : {x:110, y:330, w:780, h:540};
+      drawPhoto(P.x, P.y, P.w, P.h, 36);
+      y = P.y + P.h + 85;
+      drawPic(st.eto, 130, 1360, 190);
+    } else {
+      drawPic(st.eto, W/2, topRight ? 620 : 680, 360);
+      y = 950;
+    }
+    var first = st.msg === MSGS[0];
+    outText('あけまして おめでとう', W/2, y, 96, RNDFONT, W-160);
+    if (!first){ y += 102; outText(st.msg.ja, W/2, y, 80, RNDFONT, W-180); }
+    y += 70; outText(st.msg.ro, W/2, y, 40, RNDFONT, W-200);
+    y += 48; outText(st.msg.en, W/2, y, 40, RNDFONT, W-200);
+    if (!st.photo){ y += 92; outText(YEAR+'ねん がんたん', W/2, y, 54, JPFONT); }
+    if (st.name){ y += 92; outText(st.name+' より', W/2, y, 70, RNDFONT, W-480); }
+    if (st.deco) drawPic(st.deco, 870, 1320, 250);
+  }
+
+  /* ボタンを作る */
+  function chips(box, items, label, pick, onIndex){
+    items.forEach(function(it, i){
+      var b = document.createElement('button'); b.type = 'button';
+      b.className = 'ng-chip' + (i === onIndex ? ' on' : ''); b.innerHTML = label(it);
+      b.onclick = function(){ box.querySelectorAll('.ng-chip').forEach(function(c){ c.classList.remove('on'); }); b.classList.add('on'); pick(it); render(); };
+      box.appendChild(b);
+    });
+  }
+  function img(id){ return '<img src="'+IMG_BASE+'ng-'+id+'.webp" alt="" loading="lazy">'; }
+  var rom = document.getElementById('ngRomaji');
+  function showRom(){ rom.innerHTML = '<span class="ng-ja">'+st.msg.ja+'</span><br>'+st.msg.ro; }
+
+  chips(document.getElementById('ngBg'), BGS, function(b){ return img(b.id)+b.l; }, function(b){ st.bg = b.id; }, 0);
+  chips(document.getElementById('ngMsg'), MSGS, function(m){ return m.en+'<small>'+m.ja+'</small>'; }, function(m){ st.msg = m; showRom(); }, 0);
+  chips(document.getElementById('ngEto'), ETO, function(e){ return img(e.id)+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e.id; }, 7);
+  chips(document.getElementById('ngTo'), TO, function(t){ return t.l; }, function(t){ st.to = t.v; }, 0);
+  chips(document.getElementById('ngDeco'), DECO, function(d){ return (d.id ? img(d.id) : '')+'<small>'+d.l+'</small>'; }, function(d){ st.deco = d.id; }, 1);
+  document.getElementById('ngName').oninput = function(){ st.name = this.value.trim(); render(); };
+  var delBtn = document.getElementById('ngPhotoDel');
+  document.getElementById('ngPhoto').onchange = function(){
+    var f = this.files && this.files[0]; if (!f) return;
+    var im = new Image(); im.onload = function(){ st.photo = im; delBtn.hidden = false; render(); }; im.src = URL.createObjectURL(f);
+  };
+  delBtn.onclick = function(){ st.photo = null; delBtn.hidden = true; document.getElementById('ngPhoto').value = ''; render(); };
+
+  /* 保存・送る・印刷 */
+  var out = document.getElementById('ngOut'), msg = document.getElementById('ngOutMsg');
+  function track(method){ if (window.gtag) gtag('event', 'nengajo_make', {method: method, background: st.bg, animal: st.eto}); }
+  function btn(cls, text){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ng-btn '+cls; b.textContent = text; out.appendChild(b); return b; }
+  function link(cls, text, href){ var a = document.createElement('a'); a.className = 'ng-btn '+cls; a.textContent = text; a.href = href; a.target = '_blank'; a.rel = 'noopener'; out.appendChild(a); return a; }
+  function save(){ var a = document.createElement('a'); a.download = 'nengajo-'+YEAR+'.png'; a.href = cv.toDataURL('image/png'); a.click(); }
+
+  btn('', '💾 がぞうを ほぞん Save').onclick = function(){ save(); track('save'); msg.textContent = 'ほぞんしました！ Saved!'; };
+  btn('teal', '📨 おくる Send').onclick = function(){
+    cv.toBlob(function(b){
+      var file = new File([b], 'nengajo-'+YEAR+'.png', {type:'image/png'});
+      if (navigator.canShare && navigator.canShare({files:[file]})){
+        navigator.share({files:[file], text:(st.to ? st.to+' へ　' : '')+'あけまして おめでとう！'}).catch(function(){});
+        track('share');
+      } else { save(); track('save'); msg.textContent = 'がぞうを ほぞんしました。LINEなどで おくってね。 Saved — send it with your app.'; }
+    }, 'image/png');
+  };
+  btn('ghost', '🖨 いんさつ Print').onclick = function(){
+    var p = document.getElementById('ngPrint'); p.innerHTML = '<img src="'+cv.toDataURL('image/png')+'" alt="">';
+    track('print'); setTimeout(function(){ window.print(); }, 150);
+  };
+  link('line', 'LINEで しょうかい', 'https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(PAGE+'?utm_source=line&utm_medium=share&utm_campaign=nengajo'));
+  link('wa', 'WhatsApp', 'https://wa.me/?text='+encodeURIComponent('Make a Japanese New Year card! '+PAGE+'?utm_source=whatsapp&utm_medium=share&utm_campaign=nengajo'));
+
+  /* 先に画像を読みこむ */
+  BGS.forEach(function(b){ pic(b.id); }); pic(st.eto); pic(st.deco);
+  showRom(); render();
+})();
+</script>
+
+<section class="tjp-wrap">
+  <span class="tjp-eyebrow">FOR PARENTS</span>
+  <h2 class="tjp-title">保護者の方へ</h2>
+  <p class="tjp-lead">背景・ことば・干支・写真を選ぶだけで、日本の年賀状が作れます。英語を選ぶと日本語とローマ字が入るので、日本語を読み始めたばかりの子や、海外の学校の授業でも使えます。</p>
+  <ul class="tjp-points">
+    <li><strong>身につくこと</strong>お正月のあいさつと、日本の年賀状・干支の文化。自分の名前を入れて「日本語で書いた」体験になります。</li>
+    <li><strong>遊び方のコツ</strong>できた年賀状を、日本のおじいちゃん・おばあちゃんにLINEで送ってみてください。お返事が、次の日本語のきっかけになります。</li>
+    <li><strong>こんな子に</strong>日本の家族とつながりたい子、日本の文化にふれてほしい子に。写真は端末の中だけで使われ、どこにも送信されません。</li>
+  </ul>
+  <div class="tjp-cta-wrap">
+    <a class="tjp-cta" href="/waitlist/?utm_source=asonde&amp;utm_medium=nengajo&amp;utm_campaign=asonde-shiryou">📩 学校案内を受け取る（無料・1分）</a>
+    <p class="tjp-note">ともだちじゃぱんは、海外に住む子どもが日本の同世代と毎日日本語で話す、オンラインの学校です。</p>
+  </div>
+  <p class="tjp-more">ほかのゲームでも遊んでみよう<br><a href="/asonde-kanji-game/">漢字クイズ</a> <a href="/asonde-kotoba-quiz/">ことばクイズ</a> <a href="/asonde-nante-iu/">なんていう？クイズ</a> <a href="/asonde-nihon-bunka/">日本文化クイズ</a> <a href="/asonde/">あそんでみよう トップ</a></p>
+</section>
+<style>
+.tjp-wrap{max-width:720px;margin:40px auto 56px;padding:32px 28px 28px;background:#fff;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.08);font-family:inherit;color:#2b3b42;box-sizing:border-box}
+.tjp-wrap *{box-sizing:border-box}
+.tjp-eyebrow{display:block;text-align:center;font-size:11px;font-weight:700;letter-spacing:.12em;color:#f0655a;margin-bottom:6px}
+.tjp-title{background:none!important;border:none!important;padding:0!important;margin:0 0 14px!important;text-align:center;font-size:clamp(20px,3vw,24px)!important;font-weight:800;color:#2b3b42!important}
+.tjp-title::before,.tjp-title::after{display:none!important}
+.tjp-lead{font-size:14px;line-height:1.9;color:#586a70;margin:0 0 20px}
+.tjp-points{list-style:none!important;margin:0 0 24px!important;padding:0!important;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tjp-points li{margin:0!important;padding:14px!important;background:#eaf3f4;border-radius:12px;font-size:12px;line-height:1.7;color:#586a70}
+.tjp-points li::before{display:none!important}
+.tjp-points strong{display:block;font-size:14px;color:#2b3b42;margin-bottom:4px}
+.tjp-cta-wrap{text-align:center}
+.tjp-cta{display:inline-block;padding:14px 28px;border-radius:999px;background:#f0655a;color:#fff!important;font-size:15px;font-weight:800;text-decoration:none!important;box-shadow:0 6px 14px rgba(240,101,90,.35)}
+.tjp-note{margin:10px 0 0;font-size:12px;color:#586a70;text-align:center}
+.tjp-more{margin:24px 0 0;padding-top:18px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#586a70}
+.tjp-more a{display:inline-block;margin:4px 6px;padding:6px 12px;border-radius:999px;background:#fff5e1;color:#2b3b42!important;text-decoration:none!important;font-weight:700}
+.tjp-wrap .nw{display:inline-block}
+@media (max-width:640px){.tjp-wrap{margin:32px 16px 48px;padding:26px 18px 22px}.tjp-points{grid-template-columns:1fr}}
+</style>
