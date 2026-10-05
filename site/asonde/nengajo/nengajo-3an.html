@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>年賀状メーカー 3案</title>
+<style>
+:root{
+  --teal:#2d7694;--teal-dark:#1c5468;--coral:#f0655a;--coral-dark:#d94b41;
+  --sun:#ffc24b;--cream:#fff5e1;--tint:#eaf3f4;--ink:#2b3b42;--soft:#586a70;--red:#c8312b;
+  --disp:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--disp);background:#FDFBF7;color:var(--ink);padding:20px 14px 60px}
+.wrap{max-width:980px;margin:0 auto}
+h1{font-size:1.3rem;text-align:center;margin:0 0 6px}
+.lead{text-align:center;color:var(--soft);font-size:.9rem;margin:0 0 18px}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:2px solid var(--teal);background:#fff;color:var(--teal);border-radius:999px;padding:9px 16px;font:800 .92rem var(--disp);cursor:pointer}
+.tab.on{background:var(--teal);color:#fff}
+.plan{display:none}
+.plan.on{display:block}
+.plan-head{background:#fff;border-radius:18px;padding:14px 18px;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.plan-head b{color:var(--coral-dark)}
+.plan-head p{margin:4px 0 0;font-size:.86rem;color:var(--soft);line-height:1.7}
+.studio{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.studio{grid-template-columns:360px 1fr;align-items:start}}
+.preview{background:#fff;border-radius:18px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
+.preview canvas{width:100%;max-width:340px;height:auto;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);touch-action:none;background:#fff}
+.panel{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.step{margin-bottom:16px}
+.step h3{font-size:.95rem;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.step h3 .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;font-size:.8rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--tint);background:#fff;border-radius:12px;padding:8px 10px;font:700 .86rem var(--disp);color:var(--ink);cursor:pointer;line-height:1.3}
+.chip:hover{border-color:var(--teal)}
+.chip.on{border-color:var(--coral);background:#fff1ef}
+.chip small{display:block;font-weight:600;color:var(--soft);font-size:.72rem}
+.stamp{font-size:1.5rem;padding:6px 10px}
+.kstamp{color:#fff;background:var(--red);border-color:var(--red)}
+input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padding:10px 12px;font:700 1rem var(--disp)}
+.file{display:inline-block;border:2px dashed var(--teal);border-radius:12px;padding:10px 14px;color:var(--teal);font-weight:800;cursor:pointer}
+.file input{display:none}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.btn{text-decoration:none;display:inline-block;border:none;border-radius:999px;padding:12px 18px;font:800 .95rem var(--disp);cursor:pointer;color:#fff;background:var(--coral)}
+.btn.teal{background:var(--teal)}
+.btn.line{background:#06c755}
+.btn.wa{background:#25d366}
+.btn.ghost{background:#fff;color:var(--teal);border:2px solid var(--teal)}
+.hint{font-size:.78rem;color:var(--soft);margin:6px 0 0;line-height:1.6}
+.jp-big{font-size:1.15rem}
+.romaji{font-size:.72rem;color:var(--soft);font-weight:600}
+.msg{margin-top:8px;font-size:.82rem;color:var(--teal-dark);font-weight:700;min-height:1.2em}
+@media print{body *{visibility:hidden}#printImg,#printImg *{visibility:visible}#printImg{position:fixed;inset:0;display:block!important}#printImg img{width:100mm;height:148mm}}
+#printImg{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎍 年賀状メーカー（3つの案）</h1>
+  <p class="lead">上のボタンで案を切り替えて、実際にさわってみてください。どれも作った年賀状を画像で保存・送信できます。</p>
+  <div class="tabs">
+    <button class="tab on" data-plan="a">案A スタンプでぺたぺた</button>
+    <button class="tab" data-plan="b">案B じゅんばんに作る（授業向け）</button>
+    <button class="tab" data-plan="c">案C じいじばあばに送る</button>
+  </div>
+
+  <!-- 案A -->
+  <section class="plan on" id="plan-a">
+    <div class="plan-head"><b>案A：スタンプでぺたぺた</b>
+      <p>自由にスタンプやことばを置いて、指で動かせる。子どもが一人で遊べる「お絵かき」タイプ。いちばん楽しいけど、きれいに仕上げるのは子どもの腕しだい。</p></div>
+    <div class="studio">
+      <div class="preview"><canvas id="cvA" width="1000" height="1480"></canvas>
+        <p class="hint">スタンプは指（マウス）で動かせます。えらんだスタンプは「けす」で消せます。</p></div>
+      <div class="panel">
+        <div class="step"><h3><span class="n">1</span>はいけい</h3><div class="chips" data-bg="A"></div></div>
+        <div class="step"><h3><span class="n">2</span>ハンコ・スタンプ</h3><div class="chips" id="stampsA"></div></div>
+        <div class="step"><h3><span class="n">3</span>ことば（えいごから えらぶ）</h3><div class="chips" data-msg="A"></div></div>
+        <div class="step"><h3><span class="n">4</span>しゃしん</h3><label class="file">📷 しゃしんを いれる<input type="file" accept="image/*" data-photo="A"></label></div>
+        <div class="btns"><button class="btn ghost" id="delA">🗑 えらんだものを けす</button><button class="btn ghost" id="clearA">ぜんぶ けす</button></div>
+        <div class="btns" data-out="A"></div><div class="msg" data-msgout="A"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 案B -->
+  <section class="plan" id="plan-b">
+    <div class="plan-head"><b>案B：じゅんばんに作る（授業・印刷むけ）</b>
+      <p>1→5の順にえらぶだけで、だれでもきれいに完成。英語のことばを選ぶと日本語・ふりがな・ローマ字が出る。はがきサイズで印刷できるので、海外の先生がクラスで使える。英語ページにも出しやすい。</p></div>
+    <div class="studio">
+      <div class="preview"><canvas id="cvB" width="1000" height="1480"></canvas></div>
+      <div class="panel">
+        <div class="step"><h3><span class="n">1</span>Background / はいけい</h3><div class="chips" data-bg="B"></div></div>
+        <div class="step"><h3><span class="n">2</span>Choose a message / ことば</h3><div class="chips" data-msg="B"></div>
+          <p class="hint" id="romajiB"></p></div>
+        <div class="step"><h3><span class="n">3</span>Your name / なまえ</h3><input type="text" id="nameB" placeholder="Emma / えま" maxlength="14"></div>
+        <div class="step"><h3><span class="n">4</span>Animal of the year / ことしの どうぶつ</h3><div class="chips" id="eto"></div>
+          <p class="hint">2027年は「ひつじ（未）」の年です。</p></div>
+        <div class="step"><h3><span class="n">5</span>Save &amp; Print / ほぞん・いんさつ</h3>
+          <div class="btns" data-out="B"><button class="btn teal" id="printB">🖨 Print (postcard size)</button></div>
+          <div class="msg" data-msgout="B"></div>
+          <p class="hint">🍎 For teachers: free to use in your classroom.（授業で自由に使えます）</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 案C -->
+  <section class="plan" id="plan-c">
+    <div class="plan-head"><b>案C：じいじばあばに送る</b>
+      <p>写真がまんなかの「家族あて」年賀状。あて先をえらぶと「ばあばへ」のように入る。スマホならLINE・WhatsAppでそのまま画像を送れる。国際結婚・海外在住の家族に一番刺さりやすい形。</p></div>
+    <div class="studio">
+      <div class="preview"><canvas id="cvC" width="1000" height="1480"></canvas></div>
+      <div class="panel">
+        <div class="step"><h3><span class="n">1</span>だれに おくる？</h3><div class="chips" id="toC"></div></div>
+        <div class="step"><h3><span class="n">2</span>しゃしん</h3><label class="file">📷 かぞくの しゃしんを いれる<input type="file" accept="image/*" data-photo="C"></label></div>
+        <div class="step"><h3><span class="n">3</span>ことば</h3><div class="chips" data-msg="C"></div></div>
+        <div class="step"><h3><span class="n">4</span>なまえ</h3><input type="text" id="nameC" placeholder="ゆうと" maxlength="14"></div>
+        <div class="step"><h3><span class="n">5</span>はいけい</h3><div class="chips" data-bg="C"></div></div>
+        <div class="btns" data-out="C"></div><div class="msg" data-msgout="C"></div>
+        <p class="hint">スマホでは「おくる」を押すと、LINEやWhatsAppに画像をそのまま送れます。パソコンでは画像を保存してから送ってください。</p>
+      </div>
+    </div>
+  </section>
+</div>
+<div id="printImg"></div>
+
+<script>
+(function(){
+  var W = 1000, H = 1480, YEAR = 2027;
+  var JPFONT = '"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","IPAMincho",serif';
+  var RNDFONT = '"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif';
+
+  var BGS = [
+    {id:'fuji', label:'🗻 ふじさん'},
+    {id:'washi', label:'🎴 わがら'},
+    {id:'snow', label:'❄️ ゆきの よる'}
+  ];
+  var MSGS = [
+    {en:'Happy New Year!', ja:'あけまして おめでとう', ro:'akemashite omedetou'},
+    {en:'Thank you for last year', ja:'きょねんは ありがとう', ro:'kyonen wa arigatou'},
+    {en:'Let’s be friends this year too', ja:'ことしも なかよくしてね', ro:'kotoshi mo nakayoku shite ne'},
+    {en:'Let’s play together', ja:'いっしょに あそぼうね', ro:'issho ni asobou ne'},
+    {en:'Stay healthy', ja:'げんきで いてね', ro:'genki de ite ne'},
+    {en:'See you soon', ja:'また あおうね', ro:'mata aou ne'},
+    {en:'I love you', ja:'だいすき', ro:'daisuki'}
+  ];
+  var KSTAMPS = ['謹賀新年','賀正','寿','福'];
+  var ESTAMPS = ['🐑','🎍','🌅','🗻','⛩️','🪁','🎎','🍡','🌸','⭐'];
+  var ETO = [{e:'🐑',l:'ひつじ Sheep 2027'},{e:'🐴',l:'うま Horse 2026'},{e:'🐵',l:'さる Monkey 2028'}];
+  var TO = [{v:'ばあば',l:'ばあば'},{v:'じいじ',l:'じいじ'},{v:'じいじ ばあば',l:'じいじ ばあば'},{v:'おばあちゃん',l:'おばあちゃん'},{v:'おじいちゃん',l:'おじいちゃん'},{v:'みんな',l:'みんな'}];
+
+  /* ---------- 描画（共通） ---------- */
+  function drawBg(ctx, id){
+    if (id === 'fuji'){
+      var g = ctx.createLinearGradient(0,0,0,H);
+      g.addColorStop(0,'#fde3c4'); g.addColorStop(.45,'#fff4e6'); g.addColorStop(1,'#e8f3f6');
+      ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle = '#e8483f'; ctx.beginPath(); ctx.arc(720,330,120,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#5c7f99';
+      ctx.beginPath(); ctx.moveTo(-40,H-260); ctx.lineTo(380,820); ctx.lineTo(620,820); ctx.lineTo(1040,H-260); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath(); ctx.moveTo(380,820); ctx.lineTo(620,820); ctx.lineTo(700,930); ctx.lineTo(640,905); ctx.lineTo(590,950); ctx.lineTo(540,905); ctx.lineTo(480,955); ctx.lineTo(430,905); ctx.lineTo(300,930); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,.85)';
+      [[160,520,70],[240,500,90],[330,525,60],[780,640,60],[860,620,80]].forEach(function(c){ctx.beginPath();ctx.arc(c[0],c[1],c[2],0,Math.PI*2);ctx.fill();});
+      ctx.fillStyle = '#3f6a52'; ctx.fillRect(0,H-260,W,260);
+    } else if (id === 'washi'){
+      ctx.fillStyle = '#fbf3e4'; ctx.fillRect(0,0,W,H);
+      for (var y=-60; y<H+120; y+=90){
+        for (var x=-60; x<W+120; x+=120){
+          var ox = (Math.round(y/90)%2) ? 60 : 0;
+          for (var r=60; r>0; r-=15){
+            ctx.strokeStyle = r%30 ? 'rgba(200,49,43,.18)' : 'rgba(212,166,60,.28)';
+            ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(x+ox,y,r,Math.PI,Math.PI*2); ctx.stroke();
+          }
+        }
+      }
+      ctx.fillStyle = 'rgba(251,243,228,.86)'; ctx.fillRect(60,60,W-120,H-120);
+      ctx.strokeStyle = '#c8312b'; ctx.lineWidth = 8; ctx.strokeRect(80,80,W-160,H-160);
+    } else {
+      var g2 = ctx.createLinearGradient(0,0,0,H);
+      g2.addColorStop(0,'#1d2c4f'); g2.addColorStop(1,'#3d5a8a');
+      ctx.fillStyle = g2; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle = '#fff7d6'; ctx.beginPath(); ctx.arc(780,260,90,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#fff';
+      for (var i=0;i<140;i++){ var sx=(i*137)%W, sy=(i*251)%H, sr=3+(i%4)*2; ctx.globalAlpha=.75; ctx.beginPath(); ctx.arc(sx,sy,sr,0,Math.PI*2); ctx.fill(); }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = '#eef4fb'; ctx.beginPath(); ctx.ellipse(W/2,H+120,W,240,0,0,Math.PI*2); ctx.fill();
+    }
+  }
+  function outText(ctx, bg, text, x, y){
+    ctx.save(); ctx.lineJoin = 'round'; ctx.lineWidth = 14;
+    ctx.strokeStyle = bg === 'snow' ? 'rgba(0,0,0,.3)' : 'rgba(255,255,255,.92)';
+    ctx.strokeText(text, x, y); ctx.fillStyle = textColor(bg); ctx.fillText(text, x, y); ctx.restore();
+  }
+  function textColor(bg){ return bg === 'snow' ? '#ffffff' : '#2b2b2b'; }
+
+  function drawPhoto(ctx, img, x, y, w, h, r){
+    if (!img) return;
+    ctx.save();
+    roundRect(ctx,x,y,w,h,r); ctx.clip();
+    var s = Math.max(w/img.width, h/img.height);
+    var iw = img.width*s, ih = img.height*s;
+    ctx.drawImage(img, x+(w-iw)/2, y+(h-ih)/2, iw, ih);
+    ctx.restore();
+    ctx.lineWidth = 12; ctx.strokeStyle = '#fff'; roundRect(ctx,x,y,w,h,r); ctx.stroke();
+  }
+  function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+
+  function drawKStamp(ctx, text, cx, cy, size){
+    ctx.save();
+    ctx.fillStyle = '#c8312b';
+    if (text.length === 1){ ctx.beginPath(); ctx.arc(cx,cy,size/2,0,Math.PI*2); ctx.fill(); }
+    else { roundRect(ctx,cx-size/2,cy-size/2,size,size,size*.12); ctx.fill(); }
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    if (text.length === 4){
+      ctx.font = 'bold '+(size*.36)+'px '+JPFONT;
+      ctx.fillText(text[0], cx+size*.21, cy-size*.2); ctx.fillText(text[1], cx+size*.21, cy+size*.2);
+      ctx.fillText(text[2], cx-size*.21, cy-size*.2); ctx.fillText(text[3], cx-size*.21, cy+size*.2);
+    } else if (text.length === 2){
+      ctx.font = 'bold '+(size*.4)+'px '+JPFONT;
+      ctx.fillText(text[0], cx, cy-size*.21); ctx.fillText(text[1], cx, cy+size*.22);
+    } else {
+      ctx.font = 'bold '+(size*.62)+'px '+JPFONT; ctx.fillText(text, cx, cy+size*.03);
+    }
+    ctx.restore();
+  }
+
+  function fitText(ctx, text, maxW, size, font, weight){
+    var s = size;
+    do { ctx.font = (weight||'bold')+' '+s+'px '+font; s -= 4; } while (ctx.measureText(text).width > maxW && s > 24);
+  }
+
+  function loadPhoto(input, cb){
+    var f = input.files && input.files[0]; if (!f) return;
+    var url = URL.createObjectURL(f), img = new Image();
+    img.onload = function(){ cb(img); }; img.src = url;
+  }
+
+  /* ---------- 書き出し（保存・送る・印刷） ---------- */
+  function outButtons(key, canvas, getText){
+    var box = document.querySelector('[data-out="'+key+'"]');
+    var msg = document.querySelector('[data-msgout="'+key+'"]');
+    function blob(cb){ canvas.toBlob(cb, 'image/png'); }
+    var save = el('button','btn','💾 がぞうを ほぞん');
+    save.onclick = function(){ var a = document.createElement('a'); a.download = 'nengajo-'+YEAR+'.png'; a.href = canvas.toDataURL('image/png'); a.click(); msg.textContent = 'ほぞんしました！'; };
+    var send = el('button','btn teal','📨 おくる');
+    send.onclick = function(){
+      blob(function(b){
+        var file = new File([b], 'nengajo-'+YEAR+'.png', {type:'image/png'});
+        if (navigator.canShare && navigator.canShare({files:[file]})){
+          navigator.share({files:[file], text:getText()}).catch(function(){});
+        } else { save.click(); msg.textContent = 'このきかいでは そのまま おくれないので、がぞうを ほぞんしました。LINEなどで おくってね。'; }
+      });
+    };
+    var page = 'https://tomodachi-japan.nijin.co.jp/asonde-nengajo/';
+    var line = el('a','btn line','LINEで しょうかい'); line.href = 'https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(page); line.target = '_blank'; line.rel = 'noopener';
+    var wa = el('a','btn wa','WhatsApp'); wa.href = 'https://wa.me/?text='+encodeURIComponent('Make a Japanese New Year card! '+page); wa.target = '_blank'; wa.rel = 'noopener';
+    box.appendChild(save); box.appendChild(send); box.appendChild(line); box.appendChild(wa);
+  }
+  function el(tag, cls, text){ var e = document.createElement(tag); e.className = cls; e.textContent = text; return e; }
+
+  function chipList(container, items, label, onPick, firstOn){
+    items.forEach(function(it, i){
+      var b = document.createElement('button'); b.className = 'chip' + (firstOn && i === 0 ? ' on' : '');
+      b.innerHTML = label(it);
+      b.onclick = function(){ container.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('on'); }); b.classList.add('on'); onPick(it); };
+      container.appendChild(b);
+    });
+  }
+  function msgLabel(m){ return m.en + '<small>' + m.ja + '</small>'; }
+
+  /* ---------- 案A：自由配置 ---------- */
+  (function(){
+    var cv = document.getElementById('cvA'), ctx = cv.getContext('2d');
+    var st = {bg:'fuji', photo:null, items:[], sel:-1};
+    st.items.push({t:'k', v:'謹賀新年', x:780, y:200, s:260});
+    st.items.push({t:'e', v:'🐑', x:250, y:1130, s:220});
+    function render(){
+      drawBg(ctx, st.bg);
+      if (st.photo) drawPhoto(ctx, st.photo, 200, 420, 600, 450, 30);
+      st.items.forEach(function(it, i){
+        if (it.t === 'k') drawKStamp(ctx, it.v, it.x, it.y, it.s);
+        else if (it.t === 'e'){ ctx.font = it.s+'px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(it.v, it.x, it.y); }
+        else { fitText(ctx, it.v, W-120, it.s, RNDFONT); ctx.fillStyle = textColor(st.bg); ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.lineWidth = 14; ctx.strokeStyle = st.bg==='snow' ? 'rgba(0,0,0,.25)' : 'rgba(255,255,255,.9)'; ctx.strokeText(it.v, it.x, it.y); ctx.fillText(it.v, it.x, it.y); }
+        if (i === st.sel){ ctx.save(); ctx.setLineDash([16,10]); ctx.lineWidth = 5; ctx.strokeStyle = '#f0655a'; var hw = it.t==='m' ? (W-140)/2 : it.s/2+12; var hh = it.t==='m' ? it.s/2+14 : it.s/2+12; ctx.strokeRect(it.x-hw, it.y-hh, hw*2, hh*2); ctx.restore(); }
+      });
+    }
+    chipList(document.querySelector('[data-bg="A"]'), BGS, function(b){ return b.label; }, function(b){ st.bg = b.id; render(); }, true);
+    var sb = document.getElementById('stampsA');
+    KSTAMPS.forEach(function(k){ var b = el('button','chip kstamp',k); b.onclick = function(){ st.items.push({t:'k',v:k,x:W/2,y:H/2,s:k.length===4?240:180}); st.sel = st.items.length-1; render(); }; sb.appendChild(b); });
+    ESTAMPS.forEach(function(e){ var b = el('button','chip stamp',e); b.onclick = function(){ st.items.push({t:'e',v:e,x:W/2,y:H/2,s:180}); st.sel = st.items.length-1; render(); }; sb.appendChild(b); });
+    chipList(document.querySelector('[data-msg="A"]'), MSGS, msgLabel, function(m){ st.items.push({t:'m',v:m.ja,x:W/2,y:1000,s:96}); st.sel = st.items.length-1; render(); }, false);
+    document.querySelector('[data-photo="A"]').onchange = function(){ loadPhoto(this, function(img){ st.photo = img; render(); }); };
+    document.getElementById('delA').onclick = function(){ if (st.sel >= 0){ st.items.splice(st.sel,1); st.sel = -1; render(); } };
+    document.getElementById('clearA').onclick = function(){ st.items = []; st.photo = null; st.sel = -1; render(); };
+    // ドラッグ
+    var drag = null;
+    function pos(e){ var r = cv.getBoundingClientRect(); return {x:(e.clientX-r.left)*W/r.width, y:(e.clientY-r.top)*H/r.height}; }
+    cv.addEventListener('pointerdown', function(e){
+      var p = pos(e); st.sel = -1;
+      for (var i = st.items.length-1; i >= 0; i--){ var it = st.items[i]; var hw = it.t==='m' ? (W-140)/2 : it.s/2; var hh = it.s/2;
+        if (Math.abs(p.x-it.x) < hw && Math.abs(p.y-it.y) < hh){ st.sel = i; drag = {dx:p.x-it.x, dy:p.y-it.y}; cv.setPointerCapture(e.pointerId); break; } }
+      render();
+    });
+    cv.addEventListener('pointermove', function(e){ if (!drag || st.sel < 0) return; var p = pos(e); st.items[st.sel].x = p.x-drag.dx; st.items[st.sel].y = p.y-drag.dy; render(); });
+    cv.addEventListener('pointerup', function(){ drag = null; });
+    outButtons('A', {toBlob:function(cb){ var s = st.sel; st.sel = -1; render(); cv.toBlob(function(b){ st.sel = s; render(); cb(b); }); }, toDataURL:function(){ var s = st.sel; st.sel = -1; render(); var u = cv.toDataURL('image/png'); st.sel = s; render(); return u; }}, function(){ return 'あけまして おめでとう！'; });
+    render();
+  })();
+
+  /* ---------- 案B：ステップ式（授業・印刷） ---------- */
+  (function(){
+    var cv = document.getElementById('cvB'), ctx = cv.getContext('2d');
+    var st = {bg:'washi', msg:MSGS[0], name:'', eto:'🐑'};
+    function render(){
+      drawBg(ctx, st.bg);
+      var col = textColor(st.bg);
+      drawKStamp(ctx, '謹賀新年', W/2, 330, 300);
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = '260px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.fillText(st.eto, W/2, 700);
+      fitText(ctx, st.msg.ja, W-200, 104, RNDFONT); outText(ctx, st.bg, st.msg.ja, W/2, 980); ctx.fillStyle = col;
+      ctx.font = '600 44px '+RNDFONT; ctx.globalAlpha = .8; ctx.fillText(st.msg.ro, W/2, 1065); ctx.fillText(st.msg.en, W/2, 1125); ctx.globalAlpha = 1;
+      ctx.font = 'bold 56px '+JPFONT; ctx.fillText(YEAR+'ねん がんたん', W/2, 1230);
+      if (st.name){ fitText(ctx, st.name+' より', W-200, 72, RNDFONT); ctx.fillText(st.name+' より', W/2, 1320); }
+    }
+    chipList(document.querySelector('[data-bg="B"]'), BGS, function(b){ return b.label; }, function(b){ st.bg = b.id; render(); }, false);
+    document.querySelector('[data-bg="B"] .chip:nth-child(2)').classList.add('on');
+    var rom = document.getElementById('romajiB');
+    function showRom(){ rom.innerHTML = '<span class="jp-big">'+st.msg.ja+'</span><br><span class="romaji">'+st.msg.ro+'</span>'; }
+    chipList(document.querySelector('[data-msg="B"]'), MSGS, msgLabel, function(m){ st.msg = m; showRom(); render(); }, true);
+    chipList(document.getElementById('eto'), ETO, function(e){ return e.e+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e.e; render(); }, true);
+    document.getElementById('nameB').oninput = function(){ st.name = this.value.trim(); render(); };
+    document.getElementById('printB').onclick = function(){ var p = document.getElementById('printImg'); p.innerHTML = '<img src="'+cv.toDataURL('image/png')+'">'; setTimeout(function(){ window.print(); }, 100); };
+    outButtons('B', cv, function(){ return st.msg.ja; });
+    showRom(); render();
+  })();
+
+  /* ---------- 案C：家族に送る ---------- */
+  (function(){
+    var cv = document.getElementById('cvC'), ctx = cv.getContext('2d');
+    var st = {bg:'fuji', to:'ばあば', msg:MSGS[6], name:'', photo:null};
+    function render(){
+      drawBg(ctx, st.bg);
+      var col = textColor(st.bg);
+      ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillStyle = col;
+      ctx.font = 'bold 76px '+RNDFONT; outText(ctx, st.bg, st.to+' へ', 90, 150);
+      drawKStamp(ctx, '賀正', 870, 160, 170);
+      if (st.photo) drawPhoto(ctx, st.photo, 110, 260, 780, 600, 36);
+      else { ctx.save(); ctx.fillStyle = 'rgba(255,255,255,.7)'; roundRect(ctx,110,260,780,600,36); ctx.fill(); ctx.setLineDash([18,12]); ctx.lineWidth = 6; ctx.strokeStyle = '#2d7694'; ctx.stroke(); ctx.restore();
+        ctx.fillStyle = '#2d7694'; ctx.textAlign = 'center'; ctx.font = 'bold 52px '+RNDFONT; ctx.fillText('📷 ここに しゃしん', W/2, 560); }
+      ctx.textAlign = 'center'; ctx.fillStyle = col;
+      ctx.font = 'bold 84px '+RNDFONT; outText(ctx, st.bg, 'あけまして おめでとう', W/2, 990);
+      fitText(ctx, st.msg.ja, W-200, 92, RNDFONT); outText(ctx, st.bg, st.msg.ja, W/2, 1110);
+      if (st.name){ fitText(ctx, st.name+' より', W-200, 70, RNDFONT); outText(ctx, st.bg, st.name+' より', W/2, 1240); }
+      ctx.font = '120px "Noto Color Emoji","Apple Color Emoji",sans-serif'; ctx.fillText('🐑', 140, 1330);
+    }
+    chipList(document.getElementById('toC'), TO, function(t){ return t.l; }, function(t){ st.to = t.v; render(); }, true);
+    chipList(document.querySelector('[data-msg="C"]'), MSGS.slice(1), msgLabel, function(m){ st.msg = m; render(); }, false);
+    document.querySelectorAll('[data-msg="C"] .chip')[5].classList.add('on');
+    chipList(document.querySelector('[data-bg="C"]'), BGS, function(b){ return b.label; }, function(b){ st.bg = b.id; render(); }, true);
+    document.querySelector('[data-photo="C"]').onchange = function(){ loadPhoto(this, function(img){ st.photo = img; render(); }); };
+    document.getElementById('nameC').oninput = function(){ st.name = this.value.trim(); render(); };
+    outButtons('C', cv, function(){ return st.to+' へ　あけまして おめでとう！'; });
+    render();
+  })();
+
+  /* タブ切り替え */
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.onclick = function(){
+      document.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on', x === t); });
+      document.querySelectorAll('.plan').forEach(function(p){ p.classList.toggle('on', p.id === 'plan-'+t.dataset.plan); });
+    };
+  });
+})();
+</script>
+</body>
+</html>
