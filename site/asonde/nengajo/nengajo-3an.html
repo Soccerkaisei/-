@@ -134,7 +134,9 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
 
   var BGS = [
     {id:'fuji', label:'ふじさんと はつひので', img:'bg-fuji'},
-    {id:'washi', label:'うめと きんの わがら', img:'bg-washi'}
+    {id:'washi', label:'うめと きんの わがら', img:'bg-washi'},
+    {id:'byobu', label:'きんの びょうぶと うぐいす', img:'bg-byobu'},
+    {id:'hatsumode', label:'はつもうで', img:'bg-hatsumode'}
   ];
   var MSGS = [
     {en:'Happy New Year!', ja:'あけまして おめでとう', ro:'akemashite omedetou'},
@@ -374,13 +376,15 @@ input[type=text]{width:100%;border:2px solid var(--tint);border-radius:12px;padd
       ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillStyle = col;
       ctx.font = 'bold 76px '+RNDFONT; outText(ctx, st.bg, st.to+' へ', 90, 150);
       drawKStamp(ctx, '賀正', 870, 160, 170);
-      if (st.photo) drawPhoto(ctx, st.photo, 110, 260, 780, 600, 36);
-      else { ctx.save(); ctx.fillStyle = 'rgba(255,255,255,.7)'; roundRect(ctx,110,260,780,600,36); ctx.fill(); ctx.setLineDash([18,12]); ctx.lineWidth = 6; ctx.strokeStyle = '#2d7694'; ctx.stroke(); ctx.restore();
-        ctx.fillStyle = '#2d7694'; ctx.textAlign = 'center'; ctx.font = 'bold 52px '+RNDFONT; ctx.fillText('📷 ここに しゃしん', W/2, 560); }
+      // 背景ごとの配置（はつもうでは、人がうつっている所を写真でかくす）
+      var L = st.bg === 'hatsumode' ? {px:40, py:600, pw:920, ph:440, ty:1140} : {px:110, py:260, pw:780, ph:600, ty:990};
+      if (st.photo) drawPhoto(ctx, st.photo, L.px, L.py, L.pw, L.ph, 36);
+      else { ctx.save(); ctx.fillStyle = 'rgba(255,255,255,.7)'; roundRect(ctx,L.px,L.py,L.pw,L.ph,36); ctx.fill(); ctx.setLineDash([18,12]); ctx.lineWidth = 6; ctx.strokeStyle = '#2d7694'; ctx.stroke(); ctx.restore();
+        ctx.fillStyle = '#2d7694'; ctx.textAlign = 'center'; ctx.font = 'bold 52px '+RNDFONT; ctx.fillText('📷 ここに しゃしん', W/2, L.py + L.ph/2); }
       ctx.textAlign = 'center'; ctx.fillStyle = col;
-      ctx.font = 'bold 84px '+RNDFONT; outText(ctx, st.bg, 'あけまして おめでとう', W/2, 990);
-      fitText(ctx, st.msg.ja, W-200, 92, RNDFONT); outText(ctx, st.bg, st.msg.ja, W/2, 1110);
-      if (st.name){ fitText(ctx, st.name+' より', W-200, 70, RNDFONT); outText(ctx, st.bg, st.name+' より', W/2, 1240); }
+      ctx.font = 'bold 84px '+RNDFONT; outText(ctx, st.bg, 'あけまして おめでとう', W/2, L.ty);
+      fitText(ctx, st.msg.ja, W-200, 92, RNDFONT); outText(ctx, st.bg, st.msg.ja, W/2, L.ty + 115);
+      if (st.name){ fitText(ctx, st.name+' より', W-360, 70, RNDFONT); outText(ctx, st.bg, st.name+' より', W/2, L.ty + (L.ty > 1000 ? 225 : 250)); }
       drawPic(ctx, 'hitsuji', 150, 1320, 230); drawPic(ctx, 'kadomatsu', 870, 1300, 270);
     }
     chipList(document.getElementById('toC'), TO, function(t){ return t.l; }, function(t){ st.to = t.v; render(); }, true);
