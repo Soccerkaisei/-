@@ -1,3 +1,55 @@
+<style>
+.nj-article{font-family:"Yu Gothic","Meiryo",sans-serif;line-height:1.95;color:#333;}
+.nj-article h2{font-size:22px;background:#e8630f;color:#fff;padding:9px 15px;border-radius:6px;margin-top:44px;}
+.nj-article h3{font-size:18px;color:#e8630f;border-left:5px solid #c9a227;padding-left:10px;margin-top:30px;}
+.nj-article .lead{font-size:16px;background:#fff3e9;padding:18px 20px;border-radius:8px;border:1px solid #f7ddc4;}
+.nj-article .lead .big{font-size:19px;font-weight:bold;color:#e8630f;display:block;margin-bottom:10px;}
+.nj-article .toc{background:#f2f2f2;border-radius:8px;padding:16px 22px;margin:22px 0;}
+.nj-article .toc ol{margin:6px 0 0;padding-left:22px;}
+.nj-article .toc li{margin:4px 0;}
+.nj-article .data{background:#ffedde;border-left:4px solid #e8630f;border-radius:4px;padding:12px 16px;margin:18px 0;font-size:15px;}
+.nj-article .data .num{font-size:20px;font-weight:bold;color:#e8630f;}
+.nj-article .point{background:#fbf7ea;border:1px solid #e6d9a8;border-radius:8px;padding:14px 18px;margin:18px 0;}
+.nj-article .point b{color:#a5801a;}
+.nj-article .src{font-size:12px;color:#777;margin:6px 0 0;}
+.nj-article .src a{color:#c2530e;}
+.nj-article a{color:#c2530e;}
+.nj-article table.cmp{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px;}
+.nj-article table.cmp th,.nj-article table.cmp td{border:1px solid #f5d6b8;padding:9px 11px;text-align:left;vertical-align:top;}
+.nj-article table.cmp th{background:#e8630f;color:#fff;}
+.nj-article table.cmp tr:nth-child(even) td{background:#fff3e9;}
+.nj-article .cta{position:relative;overflow:hidden;background:linear-gradient(135deg,#e8630f,#b34d0c);background-size:cover;background-position:center;color:#fff;border-radius:18px;padding:56px 28px;text-align:center;margin:44px 0;box-shadow:0 14px 34px rgba(190,90,10,.28);}
+.nj-article .cta::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(220,110,15,.90),rgba(170,80,10,.82)),radial-gradient(circle at 88% 12%,rgba(201,162,39,.25),transparent 55%);pointer-events:none;}
+.nj-article .cta__eyebrow{position:relative;z-index:2;display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(244,228,184,.55);color:#f4e4b8;font-size:12px;font-weight:bold;letter-spacing:.05em;padding:5px 16px;border-radius:30px;margin-bottom:16px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.nj-article .cta p{position:relative;z-index:2;margin:0;font-size:16px;line-height:1.9;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+.nj-article .cta a{position:relative;z-index:2;display:inline-block;background:linear-gradient(135deg,#dab748,#c9a227);color:#fff;text-decoration:none;font-weight:bold;padding:15px 34px;border-radius:30px;margin-top:20px;box-shadow:0 10px 24px rgba(150,70,10,.35);}
+.nj-article .cta a::after{content:"  →";}
+.nj-article .cta--soft{background:#fff3e9;color:#e8630f;padding:26px 24px;box-shadow:none;border:1px solid #f7ddc4;}
+.nj-article .cta--soft::before{display:none;}
+.nj-article .cta--soft .cta__eyebrow{background:#ffedde;border-color:#e8c9c7;color:#e8630f;text-shadow:none;}
+.nj-article .cta--soft p{text-shadow:none;font-size:15px;color:#444;}
+.nj-article .cta--soft a{background:#e8630f;box-shadow:none;}
+.nj-article .relhead{font-size:15px;font-weight:bold;color:#e8630f;margin-top:36px;}
+.nj-article ul{padding-left:22px;}
+.nj-article ul li{margin:4px 0;}
+.nj-article .relcard{display:flex;gap:16px;border:1px solid #f7ddc4;border-radius:10px;overflow:hidden;margin:14px 0;text-decoration:none;color:#333;}
+.nj-article .relcard:hover{opacity:0.85;}
+.nj-article .relcard__thumb{flex:0 0 120px;width:120px;height:120px;overflow:hidden;background:#eee;}
+.nj-article .relcard__thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.nj-article .relcard__body{padding:10px 14px 10px 0;flex:1;min-width:0;}
+.nj-article .relcard__title{font-size:14px;font-weight:bold;color:#e8630f;display:block;margin-bottom:4px;line-height:1.5;}
+.nj-article .relcard__excerpt{font-size:12px;color:#666;display:block;line-height:1.6;}
+.nj-article figure.ph{margin:22px 0;}
+.nj-article figure.ph img{width:100%;height:auto;border-radius:8px;display:block;}
+.nj-article figure.ph figcaption{font-size:13px;color:#666;margin-top:6px;text-align:center;}
+.nj-article .faq{border:1px solid #f7ddc4;border-radius:8px;padding:14px 18px;margin:14px 0;}
+.nj-article .faq .q{font-weight:bold;color:#e8630f;margin:0 0 6px;}
+.nj-article .faq .q::before{content:"Q. ";color:#c9a227;}
+.nj-article .faq .a{margin:0;}
+.nj-article .faq .a::before{content:"A. ";font-weight:bold;color:#a5801a;}
+.nj-article .footnote{font-size:12px;color:#888;border-top:1px solid #f7ddc4;margin-top:40px;padding-top:16px;}
+.nj-article .footnote li{margin:3px 0;}
+</style>
 <article class="nj-article">
 
 <p class="lead"><span class="big">「神奈川 教員 転職」と検索しているあなたへ、最初に伝えたいことがあります。今つらいのは、あなたが教員に向いていないからではないかもしれません。神奈川県民の通勤時間は、実は東京都民よりも長いのです。さらに、横浜・川崎の一部では中学受験が当たり前の地域もあります。この記事では、神奈川の先生が抱える負担をデータで整理します。そのうえで、2つの道を正直に比べます。異業種に移る道と、子どもと関わることは変えずに働き方を変える道です。</span></p>

@@ -1,6 +1,8 @@
 # 都道府県別「教員 転職」記事
 
-各フォルダの `*-body.html` は WordPress 投稿本文に貼る body-only 版（`<style>` なし。CSS は追加CSSの `nj-article-global.css` を使用）。
+各フォルダの `*-body.html` は WordPress 投稿本文にそのまま貼る版（先頭に `<style>` を含む）。
+
+※ 2026年10月時点で、サイトの「追加CSS」に `.nj-article` のスタイルは登録されていない（東京記事も本文内の `<style>` で表示している）。`nj-article-global.css` を「追加CSS」に登録すれば、各記事の `<style>` は削除してよい。
 
 ## 投稿スケジュール
 
