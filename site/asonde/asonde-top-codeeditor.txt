@@ -1,0 +1,97 @@
+<!-- wp:html -->
+<style>.l-header__bar,.p-breadcrumb,.p-fixBtnWrap,.l-page__mv{display:none!important}</style>
+<style>.l-page,.l-container,.l-content,.p-postBody,.l-mainCol{padding-top:0!important;margin-top:0!important}</style>
+<div class="tjg-page">
+  <div class="tjg-blob tjg-blob-1"></div>
+  <div class="tjg-blob tjg-blob-2"></div>
+  <div class="tjg-blob tjg-blob-3"></div>
+  <div class="tjg-storyhero">
+    <div class="tjg-storyhero-overlay"></div>
+    <div class="tjg-storyhero-inner">
+      <span class="tjg-storyhero-eyebrow">PLAY &amp; LEARN</span>
+      <h1 class="tjg-storyhero-title">日本語の勉強は、<br>まるで<span class="hl">あそび</span>だった。</h1>
+      <p class="tjg-storyhero-desc"><span class="nw">机に向かう勉強が</span><span class="nw">苦手な子も、</span><span class="nw">クイズなら夢中になれる。</span><br class="pc"><span class="nw">ゲームで遊びながら、</span><span class="nw">日本語と日本文化を</span><span class="nw">自然に身につけよう。</span></p>
+    </div>
+  </div>
+  <div class="tjg-hero">
+    <h2 class="tjg-heading">ゲームで遊びながら<br>日本語を覚えよう！</h2>
+  </div>
+  <div class="tjg-grid">
+    <a class="tjg-card" href="/asonde-nengajo/" style="position:relative;">
+      <span style="position:absolute;top:10px;left:10px;z-index:2;background:#c8312b;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;">NEW</span>
+      <div class="tjg-photo">
+        <img decoding="async" src="/wp-content/uploads/2026/10/ng-card.webp" alt="年賀状メーカー｜子どもが作れる日本の年賀状（干支・写真入り）" loading="lazy">
+      </div>
+      <div class="tjg-body">
+        <span class="tjg-eng">New Year Card</span>
+        <h3><span class="nw">年賀状を</span><span class="nw">つくろう！</span></h3>
+        <p><span class="nw">写真も入れられるよ！</span><span class="nw">じいじばあばに送ろう。</span></p>
+      </div>
+    </a>
+    <a class="tjg-card" href="/asonde-kotoba-quiz/">
+      <div class="tjg-photo">
+        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_10_34.png" alt="ことばクイズ｜絵文字を見て日本語のことばを当てる子ども向けゲーム" loading="lazy">
+      </div>
+      <div class="tjg-body">
+        <span class="tjg-eng">Word Quiz</span>
+        <h3>ことばクイズ</h3>
+        <p><span class="nw">絵文字を見て、</span><span class="nw">言葉を当てよう。</span><span class="nw">3レベル。</span></p>
+      </div>
+    </a>
+    <a class="tjg-card" href="/asonde-nante-iu/">
+      <div class="tjg-photo">
+        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_11_39.png" alt="なんていう？クイズ｜場面に合う日本語のあいさつ・ことばを選ぶゲーム" loading="lazy">
+      </div>
+      <div class="tjg-body">
+        <span class="tjg-eng">What Do You Say?</span>
+        <h3><span class="nw">なんていう？</span><span class="nw">クイズ</span></h3>
+        <p><span class="nw">その場面に合う</span><span class="nw">言葉を選ぼう。</span></p>
+      </div>
+    </a>
+    <a class="tjg-card" href="/asonde-nihon-bunka/">
+      <div class="tjg-photo">
+        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月29日-21_03_10.png" alt="日本文化クイズ｜行事や食べものなど日本の文化を学べる子ども向けクイズ" loading="lazy">
+      </div>
+      <div class="tjg-body">
+        <span class="tjg-eng">Culture Quiz</span>
+        <h3><span class="nw">日本文化を</span><span class="nw">知ろう！</span></h3>
+        <p><span class="nw">★1〜★3のレベルに</span><span class="nw">挑戦しよう。</span></p>
+      </div>
+    </a>
+    <a class="tjg-card" href="/asonde-kanji-game/">
+      <div class="tjg-photo">
+        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_24_27.png" alt="漢字クイズ｜漢字の読みに挑戦する子ども向けゲーム" loading="lazy">
+      </div>
+      <div class="tjg-body">
+        <span class="tjg-eng">Kanji Quiz</span>
+        <h3>漢字クイズ</h3>
+        <p><span class="nw">読めるかな？</span><span class="nw">漢字に挑戦しよう。</span></p>
+      </div>
+    </a>
+    <a class="tjg-card" href="/asonde-teacher-shindan/">
+      <div class="tjg-photo">
+        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_16_48.png" alt="先生タイプ診断｜子どもに合うオンライン日本語の先生がわかる診断" loading="lazy">
+      </div>
+      <div class="tjg-body">
+        <span class="tjg-eng">Teacher Type</span>
+        <h3><span class="nw">先生タイプ</span><span class="nw">診断</span></h3>
+        <p><span class="nw">お子さまに</span><span class="nw">ぴったりの先生は？</span></p>
+      </div>
+    </a>
+  </div>
+  <section class="tjg-parents">
+    <span class="tjg-parents-eyebrow">FOR PARENTS</span>
+    <h2 class="tjg-parents-title">保護者の方へ</h2>
+    <p class="tjg-parents-lead">海外で育つ子どもにとって、日本語は「勉強しなさい」と言われるほど遠ざかりがちです。ここにあるゲームは、すべて無料・登録不要。親子で点数を競ったり、日本の文化について話したりする、きっかけにしてください。</p>
+    <ul class="tjg-points">
+      <li><strong>漢字・ことば・あいさつ</strong>日本の学校で出会うことばや漢字を、クイズで楽しくくり返せます。</li>
+      <li><strong>1回数分、スマホでも</strong>すきま時間に、スマホやタブレットからそのまま遊べます。</li>
+      <li><strong>「やりたい」から続く</strong>ともだちじゃぱんの授業も同じ考え方。日本の同世代の友達と、毎日日本語で話す学校です。</li>
+    </ul>
+    <a class="tjg-cta" href="/waitlist/?utm_source=asonde&amp;utm_medium=top&amp;utm_campaign=asonde-shiryou">📩 学校案内を受け取る（無料・1分）</a>
+    <p class="tjg-cta-note">2026年12月開校・1期生は入会金無料</p>
+  </section>
+</div>
+<style>.tjg-page{position:relative;overflow:hidden;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;padding:0 0 56px;margin-top:0;background:linear-gradient(180deg, var(--tjx-tint,#eaf3f4) 0%, var(--tjx-cream,#fff5e1) 100%);}.tjg-blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.35;z-index:1;}.tjg-blob-1{width:220px;height:220px;background:var(--tjx-coral,#f0655a);top:-60px;left:5%;}.tjg-blob-2{width:180px;height:180px;background:var(--tjx-sun,#ffc24b);top:40%;right:6%;}.tjg-blob-3{width:160px;height:160px;background:var(--tjx-teal,#2d7694);bottom:-70px;left:45%;}.tjg-storyhero{position:relative;z-index:2;width:100%;margin:0 0 40px;min-height:460px;border-radius:0;overflow:hidden;background-image:url('https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月17日-22_14_38.png');background-size:cover;background-position:center;display:flex;align-items:center;box-shadow:none;}.tjg-storyhero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(30,40,45,.82) 0%, rgba(30,40,45,.55) 60%, rgba(30,40,45,.25) 100%);}.tjg-storyhero-inner{position:relative;z-index:2;max-width:560px;padding:44px 60px;}.tjg-storyhero-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tjx-sun,#ffc24b);margin-bottom:14px;}.tjg-storyhero-title{font-size:clamp(24px,4vw,38px);font-weight:800;color:#fff;line-height:1.4;margin:0 0 18px;}.tjg-storyhero-title .hl{color:var(--tjx-sun,#ffc24b);}.tjg-storyhero-desc{font-size:14px;color:rgba(255,255,255,.88);line-height:1.8;margin:0;max-width:460px;}@media (max-width:640px){.tjg-storyhero{min-height:380px;}.tjg-storyhero-inner{padding:28px 22px;}}.tjg-hero{position:relative;z-index:2;max-width:960px;margin:0 auto;padding:0 20px;text-align:center;}.tjg-heading{background:none;border:none;color:var(--tjx-ink,#2b3b42);font-size:clamp(24px,4vw,36px);font-weight:800;line-height:1.5;margin:8px 0 0;padding:0;}.tjg-grid{position:relative;z-index:2;max-width:850px;margin:32px auto 0;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}.tjg-card{box-sizing:border-box;flex:0 0 auto;width:250px;display:block;text-decoration:none;color:inherit;border-radius:16px;overflow:hidden;background:#fff;border-left:4px solid var(--tjx-coral,#f0655a);box-shadow:0 6px 16px rgba(0,0,0,.08);transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;}.tjg-card:hover{transform:scale(1.18) translateY(-8px);box-shadow:0 24px 40px rgba(0,0,0,.2);z-index:5;position:relative;}.tjg-photo{width:100%;aspect-ratio:4/3;overflow:hidden;}.tjg-photo img{width:100%;height:100%;object-fit:cover;display:block;}.tjg-body{padding:14px 16px 18px;}.tjg-eng{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tjx-coral,#f0655a);margin-bottom:3px;}.tjg-body h3{margin:0 0 4px;font-size:15px;font-weight:800;color:var(--tjx-ink,#2b3b42);}.tjg-body p{margin:0;font-size:12px;color:var(--tjx-soft,#586a70);line-height:1.5;}.tjg-page .nw{display:inline-block;}.tjg-page{word-break:auto-phrase;}@media (max-width:640px){.tjg-card{width:calc(50% - 15px);}.tjg-page br.pc{display:none;}.tjg-heading{font-size:22px;}.tjg-body{padding:12px 12px 14px;}.tjg-body h3{font-size:14px;}}</style>
+<style>.tjg-parents{position:relative;z-index:2;max-width:760px;margin:56px auto 0;padding:36px 32px 32px;background:#fff;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.08);text-align:center;}.tjg-parents-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--tjx-coral,#f0655a);margin-bottom:6px;}.tjg-parents-title{background:none;border:none;padding:0;margin:0 0 14px;font-size:clamp(20px,3vw,26px);font-weight:800;color:var(--tjx-ink,#2b3b42);}.tjg-parents-lead{font-size:14px;line-height:1.9;color:var(--tjx-soft,#586a70);margin:0 auto 24px;max-width:600px;text-align:left;}.tjg-points{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left;}.tjg-points li{margin:0;padding:14px 14px 16px;background:var(--tjx-tint,#eaf3f4);border-radius:12px;font-size:12px;line-height:1.7;color:var(--tjx-soft,#586a70);}.tjg-points li::before{display:none;}.tjg-points strong{display:block;font-size:14px;color:var(--tjx-ink,#2b3b42);margin-bottom:4px;}.tjg-cta{display:inline-block;padding:14px 28px;border-radius:999px;background:var(--tjx-coral,#f0655a);color:#fff!important;font-size:15px;font-weight:800;text-decoration:none!important;box-shadow:0 6px 14px rgba(240,101,90,.35);transition:transform .2s ease;}.tjg-cta:hover{transform:translateY(-2px);}.tjg-cta-note{margin:10px 0 0;font-size:12px;color:var(--tjx-soft,#586a70);}@media (max-width:640px){.tjg-parents{margin:40px 16px 0;padding:28px 20px 24px;}.tjg-points{grid-template-columns:1fr;}}</style>
+<!-- /wp:html -->

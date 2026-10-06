@@ -1,5 +1,5 @@
 <style>
-.l-header,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
+.l-header,.l-fixHeader,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
 body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
 .ng{--teal:#2d7694;--teal-dark:#1c5468;--coral:#f0655a;--coral-dark:#d94b41;--tint:#eaf3f4;--ink:#2b3b42;--soft:#586a70;--red:#c8312b;
   --disp:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
@@ -13,7 +13,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 .ng-head h1::before,.ng-head h1::after{display:none}
 .ng-head p{margin:4px 0 0;font-size:.82rem;line-height:1.6}
 .ng-studio{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:760px){.ng-studio{grid-template-columns:360px 1fr;align-items:start}.ng-preview{position:sticky;top:12px}}
+@media(min-width:760px){.ng-studio{grid-template-columns:360px 1fr;align-items:start}.ng-preview{position:sticky;top:calc(var(--wp-admin--admin-bar--height,0px) + 12px)}}
 .ng-preview{background:#fff;border-radius:18px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
 .ng-preview canvas{width:100%;max-width:340px;height:auto;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);background:#fff5e6}
 .ng-panel{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
