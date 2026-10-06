@@ -6,7 +6,7 @@
       <div class="tjg-body">
         <span class="tjg-eng">New Year Card</span>
         <h3><span class="nw">年賀状を</span><span class="nw">つくろう！</span></h3>
-        <p><span class="nw">干支や写真を選んで、</span><span class="nw">じいじばあばに送ろう。</span></p>
+        <p><span class="nw">📷 写真も入れられるよ！</span><span class="nw">じいじばあばに送ろう。</span></p>
       </div>
     </a>
 
