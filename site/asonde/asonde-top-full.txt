@@ -24,6 +24,19 @@
 
   <div class="tjg-grid">
 
+    <a class="tjg-card" href="/asonde-nengajo/" style="position:relative;">
+      <span style="position:absolute;top:10px;left:10px;z-index:2;background:#c8312b;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;">NEW</span>
+      <div class="tjg-photo">
+        <img decoding="async" src="/wp-content/uploads/2026/10/ng-card.webp" alt="年賀状メーカー｜子どもが作れる日本の年賀状（干支・写真入り）" loading="lazy">
+      </div>
+      <div class="tjg-body">
+        <span class="tjg-eng">New Year Card</span>
+        <h3><span class="nw">年賀状を</span><span class="nw">つくろう！</span></h3>
+        <p><span class="nw">干支や写真を選んで、</span><span class="nw">じいじばあばに送ろう。</span></p>
+      </div>
+    </a>
+
+
     <a class="tjg-card" href="/asonde-kotoba-quiz/">
       <div class="tjg-photo">
         <img src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_11_39.png" alt="ことばクイズ｜絵文字を見て日本語のことばを当てる子ども向けゲーム" loading="lazy">
