@@ -49,6 +49,18 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 .ng-share .ng-btns{justify-content:center}
 .ng-btn.fb{background:#1877f2}
 .ng-btn.x{background:#111}
+.ng-start{background:#fff;border-radius:18px;padding:22px 18px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
+.ng-start-q{font-weight:800;font-size:1.05rem;margin:0 0 14px;line-height:1.5}
+.ng-start-q small{font-weight:600;color:var(--soft)}
+.ng-modes{display:grid;gap:12px;max-width:540px;margin:0 auto}
+.ng-mode{display:flex;align-items:center;gap:14px;text-align:left;background:var(--tint);border:2px solid transparent;border-radius:18px;padding:14px 18px;cursor:pointer;font-family:var(--disp);color:var(--ink)}
+.ng-mode:hover{border-color:var(--coral);transform:translateY(-2px)}
+.ng-mode .em{font-size:1.8rem}
+.ng-mode b{display:block;font-size:1.02rem}
+.ng-mode small{display:block;color:var(--soft);font-size:.8rem;margin-top:2px;line-height:1.5}
+.ng-back{background:none;border:none;color:var(--teal);text-decoration:underline;font:700 .85rem var(--disp);cursor:pointer;padding:0;margin:0 0 12px}
+.ng-preset .ng-chip{padding:5px;width:92px;font-size:.7rem}
+.ng-preset canvas{display:block;width:80px;height:118px;border-radius:6px;margin:0 auto 2px}
 #ngPrint{display:none}
 @media print{body *{visibility:hidden}#ngPrint,#ngPrint *{visibility:visible}#ngPrint{position:fixed;inset:0;display:block!important}#ngPrint img{width:100mm;height:148mm}}
 </style>
@@ -61,23 +73,33 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
     <p>Make a Japanese New Year card (nengajo)!<br>えらぶだけで かんせい。<b>かぞくの しゃしんも いれられるよ！</b><br>じいじやばあば、ともだちにも おくれるよ。</p>
   </div>
 
-  <div class="ng-studio">
+  <div class="ng-start" id="ngStart">
+    <p class="ng-start-q">どのくらい じぶんで つくる？<br><small>How much do you want to make yourself?</small></p>
+    <div class="ng-modes">
+      <button type="button" class="ng-mode" data-mode="easy"><span class="em">🌱</span><span><b>かんたん Easy</b><small>できあがりの デザインを えらんで、なまえを いれるだけ</small></span></button>
+      <button type="button" class="ng-mode" data-mode="normal"><span class="em">🌿</span><span><b>ちょっと アレンジ Arrange</b><small>デザインを えらんで、ことばや しゃしんを かえる</small></span></button>
+      <button type="button" class="ng-mode" data-mode="full"><span class="em">🌳</span><span><b>じぶんで ぜんぶ Make it all</b><small>はいけい・どうぶつ・ハンコも ぜんぶ じぶんで えらぶ</small></span></button>
+    </div>
+  </div>
+  <div class="ng-studio" id="ngStudio" hidden>
     <div class="ng-preview"><canvas id="ngCv" width="1000" height="1480"></canvas></div>
     <div class="ng-panel">
-      <div class="ng-step"><h3><span class="n">1</span>はいけい Background</h3><div class="ng-chips ng-bg" id="ngBg"></div></div>
-      <div class="ng-step"><h3><span class="n">2</span>ことば Message</h3><div class="ng-chips" id="ngMsg"></div>
+      <button type="button" class="ng-back" id="ngBack">← つくりかたを えらびなおす</button>
+      <div class="ng-step" data-show="easy normal"><h3><span class="n">1</span>デザイン Design</h3><div class="ng-chips ng-preset" id="ngPreset"></div></div>
+      <div class="ng-step" data-show="full"><h3><span class="n">1</span>はいけい Background</h3><div class="ng-chips ng-bg" id="ngBg"></div></div>
+      <div class="ng-step" data-show="normal full"><h3><span class="n">2</span>ことば Message</h3><div class="ng-chips" id="ngMsg"></div>
         <p class="ng-hint" id="ngRomaji"></p></div>
-      <div class="ng-step"><h3><span class="n">3</span>ことしの どうぶつ Animal of the year</h3><div class="ng-chips" id="ngEto"></div>
-        <p class="ng-hint">2027ねんは ひつじ（未）の としです。 2027 is the Year of the Sheep.</p></div>
-      <div class="ng-step"><h3><span class="n">4</span>ハンコ Stamp <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngHanko"></div></div>
-      <div class="ng-step"><h3><span class="n">5</span>だれに おくる？ To <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngTo"></div></div>
-      <div class="ng-step"><h3><span class="n">6</span>しゃしん Photo <span class="opt">（すきな しゃしんを いれてね・なくてもOK）</span></h3>
+      <div class="ng-step" data-show="full"><h3><span class="n">3</span>ことしの どうぶつ Animal of the year</h3><div class="ng-chips" id="ngEto"></div>
+        <p class="ng-hint" id="ngEtoHint"></p></div>
+      <div class="ng-step" data-show="full"><h3><span class="n">4</span>ハンコ Stamp <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngHanko"></div></div>
+      <div class="ng-step" data-show="normal full"><h3><span class="n">5</span>だれに おくる？ To <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngTo"></div></div>
+      <div class="ng-step" data-show="normal full"><h3><span class="n">6</span>しゃしん Photo <span class="opt">（すきな しゃしんを いれてね・なくてもOK）</span></h3>
         <label class="ng-file">📷 しゃしんを いれる<input type="file" accept="image/*" id="ngPhoto"></label>
         <button class="ng-btn ghost" id="ngPhotoDel" hidden>しゃしんを はずす</button>
         <p class="ng-hint">しゃしんは あなたの きかいの なかだけで つかわれます。どこにも おくられません。</p></div>
-      <div class="ng-step"><h3><span class="n">7</span>かざり Decoration <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngDeco"></div></div>
-      <div class="ng-step"><h3><span class="n">8</span>なまえ Your name</h3><input type="text" id="ngName" placeholder="Emma / えま" maxlength="14"></div>
-      <div class="ng-step"><h3><span class="n">9</span>ほぞん・おくる Save &amp; Send</h3>
+      <div class="ng-step" data-show="full"><h3><span class="n">7</span>かざり Decoration <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngDeco"></div></div>
+      <div class="ng-step" data-show="easy normal full"><h3><span class="n">8</span>なまえ Your name</h3><input type="text" id="ngName" placeholder="Emma / えま" maxlength="14"></div>
+      <div class="ng-step" data-show="easy normal full"><h3><span class="n">9</span>ほぞん・おくる Save &amp; Send</h3>
         <div class="ng-btns" id="ngOut"></div>
         <div class="ng-msg" id="ngOutMsg"></div>
         <p class="ng-hint">🍎 For teachers: free to use in your classroom. Print on postcard size.（じゅぎょうで じゆうに つかえます）</p></div>
@@ -94,7 +116,11 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 <script>
 (function(){
   var IMG_BASE = '/wp-content/uploads/2026/10/';
-  var W = 1000, H = 1480, YEAR = 2027;
+  // 3月からは次の年の年賀状（干支も次の年に切りかわる）
+  var NOW = new Date(), W = 1000, H = 1480;
+  var YEAR = NOW.getMonth() >= 2 ? NOW.getFullYear() + 1 : NOW.getFullYear();
+  var EIDS = ['ne','ushi','tora','u','tatsu','mi','uma','hitsuji','saru','tori','inu','i'];
+  var ZODIAC = EIDS[((YEAR - 4) % 12 + 12) % 12];
   var PAGE = 'https://tomodachi-japan.nijin.co.jp/asonde-nengajo/';
   var JPFONT = '"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif';
   var RNDFONT = '"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif';
@@ -123,13 +149,21 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
     {id:'hagoita',l:'はごいた'},{id:'daruma',l:'だるま'},{id:'ume',l:'うめ'},{id:'shishimai',l:'ししまい'}];
 
   var HANKO = ['謹賀新年','賀正','迎春',''];
-  var st = {bg:'bg-fuji', msg:MSGS[0], eto:'hitsuji', hanko:'謹賀新年', to:'', photo:null, deco:'kadomatsu', name:''};
+  var st = {bg:'bg-fuji', msg:MSGS[0], eto:'', hanko:'', to:'', photo:null, deco:'', name:''};
+  var PRESETS = [
+    {l:'ふじさん', bg:'bg-fuji', hanko:'謹賀新年', eto:ZODIAC, deco:'kadomatsu', msg:0},
+    {l:'うめ', bg:'bg-washi', hanko:'賀正', eto:'', deco:'kagamimochi', msg:1},
+    {l:'きん', bg:'bg-byobu', hanko:'迎春', eto:ZODIAC, deco:'', msg:2},
+    {l:'うみ', bg:'bg-umi', hanko:'謹賀新年', eto:'', deco:'tako', msg:5},
+    {l:'やさしい え', bg:'bg-fuji-e', hanko:'賀正', eto:ZODIAC, deco:'ume', msg:3},
+    {l:'ししまい', bg:'bg-fuji', hanko:'迎春', eto:'', deco:'shishimai', msg:4}
+  ];
   var cv = document.getElementById('ngCv'), ctx = cv.getContext('2d');
 
   /* 画像 */
   var IMG = {};
   function pic(id){
-    if (!IMG[id]){ IMG[id] = new Image(); IMG[id].onload = render; IMG[id].src = IMG_BASE + 'ng-' + id + '.webp'; }
+    if (!IMG[id]){ IMG[id] = new Image(); IMG[id].onload = function(){ render(); drawPresets(); }; IMG[id].src = IMG_BASE + 'ng-' + id + '.webp'; }
     return IMG[id];
   }
   function ready(im){ return im.complete && im.naturalWidth; }
@@ -203,24 +237,65 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
   }
 
   /* ボタンを作る */
-  function chips(box, items, label, pick, onIndex){
-    items.forEach(function(it, i){
+  var groups = [];
+  function chips(box, items, label, pick, cur){
+    var g = {box:box, items:items, cur:cur, btns:[]};
+    items.forEach(function(it){
       var b = document.createElement('button'); b.type = 'button';
-      b.className = 'ng-chip' + (i === onIndex ? ' on' : ''); b.innerHTML = label(it);
-      b.onclick = function(){ box.querySelectorAll('.ng-chip').forEach(function(c){ c.classList.remove('on'); }); b.classList.add('on'); pick(it); render(); };
-      box.appendChild(b);
+      b.className = 'ng-chip'; b.innerHTML = label(it);
+      b.onclick = function(){ pick(it); sync(); render(); };
+      box.appendChild(b); g.btns.push(b);
     });
+    groups.push(g);
   }
+  function sync(){ groups.forEach(function(g){ g.items.forEach(function(it, i){ g.btns[i].classList.toggle('on', !!g.cur(it)); }); }); }
   function img(id){ return '<img src="'+IMG_BASE+'ng-'+id+'.webp" alt="" loading="lazy">'; }
   var rom = document.getElementById('ngRomaji');
+  (function(){ var e = ETO.filter(function(x){ return x.id === ZODIAC; })[0]; if (e){ var p = e.l.split(' '); document.getElementById('ngEtoHint').textContent = YEAR + 'ねんは ' + p[0] + ' の としです。 ' + YEAR + ' is the Year of the ' + p[1] + '.'; } })();
   function showRom(){ rom.innerHTML = '<span class="ng-ja">'+st.msg.ja+'</span><br>'+st.msg.ro; }
 
-  chips(document.getElementById('ngBg'), BGS, function(b){ return img(b.id)+b.l; }, function(b){ st.bg = b.id; }, 0);
-  chips(document.getElementById('ngMsg'), MSGS, function(m){ return m.en+'<small>'+m.ja+'</small>'; }, function(m){ st.msg = m; showRom(); }, 0);
-  chips(document.getElementById('ngEto'), ETO, function(e){ return (e.id ? img(e.id) : '')+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e.id; }, 8);
-  chips(document.getElementById('ngHanko'), HANKO, function(h){ return h ? '<span class="ng-hk">'+h+'</span>' : '<small>なし</small>'; }, function(h){ st.hanko = h; }, 0);
-  chips(document.getElementById('ngTo'), TO, function(t){ return t.l; }, function(t){ st.to = t.v; }, 0);
-  chips(document.getElementById('ngDeco'), DECO, function(d){ return (d.id ? img(d.id) : '')+'<small>'+d.l+'</small>'; }, function(d){ st.deco = d.id; }, 1);
+  chips(document.getElementById('ngBg'), BGS, function(b){ return img(b.id)+b.l; }, function(b){ st.bg = b.id; }, function(b){ return st.bg === b.id; });
+  chips(document.getElementById('ngMsg'), MSGS, function(m){ return m.en+'<small>'+m.ja+'</small>'; }, function(m){ st.msg = m; showRom(); }, function(m){ return st.msg === m; });
+  chips(document.getElementById('ngEto'), ETO, function(e){ return (e.id ? img(e.id) : '')+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e.id; }, function(e){ return st.eto === e.id; });
+  chips(document.getElementById('ngHanko'), HANKO, function(h){ return h ? '<span class="ng-hk">'+h+'</span>' : '<small>なし</small>'; }, function(h){ st.hanko = h; }, function(h){ return st.hanko === h; });
+  chips(document.getElementById('ngTo'), TO, function(t){ return t.l; }, function(t){ st.to = t.v; }, function(t){ return st.to === t.v; });
+  chips(document.getElementById('ngDeco'), DECO, function(d){ return (d.id ? img(d.id) : '')+'<small>'+d.l+'</small>'; }, function(d){ st.deco = d.id; }, function(d){ return st.deco === d.id; });
+
+  /* できあがりデザイン */
+  var curPreset = null, presetGroup = null;
+  function applyPreset(pr){ curPreset = pr; st.bg = pr.bg; st.hanko = pr.hanko; st.eto = pr.eto; st.deco = pr.deco; st.msg = MSGS[pr.msg]; showRom(); }
+  chips(document.getElementById('ngPreset'), PRESETS, function(pr){ return '<canvas width="200" height="296"></canvas>'+pr.l; }, applyPreset, function(pr){ return curPreset === pr; });
+  presetGroup = groups[groups.length - 1];
+  function drawPresets(){
+    var g = presetGroup; if (!g) return;
+    g.btns.forEach(function(b, i){
+      var c = b.querySelector('canvas'), pr = PRESETS[i];
+      var oc = ctx, os = st;
+      ctx = c.getContext('2d'); ctx.setTransform(c.width / W, 0, 0, c.height / H, 0, 0);
+      st = {bg:pr.bg, hanko:pr.hanko, eto:pr.eto, deco:pr.deco, msg:MSGS[pr.msg], to:'', photo:null, name:''};
+      try { render(); } finally { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx = oc; st = os; }
+    });
+  }
+
+  /* つくりかた（モード） */
+  var startEl = document.getElementById('ngStart'), studioEl = document.getElementById('ngStudio');
+  function setMode(m){
+    var n = 0;
+    studioEl.querySelectorAll('.ng-step').forEach(function(stp){
+      var on = stp.getAttribute('data-show').split(' ').indexOf(m) >= 0;
+      stp.style.display = on ? '' : 'none';
+      if (on) stp.querySelector('.n').textContent = ++n;
+    });
+    if (m === 'full'){ curPreset = null; st.bg = 'bg-fuji'; st.hanko = ''; st.eto = ''; st.deco = ''; st.msg = MSGS[0]; showRom(); }
+    else applyPreset(PRESETS[0]);
+    startEl.hidden = true; studioEl.hidden = false;
+    sync(); render(); drawPresets();
+    if (window.gtag) gtag('event', 'nengajo_mode', {mode: m});
+    studioEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+  startEl.querySelectorAll('.ng-mode').forEach(function(b){ b.onclick = function(){ setMode(b.getAttribute('data-mode')); }; });
+  document.getElementById('ngBack').onclick = function(){ studioEl.hidden = true; startEl.hidden = false; startEl.scrollIntoView({behavior: 'smooth', block: 'start'}); };
+
   document.getElementById('ngName').oninput = function(){ st.name = this.value.trim(); render(); };
   var delBtn = document.getElementById('ngPhotoDel');
   document.getElementById('ngPhoto').onchange = function(){
@@ -273,8 +348,8 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
   shareBox.appendChild(cp);
 
   /* 先に画像を読みこむ */
-  BGS.forEach(function(b){ pic(b.id); }); if (st.eto) pic(st.eto); if (st.deco) pic(st.deco);
-  showRom(); render();
+  BGS.forEach(function(b){ pic(b.id); }); PRESETS.forEach(function(pr){ if (pr.eto) pic(pr.eto); if (pr.deco) pic(pr.deco); });
+  showRom(); sync(); render();
 })();
 </script>
 
