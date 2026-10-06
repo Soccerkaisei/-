@@ -27,6 +27,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 .ng-chip:hover{border-color:var(--teal)}
 .ng-chip.on{border-color:var(--coral);background:#fff1ef}
 .ng-chip small{display:block;font-weight:600;color:var(--soft);font-size:.72rem}
+.ng-hk{display:inline-block;background:#c8312b;color:#fff;border-radius:6px;padding:4px 8px;font-family:serif;font-weight:700}
 .ng-chip img{display:block;height:46px;margin:0 auto 2px}
 .ng-bg .ng-chip{padding:5px;width:92px;font-size:.7rem}
 .ng-bg .ng-chip img{width:80px;height:118px;object-fit:cover;border-radius:6px}
@@ -68,14 +69,15 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
         <p class="ng-hint" id="ngRomaji"></p></div>
       <div class="ng-step"><h3><span class="n">3</span>ことしの どうぶつ Animal of the year</h3><div class="ng-chips" id="ngEto"></div>
         <p class="ng-hint">2027ねんは ひつじ（未）の としです。 2027 is the Year of the Sheep.</p></div>
-      <div class="ng-step"><h3><span class="n">4</span>だれに おくる？ To <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngTo"></div></div>
-      <div class="ng-step"><h3><span class="n">5</span>しゃしん Photo <span class="opt">（すきな しゃしんを いれてね・なくてもOK）</span></h3>
+      <div class="ng-step"><h3><span class="n">4</span>ハンコ Stamp <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngHanko"></div></div>
+      <div class="ng-step"><h3><span class="n">5</span>だれに おくる？ To <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngTo"></div></div>
+      <div class="ng-step"><h3><span class="n">6</span>しゃしん Photo <span class="opt">（すきな しゃしんを いれてね・なくてもOK）</span></h3>
         <label class="ng-file">📷 しゃしんを いれる<input type="file" accept="image/*" id="ngPhoto"></label>
         <button class="ng-btn ghost" id="ngPhotoDel" hidden>しゃしんを はずす</button>
         <p class="ng-hint">しゃしんは あなたの きかいの なかだけで つかわれます。どこにも おくられません。</p></div>
-      <div class="ng-step"><h3><span class="n">6</span>かざり Decoration <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngDeco"></div></div>
-      <div class="ng-step"><h3><span class="n">7</span>なまえ Your name</h3><input type="text" id="ngName" placeholder="Emma / えま" maxlength="14"></div>
-      <div class="ng-step"><h3><span class="n">8</span>ほぞん・おくる Save &amp; Send</h3>
+      <div class="ng-step"><h3><span class="n">7</span>かざり Decoration <span class="opt">（なくてもOK）</span></h3><div class="ng-chips" id="ngDeco"></div></div>
+      <div class="ng-step"><h3><span class="n">8</span>なまえ Your name</h3><input type="text" id="ngName" placeholder="Emma / えま" maxlength="14"></div>
+      <div class="ng-step"><h3><span class="n">9</span>ほぞん・おくる Save &amp; Send</h3>
         <div class="ng-btns" id="ngOut"></div>
         <div class="ng-msg" id="ngOutMsg"></div>
         <p class="ng-hint">🍎 For teachers: free to use in your classroom. Print on postcard size.（じゅぎょうで じゆうに つかえます）</p></div>
@@ -110,7 +112,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
     {en:'See you soon', ja:'また あおうね', ro:'mata aou ne'},
     {en:'I love you', ja:'だいすき', ro:'daisuki'}
   ];
-  var ETO = [
+  var ETO = [{id:'',l:'なし None'},
     {id:'ne',l:'ねずみ Rat'},{id:'ushi',l:'うし Ox'},{id:'tora',l:'とら Tiger'},{id:'u',l:'うさぎ Rabbit'},
     {id:'tatsu',l:'たつ Dragon'},{id:'mi',l:'へび Snake'},{id:'uma',l:'うま Horse'},{id:'hitsuji',l:'ひつじ Sheep'},
     {id:'saru',l:'さる Monkey'},{id:'tori',l:'とり Rooster'},{id:'inu',l:'いぬ Dog'},{id:'i',l:'いのしし Boar'}
@@ -120,7 +122,8 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
   var DECO = [{id:'',l:'なし'},{id:'kadomatsu',l:'かどまつ'},{id:'kagamimochi',l:'かがみもち'},{id:'tako',l:'たこ'},
     {id:'hagoita',l:'はごいた'},{id:'daruma',l:'だるま'},{id:'ume',l:'うめ'},{id:'shishimai',l:'ししまい'}];
 
-  var st = {bg:'bg-fuji', msg:MSGS[0], eto:'hitsuji', to:'', photo:null, deco:'kadomatsu', name:''};
+  var HANKO = ['謹賀新年','賀正','迎春',''];
+  var st = {bg:'bg-fuji', msg:MSGS[0], eto:'hitsuji', hanko:'謹賀新年', to:'', photo:null, deco:'kadomatsu', name:''};
   var cv = document.getElementById('ngCv'), ctx = cv.getContext('2d');
 
   /* 画像 */
@@ -176,7 +179,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 
     var topRight = !!(st.to || st.photo);
     if (st.to) outText(st.to+' へ', 300, 150, 76, RNDFONT, 470);
-    if (topRight) hanko('謹賀新年', 830, 185, 230); else hanko('謹賀新年', W/2, 330, 300);
+    if (st.hanko){ if (topRight) hanko(st.hanko, 830, 185, 230); else hanko(st.hanko, W/2, 330, 300); }
 
     var y;
     if (st.photo){
@@ -184,9 +187,9 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
       var P = st.bg === 'bg-hatsumode' ? {x:40, y:600, w:920, h:400} : {x:110, y:330, w:780, h:540};
       drawPhoto(P.x, P.y, P.w, P.h, 36);
       y = P.y + P.h + 85;
-      drawPic(st.eto, 130, 1360, 190);
+      if (st.eto) drawPic(st.eto, 130, 1360, 190);
     } else {
-      drawPic(st.eto, W/2, topRight ? 620 : 680, 360);
+      if (st.eto) drawPic(st.eto, W/2, topRight ? 620 : 680, 360);
       y = 950;
     }
     var first = st.msg === MSGS[0];
@@ -214,7 +217,8 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 
   chips(document.getElementById('ngBg'), BGS, function(b){ return img(b.id)+b.l; }, function(b){ st.bg = b.id; }, 0);
   chips(document.getElementById('ngMsg'), MSGS, function(m){ return m.en+'<small>'+m.ja+'</small>'; }, function(m){ st.msg = m; showRom(); }, 0);
-  chips(document.getElementById('ngEto'), ETO, function(e){ return img(e.id)+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e.id; }, 7);
+  chips(document.getElementById('ngEto'), ETO, function(e){ return (e.id ? img(e.id) : '')+'<small>'+e.l+'</small>'; }, function(e){ st.eto = e.id; }, 8);
+  chips(document.getElementById('ngHanko'), HANKO, function(h){ return h ? '<span class="ng-hk">'+h+'</span>' : '<small>なし</small>'; }, function(h){ st.hanko = h; }, 0);
   chips(document.getElementById('ngTo'), TO, function(t){ return t.l; }, function(t){ st.to = t.v; }, 0);
   chips(document.getElementById('ngDeco'), DECO, function(d){ return (d.id ? img(d.id) : '')+'<small>'+d.l+'</small>'; }, function(d){ st.deco = d.id; }, 1);
   document.getElementById('ngName').oninput = function(){ st.name = this.value.trim(); render(); };
@@ -269,7 +273,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
   shareBox.appendChild(cp);
 
   /* 先に画像を読みこむ */
-  BGS.forEach(function(b){ pic(b.id); }); pic(st.eto); pic(st.deco);
+  BGS.forEach(function(b){ pic(b.id); }); if (st.eto) pic(st.eto); if (st.deco) pic(st.deco);
   showRom(); render();
 })();
 </script>
