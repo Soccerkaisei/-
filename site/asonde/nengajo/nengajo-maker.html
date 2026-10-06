@@ -42,6 +42,12 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 .ng-hint{font-size:.78rem;color:var(--soft);margin:6px 0 0;line-height:1.6}
 .ng-ja{font-size:1.1rem;font-weight:800}
 .ng-msg{margin-top:8px;font-size:.82rem;color:var(--teal-dark);font-weight:700;min-height:1.2em}
+.ng-share{background:#fff;border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center}
+.ng-share-t{font-weight:800;margin:0 0 8px;line-height:1.5}
+.ng-share-t small{font-weight:600;color:var(--soft)}
+.ng-share .ng-btns{justify-content:center}
+.ng-btn.fb{background:#1877f2}
+.ng-btn.x{background:#111}
 #ngPrint{display:none}
 @media print{body *{visibility:hidden}#ngPrint,#ngPrint *{visibility:visible}#ngPrint{position:fixed;inset:0;display:block!important}#ngPrint img{width:100mm;height:148mm}}
 </style>
@@ -74,6 +80,11 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
         <div class="ng-msg" id="ngOutMsg"></div>
         <p class="ng-hint">🍎 For teachers: free to use in your classroom. Print on postcard size.（じゅぎょうで じゆうに つかえます）</p></div>
     </div>
+  </div>
+  <div class="ng-share">
+    <p class="ng-share-t">このページを ともだちに おしえる<br><small>Share this page with friends &amp; teachers</small></p>
+    <div class="ng-btns" id="ngShare"></div>
+    <div class="ng-msg" id="ngShareMsg"></div>
   </div>
 </div>
 <div id="ngPrint"></div>
@@ -235,8 +246,27 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
     var p = document.getElementById('ngPrint'); p.innerHTML = '<img src="'+cv.toDataURL('image/png')+'" alt="">';
     track('print'); setTimeout(function(){ window.print(); }, 150);
   };
-  link('line', 'LINEで しょうかい', 'https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(PAGE+'?utm_source=line&utm_medium=share&utm_campaign=nengajo'));
-  link('wa', 'WhatsApp', 'https://wa.me/?text='+encodeURIComponent('Make a Japanese New Year card! '+PAGE+'?utm_source=whatsapp&utm_medium=share&utm_campaign=nengajo'));
+  /* このページを共有 */
+  var shareBox = document.getElementById('ngShare'), shareMsg = document.getElementById('ngShareMsg');
+  function u(src){ return PAGE + '?utm_source=' + src + '&utm_medium=share&utm_campaign=nengajo'; }
+  var TXT = '子どもが作れる日本の年賀状メーカー（無料）Make a Japanese New Year card! ';
+  [['line', 'LINE', 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(u('line'))],
+   ['wa', 'WhatsApp', 'https://wa.me/?text=' + encodeURIComponent(TXT + u('whatsapp'))],
+   ['fb', 'Facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u('facebook'))],
+   ['x', 'X', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(TXT) + '&url=' + encodeURIComponent(u('x'))]
+  ].forEach(function(s){
+    var a = document.createElement('a'); a.className = 'ng-btn ' + s[0]; a.textContent = s[1]; a.href = s[2]; a.target = '_blank'; a.rel = 'noopener';
+    a.onclick = function(){ if (window.gtag) gtag('event', 'nengajo_share_page', {method: s[0]}); };
+    shareBox.appendChild(a);
+  });
+  var cp = document.createElement('button'); cp.type = 'button'; cp.className = 'ng-btn ghost'; cp.textContent = '🔗 リンクを コピー Copy link';
+  cp.onclick = function(){
+    var link = u('copy');
+    if (navigator.clipboard) navigator.clipboard.writeText(link).then(function(){ shareMsg.textContent = 'コピーしました！ Copied!'; }, function(){ shareMsg.textContent = link; });
+    else shareMsg.textContent = link;
+    if (window.gtag) gtag('event', 'nengajo_share_page', {method: 'copy'});
+  };
+  shareBox.appendChild(cp);
 
   /* 先に画像を読みこむ */
   BGS.forEach(function(b){ pic(b.id); }); pic(st.eto); pic(st.deco);
