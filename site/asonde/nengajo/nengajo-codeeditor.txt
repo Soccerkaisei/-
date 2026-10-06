@@ -52,7 +52,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
     <a href="/asonde/">← あそんでみよう トップに もどる</a>
     <div class="ng-logo">TOMODACHI JAPAN</div>
     <h1>🎍 ねんがじょうを つくろう</h1>
-    <p>Make a Japanese New Year card (nengajo)!<br>えらぶだけで かんせい。<b>📷 かぞくの しゃしんも いれられるよ！</b><br>じいじ・ばあばや ともだちに おくろう。</p>
+    <p>Make a Japanese New Year card (nengajo)!<br>えらぶだけで かんせい。<b>かぞくの しゃしんも いれられるよ！</b><br>じいじやばあば、ともだちにも おくれるよ。</p>
   </div>
 
   <div class="ng-studio">
