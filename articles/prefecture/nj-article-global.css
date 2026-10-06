@@ -48,3 +48,17 @@
 .nj-article .faq .a::before{content:"A. ";font-weight:bold;color:#a5801a;}
 .nj-article .footnote{font-size:12px;color:#888;border-top:1px solid #f7ddc4;margin-top:40px;padding-top:16px;}
 .nj-article .footnote li{margin:3px 0;}
+.nj-article .fit{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
+@media (max-width:600px){.nj-article .fit{grid-template-columns:1fr;}}
+.nj-article .fit__col{border-radius:12px;padding:16px 18px;min-width:0;box-sizing:border-box;}
+.nj-article .fit__col--yes{background:#fff3e9;border:2px solid #e8630f;}
+.nj-article .fit__col--no{background:#f5f5f5;border:2px solid #c8c8c8;}
+.nj-article .fit__head{font-weight:bold;font-size:16px;margin:0 0 10px;padding-bottom:8px;border-bottom:1px dashed rgba(0,0,0,.15);}
+.nj-article .fit__col--yes .fit__head{color:#e8630f;}
+.nj-article .fit__col--no .fit__head{color:#666;}
+.nj-article .fit__col--yes .fit__head::before{content:"〇 ";}
+.nj-article .fit__col--no .fit__head::before{content:"✕ ";}
+.nj-article .fit ul{list-style:none;padding-left:0;margin:0;}
+.nj-article .fit li{position:relative;padding-left:24px;margin:8px 0;line-height:1.6;}
+.nj-article .fit__col--yes li::before{content:"✓";position:absolute;left:2px;color:#e8630f;font-weight:bold;}
+.nj-article .fit__col--no li::before{content:"・";position:absolute;left:2px;color:#999;font-weight:bold;}
