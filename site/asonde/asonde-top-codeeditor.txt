@@ -20,7 +20,7 @@
     <a class="tjg-card" href="/asonde-nengajo/" style="position:relative;">
       <span style="position:absolute;top:10px;left:10px;z-index:2;background:#c8312b;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;">NEW</span>
       <div class="tjg-photo">
-        <img decoding="async" src="/wp-content/uploads/2026/10/ng-card.webp" alt="年賀状メーカー｜子どもが作れる日本の年賀状（干支・写真入り）" loading="lazy">
+        <img decoding="async" src="/wp-content/uploads/2026/10/ng-card.webp?v=2" alt="年賀状メーカー｜子どもが作れる日本の年賀状（干支・写真入り）" loading="lazy">
       </div>
       <div class="tjg-body">
         <span class="tjg-eng">New Year Card</span>

@@ -116,6 +116,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
 <script>
 (function(){
   var IMG_BASE = '/wp-content/uploads/2026/10/';
+  var VER = '2'; // 画像を差しかえたら数字を1つ上げる
   // 3月からは次の年の年賀状（干支も次の年に切りかわる）
   var NOW = new Date(), W = 1000, H = 1480;
   var YEAR = NOW.getMonth() >= 2 ? NOW.getFullYear() + 1 : NOW.getFullYear();
@@ -163,7 +164,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
   /* 画像 */
   var IMG = {};
   function pic(id){
-    if (!IMG[id]){ IMG[id] = new Image(); IMG[id].onload = function(){ render(); drawPresets(); }; IMG[id].src = IMG_BASE + 'ng-' + id + '.webp'; }
+    if (!IMG[id]){ IMG[id] = new Image(); IMG[id].onload = function(){ render(); drawPresets(); }; IMG[id].src = IMG_BASE + 'ng-' + id + '.webp?v=' + VER; }
     return IMG[id];
   }
   function ready(im){ return im.complete && im.naturalWidth; }
@@ -249,7 +250,7 @@ body,.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!import
     groups.push(g);
   }
   function sync(){ groups.forEach(function(g){ g.items.forEach(function(it, i){ g.btns[i].classList.toggle('on', !!g.cur(it)); }); }); }
-  function img(id){ return '<img src="'+IMG_BASE+'ng-'+id+'.webp" alt="" loading="lazy">'; }
+  function img(id){ return '<img src="'+IMG_BASE+'ng-'+id+'.webp?v='+VER+'" alt="" loading="lazy">'; }
   var rom = document.getElementById('ngRomaji');
   (function(){ var e = ETO.filter(function(x){ return x.id === ZODIAC; })[0]; if (e){ var p = e.l.split(' '); document.getElementById('ngEtoHint').textContent = YEAR + 'ねんは ' + p[0] + ' の としです。 ' + YEAR + ' is the Year of the ' + p[1] + '.'; } })();
   function showRom(){ rom.innerHTML = '<span class="ng-ja">'+st.msg.ja+'</span><br>'+st.msg.ro; }
