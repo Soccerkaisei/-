@@ -1,0 +1,321 @@
+<style>
+.nj-article{font-family:"Yu Gothic","Meiryo",sans-serif;line-height:1.95;color:#333;}
+.nj-article h2{font-size:22px;background:#e8630f;color:#fff;padding:9px 15px;border-radius:6px;margin-top:44px;}
+.nj-article h3{font-size:18px;color:#e8630f;border-left:5px solid #c9a227;padding-left:10px;margin-top:30px;}
+.nj-article .lead{font-size:16px;background:#fff3e9;padding:18px 20px;border-radius:8px;border:1px solid #f7ddc4;}
+.nj-article .lead .big{font-size:19px;font-weight:bold;color:#e8630f;display:block;margin-bottom:10px;}
+.nj-article .toc{background:#f2f2f2;border-radius:8px;padding:16px 22px;margin:22px 0;}
+.nj-article .toc ol{margin:6px 0 0;padding-left:22px;}
+.nj-article .toc li{margin:4px 0;}
+.nj-article .data{background:#ffedde;border-left:4px solid #e8630f;border-radius:4px;padding:12px 16px;margin:18px 0;font-size:15px;}
+.nj-article .data .num{font-size:20px;font-weight:bold;color:#e8630f;}
+.nj-article .point{background:#fbf7ea;border:1px solid #e6d9a8;border-radius:8px;padding:14px 18px;margin:18px 0;}
+.nj-article .point b{color:#a5801a;}
+.nj-article .src{font-size:12px;color:#777;margin:6px 0 0;}
+.nj-article .src a{color:#c2530e;}
+.nj-article a{color:#c2530e;}
+.nj-article table.cmp{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px;}
+.nj-article table.cmp th,.nj-article table.cmp td{border:1px solid #f5d6b8;padding:9px 11px;text-align:left;vertical-align:top;}
+.nj-article table.cmp th{background:#e8630f;color:#fff;}
+.nj-article table.cmp tr:nth-child(even) td{background:#fff3e9;}
+.nj-article .cta{position:relative;overflow:hidden;background:linear-gradient(135deg,#e8630f,#b34d0c);background-size:cover;background-position:center;color:#fff;border-radius:18px;padding:56px 28px;text-align:center;margin:44px 0;box-shadow:0 14px 34px rgba(190,90,10,.28);}
+.nj-article .cta::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(220,110,15,.90),rgba(170,80,10,.82)),radial-gradient(circle at 88% 12%,rgba(201,162,39,.25),transparent 55%);pointer-events:none;}
+.nj-article .cta__eyebrow{position:relative;z-index:2;display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(244,228,184,.55);color:#f4e4b8;font-size:12px;font-weight:bold;letter-spacing:.05em;padding:5px 16px;border-radius:30px;margin-bottom:16px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.nj-article .cta p{position:relative;z-index:2;margin:0;font-size:16px;line-height:1.9;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+.nj-article .cta a{position:relative;z-index:2;display:inline-block;background:linear-gradient(135deg,#dab748,#c9a227);color:#fff;text-decoration:none;font-weight:bold;padding:15px 34px;border-radius:30px;margin-top:20px;box-shadow:0 10px 24px rgba(150,70,10,.35);}
+.nj-article .cta a::after{content:"  →";}
+.nj-article .cta--soft{background:#fff3e9;color:#e8630f;padding:26px 24px;box-shadow:none;border:1px solid #f7ddc4;}
+.nj-article .cta--soft::before{display:none;}
+.nj-article .cta--soft .cta__eyebrow{background:#ffedde;border-color:#e8c9c7;color:#e8630f;text-shadow:none;}
+.nj-article .cta--soft p{text-shadow:none;font-size:15px;color:#444;}
+.nj-article .cta--soft a{background:#e8630f;box-shadow:none;}
+.nj-article .relhead{font-size:15px;font-weight:bold;color:#e8630f;margin-top:36px;}
+.nj-article ul{padding-left:22px;}
+.nj-article ul li{margin:4px 0;}
+.nj-article .relcard{display:flex;gap:16px;border:1px solid #f7ddc4;border-radius:10px;overflow:hidden;margin:14px 0;text-decoration:none;color:#333;}
+.nj-article .relcard:hover{opacity:0.85;}
+.nj-article .relcard__thumb{flex:0 0 120px;width:120px;height:120px;overflow:hidden;background:#eee;}
+.nj-article .relcard__thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.nj-article .relcard__body{padding:10px 14px 10px 0;flex:1;min-width:0;}
+.nj-article .relcard__title{font-size:14px;font-weight:bold;color:#e8630f;display:block;margin-bottom:4px;line-height:1.5;}
+.nj-article .relcard__excerpt{font-size:12px;color:#666;display:block;line-height:1.6;}
+.nj-article figure.ph{margin:22px 0;}
+.nj-article figure.ph img{width:100%;height:auto;border-radius:8px;display:block;}
+.nj-article figure.ph figcaption{font-size:13px;color:#666;margin-top:6px;text-align:center;}
+.nj-article .faq{border:1px solid #f7ddc4;border-radius:8px;padding:14px 18px;margin:14px 0;}
+.nj-article .faq .q{font-weight:bold;color:#e8630f;margin:0 0 6px;}
+.nj-article .faq .q::before{content:"Q. ";color:#c9a227;}
+.nj-article .faq .a{margin:0;}
+.nj-article .faq .a::before{content:"A. ";font-weight:bold;color:#a5801a;}
+.nj-article .footnote{font-size:12px;color:#888;border-top:1px solid #f7ddc4;margin-top:40px;padding-top:16px;}
+.nj-article .footnote li{margin:3px 0;}
+.nj-article .fit{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
+@media (max-width:600px){.nj-article .fit{grid-template-columns:1fr;}}
+.nj-article .fit__col{border-radius:12px;padding:16px 18px;min-width:0;box-sizing:border-box;}
+.nj-article .fit__col--yes{background:#fff3e9;border:2px solid #e8630f;}
+.nj-article .fit__col--no{background:#f5f5f5;border:2px solid #c8c8c8;}
+.nj-article .fit__head{font-weight:bold;font-size:16px;margin:0 0 10px;padding-bottom:8px;border-bottom:1px dashed rgba(0,0,0,.15);}
+.nj-article .fit__col--yes .fit__head{color:#e8630f;}
+.nj-article .fit__col--no .fit__head{color:#666;}
+.nj-article .fit__col--yes .fit__head::before{content:"〇 ";}
+.nj-article .fit__col--no .fit__head::before{content:"✕ ";}
+.nj-article .fit ul{list-style:none;padding-left:0;margin:0;}
+.nj-article .fit li{position:relative;padding-left:24px;margin:8px 0;line-height:1.6;}
+.nj-article .fit__col--yes li::before{content:"✓";position:absolute;left:2px;color:#e8630f;font-weight:bold;}
+.nj-article .fit__col--no li::before{content:"・";position:absolute;left:2px;color:#999;font-weight:bold;}
+
+.nj-article details.faq{border:1px solid #f7ddc4;border-radius:8px;padding:4px 18px;margin:12px 0;background:#fff;}
+.nj-article details.faq summary{cursor:pointer;list-style:none;font-weight:bold;color:#e8630f;padding:10px 28px 10px 0;position:relative;}
+.nj-article details.faq summary::-webkit-details-marker{display:none;}
+.nj-article details.faq summary::before{content:"Q. ";color:#c9a227;}
+.nj-article details.faq summary::after{content:"+";position:absolute;right:0;top:6px;font-size:20px;color:#e8630f;}
+.nj-article details.faq[open] summary::after{content:"−";}
+.nj-article details.faq .a{margin:0 0 12px;}
+.nj-article .voice{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #f7ddc4;border-left:5px solid #e8630f;border-radius:10px;padding:16px 18px 6px;margin:22px 0;}
+.nj-article .voice__ph{flex:0 0 80px;width:80px;height:80px;border-radius:50%;overflow:hidden;background:#eee;}
+.nj-article .voice__ph img{width:100%;height:100%;object-fit:cover;display:block;}
+.nj-article .voice__body{flex:1;min-width:0;}
+.nj-article .voice .voice__name{font-weight:bold;color:#e8630f;margin:0 0 2px;}
+.nj-article .voice .voice__tag{font-size:12.5px;color:#777;margin:0 0 8px;line-height:1.6;}
+.nj-article .voice p{font-size:15px;margin:0 0 .8em;}
+@media (max-width:600px){.nj-article .voice{flex-direction:column;align-items:center;text-align:center;}}
+</style>
+<article class="nj-article">
+
+<p class="lead"><span class="big">「京都 教員 転職」と検索しているあなたへ、伝えたいことがあります。京都府は、同じ府の中で通勤の事情がまったく違う地域です。府内の市町村を比べると、通勤時間の中央値が15分台の市もあれば、50分を超える町もあります。さらに、京都市の中心部では、私立・国立中学へ進む子どもが3割を超える区もあります。この記事では、京都の先生の負担をデータで整理し、選べる道を正直に比べます。</span></p>
+
+<div class="toc">
+<p><b>目次</b></p>
+<ol>
+<li>「京都 教員 転職」を検索する人が抱えている事情</li>
+<li>データで見る、京都の教員を取り巻く環境</li>
+<li>京都府の教員採用における倍率の実態</li>
+<li>「忙しさ」の正体は、京都特有のものか</li>
+<li>教員経験が評価される、京都と関西の仕事</li>
+<li>転職の前に、「異動」という選択肢も検討する価値がある</li>
+<li>選択肢を整理する</li>
+<li>学校の外で、教育に関わり続けている先生たち</li>
+<li>よくある質問</li>
+<li>まとめ</li>
+</ol>
+</div>
+
+<h2>「京都 教員 転職」を検索する人が抱えている事情</h2>
+<p>京都で働く先生の悩みは、勤める地域によって大きく違います。京都市内は、歴史のある町並みの中に学校が多く、受験熱の高い地域もあります。一方、丹後や中丹の地域では、学校の数が少なく、異動の距離が長くなることもあります。</p>
+<p>さらに、京都には採用の窓口が2つあります。京都府のほかに、京都市が別に教員を採用しているのです。そして、府の採用で働く先生は、府内の広い範囲で異動があります。</p>
+<p>「この働き方を、あと何年続けられるのか」。そんな迷いから、「京都　教員　転職」と検索した人もいるでしょう。まずは、京都の状況を数字で確かめます。</p>
+
+<h2>データで見る、京都の教員を取り巻く環境</h2>
+<p>京都のデータからは、「府内の差の大きさ」が見えてきます。</p>
+
+<h3>府全体の通勤時間は、全国平均とほぼ同じ</h3>
+<div class="data">
+<span class="num">通勤時間の中央値は片道29.3分</span><br>
+総務省統計局「住宅・土地統計調査」をもとにした集計では、京都府の通勤時間の中央値は片道29.3分です。全国の28.1分と比べて、1分ほど長いだけです。ただし、府内の差は大きく、福知山市は15.5分、精華町は50.7分でした。
+<p class="src">出典：総務省統計局「住宅・土地統計調査」（statresearch.jp集計）<a href="https://statresearch.jp/house/rent/commute_pref_26.html" target="_blank" rel="noopener">https://statresearch.jp/house/rent/commute_pref_26.html</a></p>
+</div>
+
+<p>仮に1年に240日出勤するとして、往復の通勤時間を計算してみます。すると、1年で約234時間になります（府民全体の中央値をもとにした編集部の試算）。あなた自身の通勤時間でも、一度計算してみてください。</p>
+
+<p>つまり、府全体の平均だけを見ると、京都の通勤は特別に重くはありません。しかし、住む場所と勤める学校の組み合わせによっては、毎日の移動がとても長くなります。たとえば、府南部に住み、北部の学校へ異動になった場合です。そのため、「府の平均」ではなく、「自分の通勤」で考えることが大切です。</p>
+
+<h3>中学受験の熱は、京都市の中心部に集まっている</h3>
+<div class="data">
+<span class="num">私立・国立中学の在籍率は10.8%</span><br>
+ダイヤモンド教育ラボの集計によると、京都府の私立・国立中学の在籍率は10.8%です。これは、主要12都道府県の中で5番目にあたります。府内で最も高いのは京都市上京区で、2番目の下京区は31.7%でした。京田辺市も16.3%と高い水準です。
+<p class="src">出典：ダイヤモンド教育ラボ「京都府の中学受験が熱心な市区町村ランキング【完全版】」<a href="https://diamond.jp/educate/articles/chugakujuken_hiritsu_ranking/400362/" target="_blank" rel="noopener">https://diamond.jp/educate/articles/chugakujuken_hiritsu_ranking/400362/</a></p>
+</div>
+
+<p>京都市の中心部では、約3人に1人が私立・国立中学へ進む区もあります。一方で、府の北部では、受験熱は高くないと考えられます。つまり、京都の先生の負担は、勤める地域によって「受験」の重さも「移動」の重さも違うのです。</p>
+
+<h2>京都府の教員採用における倍率の実態</h2>
+<p>次に、京都府教育委員会が実施する府の採用試験を見てみましょう。</p>
+
+<div class="data">
+<span class="num">最終倍率は2.5倍、合格者は551人</span><br>
+2026年実施の選考では、採用予定540人に対して、551人が最終合格しました。倍率は2.5倍です。校種別では、小学校・特別支援学校小学部が2.0倍、中学校・特別支援学校中学部が2.2倍でした。
+<p class="src">出典：リセマム「【教員採用】京都府、最終合格者551人…倍率2.5倍」<a href="https://reseed.resemom.jp/article/2026/10/01/14248.html" target="_blank" rel="noopener">https://reseed.resemom.jp/article/2026/10/01/14248.html</a>／リセマム「京都府の教員採用、最終合格者549人を発表」<a href="https://reseed.resemom.jp/article/2025/09/22/11754.html" target="_blank" rel="noopener">https://reseed.resemom.jp/article/2025/09/22/11754.html</a></p>
+</div>
+
+<h3>倍率の数字から見えること</h3>
+<p>文部科学省の調査では、令和7年度の全国の倍率は2.9倍でした。それと比べると、京都府の2.5倍は、全国平均を下回っています。特に、小学校は2.0倍です。</p>
+<p>倍率が低いということは、必要な人数に対して、なり手が少ないということです。そして、欠員が出たときの代わりが見つかりにくいことは、今いる先生の働き方とも無関係ではありません。</p>
+<p>なお、京都市の先生は、市の採用試験を経ています。そのため、倍率や選考の内容は府とは別です。</p>
+
+<h2>「忙しさ」の正体は、京都特有のものか</h2>
+<p>京都で働く先生の負担には、府の形と地域の差が関係しています。</p>
+
+<figure class="ph">
+<img decoding="async" src="【京都の教員が抱える負担の画像URLをここに差し込みます】" alt="京都府の教員が抱える負担" style="width:100%;height:auto;border-radius:8px;display:block;" width="1600" height="900">
+</figure>
+
+<h3>京都ならではの3つの負担</h3>
+<ul>
+<li><b>府内で大きく違う通勤</b>：福知山市の15.5分から精華町の50.7分まで、通勤の事情は地域で大きく違います。異動によって、毎日の移動が大きく変わることもあります。</li>
+<li><b>地域ごとに違う保護者の期待</b>：京田辺市のように受験熱が高い地域では、学習への期待も高くなりがちです。その結果、保護者とのやり取りに時間がかかります。</li>
+<li><b>人が足りない中での仕事</b>：小学校の倍率は2.0倍です。そのため、欠員が出たときに、残った先生で仕事を分け合うことがあります。</li>
+</ul>
+<p>どれも、一人の努力で変えるのが難しい負担です。しかし、「京都だから仕方ない」と我慢し続ける必要はありません。働き方を変えれば、手放せる負担もあります。</p>
+<p>特に、府内の地域差は、京都市内に住む人には見えにくいものです。だからこそ、自分の通勤や異動の見通しを言葉にして、周りに伝えることも大切です。</p>
+
+<h3>今の負担、京都だからこそのものか確認する</h3>
+<ul>
+<li>異動で、住まいから遠い地域へ行く可能性がある</li>
+<li>受験を意識した保護者の要望に、時間を取られている</li>
+<li>担当以外の仕事が、少しずつ増えている</li>
+</ul>
+<p>2つ以上当てはまるなら、原因は「教員という仕事」ではないかもしれません。むしろ、「京都での働き方」にある可能性があります。</p>
+<p>反対に、一つも当てはまらないのに「辞めたい」気持ちが強い人もいるでしょう。その場合は、教員という仕事との向き合い方を見直すタイミングかもしれません。</p>
+
+<p>なお、全国の先生の勤務時間や、残業代が出ない仕組みをデータで知りたい方は、<a href="https://nijin.co.jp/recruit/kyouin-black-sugiru/">教員はブラックすぎる？調査データで見る実態と理由</a>もあわせて読んでみてください。</p>
+
+<h2>教員経験が評価される、京都と関西の仕事</h2>
+<p>京都には、大学や研究機関が多く集まっています。また、ものづくりの企業や、観光に関わる仕事も豊富です。さらに、府南部からなら、大阪の企業にも通えます。</p>
+<p>では、企業は元教員のどこを見ているのでしょうか。それは、業界の知識ではありません。人に伝える力、相手に合わせて話す力、そして複数の仕事を同時に回す力です。</p>
+<p>特に、大学の職員や、学生を支える仕事では、教える経験がそのまま生きます。面接では、数字を添えて話すと伝わりやすくなります。たとえば「修学旅行の計画を、半年かけて学年でまとめた」という伝え方です。</p>
+
+<h3>学校で毎日していたことは、そのまま強みになる</h3>
+<p>自分の強みが分からないときは、毎日の仕事を言い換えてみましょう。</p>
+<ul>
+<li><b>毎日の授業準備</b> → 授業設計力：ゴールから逆算して、分かりやすい流れをつくる力</li>
+<li><b>一人ひとりへの声かけ</b> → 個別対応力：相手の変化に気づき、関わり方を変える力</li>
+<li><b>行事や校外学習の計画</b> → 段取り力：期限から逆算して、関係者と準備を進める力</li>
+<li><b>学級経営・行事運営</b> → 推進力：人をまとめ、期限までに形にする力</li>
+</ul>
+<p>もちろん、異業種へ応募するなら、これらを企業の言葉に置き換える工夫が必要です。一方、教育に近い職場なら、そのままの言葉で伝わります。</p>
+
+<h3>教育に近い仕事は、京都市と府南部に多い</h3>
+<p>学習塾、家庭教師、教材制作の仕事は、京都市や府南部に多くあります。また、大学が多い京都ならではの仕事として、学生の学びを支える職員の仕事もあります。</p>
+<p>一方、府北部に住んでいる場合は、通える求人が限られることもあります。そのため、場所を問わないオンラインの仕事も、選択肢に入れておくと幅が広がります。</p>
+
+<h2>転職の前に、「異動」という選択肢も検討する価値がある</h2>
+<p>転職を決める前に、一度考えておきたいのが「異動」です。京都の場合、どこに採用されているかで、異動の考え方が変わります。</p>
+<p>府の採用で働く先生は、府内の広い範囲で異動があります。だから、希望を出せば、住まいに近い地域へ移れる可能性もあります。一方、京都市の小中学校の先生は、基本的に市の中で異動します。</p>
+<p>ただし、異動は自分の希望だけでは決まりません。学校の配置が優先されるため、実現まで数年かかることもあります。さらに、府と市の間を移りたい場合は、採用試験を受け直すのが一般的です。</p>
+<p>では、今の負担を早く変えたい人はどうすればいいでしょうか。その場合は、異動を待つより働き方を変えるほうが現実的なこともあります。「異動を待つ」か「転職に動く」か。両方を比べてから決めてください。</p>
+
+<h2>選択肢を整理する</h2>
+<p>「京都 教員 転職」を考える人の選択肢は、大きく3つに分けられます。</p>
+
+<figure class="ph">
+<img decoding="async" src="【京都の教員が選べる3つの道の画像URLをここに差し込みます】" alt="京都の教員が選べる3つの道の比較" style="width:100%;height:auto;border-radius:8px;display:block;" width="1600" height="900">
+</figure>
+
+<h3>選択肢A：完全に畑違いの業種へ</h3>
+<p>府南部に住んでいれば、京都と大阪の両方の求人から選べます。だから、事務職や営業、大学職員など、教育以外の仕事にも挑戦しやすい環境です。ただし、府北部では、通える求人が限られることもあります。そのため、住む場所によって選び方が変わります。</p>
+
+<h3>選択肢B：教育に隣接する仕事へ</h3>
+<p>塾、家庭教師、教材制作、通信制高校のサポート校などが当てはまります。「教えること」は続けつつ、学校特有の働き方から離れられる道です。ただし、受験需要の高い地域の塾では、学校以上に成果を求められることもあります。つまり、負担の「種類」が変わるだけにならないか、確かめることが大切です。</p>
+
+<h3>選択肢C：子どもと関わることは変えず、働き方を変える</h3>
+<p>NIJINアカデミーは、オルタナティブスクールです。対象は、HSPやギフテッド、発達特性のある子どもたちです。働き方は完全在宅・フルリモートの業務委託です。そして、8人程度の少人数クラスを担任として受け持ちます。</p>
+<p>職場は、インターネット上のメタバース校舎です。先生は「メタバース担任」として、子ども一人ひとりの毎日に伴走します。働けるのは週3日からで、メタバース校舎への出勤なので通勤はゼロです。つまり、画面越しでも、学級担任としての関わりはそのまま続けられるのです。</p>
+<p>この働き方なら、府内の異動で変わる通勤そのものがなくなります。報酬は月74,000円〜550,000円のジョブ型です。実績や担当コマ数によって変わります。また、教員免許の有無は問いません。むしろ問われるのは、子どもの個性を信じて向き合えるかどうかです。</p>
+
+<div class="point">
+<b>働き方の特徴</b>：業務委託・ジョブ型のため、報酬は担当コマ数や実績に応じて決まります。週1回の職員会議（水曜12:00〜13:30）では、先生同士で情報を共有します。だから、一人で抱え込まずに働けます。
+</div>
+<h3>メタバース担任として働く、元教員の声</h3>
+<div class="voice">
+<div class="voice__ph"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/20260115_143334-scaled.jpg" alt="元教員でメタバース担任の市川芳彦さん（よっちゃん）"></div>
+<div class="voice__body">
+<p class="voice__name">市川芳彦さん（よっちゃん）</p>
+<p class="voice__tag">小学校・中学校・特別支援学校の教員として10年間勤務／NIJINアカデミー メタバース担任</p>
+<p>「パソコンとインターネット環境さえあれば、スキー場の駐車場からでも子どもたちとつながり、授業や交流ができます。」</p>
+<p><a href="https://nijin.co.jp/recruit/interview-ichikawa/">市川さんのインタビューを読む</a></p>
+</div>
+</div>
+
+<h3>この選択肢が向いている人・向いていない人</h3>
+<figure class="ph">
+<img decoding="async" src="【向いている人・向いていない人の画像URLをここに差し込みます】" alt="NIJINアカデミーの先生に向いている人：一人ひとりにじっくり向き合いたい人、通勤や異動に左右されずに働きたい人。向いていない人：教室で子どもと直接会うことを最も大切にしたい人、固定給・雇用の安定を優先したい人" style="width:100%;height:auto;border-radius:8px;display:block;" width="1600" height="900">
+</figure>
+<p>迷ったときは、「何を手放したくないか」から考えてみてください。たとえば、子どもと関わることは譲れない。でも、通勤や異動には振り回されたくない。そう感じるなら、この働き方は合っている可能性があります。反対に、固定給がないと不安な人もいるでしょう。その場合は、報酬の決まり方を説明会でくわしく確認してから判断するのがおすすめです。</p>
+
+<h3>選考の流れ</h3>
+<ol>
+<li>エントリー：募集ページから応募します。</li>
+<li>説明・面談：オンラインで働き方を聞き、質問もできます。</li>
+<li>条件のすり合わせ：担当コマ数や稼働時間を相談します。</li>
+<li>活動開始：先生として子どもたちと関わり始めます。</li>
+</ol>
+<p>選考はすべてオンラインで進みます。そのため、在職中でも、まずは話を聞くところから始められます。詳しい手順は募集ページで確認できます。</p>
+<p>完全在宅の働き方は、京都に住み続ける人だけのものではありません。たとえば、家族の転勤や実家の近くへの引っ越しを考えている人にも合います。勤務地に縛られないので、丹後でも京都市内でも、同じ子どもたちと関われます。</p>
+
+<div class="cta" style="background-image:url('https://nijin.co.jp/recruit/wp-content/uploads/2026/07/ChatGPT-Image-2026年7月17日-22_55_00.png');">
+<span class="cta__eyebrow">まずは知るだけでもOK</span>
+<p>「畑違いに進むか、教育に残るか」を今すぐ決める必要はありません。<br>通勤ゼロのNIJINアカデミーを、一度のぞいてみるだけでも判断材料になります。</p>
+<a href="https://nijin.co.jp/recruit/nijinacademy-teacher/">NIJINアカデミーを見てみる</a>
+</div>
+
+<h2>学校の外で、教育に関わり続けている先生たち</h2>
+<p>学校を離れても、子どもと関わる道はいくつもあります。実際に一歩を踏み出した先生たちの話も、ぜひ読んでみてください。</p>
+
+<p class="relhead">あわせて読みたい</p>
+<a class="relcard" href="https://nijin.co.jp/recruit/tennshokunokabe/">
+<div class="relcard__thumb"><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月26日-18_58_21.png" alt="教師しか経験がないことを転職の壁にしない"></div>
+<div class="relcard__body">
+<span class="relcard__title">「教師しか経験がない」を、転職の壁にしない｜データで見る、教員の異業種転職のリアル</span>
+<span class="relcard__excerpt">畑違いの業種に進む道と、子どもと関わることは変えずに働き方だけを変える道を、正直に比べた記事。</span>
+</div>
+</a>
+<a class="relcard" href="https://nijin.co.jp/recruit/interview-sacchii/">
+<div class="relcard__thumb"><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月15日-23_03_03.png" alt="さっちーさん"></div>
+<div class="relcard__body">
+<span class="relcard__title">「学校に行きたくない」に寄り添う。不登校を乗り越えた教員</span>
+<span class="relcard__excerpt">高校教員を7年務め、子育てを機に一度退職。それでも子どもと関わる仕事を諦めきれず、NIJINアカデミーで再チャレンジしたさっちーさんのインタビュー。</span>
+</div>
+</a>
+<a class="relcard" href="https://nijin.co.jp/recruit/interview-yakotan/">
+<div class="relcard__thumb"><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/やこたん保護者と談笑風.jpg" alt="やこたんさん"></div>
+<div class="relcard__body">
+<span class="relcard__title">孤独の中にいる子どもの本来の力に「わお！」と驚ける仲間を増やしたい</span>
+<span class="relcard__excerpt">特別支援学校の教員を13年務めた、やこたんさんのインタビュー。学校の外で、学校に行きづらい子どもたちに伴走しています。</span>
+</div>
+</a>
+<a class="relcard" href="https://nijin.co.jp/recruit/kyoin-menkyo-ikaseru-shigoto/">
+<div class="relcard__thumb"><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/09/教員免許10選アイキャッチ.png" alt="教員免許を活かせる仕事10選"></div>
+<div class="relcard__body">
+<span class="relcard__title">教員免許を活かせる教育分野の仕事10選｜学校以外で「先生」を続ける方法</span>
+<span class="relcard__excerpt">フリースクール、オンラインスクール、通信制高校など。学校の外で教員経験を活かせる仕事を比べた記事。</span>
+</div>
+</a>
+
+<h2>よくある質問</h2>
+<h3>京都府の教員採用・異動に関する質問</h3>
+<details class="faq"><summary>京都府と京都市の先生では、何が違いますか？</summary><p class="a">採用している教育委員会が違います。府の採用で働く先生は、京都市以外の小中学校や、府立高校・特別支援学校などで働きます。そして、広い範囲で異動があります。一方、京都市の先生は、基本的に市内の学校で異動します。</p></details>
+<details class="faq"><summary>府の平均の通勤時間が短くても、負担は大きいのですか？</summary><p class="a">人によります。府全体の中央値は29.3分ですが、市町村ごとに見ると15.5分から50.7分まで差があります。そのため、自分の通勤時間と、異動の可能性がある地域で考えてください。</p></details>
+<details class="faq"><summary>京都の教員を辞めたあと、大阪府の教員になれますか？</summary><p class="a">教員免許は全国で有効です。そのため、大阪府の採用試験を受けることは制度上できます。ただし、選考の内容や倍率は自治体ごとに違うので、必ず確認してください。</p></details>
+<h3>NIJINアカデミーでの働き方に関する質問</h3>
+<details class="faq"><summary>在職中でも応募できますか？</summary><p class="a">はい、できます。選考はオンラインで進むので、学校の仕事を続けながら準備できます。まずは説明を聞くだけでも大丈夫です。</p></details>
+<details class="faq"><summary>教員免許がなくても、NIJINアカデミーの先生になれますか？</summary><p class="a">なれます。フリースクールは、学校教育法上の一条校ではありません。そのため、講師として働くうえで教員免許は法律上必須ではないのです。NIJINアカデミーも同様です。</p></details>
+<details class="faq"><summary>京都から引っ越しても、同じように働けますか？</summary><p class="a">はい。完全在宅・フルリモートなので、住む場所が変わっても同じ条件で続けられます。家族の転勤などがあっても、担任を続けやすい働き方です。</p></details>
+<details class="faq"><summary>職員会議や研修はありますか？</summary><p class="a">週1回、水曜12:00〜13:30にオンラインの職員会議があります。先生同士で子どもの様子を共有し、困りごとを相談できる場です。</p></details>
+
+<h2>まとめ</h2>
+<p>京都府民の通勤時間の中央値は片道29.3分です。府全体では全国平均とほぼ同じですが、市町村ごとに見ると15.5分から50.7分まで大きな差があります。また、私立・国立中学の在籍率は10.8%で、京都市下京区では31.7%に達します。</p>
+<p>つまり、京都の先生の忙しさは、勤める地域によって形が大きく変わります。さらに、府と京都市で採用が分かれているため、異動の範囲も人によって違います。</p>
+
+<h3>京都だからこそ、選べる道は多い</h3>
+<p>京都は、大学や企業が集まり、大阪の求人にも手が届く場所です。そのため、畑違いの業種に移る道も、教育に近い仕事に移る道もあります。そのうえで、子どもと関わることは変えずに、働き方だけを変える道もあります。NIJINアカデミーは、通勤ゼロでそれを実現する一つの形です。</p>
+<p>大切なのは、焦って結論を出さないことです。まずは、今の忙しさの原因を切り分けてみてください。「京都での働き方」なのか、それとも「教員という仕事」なのか。この記事のデータが、その判断材料になればうれしいです。</p>
+
+<div class="cta" style="background-image:url('https://nijin.co.jp/recruit/wp-content/uploads/2026/09/教育キャリアコラムTOP.png');">
+<span class="cta__eyebrow">通勤ゼロで、子どもと関わり続ける｜メタバース担任を募集中</span>
+<p>京都の学校で積み重ねた経験は、オンラインの教室でも力になります。<br>まずはどんな場所か、のぞいてみてください。</p>
+<a href="https://nijin.co.jp/recruit/nijinacademy-teacher/">NIJINアカデミー 先生募集</a>
+</div>
+
+<div class="footnote">
+<h3 style="font-size:13px;color:#888;border-left:none;padding-left:0;margin-top:0;">出典・参考資料</h3>
+<ul>
+<li>総務省統計局「住宅・土地統計調査」（通勤時間データ、statresearch.jp集計）<a href="https://statresearch.jp/house/rent/commute_pref_26.html" target="_blank" rel="noopener">https://statresearch.jp/house/rent/commute_pref_26.html</a></li>
+<li>ダイヤモンド教育ラボ「京都府の中学受験が熱心な市区町村ランキング【完全版】」<a href="https://diamond.jp/educate/articles/chugakujuken_hiritsu_ranking/400362/" target="_blank" rel="noopener">https://diamond.jp/educate/articles/chugakujuken_hiritsu_ranking/400362/</a></li>
+<li>リセマム「【教員採用】京都府、最終合格者551人…倍率2.5倍」<a href="https://reseed.resemom.jp/article/2026/10/01/14248.html" target="_blank" rel="noopener">https://reseed.resemom.jp/article/2026/10/01/14248.html</a></li>
+<li>リセマム「京都府の教員採用、最終合格者549人を発表」<a href="https://reseed.resemom.jp/article/2025/09/22/11754.html" target="_blank" rel="noopener">https://reseed.resemom.jp/article/2025/09/22/11754.html</a></li>
+<li>文部科学省「令和7年度公立学校教員採用選考試験の実施状況のポイント」<a href="https://www.mext.go.jp/content/20251218-mxt_kyoikujinzai01-000046447_1.pdf" target="_blank" rel="noopener">https://www.mext.go.jp/content/20251218-mxt_kyoikujinzai01-000046447_1.pdf</a></li>
+</ul>
+<p>本記事の統計データは掲載時点の各出典情報に基づきます。実際の倍率・待遇は年度・校種・契約形態により異なります。転職や契約形態の選択にあたっては、各社・各機関の最新の募集要項を必ずご自身でご確認ください。本記事は一般的な情報提供を目的としており、個別の転職・キャリア選択の結果を保証するものではありません。</p>
+</div>
+
+</article>
