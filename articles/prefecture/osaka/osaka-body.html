@@ -63,6 +63,22 @@
 .nj-article .fit li{position:relative;padding-left:24px;margin:8px 0;line-height:1.6;}
 .nj-article .fit__col--yes li::before{content:"✓";position:absolute;left:2px;color:#e8630f;font-weight:bold;}
 .nj-article .fit__col--no li::before{content:"・";position:absolute;left:2px;color:#999;font-weight:bold;}
+
+.nj-article details.faq{border:1px solid #f7ddc4;border-radius:8px;padding:4px 18px;margin:12px 0;background:#fff;}
+.nj-article details.faq summary{cursor:pointer;list-style:none;font-weight:bold;color:#e8630f;padding:10px 28px 10px 0;position:relative;}
+.nj-article details.faq summary::-webkit-details-marker{display:none;}
+.nj-article details.faq summary::before{content:"Q. ";color:#c9a227;}
+.nj-article details.faq summary::after{content:"+";position:absolute;right:0;top:6px;font-size:20px;color:#e8630f;}
+.nj-article details.faq[open] summary::after{content:"−";}
+.nj-article details.faq .a{margin:0 0 12px;}
+.nj-article .voice{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #f7ddc4;border-left:5px solid #e8630f;border-radius:10px;padding:16px 18px 6px;margin:22px 0;}
+.nj-article .voice__ph{flex:0 0 80px;width:80px;height:80px;border-radius:50%;overflow:hidden;background:#eee;}
+.nj-article .voice__ph img{width:100%;height:100%;object-fit:cover;display:block;}
+.nj-article .voice__body{flex:1;min-width:0;}
+.nj-article .voice .voice__name{font-weight:bold;color:#e8630f;margin:0 0 2px;}
+.nj-article .voice .voice__tag{font-size:12.5px;color:#777;margin:0 0 8px;line-height:1.6;}
+.nj-article .voice p{font-size:15px;margin:0 0 .8em;}
+@media (max-width:600px){.nj-article .voice{flex-direction:column;align-items:center;text-align:center;}}
 </style>
 <article class="nj-article">
 
@@ -97,6 +113,8 @@
 総務省統計局の調査では、大阪府に住む人の通勤時間の中央値は片道36.9分です。これは、全国平均の28.1分より8分以上長い水準です。さらに、大阪市内や近郊の学校へは、私鉄・地下鉄・JRを乗り継ぐことも多くあります。つまり、時間の長さだけでなく、乗り換えそのものが毎日の疲れとして積み重なるのです。
 <p class="src">出典：総務省統計局「平成30年住宅・土地統計調査」<a href="https://statresearch.jp/house/rent/commute_pref_27.html" target="_blank" rel="noopener">https://statresearch.jp/house/rent/commute_pref_27.html</a></p>
 </div>
+<p>仮に1年に240日出勤するとして、往復の通勤時間を計算してみます。すると、1年で約295時間になります（府民全体の中央値をもとにした編集部の試算）。あなた自身の通勤時間でも、一度計算してみてください。</p>
+
 <h3>中学受験の熱は、区によって大きく違う</h3>
 <div class="data">
 <span class="num">私立中学在籍率、地域によって最大32.6%</span><br>
@@ -194,6 +212,16 @@
 
 <div class="point">
 <b>働き方の特徴</b>：業務委託・ジョブ型のため、報酬は担当コマ数や実績に応じて決まります。また、フルリモートなので、ほかの府県へ引っ越しても同じ働き方を続けられます。さらに、週1回の職員会議（水曜12:00〜13:30）で先生同士が情報を共有します。だから、一人で抱え込まずに働けます。</div>
+<h3>メタバース担任として働く、元教員の声</h3>
+<div class="voice">
+<div class="voice__ph"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/20260115_143334-scaled.jpg" alt="元教員でメタバース担任の市川芳彦さん（よっちゃん）"></div>
+<div class="voice__body">
+<p class="voice__name">市川芳彦さん（よっちゃん）</p>
+<p class="voice__tag">小学校・中学校・特別支援学校の教員として10年間勤務／NIJINアカデミー メタバース担任</p>
+<p>「パソコンとインターネット環境さえあれば、スキー場の駐車場からでも子どもたちとつながり、授業や交流ができます。」</p>
+<p><a href="https://nijin.co.jp/recruit/interview-ichikawa/">市川さんのインタビューを読む</a></p>
+</div>
+</div>
 
 <h3>この選択肢が向いている人・向いていない人</h3>
 <figure class="ph">
@@ -252,36 +280,15 @@
 
 <h2>よくある質問</h2>
 <h3>大阪府の教員採用・異動に関する質問</h3>
-<div class="faq">
-<p class="q">大阪府の教員採用倍率は今後も下がり続けますか？</p>
-<p class="a">2026年実施の選考では2.6倍で、3年続けて下がっています。全国でも低下が続いていますが、今後の動きはまだ分かりません。最新の状況は、大阪府教育委員会の発表を確認してください。</p>
-</div>
-<div class="faq">
-<p class="q">中学受験が過熱していない地域の教員でも、この記事は参考になりますか？</p>
-<p class="a">通勤時間や教育熱は、府内でも地域によって違います。ご自身の勤務地と照らし合わせて、当てはまる部分を参考にしてください。</p>
-</div>
-<div class="faq">
-<p class="q">大阪府の教員を辞めたあと、ほかの府県で教員になれますか？</p>
-<p class="a">教員免許は全国で有効です。そのため、ほかの自治体の採用試験を受けることは制度上できます。ただし、選考の内容や倍率は自治体ごとに違うので、必ず確認してください。</p>
-</div>
+<details class="faq"><summary>大阪府の教員採用倍率は今後も下がり続けますか？</summary><p class="a">2026年実施の選考では2.6倍で、3年続けて下がっています。全国でも低下が続いていますが、今後の動きはまだ分かりません。最新の状況は、大阪府教育委員会の発表を確認してください。</p></details>
+<details class="faq"><summary>中学受験が過熱していない地域の教員でも、この記事は参考になりますか？</summary><p class="a">通勤時間や教育熱は、府内でも地域によって違います。ご自身の勤務地と照らし合わせて、当てはまる部分を参考にしてください。</p></details>
+<details class="faq"><summary>大阪府の教員を辞めたあと、ほかの府県で教員になれますか？</summary><p class="a">教員免許は全国で有効です。そのため、ほかの自治体の採用試験を受けることは制度上できます。ただし、選考の内容や倍率は自治体ごとに違うので、必ず確認してください。</p></details>
 
 <h3>NIJINアカデミーでの働き方に関する質問</h3>
-<div class="faq">
-<p class="q">大阪府から離れて働く場合、NIJINアカデミーの働き方は続けられますか？</p>
-<p class="a">はい。完全在宅・フルリモートなので、引っ越しても同じ条件で続けられます。</p>
-</div>
-<div class="faq">
-<p class="q">教員免許がなくても、NIJINアカデミーの先生になれますか？</p>
-<p class="a">なれます。フリースクールは、学校教育法上の一条校ではありません。そのため、講師として働くうえで教員免許は法律上必須ではないのです。NIJINアカデミーも同様です。</p>
-</div>
-<div class="faq">
-<p class="q">大阪府以外に引っ越す予定がある場合でも、今から準備しておけますか？</p>
-<p class="a">はい。フルリモートなので、引っ越し先が決まる前から準備できます。また、転居に合わせて働き方を切り替える人もいます。</p>
-</div>
-<div class="faq">
-<p class="q">NIJINアカデミーで働きながら、将来的に大阪の学校に戻ることはできますか？</p>
-<p class="a">業務委託契約なので、契約を終えれば別の道を選べます。ただし、公立学校の教員に戻るには、あらためて採用選考を受ける必要があります。</p>
-</div>
+<details class="faq"><summary>大阪府から離れて働く場合、NIJINアカデミーの働き方は続けられますか？</summary><p class="a">はい。完全在宅・フルリモートなので、引っ越しても同じ条件で続けられます。</p></details>
+<details class="faq"><summary>教員免許がなくても、NIJINアカデミーの先生になれますか？</summary><p class="a">なれます。フリースクールは、学校教育法上の一条校ではありません。そのため、講師として働くうえで教員免許は法律上必須ではないのです。NIJINアカデミーも同様です。</p></details>
+<details class="faq"><summary>大阪府以外に引っ越す予定がある場合でも、今から準備しておけますか？</summary><p class="a">はい。フルリモートなので、引っ越し先が決まる前から準備できます。また、転居に合わせて働き方を切り替える人もいます。</p></details>
+<details class="faq"><summary>NIJINアカデミーで働きながら、将来的に大阪の学校に戻ることはできますか？</summary><p class="a">業務委託契約なので、契約を終えれば別の道を選べます。ただし、公立学校の教員に戻るには、あらためて採用選考を受ける必要があります。</p></details>
 
 <h2>まとめ</h2>
 <p>大阪の先生の忙しさには、大阪ならではの事情が重なっています。乗り換えの多い通勤、受験熱の高い地域での保護者対応、そして人手不足です。府民の通勤時間の中央値は、全国平均より8分以上長い水準です。また、私立中学の在籍率は、地域によって最大32.6%に達します。さらに、採用倍率は4.6倍から2.6倍まで下がり続けています。</p>

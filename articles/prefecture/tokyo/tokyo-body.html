@@ -49,6 +49,22 @@
 .nj-article .faq .a::before{content:"A. ";font-weight:bold;color:#a5801a;}
 .nj-article .footnote{font-size:12px;color:#888;border-top:1px solid #f5d8bd;margin-top:40px;padding-top:16px;}
 .nj-article .footnote li{margin:3px 0;}
+
+.nj-article details.faq{border:1px solid #f7ddc4;border-radius:8px;padding:4px 18px;margin:12px 0;background:#fff;}
+.nj-article details.faq summary{cursor:pointer;list-style:none;font-weight:bold;color:#e8630f;padding:10px 28px 10px 0;position:relative;}
+.nj-article details.faq summary::-webkit-details-marker{display:none;}
+.nj-article details.faq summary::before{content:"Q. ";color:#c9a227;}
+.nj-article details.faq summary::after{content:"+";position:absolute;right:0;top:6px;font-size:20px;color:#e8630f;}
+.nj-article details.faq[open] summary::after{content:"−";}
+.nj-article details.faq .a{margin:0 0 12px;}
+.nj-article .voice{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #f7ddc4;border-left:5px solid #e8630f;border-radius:10px;padding:16px 18px 6px;margin:22px 0;}
+.nj-article .voice__ph{flex:0 0 80px;width:80px;height:80px;border-radius:50%;overflow:hidden;background:#eee;}
+.nj-article .voice__ph img{width:100%;height:100%;object-fit:cover;display:block;}
+.nj-article .voice__body{flex:1;min-width:0;}
+.nj-article .voice .voice__name{font-weight:bold;color:#e8630f;margin:0 0 2px;}
+.nj-article .voice .voice__tag{font-size:12.5px;color:#777;margin:0 0 8px;line-height:1.6;}
+.nj-article .voice p{font-size:15px;margin:0 0 .8em;}
+@media (max-width:600px){.nj-article .voice{flex-direction:column;align-items:center;text-align:center;}}
 </style>
 <article class="nj-article">
 
@@ -81,6 +97,8 @@
 総務省統計局の調査によると、東京都の通勤時間の中央値は片道44.5分です。全国平均の28.1分を大きく上回ります。往復では1時間30分近くになります。つまり、勤務時間の外で、毎日それだけの時間を使っているのです。
 <p class="src">出典：総務省統計局「平成30年住宅・土地統計調査」<a href="https://statresearch.jp/house/rent/commute_pref_13.html" target="_blank" rel="noopener">https://statresearch.jp/house/rent/commute_pref_13.html</a></p>
 </div>
+<p>仮に1年に240日出勤するとして、往復の通勤時間を計算してみます。すると、1年で約356時間になります（都民全体の中央値をもとにした編集部の試算）。あなた自身の通勤時間でも、一度計算してみてください。</p>
+
 <div class="data">
 <span class="num">私立中学進学率、区によって10%〜48%</span><br>
 東京23区の私立中学進学率は、令和6年度で平均19.9%です。つまり、5人に1人が私立中学へ進んでいます。しかも、区によって10%から48%まで、5倍近い差があります。受験熱が高い地域を担当する先生ほど、学習への期待が高くなりがちです。その結果、保護者対応の負担も大きくなります。
@@ -159,6 +177,16 @@
 <p>報酬は月74,000円〜550,000円のジョブ型です。実績や担当コマ数によって変わります。また、教員免許の有無は問いません。むしろ問われるのは、子どもの個性を信じて向き合えるかどうかです。</p>
 <div class="point">
 <b>働き方の特徴</b>：業務委託・ジョブ型のため、報酬は担当コマ数や実績に応じて決まります。また、フルリモートなので、ほかの県へ引っ越しても同じ働き方を続けられます。さらに、週1回の職員会議（水曜12:00〜13:30）で先生同士が情報を共有します。だから、一人で抱え込まずに働けます。</div>
+<h3>メタバース担任として働く、元教員の声</h3>
+<div class="voice">
+<div class="voice__ph"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/20260115_143334-scaled.jpg" alt="元教員でメタバース担任の市川芳彦さん（よっちゃん）"></div>
+<div class="voice__body">
+<p class="voice__name">市川芳彦さん（よっちゃん）</p>
+<p class="voice__tag">小学校・中学校・特別支援学校の教員として10年間勤務／NIJINアカデミー メタバース担任</p>
+<p>「パソコンとインターネット環境さえあれば、スキー場の駐車場からでも子どもたちとつながり、授業や交流ができます。」</p>
+<p><a href="https://nijin.co.jp/recruit/interview-ichikawa/">市川さんのインタビューを読む</a></p>
+</div>
+</div>
 
 <h3>この選択肢が向いている人・向いていない人</h3>
 <figure class="ph">
@@ -204,36 +232,15 @@
 
 <h2>よくある質問</h2>
 <h3>東京都の教員採用・異動に関する質問</h3>
-<div class="faq">
-<p class="q">東京都の教員採用倍率は、これからも上がりますか？</p>
-<p class="a">最終倍率は2023年実施の1.6倍から、2026年実施の2.0倍まで少しずつ上がっています。ただし、校種や教科によって差が大きく、今後の動きはまだ分かりません。最新の状況は、東京都教育委員会の発表を確認してください。</p>
-</div>
-<div class="faq">
-<p class="q">中学受験が過熱していない地域の教員でも、この記事は参考になりますか？</p>
-<p class="a">通勤時間や地域による教育熱の差は東京都内でも幅があります。ご自身の勤務地の状況と照らし合わせて、当てはまる部分を参考にしてください。</p>
-</div>
-<div class="faq">
-<p class="q">東京都の教員を辞めたあと、他県の公立学校教員として再スタートすることはできますか？</p>
-<p class="a">教員免許は全国で有効です。そのため、他県の採用試験を受けることは制度上できます。ただし、選考の内容や倍率は自治体ごとに違うので、必ず確認してください。</p>
-</div>
+<details class="faq"><summary>東京都の教員採用倍率は、これからも上がりますか？</summary><p class="a">最終倍率は2023年実施の1.6倍から、2026年実施の2.0倍まで少しずつ上がっています。ただし、校種や教科によって差が大きく、今後の動きはまだ分かりません。最新の状況は、東京都教育委員会の発表を確認してください。</p></details>
+<details class="faq"><summary>中学受験が過熱していない地域の教員でも、この記事は参考になりますか？</summary><p class="a">通勤時間や地域による教育熱の差は東京都内でも幅があります。ご自身の勤務地の状況と照らし合わせて、当てはまる部分を参考にしてください。</p></details>
+<details class="faq"><summary>東京都の教員を辞めたあと、他県の公立学校教員として再スタートすることはできますか？</summary><p class="a">教員免許は全国で有効です。そのため、他県の採用試験を受けることは制度上できます。ただし、選考の内容や倍率は自治体ごとに違うので、必ず確認してください。</p></details>
 
 <h3>NIJINアカデミーでの働き方に関する質問</h3>
-<div class="faq">
-<p class="q">東京都から離れて働く場合、NIJINアカデミーの働き方は続けられますか？</p>
-<p class="a">はい。完全在宅・フルリモートのため、引っ越しや転居があっても同じ条件で働き方を続けられます。</p>
-</div>
-<div class="faq">
-<p class="q">教員免許がなくても、NIJINアカデミーの先生になれますか？</p>
-<p class="a">なれます。フリースクールは、学校教育法上の一条校ではありません。そのため、講師として働くうえで教員免許は法律上必須ではないのです。NIJINアカデミーも同様です。</p>
-</div>
-<div class="faq">
-<p class="q">東京都以外に引っ越す予定がある場合でも、今から準備しておけますか？</p>
-<p class="a">フルリモートの働き方であれば、引っ越し先が決まっていない段階でも情報収集を始めておくことができます。転居のタイミングに合わせて働き方を切り替える人も少なくありません。</p>
-</div>
-<div class="faq">
-<p class="q">NIJINアカデミーで働きながら、将来的に東京の学校に戻ることはできますか？</p>
-<p class="a">業務委託契約のため、契約を終了すれば別の進路を選ぶことも可能です。ただし公立学校の教員に戻る場合は、あらためて採用選考を受ける必要がある点にご注意ください。</p>
-</div>
+<details class="faq"><summary>東京都から離れて働く場合、NIJINアカデミーの働き方は続けられますか？</summary><p class="a">はい。完全在宅・フルリモートのため、引っ越しや転居があっても同じ条件で働き方を続けられます。</p></details>
+<details class="faq"><summary>教員免許がなくても、NIJINアカデミーの先生になれますか？</summary><p class="a">なれます。フリースクールは、学校教育法上の一条校ではありません。そのため、講師として働くうえで教員免許は法律上必須ではないのです。NIJINアカデミーも同様です。</p></details>
+<details class="faq"><summary>東京都以外に引っ越す予定がある場合でも、今から準備しておけますか？</summary><p class="a">フルリモートの働き方であれば、引っ越し先が決まっていない段階でも情報収集を始めておくことができます。転居のタイミングに合わせて働き方を切り替える人も少なくありません。</p></details>
+<details class="faq"><summary>NIJINアカデミーで働きながら、将来的に東京の学校に戻ることはできますか？</summary><p class="a">業務委託契約のため、契約を終了すれば別の進路を選ぶことも可能です。ただし公立学校の教員に戻る場合は、あらためて採用選考を受ける必要がある点にご注意ください。</p></details>
 
 <h2>まとめ</h2>
 <p>東京の先生の忙しさには、東京ならではの事情があります。長い通勤、受験を意識した保護者対応、そして物価の高さです。都民の通勤時間の中央値は、全国平均より16分以上長い水準です。また、私立中学進学率は区によって10%から48%まで差があります。採用倍率は2.0倍まで上がったものの、全国平均の2.9倍を下回っています。</p>
