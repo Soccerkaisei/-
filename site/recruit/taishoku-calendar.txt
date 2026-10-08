@@ -1,97 +1,104 @@
-<section class="njc" id="njc">
-  <p class="njc-eyebrow">先生のための 退職逆算カレンダー</p>
-  <h2 class="njc-title">辞めたい時期を選ぶと、<br>今からやることが分かります</h2>
-  <p class="njc-lead">「穏便に辞めたい」「子どもや同僚に迷惑をかけたくない」。そう思うほど、準備は早めが安心です。辞めたい時期から逆算して、いつ・何をすればいいかを一覧にします。</p>
+<section class="njtc" id="njtc">
+  <p class="njtc-eyebrow">先生のための 退職逆算カレンダー</p>
+  <h2 class="njtc-title">辞めたい時期を選ぶと、<br>今からやることが分かります</h2>
+  <p class="njtc-lead">「穏便に辞めたい」「子どもや同僚に迷惑をかけたくない」。そう思うほど、準備は早めが安心です。辞めたい時期から逆算して、いつ・何をすればいいかを一覧にします。</p>
 
-  <div class="njc-form">
-    <label class="njc-field">
-      <span class="njc-label">辞めたい時期</span>
-      <select id="njc-month" class="njc-select"></select>
+  <div class="njtc-form">
+    <label class="njtc-field">
+      <span class="njtc-label">辞めたい時期</span>
+      <select id="njtc-month" class="njtc-select"></select>
     </label>
-    <div class="njc-field">
-      <span class="njc-label">勤務先</span>
-      <div class="njc-toggle" role="radiogroup">
-        <label><input type="radio" name="njc-type" value="public" checked><span>公立</span></label>
-        <label><input type="radio" name="njc-type" value="private"><span>私立</span></label>
+    <div class="njtc-field">
+      <span class="njtc-label">勤務先</span>
+      <div class="njtc-toggle" role="radiogroup">
+        <label><input type="radio" name="njtc-type" value="public" checked><span>公立</span></label>
+        <label><input type="radio" name="njtc-type" value="private"><span>私立</span></label>
       </div>
     </div>
   </div>
 
-  <div id="njc-summary" class="njc-summary"></div>
-  <ol id="njc-list" class="njc-list"></ol>
+  <div id="njtc-summary" class="njtc-summary"></div>
+  <ol id="njtc-list" class="njtc-list"></ol>
 
-  <div class="njc-cta-box">
-    <p class="njc-cta-lead">いきなり辞めるのが不安なら、<br>まずは「週1日から」試してみる道もあります。</p>
-    <p class="njc-cta-text">NIJINには、学校を離れたあと、オンラインで子どもと関わり続けている先生がいます。どんな気持ちで、どう働いているのか、のぞいてみてください。</p>
-    <a class="njc-cta" href="https://nijin.co.jp/recruit/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=bottom">NIJINで働く先生を見てみる</a>
+  <div class="njtc-cta-box">
+    <p class="njtc-cta-lead">いきなり辞めるのが不安なら、<br>まずは「週1日から」試してみる道もあります。</p>
+    <p class="njtc-cta-text">NIJINには、学校を離れたあと、オンラインで子どもと関わり続けている先生がいます。どんな気持ちで、どう働いているのか、のぞいてみてください。</p>
+    <a class="njtc-cta" href="https://nijin.co.jp/recruit/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=bottom">NIJINで働く先生を見てみる</a>
   </div>
 
-  <p class="njc-note">※時期は一般的な目安です。手続きや期限は、勤務先・自治体の規定を必ず確認してください。</p>
+  <p class="njtc-note">※時期は一般的な目安です。手続きや期限は、勤務先・自治体の規定を必ず確認してください。</p>
 </section>
 
 <style>
-.njc{max-width:760px;margin:40px auto;padding:32px 24px;background:#fff8f1;border-radius:20px;font-family:inherit;color:#3a3a3a;line-height:1.7;box-sizing:border-box}
-.njc *{box-sizing:border-box}
-.njc-eyebrow{margin:0 0 6px;font-size:.85rem;font-weight:700;color:#ef7d2d;text-align:center;letter-spacing:.05em}
-.njc-title{margin:0 0 14px;font-size:1.5rem;line-height:1.45;text-align:center;color:#3a3a3a}
-.njc-lead{margin:0 0 24px;font-size:.95rem}
-.njc-form{display:flex;flex-wrap:wrap;gap:16px;padding:20px;background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.njc-field{flex:1 1 220px;display:flex;flex-direction:column;gap:6px}
-.njc-label{font-size:.85rem;font-weight:700}
-.njc-select{width:100%;padding:10px 12px;font-size:1rem;border:2px solid #f3c6a5;border-radius:10px;background:#fff;color:#3a3a3a}
-.njc-toggle{display:flex;gap:8px}
-.njc-toggle label{flex:1;cursor:pointer}
-.njc-toggle input{position:absolute;opacity:0;pointer-events:none}
-.njc-toggle span{display:block;padding:9px 0;text-align:center;border:2px solid #f3c6a5;border-radius:10px;font-weight:700;background:#fff}
-.njc-toggle input:checked+span{background:#ef7d2d;border-color:#ef7d2d;color:#fff}
-.njc-summary{margin:24px 0 8px;padding:16px 18px;border-radius:12px;background:#ef7d2d;color:#fff;font-weight:700;font-size:1rem}
-.njc-summary small{display:block;margin-top:4px;font-weight:400;font-size:.85rem;opacity:.95}
-.njc-list{list-style:none;margin:0;padding:0}
-.njc-step{position:relative;margin:0;padding:0 0 18px 28px;border-left:3px solid #f3c6a5;margin-left:8px}
-.njc-step:last-child{border-left-color:transparent}
-.njc-step::before{content:"";position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid #f3c6a5}
-.njc-step.is-now::before{background:#ef7d2d;border-color:#ef7d2d}
-.njc-step.is-past::before{background:#d9534f;border-color:#d9534f}
-.njc-when{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:700;font-size:.95rem}
-.njc-badge{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.75rem;font-weight:700;color:#fff;background:#ef7d2d}
-.njc-step.is-past .njc-badge{background:#d9534f}
-.njc-card{margin-top:6px;padding:12px 14px;background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.njc-step.is-now .njc-card{outline:2px solid #ef7d2d}
-.njc-card ul{margin:0;padding-left:1.2em}
-.njc-card li{margin:2px 0;font-size:.93rem}
-.njc-tip{margin-top:6px;font-size:.82rem;color:#7a5a43}
-.njc-more{margin-top:10px;border-top:1px dashed #f3c6a5;padding-top:8px}
-.njc-more summary{cursor:pointer;font-weight:700;font-size:.9rem;color:#ef7d2d;list-style:none}
-.njc-more summary::-webkit-details-marker{display:none}
-.njc-more summary::before{content:"▶ ";font-size:.75rem}
-.njc-more[open] summary::before{content:"▼ "}
-.njc-sub{margin:10px 0 4px;font-size:.85rem;font-weight:700}
-.njc-say{margin:6px 0 0;padding:10px 12px;background:#fff8f1;border-radius:10px;font-size:.93rem}
-.njc-say-note{margin:4px 0 0;font-size:.8rem;color:#7a5a43}
-.njc-script{margin:4px 0 0;padding-left:1.4em}
-.njc-script li{font-size:.9rem;margin:3px 0}
-.njc-check{list-style:none;margin:6px 0 0;padding:0}
-.njc-check li{margin:4px 0}
-.njc-check label{display:flex;gap:8px;align-items:flex-start;font-size:.92rem;cursor:pointer}
-.njc-check input{margin-top:5px;accent-color:#ef7d2d}
-.njc-nudge{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff1e4;font-size:.86rem;line-height:1.6}
-.njc-nudge a{display:inline-block;margin-top:4px;color:#ef7d2d;font-weight:700;text-decoration:none}
-.njc-nudge a::after{content:" →"}
-.njc-cta-box{margin-top:28px;padding:24px 20px;background:#fff;border-radius:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.njc-cta-lead{margin:0 0 10px;font-weight:700;font-size:1.05rem;line-height:1.6}
-.njc-cta-text{margin:0 0 16px;font-size:.9rem;text-align:left}
-.njc-cta{display:inline-block;padding:12px 28px;border-radius:999px;background:#ef7d2d;color:#fff !important;font-weight:700;text-decoration:none}
-.njc-cta:hover{opacity:.9}
-.njc-note{margin:16px 0 0;font-size:.78rem;color:#8a8a8a}
-@media (max-width:480px){.njc{padding:24px 16px}.njc-title{font-size:1.25rem}}
+.njtc{max-width:760px;margin:40px auto;padding:32px 24px;background:#fff8f1;border-radius:20px;font-family:inherit;color:#3a3a3a;line-height:1.7;box-sizing:border-box}
+.njtc *{box-sizing:border-box}
+.njtc-eyebrow{margin:0 0 6px;font-size:.85rem;font-weight:700;color:#ef7d2d;text-align:center;letter-spacing:.05em}
+.njtc-title{margin:0 0 14px;font-size:1.5rem;line-height:1.45;text-align:center;color:#3a3a3a}
+.njtc-lead{margin:0 0 24px;font-size:.95rem}
+.njtc-form{display:flex;flex-wrap:wrap;gap:16px;padding:20px;background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.njtc-field{flex:1 1 220px;display:flex;flex-direction:column;gap:6px}
+.njtc-label{font-size:.85rem;font-weight:700}
+.njtc-select{width:100%;padding:10px 12px;font-size:1rem;border:2px solid #f3c6a5;border-radius:10px;background:#fff;color:#3a3a3a}
+.njtc-toggle{display:flex;gap:8px}
+.njtc-toggle label{flex:1;cursor:pointer}
+.njtc-toggle input{position:absolute;opacity:0;pointer-events:none}
+.njtc-toggle span{display:block;padding:9px 0;text-align:center;border:2px solid #f3c6a5;border-radius:10px;font-weight:700;background:#fff}
+.njtc-toggle input:checked+span{background:#ef7d2d;border-color:#ef7d2d;color:#fff}
+.njtc-summary{margin:24px 0 8px;padding:16px 18px;border-radius:12px;background:#ef7d2d;color:#fff;font-weight:700;font-size:1rem}
+.njtc-summary small{display:block;margin-top:4px;font-weight:400;font-size:.85rem;opacity:.95}
+.njtc-list{list-style:none;margin:0;padding:0}
+.njtc-step{position:relative;margin:0;padding:0 0 18px 28px;border-left:3px solid #f3c6a5;margin-left:8px}
+.njtc-step:last-child{border-left-color:transparent}
+.njtc-step::before{content:"";position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid #f3c6a5}
+.njtc-step.is-now::before{background:#ef7d2d;border-color:#ef7d2d}
+.njtc-step.is-past::before{background:#d9534f;border-color:#d9534f}
+.njtc-when{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:700;font-size:.95rem}
+.njtc-badge{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.75rem;font-weight:700;color:#fff;background:#ef7d2d}
+.njtc-step.is-past .njtc-badge{background:#d9534f}
+.njtc-card{margin-top:6px;padding:12px 14px;background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.njtc-step.is-now .njtc-card{outline:2px solid #ef7d2d}
+.njtc-card ul{margin:0;padding-left:1.2em}
+.njtc-card li{margin:2px 0;font-size:.93rem}
+.njtc-tip{margin-top:6px;font-size:.82rem;color:#7a5a43}
+.njtc-more{margin-top:10px;border-top:1px dashed #f3c6a5;padding-top:8px}
+.njtc-more summary{cursor:pointer;font-weight:700;font-size:.9rem;color:#ef7d2d;list-style:none}
+.njtc-more summary::-webkit-details-marker{display:none}
+.njtc-more summary::before{content:"▶ ";font-size:.75rem}
+.njtc-more[open] summary::before{content:"▼ "}
+.njtc-sub{margin:10px 0 4px;font-size:.85rem;font-weight:700}
+.njtc-say{margin:6px 0 0;padding:10px 12px;background:#fff8f1;border-radius:10px;font-size:.93rem}
+.njtc-say-note{margin:4px 0 0;font-size:.8rem;color:#7a5a43}
+.njtc-script{margin:4px 0 0;padding-left:1.4em}
+.njtc-script li{font-size:.9rem;margin:3px 0}
+.njtc-check{list-style:none;margin:6px 0 0;padding:0}
+.njtc-check li{margin:4px 0}
+.njtc-check label{display:flex;gap:8px;align-items:flex-start;font-size:.92rem;cursor:pointer}
+.njtc-check input{margin-top:5px;accent-color:#ef7d2d}
+.njtc-nudge{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff1e4;font-size:.86rem;line-height:1.6}
+.njtc-nudge a{display:inline-block;margin-top:4px;color:#ef7d2d;font-weight:700;text-decoration:none}
+.njtc-nudge a::after{content:" →"}
+.njtc-nudge .njtc-staff{display:flex;gap:12px;align-items:center;margin-top:8px;padding:10px;background:#fff;border-radius:10px;text-decoration:none !important;color:inherit !important}
+.njtc-nudge .njtc-staff::after{content:none !important}
+.njtc-staff img{flex:0 0 76px;width:76px;height:76px;object-fit:cover;border-radius:10px}
+.njtc-staff-body{display:flex;flex-direction:column;gap:2px;font-weight:400}
+.njtc-staff-quote{font-weight:700;font-size:.9rem;line-height:1.5;color:#3a3a3a}
+.njtc-staff-career{font-size:.78rem;color:#7a5a43}
+.njtc-staff-more{font-size:.8rem;font-weight:700;color:#ef7d2d}
+.njtc-cta-box{margin-top:28px;padding:24px 20px;background:#fff;border-radius:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.njtc-cta-lead{margin:0 0 10px;font-weight:700;font-size:1.05rem;line-height:1.6}
+.njtc-cta-text{margin:0 0 16px;font-size:.9rem;text-align:left}
+.njtc-cta{display:inline-block;padding:12px 28px;border-radius:999px;background:#ef7d2d;color:#fff !important;font-weight:700;text-decoration:none}
+.njtc-cta:hover{opacity:.9}
+.njtc-note{margin:16px 0 0;font-size:.78rem;color:#8a8a8a}
+@media (max-width:480px){.njtc{padding:24px 16px}.njtc-title{font-size:1.25rem}}
 </style>
 
 <script>
 (function(){
-  var root=document.getElementById('njc');if(!root)return;
-  var sel=document.getElementById('njc-month');
-  var list=document.getElementById('njc-list');
-  var summary=document.getElementById('njc-summary');
+  var root=document.getElementById('njtc');if(!root)return;
+  var sel=document.getElementById('njtc-month');
+  var list=document.getElementById('njtc-list');
+  var summary=document.getElementById('njtc-summary');
 
   // offset: 退職月から何か月前か（マイナスは退職後）
   var STEPS=[
@@ -99,12 +106,12 @@
       'なぜ辞めたいのか、何があれば続けられるのかを書き出す',
       '家族や身近な人に、考えていることを話してみる',
       '生活費を確認する（目安は半年分）'
-    ],nudge:{text:'「子どもと関わるのは好き。でも、今の働き方は続けられない」。そう感じているなら、辞める以外に「場所を変える」という選択肢もあります。',label:'学校の外で子どもと関わる先生の話を読む',href:'https://nijin.co.jp/recruit/staff/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step6'}},
+    ],nudge:{text:'「子どもと関わるのは好き。でも、今の働き方は続けられない」。そう感じているなら、辞める以外に「場所を変える」という選択肢もあります。',staff:'kobaharu'}},
     {offset:5,title:'次の働き方を考える',items:[
       '次にやりたいこと・働きたい場所の候補を書き出す（他の学校、他県、塾、教育以外の仕事なども含めて）',
       '気になる職場の情報を集め、話を聞いてみる',
       '在職中に副業などで試す場合は、兼業の規定を確認する'
-    ],nudge:{text:'教員の経験は、学校の外でも活かせます。場所を変えて、オンラインで子どもと関わり続けている先生もいます。',label:'NIJINの先生の1日を見てみる',href:'https://nijin.co.jp/recruit/nijinacademy-teacher/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step5'},tip:{public:'公立の先生は、兼業に許可が必要です。勤務先に確認しましょう。'}},
+    ],nudge:{text:'教員の経験は、学校の外でも活かせます。場所を変えて、オンラインで子どもと関わり続けている先生もいます。',staff:'yakotan'},tip:{public:'公立の先生は、兼業に許可が必要です。勤務先に確認しましょう。'}},
     {offset:4,title:'管理職に伝える準備をする',items:[
       '伝える理由を、前向きな言葉で整理する',
       '年度末に辞める場合、来年度の希望調査（多くは秋〜冬）の前に伝えられるようにする'
@@ -133,6 +140,15 @@
     ]}
   ];
 
+  var STAFF={
+    kobaharu:{img:'https://nijin.co.jp/recruit/wp-content/uploads/2026/05/%E6%8E%A1%E7%94%A8HP-%E8%81%B7%E7%A8%AE-5.jpg',quote:'「ママでも先生を諦めない」',career:'中学校の英語教員 → 3児の育児をしながら、メタバース校の担任に（こばはるさん）',href:'https://nijin.co.jp/recruit/interview-kobaharu/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step6'},
+    yakotan:{img:'https://nijin.co.jp/recruit/wp-content/uploads/2026/08/%E3%82%84%E3%81%93%E3%81%9F%E3%82%93%E4%BF%9D%E8%AD%B7%E8%80%85%E3%81%A8%E8%AB%87%E7%AC%91%E9%A2%A8.jpg',quote:'「子どもの本来の力に『わお！』と驚ける仲間を増やしたい」',career:'特別支援学校の教員 → 青森のリアル教室の教室長に（やこたんさん）',href:'https://nijin.co.jp/recruit/interview-yakotan/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step5'},
+    aiai:{img:'https://nijin.co.jp/recruit/wp-content/uploads/2026/06/0031_original-scaled.jpg',quote:'「人生が動き出す場所」をつくりたい',career:'公立高校の教員 → メタバース校・リアル教室・ニジ高の担任に（あいあいさん）',href:'https://nijin.co.jp/recruit/interview-aiai/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=reason'}
+  };
+  function staffHTML(k){
+    var t=STAFF[k];
+    return '<a class="njtc-staff" href="'+t.href+'" target="_blank" rel="noopener"><img src="'+t.img+'" alt="" loading="lazy"><span class="njtc-staff-body"><span class="njtc-staff-quote">'+t.quote+'</span><span class="njtc-staff-career">'+t.career+'</span><span class="njtc-staff-more">インタビューを読む →</span></span></a>';
+  }
   var REASONS=[
     {k:'busy',label:'仕事量が多すぎて限界',say:'子ども一人ひとりと、もっとじっくり向き合える働き方をしたいと考えるようになりました。'},
     {k:'fit',label:'学校のやり方が合わない',say:'これまでの経験を活かして、違う環境で挑戦してみたいと考えています。'},
@@ -156,21 +172,21 @@
     'パソコンや共有フォルダ内のデータの整理'
   ];
   function reasonHTML(){
-    return '<details class="njc-more"><summary>理由の伝え方・話す順番を見る</summary>'+
-      '<p class="njc-sub">本音に近いものを選んでください</p>'+
-      '<select class="njc-select njc-reason">'+REASONS.map(function(r){return '<option value="'+r.k+'">'+r.label+'</option>';}).join('')+'</select>'+
-      '<p class="njc-sub">管理職への伝え方の例</p><div class="njc-say-box"></div>'+
-      '<p class="njc-say-note">不満ではなく「これからどうしたいか」で話すと、引き留められにくく、関係も悪くなりません。</p>'+
-      '<p class="njc-sub">話す順番</p><ol class="njc-script">'+SCRIPT.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ol>'+
+    return '<details class="njtc-more"><summary>理由の伝え方・話す順番を見る</summary>'+
+      '<p class="njtc-sub">本音に近いものを選んでください</p>'+
+      '<select class="njtc-select njtc-reason">'+REASONS.map(function(r){return '<option value="'+r.k+'">'+r.label+'</option>';}).join('')+'</select>'+
+      '<p class="njtc-sub">管理職への伝え方の例</p><div class="njtc-say-box"></div>'+
+      '<p class="njtc-say-note">不満ではなく「これからどうしたいか」で話すと、引き留められにくく、関係も悪くなりません。</p>'+
+      '<p class="njtc-sub">話す順番</p><ol class="njtc-script">'+SCRIPT.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ol>'+
       '</details>';
   }
   function sayHTML(k){
     var r=REASONS.filter(function(x){return x.k===k;})[0];
-    var nudge=['busy','fit','people'].indexOf(k)>=0?'<div class="njc-nudge">学校が合わなかっただけで、子どもと関わる仕事が合わないとは限りません。場所を変えて、子どもと関わり続けている先生もいます。<br><a href="https://nijin.co.jp/recruit/staff/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=reason" target="_blank" rel="noopener">学校を離れた先生のその後を見る</a></div>':'';
-    return '<p class="njc-say">'+r.say+'</p>'+(r.note?'<p class="njc-say-note">'+r.note+'</p>':'')+nudge;
+    var nudge=['busy','fit','people'].indexOf(k)>=0?'<div class="njtc-nudge">学校が合わなかっただけで、子どもと関わる仕事が合わないとは限りません。場所を変えて、子どもと関わり続けている先生もいます。'+staffHTML('aiai')+'</div>':'';
+    return '<p class="njtc-say">'+r.say+'</p>'+(r.note?'<p class="njtc-say-note">'+r.note+'</p>':'')+nudge;
   }
   function handoverHTML(){
-    return '<details class="njc-more"><summary>引き継ぎチェックリストを開く</summary><ul class="njc-check">'+
+    return '<details class="njtc-more"><summary>引き継ぎチェックリストを開く</summary><ul class="njtc-check">'+
       HANDOVER.map(function(t){return '<li><label><input type="checkbox"><span>'+t+'</span></label></li>';}).join('')+
       '</ul></details>';
   }
@@ -190,7 +206,7 @@
 
   function render(){
     var leave=parseInt(sel.value,10);
-    var type=root.querySelector('input[name="njc-type"]:checked').value;
+    var type=root.querySelector('input[name="njtc-type"]:checked').value;
     var left=leave-cur;
     var midYear=(leave%12)!==2;
     summary.innerHTML=label(leave)+'末に辞めるまで、あと'+left+'か月です。'+
@@ -204,23 +220,23 @@
       var when=s.offset>0?label(m)+'（'+s.offset+'か月前）':(s.offset===0?label(m)+'末':'退職後すぐ');
       var tip=s.tip?(s.tip[type]||s.tip.all||''):'';
       var li=document.createElement('li');
-      li.className='njc-step '+cls;
-      li.innerHTML='<div class="njc-when">'+when+'　'+s.title+(badge?' <span class="njc-badge">'+badge+'</span>':'')+'</div>'+
-        '<div class="njc-card"><ul>'+s.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>'+
-        (tip?'<p class="njc-tip">'+tip+'</p>':'')+
+      li.className='njtc-step '+cls;
+      li.innerHTML='<div class="njtc-when">'+when+'　'+s.title+(badge?' <span class="njtc-badge">'+badge+'</span>':'')+'</div>'+
+        '<div class="njtc-card"><ul>'+s.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>'+
+        (tip?'<p class="njtc-tip">'+tip+'</p>':'')+
         (s.extra==='reason'?reasonHTML():s.extra==='handover'?handoverHTML():'')+
-        (s.nudge?'<div class="njc-nudge">'+s.nudge.text+'<br><a href="'+s.nudge.href+'" target="_blank" rel="noopener">'+s.nudge.label+'</a></div>':'')+'</div>';
+        (s.nudge?'<div class="njtc-nudge">'+s.nudge.text+staffHTML(s.nudge.staff)+'</div>':'')+'</div>';
       list.appendChild(li);
     });
-    var rs=list.querySelector('.njc-reason');
-    if(rs){rs.value=lastReason;rs.parentNode.querySelector('.njc-say-box').innerHTML=sayHTML(lastReason);}
+    var rs=list.querySelector('.njtc-reason');
+    if(rs){rs.value=lastReason;rs.parentNode.querySelector('.njtc-say-box').innerHTML=sayHTML(lastReason);}
   }
   var lastReason=REASONS[0].k;
   list.addEventListener('change',function(e){
-    if(e.target.classList.contains('njc-reason')){lastReason=e.target.value;e.target.parentNode.querySelector('.njc-say-box').innerHTML=sayHTML(lastReason);}
+    if(e.target.classList.contains('njtc-reason')){lastReason=e.target.value;e.target.parentNode.querySelector('.njtc-say-box').innerHTML=sayHTML(lastReason);}
   });
   sel.addEventListener('change',render);
-  root.querySelectorAll('input[name="njc-type"]').forEach(function(r){r.addEventListener('change',render);});
+  root.querySelectorAll('input[name="njtc-type"]').forEach(function(r){r.addEventListener('change',render);});
   render();
 })();
 </script>
