@@ -23,7 +23,7 @@
   <div class="njc-cta-box">
     <p class="njc-cta-lead">いきなり辞めるのが不安なら、<br>まずは「週1日から」試してみる道もあります。</p>
     <p class="njc-cta-text">NIJINには、学校を離れたあと、オンラインで子どもと関わり続けている先生がいます。どんな気持ちで、どう働いているのか、のぞいてみてください。</p>
-    <a class="njc-cta" href="https://nijin.co.jp/recruit/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar">NIJINで働く先生を見てみる</a>
+    <a class="njc-cta" href="https://nijin.co.jp/recruit/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=bottom">NIJINで働く先生を見てみる</a>
   </div>
 
   <p class="njc-note">※時期は一般的な目安です。手続きや期限は、勤務先・自治体の規定を必ず確認してください。</p>
@@ -74,6 +74,9 @@
 .njc-check li{margin:4px 0}
 .njc-check label{display:flex;gap:8px;align-items:flex-start;font-size:.92rem;cursor:pointer}
 .njc-check input{margin-top:5px;accent-color:#ef7d2d}
+.njc-nudge{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff1e4;font-size:.86rem;line-height:1.6}
+.njc-nudge a{display:inline-block;margin-top:4px;color:#ef7d2d;font-weight:700;text-decoration:none}
+.njc-nudge a::after{content:" →"}
 .njc-cta-box{margin-top:28px;padding:24px 20px;background:#fff;border-radius:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .njc-cta-lead{margin:0 0 10px;font-weight:700;font-size:1.05rem;line-height:1.6}
 .njc-cta-text{margin:0 0 16px;font-size:.9rem;text-align:left}
@@ -96,12 +99,12 @@
       'なぜ辞めたいのか、何があれば続けられるのかを書き出す',
       '家族や身近な人に、考えていることを話してみる',
       '生活費を確認する（目安は半年分）'
-    ]},
+    ],nudge:{text:'「子どもと関わるのは好き。でも、今の働き方は続けられない」。そう感じているなら、辞める以外に「場所を変える」という選択肢もあります。',label:'学校の外で子どもと関わる先生の話を読む',href:'https://nijin.co.jp/recruit/staff/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step6'}},
     {offset:5,title:'次の働き方を考える',items:[
       '次にやりたいこと・働きたい場所の候補を書き出す（他の学校、他県、塾、教育以外の仕事なども含めて）',
       '気になる職場の情報を集め、話を聞いてみる',
       '在職中に副業などで試す場合は、兼業の規定を確認する'
-    ],tip:{public:'公立の先生は、兼業に許可が必要です。勤務先に確認しましょう。'}},
+    ],nudge:{text:'教員の経験は、学校の外でも活かせます。場所を変えて、オンラインで子どもと関わり続けている先生もいます。',label:'NIJINの先生の1日を見てみる',href:'https://nijin.co.jp/recruit/nijinacademy-teacher/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step5'},tip:{public:'公立の先生は、兼業に許可が必要です。勤務先に確認しましょう。'}},
     {offset:4,title:'管理職に伝える準備をする',items:[
       '伝える理由を、前向きな言葉で整理する',
       '年度末に辞める場合、来年度の希望調査（多くは秋〜冬）の前に伝えられるようにする'
@@ -163,7 +166,8 @@
   }
   function sayHTML(k){
     var r=REASONS.filter(function(x){return x.k===k;})[0];
-    return '<p class="njc-say">'+r.say+'</p>'+(r.note?'<p class="njc-say-note">'+r.note+'</p>':'');
+    var nudge=['busy','fit','people'].indexOf(k)>=0?'<div class="njc-nudge">学校が合わなかっただけで、子どもと関わる仕事が合わないとは限りません。場所を変えて、子どもと関わり続けている先生もいます。<br><a href="https://nijin.co.jp/recruit/staff/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=reason" target="_blank" rel="noopener">学校を離れた先生のその後を見る</a></div>':'';
+    return '<p class="njc-say">'+r.say+'</p>'+(r.note?'<p class="njc-say-note">'+r.note+'</p>':'')+nudge;
   }
   function handoverHTML(){
     return '<details class="njc-more"><summary>引き継ぎチェックリストを開く</summary><ul class="njc-check">'+
@@ -204,7 +208,8 @@
       li.innerHTML='<div class="njc-when">'+when+'　'+s.title+(badge?' <span class="njc-badge">'+badge+'</span>':'')+'</div>'+
         '<div class="njc-card"><ul>'+s.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>'+
         (tip?'<p class="njc-tip">'+tip+'</p>':'')+
-        (s.extra==='reason'?reasonHTML():s.extra==='handover'?handoverHTML():'')+'</div>';
+        (s.extra==='reason'?reasonHTML():s.extra==='handover'?handoverHTML():'')+
+        (s.nudge?'<div class="njc-nudge">'+s.nudge.text+'<br><a href="'+s.nudge.href+'" target="_blank" rel="noopener">'+s.nudge.label+'</a></div>':'')+'</div>';
       list.appendChild(li);
     });
     var rs=list.querySelector('.njc-reason');
