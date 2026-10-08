@@ -1,0 +1,39 @@
+==== Contact Form 7「フォーム」タブ（中身を全部消してから貼る）====
+<label>どんなゲームがほしいですか？（必須）
+[textarea* game-idea placeholder "例：カタカナかるた、季節のことばクイズ、ひらがなビンゴ"]</label>
+
+<label>子どもの学年・年齢
+[text grade placeholder "例：小学2年生、6〜8さい"]</label>
+
+<label>使う場所
+[select place include_blank "補習校" "日本語学校・日本語クラス" "インターナショナルスクール・現地校" "家庭" "その他"]</label>
+
+<label>国・地域
+[text country placeholder "例：アメリカ、タイ"]</label>
+
+<label>お名前（任意）
+[text your-name]</label>
+
+<label>メールアドレス（任意・ゲームができたらお知らせします）
+[email your-email]</label>
+
+[submit "リクエストを送る"]
+
+==== 「メール」タブ ====
+送信先：ひかるさんのメールアドレス
+送信元：そのまま（変えない）
+題名：【ゲームリクエスト】[game-idea]
+追加ヘッダー：Reply-To: [your-email]
+メッセージ本文：
+ゲームのリクエストが届きました。
+
+■ ほしいゲーム
+[game-idea]
+
+■ 学年・年齢：[grade]
+■ 使う場所：[place]
+■ 国・地域：[country]
+■ お名前：[your-name]
+■ メール：[your-email]
+
+（あそんでみよう のフォームから送信）
