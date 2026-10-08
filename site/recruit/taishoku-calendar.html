@@ -1,0 +1,158 @@
+<section class="njc" id="njc">
+  <p class="njc-eyebrow">先生のための 退職逆算カレンダー</p>
+  <h2 class="njc-title">辞めたい時期を選ぶと、<br>今からやることが分かります</h2>
+  <p class="njc-lead">「穏便に辞めたい」「子どもや同僚に迷惑をかけたくない」。そう思うほど、準備は早めが安心です。辞めたい時期から逆算して、いつ・何をすればいいかを一覧にします。</p>
+
+  <div class="njc-form">
+    <label class="njc-field">
+      <span class="njc-label">辞めたい時期</span>
+      <select id="njc-month" class="njc-select"></select>
+    </label>
+    <div class="njc-field">
+      <span class="njc-label">勤務先</span>
+      <div class="njc-toggle" role="radiogroup">
+        <label><input type="radio" name="njc-type" value="public" checked><span>公立</span></label>
+        <label><input type="radio" name="njc-type" value="private"><span>私立</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div id="njc-summary" class="njc-summary"></div>
+  <ol id="njc-list" class="njc-list"></ol>
+
+  <div class="njc-cta-box">
+    <p class="njc-cta-lead">いきなり辞めるのが不安なら、<br>まずは「週1日から」試してみる道もあります。</p>
+    <p class="njc-cta-text">NIJINには、学校を離れたあと、オンラインで子どもと関わり続けている先生がいます。どんな気持ちで、どう働いているのか、のぞいてみてください。</p>
+    <a class="njc-cta" href="https://nijin.co.jp/recruit/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar">NIJINで働く先生を見てみる</a>
+  </div>
+
+  <p class="njc-note">※時期は一般的な目安です。手続きや期限は、勤務先・自治体の規定を必ず確認してください。</p>
+</section>
+
+<style>
+.njc{max-width:760px;margin:40px auto;padding:32px 24px;background:#fff8f1;border-radius:20px;font-family:inherit;color:#3a3a3a;line-height:1.7;box-sizing:border-box}
+.njc *{box-sizing:border-box}
+.njc-eyebrow{margin:0 0 6px;font-size:.85rem;font-weight:700;color:#ef7d2d;text-align:center;letter-spacing:.05em}
+.njc-title{margin:0 0 14px;font-size:1.5rem;line-height:1.45;text-align:center;color:#3a3a3a}
+.njc-lead{margin:0 0 24px;font-size:.95rem}
+.njc-form{display:flex;flex-wrap:wrap;gap:16px;padding:20px;background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.njc-field{flex:1 1 220px;display:flex;flex-direction:column;gap:6px}
+.njc-label{font-size:.85rem;font-weight:700}
+.njc-select{width:100%;padding:10px 12px;font-size:1rem;border:2px solid #f3c6a5;border-radius:10px;background:#fff;color:#3a3a3a}
+.njc-toggle{display:flex;gap:8px}
+.njc-toggle label{flex:1;cursor:pointer}
+.njc-toggle input{position:absolute;opacity:0;pointer-events:none}
+.njc-toggle span{display:block;padding:9px 0;text-align:center;border:2px solid #f3c6a5;border-radius:10px;font-weight:700;background:#fff}
+.njc-toggle input:checked+span{background:#ef7d2d;border-color:#ef7d2d;color:#fff}
+.njc-summary{margin:24px 0 8px;padding:16px 18px;border-radius:12px;background:#ef7d2d;color:#fff;font-weight:700;font-size:1rem}
+.njc-summary small{display:block;margin-top:4px;font-weight:400;font-size:.85rem;opacity:.95}
+.njc-list{list-style:none;margin:0;padding:0}
+.njc-step{position:relative;margin:0;padding:0 0 18px 28px;border-left:3px solid #f3c6a5;margin-left:8px}
+.njc-step:last-child{border-left-color:transparent}
+.njc-step::before{content:"";position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid #f3c6a5}
+.njc-step.is-now::before{background:#ef7d2d;border-color:#ef7d2d}
+.njc-step.is-past::before{background:#d9534f;border-color:#d9534f}
+.njc-when{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:700;font-size:.95rem}
+.njc-badge{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.75rem;font-weight:700;color:#fff;background:#ef7d2d}
+.njc-step.is-past .njc-badge{background:#d9534f}
+.njc-card{margin-top:6px;padding:12px 14px;background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.njc-step.is-now .njc-card{outline:2px solid #ef7d2d}
+.njc-card ul{margin:0;padding-left:1.2em}
+.njc-card li{margin:2px 0;font-size:.93rem}
+.njc-tip{margin-top:6px;font-size:.82rem;color:#7a5a43}
+.njc-cta-box{margin-top:28px;padding:24px 20px;background:#fff;border-radius:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.njc-cta-lead{margin:0 0 10px;font-weight:700;font-size:1.05rem;line-height:1.6}
+.njc-cta-text{margin:0 0 16px;font-size:.9rem;text-align:left}
+.njc-cta{display:inline-block;padding:12px 28px;border-radius:999px;background:#ef7d2d;color:#fff !important;font-weight:700;text-decoration:none}
+.njc-cta:hover{opacity:.9}
+.njc-note{margin:16px 0 0;font-size:.78rem;color:#8a8a8a}
+@media (max-width:480px){.njc{padding:24px 16px}.njc-title{font-size:1.25rem}}
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('njc');if(!root)return;
+  var sel=document.getElementById('njc-month');
+  var list=document.getElementById('njc-list');
+  var summary=document.getElementById('njc-summary');
+
+  // offset: 退職月から何か月前か（マイナスは退職後）
+  var STEPS=[
+    {offset:6,title:'気持ちとお金を整理する',items:[
+      'なぜ辞めたいのか、何があれば続けられるのかを書き出す',
+      '家族や身近な人に、考えていることを話してみる',
+      '生活費を確認する（目安は半年分）'
+    ]},
+    {offset:5,title:'次の働き方を調べ、小さく試す',items:[
+      '学校以外で子どもや教育に関われる働き方を調べる',
+      '在職中に試す場合は、兼業の規定を確認する'
+    ],tip:{public:'公立の先生は、兼業に許可が必要です。勤務先に確認しましょう。'}},
+    {offset:4,title:'管理職に伝える準備をする',items:[
+      '伝える理由を、前向きな言葉で整理する',
+      '年度末に辞める場合、来年度の希望調査（多くは秋〜冬）の前に伝えられるようにする'
+    ]},
+    {offset:3,title:'管理職に意思を伝える',items:[
+      'まず管理職に相談の時間をもらい、口頭で伝える',
+      '退職願（辞職願）の書式と、提出時期を確認する'
+    ],tip:{all:'年度末に辞める場合は、12月ごろまでに伝えるのがひとつの目安です。後任の配置に時間がかかるため、早いほど周りの負担が減ります。'}},
+    {offset:2,title:'引き継ぎを始める',items:[
+      '学級・校務分掌・成績などの引き継ぎ資料を作り始める',
+      '次の職場が決まっていれば、面談や手続きを進める'
+    ]},
+    {offset:1,title:'最後の1か月の段取りを決める',items:[
+      '子どもや保護者に、いつ・どう伝えるかを管理職と決める',
+      '有給休暇の残りと、使い方を相談する',
+      '私物の整理を始める'
+    ]},
+    {offset:0,title:'退職日',items:[
+      '身分証・鍵などを返す',
+      '源泉徴収票など、必要な書類を受け取る'
+    ],tip:{public:'公立の先生は雇用保険の対象外のため、失業給付はありません。次の収入の準備は早めにしておきましょう。',private:'離職票を受け取ったら、ハローワークで手続きします。'}},
+    {offset:-1,title:'退職後すぐの手続き',items:[
+      '健康保険を切り替える（任意継続は退職の翌日から20日以内）',
+      '国民年金への切り替え（退職から14日以内）',
+      '住民税の支払い方法を確認する'
+    ]}
+  ];
+
+  function ym(d){return d.getFullYear()*12+d.getMonth();}
+  function label(n){var y=Math.floor(n/12),m=n%12+1;return y+'年'+m+'月';}
+
+  // 選択肢：来月〜24か月先。初期値は次の3月末
+  var now=new Date(),cur=ym(now),def=null;
+  for(var i=1;i<=24;i++){
+    var n=cur+i,o=document.createElement('option');
+    o.value=n;o.textContent=label(n)+'末'+(n%12===2?'（年度末）':'');
+    if(def===null&&n%12===2)def=n;
+    sel.appendChild(o);
+  }
+  sel.value=def;
+
+  function render(){
+    var leave=parseInt(sel.value,10);
+    var type=root.querySelector('input[name="njc-type"]:checked').value;
+    var left=leave-cur;
+    var midYear=(leave%12)!==2;
+    summary.innerHTML=label(leave)+'末に辞めるまで、あと'+left+'か月です。'+
+      (left<4?'<small>準備の時間が少なめです。赤い印の項目から、すぐに始めましょう。</small>':'<small>オレンジの印が、今月やることです。</small>')+
+      (midYear?'<small>年度の途中で辞める場合は、担任や授業の引き継ぎの調整が多くなります。いつもより早めに管理職へ相談しましょう。</small>':'');
+    list.innerHTML='';
+    STEPS.forEach(function(s){
+      var m=leave-s.offset,cls='',badge='';
+      if(s.offset>=0&&m<cur){cls='is-past';badge='すぐに';}
+      else if(m===cur){cls='is-now';badge='今月';}
+      var when=s.offset>0?label(m)+'（'+s.offset+'か月前）':(s.offset===0?label(m)+'末':'退職後すぐ');
+      var tip=s.tip?(s.tip[type]||s.tip.all||''):'';
+      var li=document.createElement('li');
+      li.className='njc-step '+cls;
+      li.innerHTML='<div class="njc-when">'+when+'　'+s.title+(badge?' <span class="njc-badge">'+badge+'</span>':'')+'</div>'+
+        '<div class="njc-card"><ul>'+s.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>'+
+        (tip?'<p class="njc-tip">'+tip+'</p>':'')+'</div>';
+      list.appendChild(li);
+    });
+  }
+  sel.addEventListener('change',render);
+  root.querySelectorAll('input[name="njc-type"]').forEach(function(r){r.addEventListener('change',render);});
+  render();
+})();
+</script>
