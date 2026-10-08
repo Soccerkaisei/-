@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>退職逆算カレンダー（共有用プレビュー）</title>
+<style>body{margin:0;padding:12px;background:#f6f3ef;font-family:"Hiragino Sans","Noto Sans JP",sans-serif}.share-note{max-width:760px;margin:0 auto;padding:10px 14px;border-radius:10px;background:#fff;font-size:13px;color:#555;line-height:1.6}</style>
+</head>
+<body>
+<p class="share-note">採用チーム共有用のプレビューです。辞めたい時期と勤務先を選んで、実際に操作してみてください。採用サイトの記事に埋め込む予定のパーツです。</p>
+<section class="njtc" id="njtc">
+  <p class="njtc-eyebrow">先生のための 退職逆算カレンダー</p>
+  <h2 class="njtc-title">辞めたい時期を選ぶと、<br>今からやることが分かります</h2>
+  <p class="njtc-lead">「穏便に辞めたい」「子どもや同僚に迷惑をかけたくない」。そう思うほど、準備は早めが安心です。辞めたい時期から逆算して、いつ・何をすればいいかを一覧にします。</p>
+
+  <div class="njtc-form">
+    <label class="njtc-field">
+      <span class="njtc-label">辞めたい時期</span>
+      <select id="njtc-month" class="njtc-select"></select>
+    </label>
+    <div class="njtc-field">
+      <span class="njtc-label">勤務先</span>
+      <div class="njtc-toggle" role="radiogroup">
+        <label><input type="radio" name="njtc-type" value="public" checked><span>公立</span></label>
+        <label><input type="radio" name="njtc-type" value="private"><span>私立</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div id="njtc-summary" class="njtc-summary"></div>
+  <ol id="njtc-list" class="njtc-list"></ol>
+
+  <div class="njtc-cta-box">
+    <p class="njtc-cta-lead">いきなり辞めるのが不安なら、<br>まずは「週1日から」試してみる道もあります。</p>
+    <p class="njtc-cta-text">NIJINには、学校を離れたあと、オンラインで子どもと関わり続けている先生がいます。どんな気持ちで、どう働いているのか、のぞいてみてください。</p>
+    <a class="njtc-cta" href="https://nijin.co.jp/recruit/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=bottom">NIJINで働く先生を見てみる</a>
+  </div>
+
+  <p class="njtc-note">※時期は一般的な目安です。手続きや期限は、勤務先・自治体の規定を必ず確認してください。</p>
+</section>
+
+<style>
+.njtc{max-width:760px;margin:40px auto;padding:32px 24px;background:#fff8f1;border-radius:20px;font-family:inherit;color:#3a3a3a;line-height:1.7;box-sizing:border-box}
+.njtc *{box-sizing:border-box}
+.njtc-eyebrow{margin:0 0 6px;font-size:.85rem;font-weight:700;color:#ef7d2d;text-align:center;letter-spacing:.05em}
+.njtc-title{margin:0 0 14px;font-size:1.5rem;line-height:1.45;text-align:center;color:#3a3a3a}
+.njtc-lead{margin:0 0 24px;font-size:.95rem}
+.njtc-form{display:flex;flex-wrap:wrap;gap:16px;padding:20px;background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.njtc-field{flex:1 1 220px;display:flex;flex-direction:column;gap:6px}
+.njtc-label{font-size:.85rem;font-weight:700}
+.njtc-select{width:100%;padding:10px 12px;font-size:1rem;border:2px solid #f3c6a5;border-radius:10px;background:#fff;color:#3a3a3a}
+.njtc-toggle{display:flex;gap:8px}
+.njtc-toggle label{flex:1;cursor:pointer}
+.njtc-toggle input{position:absolute;opacity:0;pointer-events:none}
+.njtc-toggle span{display:block;padding:9px 0;text-align:center;border:2px solid #f3c6a5;border-radius:10px;font-weight:700;background:#fff}
+.njtc-toggle input:checked+span{background:#ef7d2d;border-color:#ef7d2d;color:#fff}
+.njtc-summary{margin:24px 0 8px;padding:16px 18px;border-radius:12px;background:#ef7d2d;color:#fff;font-weight:700;font-size:1rem}
+.njtc-summary small{display:block;margin-top:4px;font-weight:400;font-size:.85rem;opacity:.95}
+.njtc-list{list-style:none;margin:0;padding:0}
+.njtc-step{position:relative;margin:0;padding:0 0 18px 28px;border-left:3px solid #f3c6a5;margin-left:8px}
+.njtc-step:last-child{border-left-color:transparent}
+.njtc-step::before{content:"";position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid #f3c6a5}
+.njtc-step.is-now::before{background:#ef7d2d;border-color:#ef7d2d}
+.njtc-step.is-past::before{background:#d9534f;border-color:#d9534f}
+.njtc-when{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:700;font-size:.95rem}
+.njtc-badge{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.75rem;font-weight:700;color:#fff;background:#ef7d2d}
+.njtc-step.is-past .njtc-badge{background:#d9534f}
+.njtc-card{margin-top:6px;padding:12px 14px;background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.njtc-step.is-now .njtc-card{outline:2px solid #ef7d2d}
+.njtc-card ul{margin:0;padding-left:1.2em}
+.njtc-card li{margin:2px 0;font-size:.93rem}
+.njtc-tip{margin-top:6px;font-size:.82rem;color:#7a5a43}
+.njtc-more{margin-top:10px;border-top:1px dashed #f3c6a5;padding-top:8px}
+.njtc-more summary{cursor:pointer;font-weight:700;font-size:.9rem;color:#ef7d2d;list-style:none}
+.njtc-more summary::-webkit-details-marker{display:none}
+.njtc-more summary::before{content:"▶ ";font-size:.75rem}
+.njtc-more[open] summary::before{content:"▼ "}
+.njtc-sub{margin:10px 0 4px;font-size:.85rem;font-weight:700}
+.njtc-say{margin:6px 0 0;padding:10px 12px;background:#fff8f1;border-radius:10px;font-size:.93rem}
+.njtc-say-note{margin:4px 0 0;font-size:.8rem;color:#7a5a43}
+.njtc-script{margin:4px 0 0;padding-left:1.4em}
+.njtc-script li{font-size:.9rem;margin:3px 0}
+.njtc-check{list-style:none;margin:6px 0 0;padding:0}
+.njtc-check li{margin:4px 0}
+.njtc-check label{display:flex;gap:8px;align-items:flex-start;font-size:.92rem;cursor:pointer}
+.njtc-check input{margin-top:5px;accent-color:#ef7d2d}
+.njtc-nudge{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff1e4;font-size:.86rem;line-height:1.6}
+.njtc-nudge a{display:inline-block;margin-top:4px;color:#ef7d2d;font-weight:700;text-decoration:none}
+.njtc-nudge a::after{content:" →"}
+.njtc-nudge .njtc-staff{display:flex;gap:12px;align-items:center;margin-top:8px;padding:10px;background:#fff;border-radius:10px;text-decoration:none !important;color:inherit !important}
+.njtc-nudge .njtc-staff::after{content:none !important}
+.njtc-staff img{flex:0 0 76px;width:76px;height:76px;object-fit:cover;border-radius:10px}
+.njtc-staff-body{display:flex;flex-direction:column;gap:2px;font-weight:400}
+.njtc-staff-quote{font-weight:700;font-size:.9rem;line-height:1.5;color:#3a3a3a}
+.njtc-staff-career{font-size:.78rem;color:#7a5a43}
+.njtc-staff-more{font-size:.8rem;font-weight:700;color:#ef7d2d}
+.njtc-cta-box{margin-top:28px;padding:24px 20px;background:#fff;border-radius:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.njtc-cta-lead{margin:0 0 10px;font-weight:700;font-size:1.05rem;line-height:1.6}
+.njtc-cta-text{margin:0 0 16px;font-size:.9rem;text-align:left}
+.njtc-cta{display:inline-block;padding:12px 28px;border-radius:999px;background:#ef7d2d;color:#fff !important;font-weight:700;text-decoration:none}
+.njtc-cta:hover{opacity:.9}
+.njtc-note{margin:16px 0 0;font-size:.78rem;color:#8a8a8a}
+@media (max-width:480px){.njtc{padding:24px 16px}.njtc-title{font-size:1.25rem}}
+</style>
+
+<script>
+(function(){
+  var root=document.getElementById('njtc');if(!root)return;
+  var sel=document.getElementById('njtc-month');
+  var list=document.getElementById('njtc-list');
+  var summary=document.getElementById('njtc-summary');
+
+  // offset: 退職月から何か月前か（マイナスは退職後）
+  var STEPS=[
+    {offset:6,title:'気持ちとお金を整理する',items:[
+      'なぜ辞めたいのか、何があれば続けられるのかを書き出す',
+      '家族や身近な人に、考えていることを話してみる',
+      '生活費を確認する（目安は半年分）'
+    ],nudge:{text:'「子どもと関わるのは好き。でも、今の働き方は続けられない」。そう感じているなら、辞める以外に「場所を変える」という選択肢もあります。',staff:'kobaharu'}},
+    {offset:5,title:'次の働き方を考える',items:[
+      '次にやりたいこと・働きたい場所の候補を書き出す（他の学校、他県、塾、教育以外の仕事なども含めて）',
+      '気になる職場の情報を集め、話を聞いてみる',
+      '在職中に副業などで試す場合は、兼業の規定を確認する'
+    ],nudge:{text:'教員の経験は、学校の外でも活かせます。場所を変えて、オンラインで子どもと関わり続けている先生もいます。',staff:'yakotan'},tip:{public:'公立の先生は、兼業に許可が必要です。勤務先に確認しましょう。'}},
+    {offset:4,title:'管理職に伝える準備をする',items:[
+      '伝える理由を、前向きな言葉で整理する',
+      '年度末に辞める場合、来年度の希望調査（多くは秋〜冬）の前に伝えられるようにする'
+    ]},
+    {offset:3,title:'管理職に意思を伝える',items:[
+      'まず管理職に相談の時間をもらい、口頭で伝える',
+      '退職願（辞職願）の書式と、提出時期を確認する'
+    ],extra:'reason',tip:{all:'年度末に辞める場合は、12月ごろまでに伝えるのがひとつの目安です。後任の配置に時間がかかるため、早いほど周りの負担が減ります。'}},
+    {offset:2,title:'引き継ぎを始める',items:[
+      '学級・校務分掌・成績などの引き継ぎ資料を作り始める',
+      '次の職場が決まっていれば、面談や手続きを進める'
+    ],extra:'handover'},
+    {offset:1,title:'最後の1か月の段取りを決める',items:[
+      '子どもや保護者に、いつ・どう伝えるかを管理職と決める',
+      '有給休暇の残りと、使い方を相談する',
+      '私物の整理を始める'
+    ]},
+    {offset:0,title:'退職日',items:[
+      '身分証・鍵などを返す',
+      '源泉徴収票など、必要な書類を受け取る'
+    ],tip:{public:'公立の先生は雇用保険の対象外のため、失業給付はありません。次の収入の準備は早めにしておきましょう。',private:'離職票を受け取ったら、ハローワークで手続きします。'}},
+    {offset:-1,title:'退職後すぐの手続き',items:[
+      '健康保険を切り替える（任意継続は退職の翌日から20日以内）',
+      '国民年金への切り替え（退職から14日以内）',
+      '住民税の支払い方法を確認する'
+    ]}
+  ];
+
+  var STAFF={
+    kobaharu:{img:'https://nijin.co.jp/recruit/wp-content/uploads/2026/05/%E6%8E%A1%E7%94%A8HP-%E8%81%B7%E7%A8%AE-5.jpg',quote:'「ママでも先生を諦めない」',career:'中学校の英語教員 → 3児の育児をしながら、メタバース校の担任に（こばはるさん）',href:'https://nijin.co.jp/recruit/interview-kobaharu/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step6'},
+    yakotan:{img:'https://nijin.co.jp/recruit/wp-content/uploads/2026/08/%E3%82%84%E3%81%93%E3%81%9F%E3%82%93%E4%BF%9D%E8%AD%B7%E8%80%85%E3%81%A8%E8%AB%87%E7%AC%91%E9%A2%A8.jpg',quote:'「子どもの本来の力に『わお！』と驚ける仲間を増やしたい」',career:'特別支援学校の教員 → 青森のリアル教室の教室長に（やこたんさん）',href:'https://nijin.co.jp/recruit/interview-yakotan/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=step5'},
+    aiai:{img:'https://nijin.co.jp/recruit/wp-content/uploads/2026/06/0031_original-scaled.jpg',quote:'「人生が動き出す場所」をつくりたい',career:'公立高校の教員 → メタバース校・リアル教室・ニジ高の担任に（あいあいさん）',href:'https://nijin.co.jp/recruit/interview-aiai/?utm_source=nijin.co.jp&amp;utm_medium=tool&amp;utm_campaign=taishoku-calendar&amp;utm_content=reason'}
+  };
+  function staffHTML(k){
+    var t=STAFF[k];
+    return '<a class="njtc-staff" href="'+t.href+'" target="_blank" rel="noopener"><img src="'+t.img+'" alt="" loading="lazy"><span class="njtc-staff-body"><span class="njtc-staff-quote">'+t.quote+'</span><span class="njtc-staff-career">'+t.career+'</span><span class="njtc-staff-more">インタビューを読む →</span></span></a>';
+  }
+  var REASONS=[
+    {k:'busy',label:'仕事量が多すぎて限界',say:'子ども一人ひとりと、もっとじっくり向き合える働き方をしたいと考えるようになりました。'},
+    {k:'fit',label:'学校のやり方が合わない',say:'これまでの経験を活かして、違う環境で挑戦してみたいと考えています。'},
+    {k:'people',label:'人間関係がつらい',say:'自分が力を発揮できる環境を、一度考え直したいと思いました。'},
+    {k:'family',label:'家庭・育児と両立できない',say:'家族との時間を大切にできる働き方を選びたいと考えています。'},
+    {k:'health',label:'心や体の調子がよくない',say:'健康を第一に考え、働き方を見直すことにしました。',note:'無理に前向きな理由を作らなくて大丈夫です。事実を短く伝えましょう。'},
+    {k:'move',label:'引っ越し・地元に戻る',say:'家庭の事情で、〇〇へ移ることになりました。',note:'転居が理由なら、そのまま伝えて大丈夫です。'},
+    {k:'dream',label:'やりたいことができた',say:'〇〇に挑戦したいと考え、決断しました。',note:'〇〇には、挑戦したいことを具体的に入れましょう。'}
+  ];
+  var SCRIPT=[
+    '「お時間をいただきありがとうございます。今後のことでご相談があります」',
+    '「〇年〇月末で退職させていただきたいと考えています」（時期をはっきり伝える）',
+    '理由を伝える（上の言い方を使う）',
+    '「引き継ぎは責任を持って行います」（迷惑をかけない姿勢を伝える）'
+  ];
+  var HANDOVER=[
+    '学級の子ども一人ひとりのメモ（配慮が必要なこと、保護者との連絡状況）',
+    '成績・評価の資料の場所',
+    '校務分掌の年間の流れと、関係する連絡先',
+    '進行中の行事・授業の準備状況',
+    'パソコンや共有フォルダ内のデータの整理'
+  ];
+  function reasonHTML(){
+    return '<details class="njtc-more"><summary>理由の伝え方・話す順番を見る</summary>'+
+      '<p class="njtc-sub">本音に近いものを選んでください</p>'+
+      '<select class="njtc-select njtc-reason">'+REASONS.map(function(r){return '<option value="'+r.k+'">'+r.label+'</option>';}).join('')+'</select>'+
+      '<p class="njtc-sub">管理職への伝え方の例</p><div class="njtc-say-box"></div>'+
+      '<p class="njtc-say-note">不満ではなく「これからどうしたいか」で話すと、引き留められにくく、関係も悪くなりません。</p>'+
+      '<p class="njtc-sub">話す順番</p><ol class="njtc-script">'+SCRIPT.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ol>'+
+      '</details>';
+  }
+  function sayHTML(k){
+    var r=REASONS.filter(function(x){return x.k===k;})[0];
+    var nudge=['busy','fit','people'].indexOf(k)>=0?'<div class="njtc-nudge">学校が合わなかっただけで、子どもと関わる仕事が合わないとは限りません。場所を変えて、子どもと関わり続けている先生もいます。'+staffHTML('aiai')+'</div>':'';
+    return '<p class="njtc-say">'+r.say+'</p>'+(r.note?'<p class="njtc-say-note">'+r.note+'</p>':'')+nudge;
+  }
+  function handoverHTML(){
+    return '<details class="njtc-more"><summary>引き継ぎチェックリストを開く</summary><ul class="njtc-check">'+
+      HANDOVER.map(function(t){return '<li><label><input type="checkbox"><span>'+t+'</span></label></li>';}).join('')+
+      '</ul></details>';
+  }
+
+  function ym(d){return d.getFullYear()*12+d.getMonth();}
+  function label(n){var y=Math.floor(n/12),m=n%12+1;return y+'年'+m+'月';}
+
+  // 選択肢：来月〜24か月先。初期値は次の3月末
+  var now=new Date(),cur=ym(now),def=null;
+  for(var i=1;i<=24;i++){
+    var n=cur+i,o=document.createElement('option');
+    o.value=n;o.textContent=label(n)+'末'+(n%12===2?'（年度末）':'');
+    if(def===null&&n%12===2)def=n;
+    sel.appendChild(o);
+  }
+  sel.value=def;
+
+  function render(){
+    var leave=parseInt(sel.value,10);
+    var type=root.querySelector('input[name="njtc-type"]:checked').value;
+    var left=leave-cur;
+    var midYear=(leave%12)!==2;
+    summary.innerHTML=label(leave)+'末に辞めるまで、あと'+left+'か月です。'+
+      (left<4?'<small>準備の時間が少なめです。赤い印の項目から、すぐに始めましょう。</small>':'<small>オレンジの印が、今月やることです。</small>')+
+      (midYear?'<small>年度の途中で辞める場合は、担任や授業の引き継ぎの調整が多くなります。いつもより早めに管理職へ相談しましょう。</small>':'');
+    list.innerHTML='';
+    STEPS.forEach(function(s){
+      var m=leave-s.offset,cls='',badge='';
+      if(s.offset>=0&&m<cur){cls='is-past';badge='すぐに';}
+      else if(m===cur){cls='is-now';badge='今月';}
+      var when=s.offset>0?label(m)+'（'+s.offset+'か月前）':(s.offset===0?label(m)+'末':'退職後すぐ');
+      var tip=s.tip?(s.tip[type]||s.tip.all||''):'';
+      var li=document.createElement('li');
+      li.className='njtc-step '+cls;
+      li.innerHTML='<div class="njtc-when">'+when+'　'+s.title+(badge?' <span class="njtc-badge">'+badge+'</span>':'')+'</div>'+
+        '<div class="njtc-card"><ul>'+s.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>'+
+        (tip?'<p class="njtc-tip">'+tip+'</p>':'')+
+        (s.extra==='reason'?reasonHTML():s.extra==='handover'?handoverHTML():'')+
+        (s.nudge?'<div class="njtc-nudge">'+s.nudge.text+staffHTML(s.nudge.staff)+'</div>':'')+'</div>';
+      list.appendChild(li);
+    });
+    var rs=list.querySelector('.njtc-reason');
+    if(rs){rs.value=lastReason;rs.parentNode.querySelector('.njtc-say-box').innerHTML=sayHTML(lastReason);}
+  }
+  var lastReason=REASONS[0].k;
+  list.addEventListener('change',function(e){
+    if(e.target.classList.contains('njtc-reason')){lastReason=e.target.value;e.target.parentNode.querySelector('.njtc-say-box').innerHTML=sayHTML(lastReason);}
+  });
+  sel.addEventListener('change',render);
+  root.querySelectorAll('input[name="njtc-type"]').forEach(function(r){r.addEventListener('change',render);});
+  render();
+})();
+</script>
+
+</body>
+</html>
