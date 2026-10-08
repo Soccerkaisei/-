@@ -1,0 +1,213 @@
+<style>
+.l-fixHeader,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
+.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
+.nm{--teal:#2d7694;--teal-dark:#1c5468;--coral:#f0655a;--coral-dark:#d94b41;--tint:#eaf3f4;--ink:#2b3b42;--soft:#586a70;
+  font-family:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;color:var(--ink);max-width:1000px;margin:0 auto;padding:20px 14px 10px;box-sizing:border-box}
+.nm *{box-sizing:border-box}
+.nm [hidden]{display:none!important}
+.nm-head{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;border-radius:24px;padding:22px;text-align:center;margin-bottom:16px}
+.nm-head .nm-eye{font-size:.72rem;letter-spacing:.2em;font-weight:700;opacity:.9}
+.nm-head h1{margin:6px 0 4px;font-size:1.45rem;font-weight:800;color:#fff;background:none;padding:0;border:none;line-height:1.35}
+.nm-head h1::before,.nm-head h1::after{display:none}
+.nm-head p{margin:4px 0 0;font-size:.88rem;line-height:1.6}
+.nm-head .nm-ok{display:inline-block;margin-top:10px;background:#fff;color:var(--teal-dark);border-radius:999px;padding:4px 14px;font-size:.78rem;font-weight:800}
+.nm-studio{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:800px){.nm-studio{grid-template-columns:1fr 1fr;align-items:start}.nm-out{position:sticky;top:calc(var(--wp-admin--admin-bar--height,0px) + 12px)}}
+.nm-box{background:#fff;border-radius:18px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.nm-q{margin:0 0 16px}
+.nm-q>label,.nm-q>.nm-lab{display:block;font-weight:800;font-size:.95rem;margin-bottom:6px}
+.nm-q small{display:block;color:var(--soft);font-size:.78rem;margin-top:4px;line-height:1.5}
+.nm input[type=text],.nm select{width:100%;padding:11px 12px;border:2px solid #d5e3e6;border-radius:12px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink)}
+.nm input[type=text]:focus,.nm select:focus{outline:none;border-color:var(--teal)}
+.nm-kana{display:flex;gap:8px;align-items:center;margin-top:8px;background:var(--tint);border-radius:12px;padding:8px 10px}
+.nm-kana b{font-size:1.25rem;letter-spacing:.05em}
+.nm-kana span{color:var(--soft);font-size:.85rem}
+.nm-kana button{margin-left:auto}
+.nm-seg{display:flex;gap:6px;margin-bottom:6px}
+.nm-seg button{flex:1}
+.nm button{font-family:inherit;cursor:pointer;border-radius:999px;border:2px solid var(--teal);background:#fff;color:var(--teal);font-weight:800;font-size:.85rem;padding:7px 12px}
+.nm button.on{background:var(--teal);color:#fff}
+.nm-card{background:#fffdf7;border:3px solid #f3e3c3;border-radius:18px;padding:16px 16px 10px}
+.nm-card h2{margin:0 0 10px;font-size:1rem;color:var(--coral-dark);text-align:center;background:none;padding:0;border:none}
+.nm-card h2::before,.nm-card h2::after{display:none}
+.nm-line{display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed #eadfca}
+.nm-line:last-child{border-bottom:0}
+.nm-line .nm-say{flex:0 0 34px;height:34px;padding:0;border-width:2px;font-size:1rem}
+.nm-jp{font-size:1.2rem;font-weight:800;line-height:1.5}
+.nm-ro{color:var(--teal-dark);font-size:.9rem;margin-top:1px}
+.nm-en{color:var(--soft);font-size:.82rem}
+.nm-tog{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:12px 0 4px}
+.nm-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.nm-acts .nm-main{grid-column:1/-1;background:var(--coral);border-color:var(--coral);color:#fff;font-size:1rem;padding:12px}
+.nm-share{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.nm-share a,.nm-share button{display:inline-block;text-decoration:none;border-radius:999px;padding:7px 12px;font-size:.8rem;font-weight:800;color:#fff;border:0}
+.nm-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em;margin-top:6px}
+.nm .nm-go{display:block;width:100%;background:var(--coral);border-color:var(--coral);color:#fff;font-size:1rem;padding:12px}
+@media(min-width:800px){.nm .nm-go{display:none}}
+.nm-cta{margin-top:18px;background:linear-gradient(135deg,#fff3ee,#ffe9e2);border-radius:18px;padding:20px;text-align:center}
+.nm-cta p{margin:0 0 10px;line-height:1.6;font-size:.92rem}
+.nm-cta a{display:inline-block;background:var(--coral);color:#fff!important;text-decoration:none;font-weight:800;border-radius:999px;padding:12px 22px}
+.nm-learn{margin-top:18px;line-height:1.75;font-size:.92rem}
+.nm-learn h2{font-size:1.1rem;margin:18px 0 6px;color:var(--teal-dark);background:none;padding:0;border:none}
+.nm-learn h2::before,.nm-learn h2::after{display:none}
+.nm-learn p{margin:0 0 8px}
+</style>
+<div class="nm">
+  <div class="nm-head">
+    <div class="nm-eye">TOMODACHI JAPAN · PLAY &amp; LEARN</div>
+    <h1>Your Name in Japanese<br>Self-Introduction Maker</h1>
+    <p>Type your name. We'll write it in Japanese (katakana) and make your first Japanese self-introduction — with romaji and English!</p>
+    <span class="nm-ok">🏫 Free for classroom use · No sign-up</span>
+  </div>
+  <div class="nm-studio">
+    <div class="nm-box">
+      <div class="nm-q"><label for="nmName">1. Your name</label>
+        <input type="text" id="nmName" maxlength="24" placeholder="e.g. Emily, Lucas, Mia" autocomplete="off">
+        <div class="nm-kana"><b id="nmKana">―</b><span id="nmKanaRo"></span><button type="button" id="nmFix">✏️ Fix</button></div>
+        <div id="nmFixBox" hidden><input type="text" id="nmKanaIn" maxlength="20" placeholder="Type katakana (e.g. エミリー)" style="margin-top:8px"><small>Not quite right? Ask a Japanese friend or teacher and type it here.</small></div>
+      </div>
+      <div class="nm-q"><span class="nm-lab">2. Where?</span>
+        <div class="nm-seg"><button type="button" class="on" data-place="from">I'm from…</button><button type="button" data-place="live">I live in…</button></div>
+        <select id="nmCountry"></select></div>
+      <div class="nm-q"><label for="nmAge">3. How old are you?</label><select id="nmAge"></select></div>
+      <div class="nm-q"><label for="nmFood">4. Favorite food</label><select id="nmFood"></select></div>
+      <div class="nm-q"><label for="nmLike">5. Something you like</label><select id="nmLike"></select></div>
+      <div class="nm-q"><label><input type="checkbox" id="nmStudy" checked> I'm learning Japanese</label></div>
+      <button type="button" class="nm-go" id="nmGo">✨ See my self-introduction</button>
+    </div>
+    <div class="nm-out">
+      <div class="nm-card" id="nmCard"><h2>じこしょうかい · My Self-Introduction</h2><div id="nmLines"></div></div>
+      <div class="nm-tog"><button type="button" class="on" id="nmTogRo">Romaji</button><button type="button" class="on" id="nmTogEn">English</button><button type="button" id="nmAll">🔊 Listen to all</button></div>
+      <div class="nm-acts"><button type="button" class="nm-main" id="nmSave">📷 Save as picture</button><button type="button" id="nmSend">📤 Send</button><button type="button" id="nmPrint">🖨 Print</button></div>
+      <div class="nm-msg" id="nmMsg"></div>
+      <div class="nm-share" id="nmShare"></div>
+    </div>
+  </div>
+  <div class="nm-cta"><p><b>Want to talk with real kids in Japan?</b><br>Tomodachi Japan is an online Japanese school for kids around the world, taught by teachers from Japanese elementary schools.</p><a id="nmCta" href="/en/apply/?utm_source=namemaker&amp;utm_medium=cta&amp;utm_campaign=asonde-en">📩 Get school news (free)</a></div>
+  <div class="nm-learn">
+    <h2>How do you write your name in Japanese?</h2>
+    <p>Names from other countries are written in <b>katakana</b> (カタカナ), one of the three Japanese writing systems. Japanese uses sounds like <i>ka, mi, ri</i>, so your name is changed to the closest Japanese sounds. For example, Emily becomes エミリー (Emirī). The line ー makes a sound longer.</p>
+    <h2>What is “jikoshoukai”?</h2>
+    <p><b>じこしょうかい (jikoshōkai)</b> means self-introduction. Japanese kids start with <b>はじめまして (hajimemashite)</b> — “nice to meet you” — and finish with <b>よろしく おねがいします (yoroshiku onegaishimasu)</b>, a friendly way to say “I hope we get along.”</p>
+    <h2>For teachers</h2>
+    <p>Use this page in your Japanese class: students make their introduction, practice with the 🔊 buttons, then print it or say it to the class. Free to use, no sign-up needed.</p>
+  </div>
+</div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var NAMES='emily:エミリー,olivia:オリビア,emma:エマ,ava:エイバ,sophia:ソフィア,sophie:ソフィー,isabella:イザベラ,mia:ミア,amelia:アメリア,charlotte:シャーロット,harper:ハーパー,ella:エラ,grace:グレース,chloe:クロエ,lily:リリー,lucy:ルーシー,ruby:ルビー,zoe:ゾーイ,hannah:ハンナ,anna:アンナ,sarah:サラ,emilia:エミリア,ellie:エリー,evelyn:エブリン,abigail:アビゲイル,madison:マディソン,scarlett:スカーレット,victoria:ビクトリア,aria:アリア,layla:レイラ,nora:ノラ,hazel:ヘイゼル,luna:ルナ,stella:ステラ,alice:アリス,isla:アイラ,ivy:アイビー,freya:フレイヤ,maya:マヤ,leah:リア,jessica:ジェシカ,jennifer:ジェニファー,michelle:ミシェル,rachel:レイチェル,natalie:ナタリー,julia:ジュリア,laura:ローラ,maria:マリア,elena:エレナ,sofia:ソフィア,valentina:バレンティナ,camila:カミラ,lucia:ルシア,clara:クララ,eva:エバ,jasmine:ジャスミン,amy:エイミー,kate:ケイト,katie:ケイティ,megan:メーガン,rose:ローズ,daisy:デイジー,poppy:ポピー,matilda:マチルダ,georgia:ジョージア,william:ウィリアム,james:ジェームズ,oliver:オリバー,liam:リアム,noah:ノア,lucas:ルーカス,benjamin:ベンジャミン,ben:ベン,henry:ヘンリー,jack:ジャック,leo:レオ,ethan:イーサン,mason:メイソン,logan:ローガン,alexander:アレクサンダー,alex:アレックス,daniel:ダニエル,michael:マイケル,matthew:マシュー,david:デイビッド,joseph:ジョセフ,samuel:サミュエル,sam:サム,thomas:トーマス,harry:ハリー,charlie:チャーリー,george:ジョージ,jacob:ジェイコブ,ryan:ライアン,nathan:ネイサン,aiden:エイデン,owen:オーウェン,elijah:イライジャ,isaac:アイザック,jayden:ジェイデン,dylan:ディラン,luke:ルーク,max:マックス,adam:アダム,adrian:エイドリアン,andrew:アンドリュー,anthony:アンソニー,chris:クリス,christopher:クリストファー,john:ジョン,joshua:ジョシュア,kevin:ケビン,brian:ブライアン,eric:エリック,jason:ジェイソン,justin:ジャスティン,tyler:タイラー,mark:マーク,paul:ポール,peter:ピーター,robert:ロバート,richard:リチャード,steven:スティーブン,arthur:アーサー,archie:アーチー,freddie:フレディ,oscar:オスカー,theo:テオ,hugo:ユーゴ,felix:フェリックス,finn:フィン,jake:ジェイク,kai:カイ,ken:ケン,leon:レオン,louis:ルイ,mateo:マテオ,diego:ディエゴ,carlos:カルロス,juan:フアン,luis:ルイス,miguel:ミゲル,gabriel:ガブリエル,rafael:ラファエル,santiago:サンティアゴ,sebastian:セバスチャン,nicolas:ニコラス,julian:ジュリアン,aaron:アーロン,eli:イーライ,evan:エバン,jordan:ジョーダン,caleb:ケイレブ,connor:コナー,jonathan:ジョナサン,hunter:ハンター,wyatt:ワイアット,zachary:ザカリー,austin:オースティン,bella:ベラ,ivan:イワン,mohammed:モハメド,muhammad:ムハンマド,ali:アリ,omar:オマール,yusuf:ユスフ,aisha:アイシャ,fatima:ファティマ,sara:サラ,priya:プリヤ,arjun:アルジュン,raj:ラジ,wei:ウェイ,ming:ミン,jun:ジュン,min:ミン,ji:ジ,lee:リー,kim:キム,anh:アイン,linh:リン,ploy:プロイ,nicole:ニコール,ashley:アシュリー,emilie:エミリー,lena:レナ,mila:ミラ,hailey:ヘイリー,riley:ライリー,avery:エイブリー,penelope:ペネロペ,violet:バイオレット,aurora:オーロラ,naomi:ナオミ,eden:エデン,jade:ジェイド,iris:アイリス,elsa:エルサ,noel:ノエル,jasper:ジャスパー,ezra:エズラ,miles:マイルズ,levi:リーバイ,asher:アッシャー,hudson:ハドソン,carter:カーター,lincoln:リンカーン,grayson:グレイソン,jackson:ジャクソン,aidan:エイダン,edward:エドワード,patrick:パトリック,martin:マーティン,simon:サイモン,tom:トム,tim:ティム,timothy:ティモシー,toby:トビー,dan:ダン,joe:ジョー,josh:ジョシュ,mike:マイク,nick:ニック,will:ウィル,zoey:ゾーイ,chloé:クロエ,léa:レア,manon:マノン,jules:ジュール,lukas:ルーカス,jonas:ヨナス,paul:ポール,hanna:ハンナ,lea:レア,mario:マリオ,marco:マルコ,giulia:ジュリア,sofía:ソフィア,lucía:ルシア,martina:マルティナ,pablo:パブロ,alejandro:アレハンドロ,daniela:ダニエラ,andrea:アンドレア,gabriela:ガブリエラ,isabel:イザベル,ana:アナ,pedro:ペドロ,joão:ジョアン,mary:メアリー,jane:ジェーン,jamie:ジェイミー,chase:チェイス,brooke:ブルック,taylor:テイラー,bailey:ベイリー,kayla:ケイラ,mckenzie:マッケンジー,mackenzie:マッケンジー,sienna:シエナ,lachlan:ラクラン,cooper:クーパー,archer:アーチャー,harrison:ハリソン,flynn:フリン,isabelle:イザベル,annabelle:アナベル,phoebe:フィービー,summer:サマー,willow:ウィロー,frankie:フランキー,billie:ビリー,matilde:マチルダ';
+var DICT={};NAMES.split(',').forEach(function(p){var a=p.split(':');DICT[a[0]]=a[1]});
+var C=[['usa','the USA','アメリカ'],['canada','Canada','カナダ'],['uk','the UK','イギリス'],['australia','Australia','オーストラリア'],['nz','New Zealand','ニュージーランド'],['ireland','Ireland','アイルランド'],['singapore','Singapore','シンガポール'],['thailand','Thailand','タイ'],['malaysia','Malaysia','マレーシア'],['indonesia','Indonesia','インドネシア'],['philippines','the Philippines','フィリピン'],['vietnam','Vietnam','ベトナム'],['china','China','ちゅうごく'],['taiwan','Taiwan','たいわん'],['hongkong','Hong Kong','ホンコン'],['korea','Korea','かんこく'],['india','India','インド'],['germany','Germany','ドイツ'],['france','France','フランス'],['spain','Spain','スペイン'],['italy','Italy','イタリア'],['netherlands','the Netherlands','オランダ'],['belgium','Belgium','ベルギー'],['switzerland','Switzerland','スイス'],['sweden','Sweden','スウェーデン'],['brazil','Brazil','ブラジル'],['mexico','Mexico','メキシコ'],['argentina','Argentina','アルゼンチン'],['peru','Peru','ペルー'],['chile','Chile','チリ'],['ecuador','Ecuador','エクアドル'],['dubai','Dubai','ドバイ'],['japan','Japan','にほん']];
+var FOOD=[['sushi','sushi','すし'],['ramen','ramen','ラーメン'],['pizza','pizza','ピザ'],['curry','curry','カレー'],['onigiri','rice balls','おにぎり'],['udon','udon noodles','うどん'],['tempura','tempura','てんぷら'],['pasta','pasta','パスタ'],['burger','hamburgers','ハンバーガー'],['icecream','ice cream','アイスクリーム'],['chocolate','chocolate','チョコレート'],['strawberry','strawberries','いちご'],['apple','apples','りんご'],['banana','bananas','バナナ'],['mango','mangoes','マンゴー']];
+var LIKE=[['soccer','soccer','サッカー'],['basketball','basketball','バスケットボール'],['swimming','swimming','すいえい'],['dance','dancing','ダンス'],['piano','the piano','ピアノ'],['games','video games','ゲーム'],['anime','anime','アニメ'],['manga','manga','まんが'],['books','books','ほん'],['drawing','drawing','おえかき'],['music','music','おんがく'],['cats','cats','ねこ'],['dogs','dogs','いぬ'],['rabbits','rabbits','うさぎ'],['dinosaurs','dinosaurs','きょうりゅう'],['japan','Japan','にほん']];
+var AGE={3:'さんさい',4:'よんさい',5:'ごさい',6:'ろくさい',7:'ななさい',8:'はっさい',9:'きゅうさい',10:'じゅっさい',11:'じゅういっさい',12:'じゅうにさい',13:'じゅうさんさい',14:'じゅうよんさい',15:'じゅうごさい',16:'じゅうろくさい',17:'じゅうななさい',18:'じゅうはっさい'};
+function opts(el,list,skip){el.innerHTML='<option value="">'+skip+'</option>'+list.map(function(x,i){return '<option value="'+i+'">'+x[1].replace(/^the /,'').replace(/^./,function(c){return c.toUpperCase()})+'  '+x[2]+'</option>'}).join('')}
+opts($('nmCountry'),C,'— skip —');opts($('nmFood'),FOOD,'— skip —');opts($('nmLike'),LIKE,'— skip —');
+$('nmAge').innerHTML='<option value="">— skip —</option>'+Object.keys(AGE).map(function(a){return '<option value="'+a+'">'+a+'  '+AGE[a]+'</option>'}).join('');
+// English letters -> katakana (rough guess; dictionary first)
+var KV={'':'アイウエオ',k:'カキクケコ',g:'ガギグゲゴ',s:'サシスセソ',z:'ザジズゼゾ',t:'タティトゥテト',d:'ダディドゥデド',n:'ナニヌネノ',h:'ハヒフヘホ',b:'バビブベボ',p:'パピプペポ',m:'マミムメモ',y:'ヤイユイェヨ',r:'ラリルレロ',w:'ワウィウウェウォ',f:'ファフィフフェフォ',v:'バビブベボ',j:'ジャジジュジェジョ',sh:'シャシシュシェショ',ch:'チャチチュチェチョ',ts:'ツァツィツツェツォ'};
+var MULTI={t:['タ','ティ','トゥ','テ','ト'],d:['ダ','ディ','ドゥ','デ','ド'],y:['ヤ','イ','ユ','イェ','ヨ'],w:['ワ','ウィ','ウ','ウェ','ウォ'],f:['ファ','フィ','フ','フェ','フォ'],j:['ジャ','ジ','ジュ','ジェ','ジョ'],sh:['シャ','シ','シュ','シェ','ショ'],ch:['チャ','チ','チュ','チェ','チョ'],ts:['ツァ','ツィ','ツ','ツェ','ツォ']};
+var END={k:'ク',g:'グ',s:'ス',z:'ズ',t:'ト',d:'ド',n:'ン',h:'',b:'ブ',p:'プ',m:'ム',r:'ル',f:'フ',v:'ブ',j:'ジ',sh:'シュ',ch:'チ',ts:'ツ',w:'',y:''};
+function kv(c,v){var i='aiueo'.indexOf(v);if(MULTI[c])return MULTI[c][i];return KV[c].charAt(i)}
+function guess(w){
+  w=w.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z]/g,'');if(!w)return '';
+  w=w.replace(/ch/g,'9').replace(/ph/g,'f').replace(/ck/g,'k').replace(/qu/g,'kw').replace(/x/g,'ks').replace(/th/g,'s').replace(/c(?=[eiy])/g,'s').replace(/c/g,'k').replace(/q/g,'k').replace(/9/g,'ch');
+  w=w.replace(/([^aeiou])\1/g,'$1').replace(/(ey|ie)$/,'ii').replace(/(ee|ea)/g,'ii').replace(/oo/g,'uu').replace(/(ay|ey)/g,'ei').replace(/(ow|ou)$/,'oo').replace(/(er|ar|ur|ir|or)$/,'aa').replace(/ar(?=[^aeiou])/g,'aa').replace(/or(?=[^aeiou]|$)/g,'oo').replace(/(er|ir|ur)(?=[^aeiou])/g,'aa').replace(/l/g,'r');
+  if(w.length>3)w=w.replace(/([^aeiou])e$/,'$1');
+  w=w.replace(/([^aeiou])y$/,'$1ii').replace(/([^aeiouy])y(?=[^aeiou])/g,'$1i');
+  var out='',i=0,last='';
+  while(i<w.length){
+    var c=w.slice(i,i+2);if(!/^(sh|ch|ts)$/.test(c))c=w.charAt(i);
+    if('aeiou'.indexOf(c)>=0){if(c===last&&out){out+='ー'}else{out+=kv('',c)}last=c;i++;continue}
+    var nx=w.charAt(i+c.length);
+    if(c==='n'&&nx==='g'&&'aeiou'.indexOf(w.charAt(i+2))<0){out+='ング';i+=2;last='';continue}
+    if(nx&&'aeiou'.indexOf(nx)>=0&&KV[c]!==undefined){out+=kv(c,nx);last=nx;i+=c.length+1;continue}
+    out+=(END[c]!==undefined?END[c]:'');last='';i+=c.length}
+  return out}
+function toKana(name){
+  var s=name.trim();if(!s)return '';
+  if(/[\u3040-\u30ff\u4e00-\u9fff]/.test(s))return s;
+  return s.split(/[\s\-]+/).map(function(p){var k=p.toLowerCase();return DICT[k]||guess(p)}).filter(Boolean).join('・')}
+// kana -> romaji (Hepburn, macrons for long vowels)
+var RO={ア:'a',イ:'i',ウ:'u',エ:'e',オ:'o',カ:'ka',キ:'ki',ク:'ku',ケ:'ke',コ:'ko',ガ:'ga',ギ:'gi',グ:'gu',ゲ:'ge',ゴ:'go',サ:'sa',シ:'shi',ス:'su',セ:'se',ソ:'so',ザ:'za',ジ:'ji',ズ:'zu',ゼ:'ze',ゾ:'zo',タ:'ta',チ:'chi',ツ:'tsu',テ:'te',ト:'to',ダ:'da',ヂ:'ji',ヅ:'zu',デ:'de',ド:'do',ナ:'na',ニ:'ni',ヌ:'nu',ネ:'ne',ノ:'no',ハ:'ha',ヒ:'hi',フ:'fu',ヘ:'he',ホ:'ho',バ:'ba',ビ:'bi',ブ:'bu',ベ:'be',ボ:'bo',パ:'pa',ピ:'pi',プ:'pu',ペ:'pe',ポ:'po',マ:'ma',ミ:'mi',ム:'mu',メ:'me',モ:'mo',ヤ:'ya',ユ:'yu',ヨ:'yo',ラ:'ra',リ:'ri',ル:'ru',レ:'re',ロ:'ro',ワ:'wa',ヲ:'o',ン:'n',ヴ:'vu'};
+var RO2={キャ:'kya',キュ:'kyu',キョ:'kyo',ギャ:'gya',ギュ:'gyu',ギョ:'gyo',シャ:'sha',シュ:'shu',ショ:'sho',シェ:'she',ジャ:'ja',ジュ:'ju',ジョ:'jo',ジェ:'je',チャ:'cha',チュ:'chu',チョ:'cho',チェ:'che',ニャ:'nya',ニュ:'nyu',ニョ:'nyo',ヒャ:'hya',ヒュ:'hyu',ヒョ:'hyo',ビャ:'bya',ビュ:'byu',ビョ:'byo',ピャ:'pya',ピュ:'pyu',ピョ:'pyo',ミャ:'mya',ミュ:'myu',ミョ:'myo',リャ:'rya',リュ:'ryu',リョ:'ryo',ティ:'ti',ディ:'di',トゥ:'tu',ドゥ:'du',ファ:'fa',フィ:'fi',フェ:'fe',フォ:'fo',ウィ:'wi',ウェ:'we',ウォ:'wo',イェ:'ye',ツァ:'tsa',ツィ:'tsi',ツェ:'tse',ツォ:'tso',ヴァ:'va',ヴィ:'vi',ヴェ:'ve',ヴォ:'vo',デュ:'dyu',テュ:'tyu'};
+var MAC={a:'ā',i:'ī',u:'ū',e:'ē',o:'ō'};
+function roma(k){
+  k=k.replace(/[ぁ-ゖ]/g,function(c){return String.fromCharCode(c.charCodeAt(0)+96)});
+  var r='',i=0,sm=false;
+  while(i<k.length){var two=k.substr(i,2),ch=k.charAt(i),p;
+    if(ch==='ッ'){sm=true;i++;continue}
+    if(ch==='ー'){r=r.replace(/[aiueo]$/,function(v){return MAC[v]});i++;continue}
+    if(ch==='・'||ch===' '||ch==='　'){r+=' ';i++;continue}
+    p=RO2[two]||RO[ch];if(RO2[two])i+=2;else i++;
+    if(p===undefined){r+=ch;continue}
+    if(sm){r+=(p.indexOf('ch')===0?'t':p.charAt(0));sm=false}
+    if(r.slice(-1)==='n'&&/^[aiueoy]/.test(p)&&ch!=='ン')r+="'";
+    r+=p}
+  return r.replace(/ou(?=[^aiueo]|$)/g,'ō').replace(/(^| )(\S)/g,function(m,a,b){return a+b.toUpperCase()})}
+function phr(s){return s.split(' ').map(function(w){return roma(w)}).join(' ').toLowerCase().replace(/uu/g,'ū')}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+var st={place:'from',ro:true,en:true,kanaOver:''};
+function data(){
+  var name=$('nmName').value.trim(),kana=st.kanaOver||toKana(name);
+  var c=C[$('nmCountry').value],a=$('nmAge').value,f=FOOD[$('nmFood').value],l=LIKE[$('nmLike').value];
+  var nameRo=kana?roma(kana):'',nameEn=name||'…';
+  var L=[['はじめまして。','Hajimemashite.','Nice to meet you.']];
+  L.push(['わたしは '+(kana||'＿＿＿')+' です。','Watashi wa '+(nameRo||'___')+' desu.',"I'm "+nameEn+'.']);
+  if(c){var cr=phr(c[2]);cr=cr.charAt(0).toUpperCase()+cr.slice(1);
+    L.push(st.place==='from'?[c[2]+' から きました。',cr+' kara kimashita.',"I'm from "+c[1]+'.']:[c[2]+' に すんで います。',cr+' ni sunde imasu.','I live in '+c[1]+'.'])}
+  if(a)L.push([AGE[a]+' です。',cap(phr(AGE[a]))+' desu.',"I'm "+a+' years old.']);
+  if(f)L.push(['すきな たべものは '+f[2]+' です。','Suki na tabemono wa '+phr(f[2])+' desu.','My favorite food is '+f[1]+'.']);
+  if(l)L.push([l[2]+' が すきです。',phr(l[2]).replace(/^./,function(x){return x.toUpperCase()})+' ga suki desu.','I like '+l[1]+'.']);
+  if($('nmStudy').checked)L.push(['にほんごを べんきょう して います。','Nihongo o benkyō shite imasu.',"I'm learning Japanese."]);
+  L.push(['よろしく おねがいします。','Yoroshiku onegaishimasu.','I hope we can be friends!']);
+  return {kana:kana,nameRo:nameRo,L:L}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function render(){
+  var d=data();$('nmKana').textContent=d.kana||'―';$('nmKanaRo').textContent=d.nameRo?'('+d.nameRo+')':'';
+  $('nmLines').innerHTML=d.L.map(function(x,i){return '<div class="nm-line"><button type="button" class="nm-say" data-i="'+i+'" aria-label="Listen">🔊</button><div><div class="nm-jp">'+esc(x[0])+'</div>'+(st.ro?'<div class="nm-ro">'+esc(x[1])+'</div>':'')+(st.en?'<div class="nm-en">'+esc(x[2])+'</div>':'')+'</div></div>'}).join('');
+  renderShare(d)}
+var voice=null;function pickVoice(){if(!window.speechSynthesis)return;var v=speechSynthesis.getVoices().filter(function(x){return /^ja/i.test(x.lang)});voice=v[0]||null}
+if(window.speechSynthesis){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function say(t){if(!window.speechSynthesis){msg('Sound is not available on this browser.');return}speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t.replace(/ /g,''));u.lang='ja-JP';u.rate=.85;if(voice)u.voice=voice;speechSynthesis.speak(u)}
+function msg(t){$('nmMsg').textContent=t;clearTimeout(msg.t);msg.t=setTimeout(function(){$('nmMsg').textContent=''},4000)}
+function ga(e,p){if(window.gtag)gtag('event',e,p||{})}
+var made=false;function markMade(m){if(!made&&$('nmName').value.trim()){made=true;ga('namemaker_make',{method:m})}}
+$('nmLines').addEventListener('click',function(e){var b=e.target.closest('.nm-say');if(!b)return;say(data().L[b.getAttribute('data-i')][0]);ga('namemaker_listen',{line:b.getAttribute('data-i')})});
+$('nmAll').onclick=function(){say(data().L.map(function(x){return x[0]}).join('　'));ga('namemaker_listen',{line:'all'})};
+$('nmTogRo').onclick=function(){st.ro=!st.ro;this.classList.toggle('on',st.ro);render()};
+$('nmTogEn').onclick=function(){st.en=!st.en;this.classList.toggle('on',st.en);render()};
+$('nmFix').onclick=function(){var b=$('nmFixBox');b.hidden=!b.hidden;if(!b.hidden){$('nmKanaIn').value=st.kanaOver||toKana($('nmName').value);$('nmKanaIn').focus()}};
+$('nmKanaIn').oninput=function(){st.kanaOver=this.value.trim();render()};
+$('nmName').oninput=function(){st.kanaOver='';$('nmKanaIn').value='';render()};
+$('nmName').onchange=function(){markMade('type')};
+Array.prototype.forEach.call(document.querySelectorAll('.nm-seg button'),function(b){b.onclick=function(){st.place=b.getAttribute('data-place');Array.prototype.forEach.call(document.querySelectorAll('.nm-seg button'),function(x){x.classList.toggle('on',x===b)});render()}});
+['nmCountry','nmAge','nmFood','nmLike','nmStudy'].forEach(function(id){$(id).onchange=render});
+function draw(){
+  var d=data(),W=1080,cv=document.createElement('canvas'),x=cv.getContext('2d'),F='"Hiragino Maru Gothic ProN","Zen Maru Gothic","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif';
+  var rowH=50+(st.ro?44:0)+(st.en?40:0)+34,H=Math.max(1080,300+d.L.length*rowH+120);cv.width=W;cv.height=H;
+  x.fillStyle='#fffdf7';x.fillRect(0,0,W,H);x.strokeStyle='#f3e3c3';x.lineWidth=16;x.strokeRect(24,24,W-48,H-48);
+  x.fillStyle='#2d7694';x.fillRect(48,48,W-96,190);x.fillStyle='#fff';x.textAlign='center';
+  x.font='800 64px '+F;x.fillText(d.kana||'じこしょうかい',W/2,140);x.font='700 34px '+F;x.fillText(d.nameRo?d.nameRo+' — my name in Japanese':'My Self-Introduction',W/2,200);
+  var y=320;x.textAlign='left';
+  d.L.forEach(function(l){x.fillStyle='#2b3b42';x.font='800 48px '+F;x.fillText(l[0],90,y);y+=50;
+    if(st.ro){x.fillStyle='#1c5468';x.font='500 34px '+F;x.fillText(l[1],90,y);y+=44}
+    if(st.en){x.fillStyle='#7a8a90';x.font='500 30px '+F;x.fillText(l[2],90,y);y+=40}y+=34});
+  x.textAlign='center';x.fillStyle='#d94b41';x.font='700 30px '+F;x.fillText('Tomodachi Japan · tomodachi-japan.nijin.co.jp',W/2,H-70);return cv}
+$('nmSave').onclick=function(){markMade('save');var cv=draw();cv.toBlob(function(b){var a=document.createElement('a');a.download='my-japanese-introduction.png';a.href=URL.createObjectURL(b);document.body.appendChild(a);a.click();a.remove();msg('Saved! Check your downloads or photos.')});ga('namemaker_save',{method:'save'})};
+$('nmSend').onclick=function(){markMade('send');var cv=draw();cv.toBlob(function(b){var f=new File([b],'my-japanese-introduction.png',{type:'image/png'});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'My name in Japanese'}).catch(function(){})}else{$('nmSave').onclick();msg('Saved the picture — you can send it from your photos.')}});ga('namemaker_save',{method:'send'})};
+$('nmPrint').onclick=function(){markMade('print');var w=window.open('');if(!w){msg('Please allow pop-ups to print.');return}w.document.write('<img src="'+draw().toDataURL('image/png')+'" style="width:100%" onload="setTimeout(function(){print()},300)">');w.document.close();ga('namemaker_save',{method:'print'})};
+function renderShare(d){
+  var url=location.origin+location.pathname,t=d.kana?'My name in Japanese is '+d.kana+' ('+d.nameRo+')! Make yours:':'Write your name in Japanese and make a self-introduction!';
+  var u=function(s){return url+'?utm_source='+s+'&utm_medium=share&utm_campaign=namemaker'};
+  var S=[['LINE','#06C755','https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(u('line'))],['WhatsApp','#25D366','https://wa.me/?text='+encodeURIComponent(t+' '+u('whatsapp'))],['Facebook','#1877F2','https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u('facebook'))],['X','#111','https://twitter.com/intent/tweet?text='+encodeURIComponent(t)+'&url='+encodeURIComponent(u('x'))]];
+  $('nmShare').innerHTML=S.map(function(s){return '<a href="'+s[2]+'" target="_blank" rel="noopener" data-m="'+s[0]+'" style="background:'+s[1]+'">'+s[0]+'</a>'}).join('')+'<button type="button" data-m="copy" style="background:#586a70">🔗 Copy link</button>'}
+$('nmShare').addEventListener('click',function(e){var a=e.target.closest('[data-m]');if(!a)return;var m=a.getAttribute('data-m');ga('namemaker_share',{method:m});
+  if(m==='copy'){var l=location.origin+location.pathname;if(navigator.clipboard)navigator.clipboard.writeText(l).then(function(){msg('Link copied!')},function(){msg(l)});else msg(l)}});
+$('nmGo').onclick=function(){markMade('go');$('nmCard').scrollIntoView({behavior:'smooth',block:'start'})};
+$('nmCta').addEventListener('click',function(){ga('namemaker_cta')});
+render();
+})();
+</script>
