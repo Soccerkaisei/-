@@ -1,0 +1,33 @@
+<!-- wp:html -->
+<style>
+a#lineBtn.tjxquiz-line-btn{display:block;text-align:center;text-decoration:none!important;background:#06C755!important;color:#fff!important;border:2px solid #06C755!important}
+a#lineBtn.tjxquiz-line-btn:hover{opacity:.9}
+</style>
+<script>
+(function(){
+  var share = document.getElementById('shareBtn');
+  if (!share || document.getElementById('lineBtn')) return;
+  var a = document.createElement('a');
+  a.id = 'lineBtn';
+  a.className = 'tjxquiz-share-btn tjxquiz-line-btn';
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.textContent = 'LINEでおくる';
+  share.parentNode.insertBefore(a, share);
+  function setHref(){
+    var name = (document.getElementById('resultName') || {}).textContent || '';
+    var url = location.origin + location.pathname + '?utm_source=line&utm_medium=share&utm_campaign=teacher_shindan';
+    var text = name
+      ? '先生タイプ診断をやってみたら、わたしにぴったりの先生は「' + name + '」でした！あなたはどの先生？'
+      : '先生タイプ診断やってみたよ！あなたはどの先生？';
+    a.href = 'https://line.me/R/share?text=' + encodeURIComponent(text + '\n' + url);
+  }
+  setHref();
+  a.addEventListener('click', function(){
+    setHref();
+    var name = (document.getElementById('resultName') || {}).textContent || '';
+    if (window.gtag) gtag('event', 'shindan_share', { method: 'line', teacher: name });
+  });
+})();
+</script>
+<!-- /wp:html -->
