@@ -24,6 +24,7 @@
 .kz-bar i{display:block;height:100%;background:var(--pur);width:0;transition:width .3s}
 .kz-num{text-align:center;font-size:.78rem;color:var(--soft);font-weight:700;margin:8px 0 0}
 .kz-q{background:var(--cream);border-radius:22px;padding:22px 16px;margin-top:14px;text-align:center}
+.kz .kz-en{display:block;font-size:.8em;color:#586a70;font-weight:500;line-height:1.5;margin-top:2px}.kz.noen .kz-en{display:none!important}.kz-head .kz-en{color:#fff;opacity:.9}.kz-entog{margin-top:10px;background:#fff;color:#6a4fb3;border:0;border-radius:999px;padding:5px 14px;font-family:inherit;font-weight:800;font-size:.8rem;cursor:pointer}.kz-opts .kz-ro{display:block;font-size:.72rem;font-weight:600;color:#586a70}.kz.noen .kz-opts .kz-ro{display:none}.kz-cheat .kz-en{display:inline;font-size:.92em}
 .kz-cal{position:relative;display:inline-block;width:130px;height:130px}.kz-pic .kz-cal img{width:130px;height:130px;margin:0}.kz-cal b{position:absolute;left:42%;top:63%;transform:translate(-50%,-50%);background:#fff;border:3px solid #e85a4f;border-radius:10px;padding:2px 8px;font-size:26px;line-height:1.2;color:#2b3b42;letter-spacing:0;white-space:nowrap}
 .kz-pic img{width:52px;height:52px;object-fit:contain;vertical-align:middle;margin:2px}
 .kz-pic{font-size:44px;line-height:1.25;letter-spacing:2px;word-break:break-all;margin-bottom:10px}
@@ -68,16 +69,17 @@
       <a href="/asonde/">← あそんでみよう にもどる</a>
       <div class="kz-logo">TOMODACHI JAPAN</div>
       <h1>かぞえかたクイズ</h1>
-      <p>1こ・1ぽん・1まい・1ぴき…どれかな？</p>
+      <p>1こ・1ぽん・1まい・1ぴき…どれかな？<span class="kz-en">Japanese counting words quiz</span></p>
+      <button type="button" class="kz-entog" id="kzEn">English: ON</button>
     </div>
     <div class="kz-body">
       <div id="kzStart">
-        <p class="kz-lead">日本語は、ものによって<br>かぞえかたが かわるよ。<br>レベルを えらんで チャレンジ！</p>
+        <p class="kz-lead">日本語は、ものによって<br>かぞえかたが かわるよ。<br>レベルを えらんで チャレンジ！<span class="kz-en">In Japanese, the counting word changes with the kind of thing you count. Pick a level!</span></p>
         <span class="kz-ok">🏫 授業利用OK・無料・登録不要</span>
         <div class="kz-lv">
-          <button type="button" data-lv="0"><b>★1 どれで かぞえる？</b><span>えんぴつは「ほん」？「まい」？ ことばを えらぼう</span></button>
-          <button type="button" data-lv="1"><b>★2 なんて よむ？</b><span>3ぼん？3ぽん？ よみかたに チャレンジ</span></button>
-          <button type="button" data-lv="2"><b>★3 とくべつな よみかた</b><span>ひとつ・ふたり・ついたち・はつか…</span></button>
+          <button type="button" data-lv="0"><b>★1 どれで かぞえる？</b><span>えんぴつは「ほん」？「まい」？ ことばを えらぼう<i class="kz-en">Which counter? Choose the right counting word.</i></span></button>
+          <button type="button" data-lv="1"><b>★2 なんて よむ？</b><span>3ぼん？3ぽん？ よみかたに チャレンジ<i class="kz-en">How do you say it? Sound changes like sanbon (3) and roppon (6).</i></span></button>
+          <button type="button" data-lv="2"><b>★3 とくべつな よみかた</b><span>ひとつ・ふたり・ついたち・はつか…<i class="kz-en">Special readings: hitotsu, futari, dates on the calendar.</i></span></button>
         </div>
       </div>
       <div id="kzPlay" hidden>
@@ -95,7 +97,7 @@
         <div id="kzMsg1"></div>
         <div class="kz-big" id="kzScore"></div>
         <p id="kzMsg2"></p>
-        <div class="kz-cheat"><b>📝 かぞえかた まとめ</b>こ … りんご・ボール・たまご など 小さい もの<br>ほん … えんぴつ・かさ・バナナ など ほそながい もの<br>まい … かみ・シャツ・おさら など うすい もの<br>ひき … ねこ・いぬ・さかな など 小さい どうぶつ<br>とう … ぞう・うま など 大きい どうぶつ<br>わ … とり・うさぎ<br>だい … くるま・じてんしゃ・テレビ<br>さつ … ほん・ノート<br>きゃく … いす<br>にん … ひと（ひとり・ふたり だけ とくべつ）<br>はい … コップの のみもの（いっぱい・さんばい）<br>ひにち … ついたち・ふつか・みっか … とおか・はつか</div>
+        <div class="kz-cheat"><b>📝 かぞえかた まとめ</b>こ … りんご・ボール・たまご など 小さい もの <span class="kz-en">(small things)</span><br>ほん … えんぴつ・かさ・バナナ など ほそながい もの <span class="kz-en">(long, thin things)</span><br>まい … かみ・シャツ・おさら など うすい もの <span class="kz-en">(flat, thin things)</span><br>ひき … ねこ・いぬ・さかな など 小さい どうぶつ <span class="kz-en">(small animals)</span><br>とう … ぞう・うま など 大きい どうぶつ <span class="kz-en">(big animals)</span><br>わ … とり・うさぎ <span class="kz-en">(birds)</span><br>だい … くるま・じてんしゃ・テレビ <span class="kz-en">(vehicles, machines)</span><br>さつ … ほん・ノート <span class="kz-en">(books)</span><br>きゃく … いす <span class="kz-en">(chairs)</span><br>にん … ひと（ひとり・ふたり だけ とくべつ） <span class="kz-en">(people)</span><br>はい … コップの のみもの（いっぱい・さんばい） <span class="kz-en">(cups of drinks)</span><br>ひにち … ついたち・ふつか・みっか … とおか・はつか <span class="kz-en">(days of the month)</span></div>
         <div class="kz-btns">
           <button type="button" id="kzAgain">もう一回 あそぶ</button>
           <button type="button" id="kzTop">ほかの レベルに チャレンジ</button>
@@ -133,6 +135,13 @@ var L3=[['🍬','あめが','ひとつ',['いっつ','いちつ','ひとっつ']
 var LV=[{q:L1,n:'★1',p:'どれで かぞえる？'},{q:L2,n:'★2',p:'なんて よむ？'},{q:L3,n:'★3',p:'とくべつな よみかた'}];
 var IMGB='/wp-content/uploads/2026/10/kz-',IMG={'🍎':'ringo','🍌':'banana','🚗':'kuruma','🐱':'neko','⚽':'ball','☂':'kasa2','📄':'kami','👕':'shatsu','🍽':'osara','📕':'hon','📓':'note','👟':'kutsu','📺':'terebi','💴':'en100','🐶':'inu','🐟':'sakana','🐦':'tori','🐜':'ari','🐸':'kaeru','🐘':'zou','🐴':'uma','🐄':'ushi','🚲':'jitensha','🏠':'ie','🧒':'kodomo','🪑':'isu','🌳':'ki','🥚':'tamago','🍙':'onigiri','🎂':'cake','☕':'ocha','🍬':'ame','✏':'enpitsu'};
 function pic(t){if(t.indexOf('📅')===0){var d=t.replace('📅','').trim();return '<span class="kz-cal"><img src="'+IMGB+'calendar.webp?v=1" alt="" onerror="this.parentNode.outerHTML=\'📅 '+d+'\'"><b>'+d+'</b></span>'}return [...t].filter(function(x){return x.charCodeAt(0)!==0xFE0F}).map(function(c){return IMG[c]?'<img src="'+IMGB+IMG[c]+'.webp?v=1" alt="" onerror="this.outerHTML=\''+c+'\'">':c}).join('')}
+var EN={りんご:['apple','apples'],えんぴつ:['pencil','pencils'],かみ:['sheet of paper','sheets of paper'],ねこ:['cat','cats'],くるま:['car','cars'],ほん:['book','books'],くつ:['pair of shoes','pairs of shoes'],ぞう:['elephant','elephants'],とり:['bird','birds'],バナナ:['banana','bananas'],シャツ:['shirt','shirts'],さかな:['fish','fish'],たまご:['egg','eggs'],かさ:['umbrella','umbrellas'],じてんしゃ:['bicycle','bicycles'],いえ:['house','houses'],おさら:['plate','plates'],うま:['horse','horses'],ノート:['notebook','notebooks'],ボール:['ball','balls'],おちゃ:['cup of tea','cups of tea'],あり:['ant','ants'],テレビ:['TV','TVs'],おにぎり:['rice ball','rice balls'],うし:['cow','cows'],いす:['chair','chairs'],き:['tree','trees'],いぬ:['dog','dogs'],かえる:['frog','frogs'],あめ:['candy','candies'],こども:['child','children']};
+var TIPEN={こ:'ko: small, round things (apples, balls, eggs).',ほん:'hon: long, thin things (pencils, umbrellas, bananas, trees).',まい:'mai: flat, thin things (paper, shirts, plates).',ひき:'hiki: small animals (cats, dogs, fish).',とう:'tō: big animals (elephants, horses, cows).',わ:'wa: birds.',だい:'dai: vehicles and machines (cars, bikes, TVs).',さつ:'satsu: books and notebooks.',にん:'nin: people. 1 person is hitori, 2 people is futari.',そく:'soku: pairs of shoes and socks.',けん:'ken: houses and shops.',はい:'hai: cups or bowls of drinks. 1 ippai, 2 nihai, 3 sanbai.',さい:'sai: age (years old).',えん:'en: yen, Japanese money.',きゃく:'kyaku: chairs.'};
+var RK={あ:'a',い:'i',う:'u',え:'e',お:'o',か:'ka',き:'ki',く:'ku',け:'ke',こ:'ko',が:'ga',ぎ:'gi',ぐ:'gu',げ:'ge',ご:'go',さ:'sa',し:'shi',す:'su',せ:'se',そ:'so',ざ:'za',じ:'ji',ず:'zu',ぜ:'ze',ぞ:'zo',た:'ta',ち:'chi',つ:'tsu',て:'te',と:'to',だ:'da',で:'de',ど:'do',な:'na',に:'ni',ぬ:'nu',ね:'ne',の:'no',は:'ha',ひ:'hi',ふ:'fu',へ:'he',ほ:'ho',ば:'ba',び:'bi',ぶ:'bu',べ:'be',ぼ:'bo',ぱ:'pa',ぴ:'pi',ぷ:'pu',ぺ:'pe',ぽ:'po',ま:'ma',み:'mi',む:'mu',め:'me',も:'mo',や:'ya',ゆ:'yu',よ:'yo',ら:'ra',り:'ri',る:'ru',れ:'re',ろ:'ro',わ:'wa',を:'o',ん:'n'};
+function ro(k){var r='',i=0,sm=0;while(i<k.length){var c=k.charAt(i),n=k.charAt(i+1),p;if(c==='っ'){sm=1;i++;continue}p=RK[c]||c;if(n!==''&&'ゃゅょ'.indexOf(n)!==-1){p=(p==='shi'?'sh':p==='chi'?'ch':p==='ji'?'j':p.charAt(0)+'y')+{ゃ:'a',ゅ:'u',ょ:'o'}[n];i++}if(sm){r+=p.charAt(0)==='c'?'t':p.charAt(0);sm=0}r+=p;i++}return r}
+function enQ(q,lv,n){var w=q[1].split(/[がは]/)[0].trim(),e=EN[w];if(q[4]==='hi')return 'How do you read the date '+q[0].replace('📅','').trim()+' on a calendar?';
+  if(/わたしは/.test(q[1]))return 'I am 3 years old. Which counting word?';if(/ジュース/.test(q[1]))return 'The juice is 100 yen. Which word?';
+  if(!e)return '';var nn=lv===0?+q[1].replace(/\D/g,''):n,nm=nn===1?e[0]:e[1];return lv===0?'There '+(nn===1?'is ':'are ')+nn+' '+nm+'. Which counting word?':'How do you say '+nn+' '+nm+'?'}
 var COUNT=10,st={};
 function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 function ga(e,p){if(window.gtag)gtag('event',e,p||{})}
@@ -143,16 +152,21 @@ function ask(){
   $('kzPic').innerHTML=pic(q[0]);
   var c=lv===0?q[2]:lv===1?q[4]:q[2],v=/^(ひき|とう|わ|にん)$/.test(c)||/[りん]$/.test(q[2])&&lv===2?'います':'あります';
   var n=[...q[0]].filter(function(x){return x.trim()&&x.charCodeAt(0)!==0xFE0F}).length,tpl=q[1].indexOf('{?}')>=0;
-  $('kzText').innerHTML=tpl?q[1].replace('{?}',' <u>？</u> '):lv===0?q[1]+' <u>？</u> '+v+'。':q[1]+' <u>？</u> '+v+'。<br><small style="font-size:.8rem;color:#586a70">（'+n+'）</small>';
-  $('kzOpts').innerHTML=shuf([q[2]].concat(q[3])).map(function(o){return '<button type="button">'+o+'</button>'}).join('');
+  var en=enQ(q,lv,n);$('kzText').innerHTML=(tpl?q[1].replace('{?}',' <u>？</u> '):lv===0?q[1]+' <u>？</u> '+v+'。':q[1]+' <u>？</u> '+v+'。<br><small style="font-size:.8rem;color:#586a70">（'+n+'）</small>')+(en?'<span class="kz-en">'+en+'</span>':'');
+  $('kzOpts').innerHTML=shuf([q[2]].concat(q[3])).map(function(o){return '<button type="button" data-a="'+o+'">'+o+(lv?'<span class="kz-ro">'+ro(o)+'</span>':'')+'</button>'}).join('');
   $('kzTip').hidden=true;$('kzNext').hidden=true}
 function tipFor(q){if(st.lv===0)return TIP[q[2]];if(st.lv===1)return '<b>'+q[2]+'</b> と よむよ。'+TIP[q[4]];
   if(q[4]==='hi')return '<b>'+q[2]+'</b>。1日〜10日は とくべつな よみかた（ついたち・ふつか・みっか・よっか・いつか・むいか・なのか・ようか・ここのか・とおか）。14日・20日・24日も とくべつで、じゅうよっか・はつか・にじゅうよっか と よむよ。';
   return /にん|り$/.test(q[2])?'<b>'+q[2]+'</b>。'+TIP['にん']:'<b>'+q[2]+'</b>。ひとつ・ふたつ・みっつ・よっつ・いつつ・むっつ・ななつ・やっつ・ここのつ。10こより おおい ときは「じゅっこ」のように「こ」で かぞえることが おおいよ。'}
-$('kzOpts').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;var q=st.qs[st.i],good=b.textContent===q[2];
-  Array.prototype.forEach.call($('kzOpts').children,function(x){x.disabled=true;if(x.textContent===q[2])x.className='ok'});
+function tipEn(q){if(st.lv===0)return TIPEN[q[2]]||'';if(st.lv===1)return TIPEN[q[4]]||'';if(q[4]==='hi')return 'Days 1 to 10 have special readings: tsuitachi, futsuka, mikka, yokka, itsuka, muika, nanoka, yōka, kokonoka, tōka. The 14th (jūyokka), 20th (hatsuka) and 24th (nijūyokka) are special too.';
+  return /にん|り$/.test(q[2])?TIPEN['にん']:'The general counter tsu: hitotsu, futatsu, mittsu, yottsu, itsutsu, muttsu, nanatsu, yattsu, kokonotsu. For 10 or more, people usually use a counter like ko (jukko).'}
+try{if(localStorage.getItem('kzEn')==='0')document.querySelector('.kz').classList.add('noen')}catch(e){}
+function enLabel(){$('kzEn').textContent='English: '+(document.querySelector('.kz').classList.contains('noen')?'OFF':'ON')}enLabel();
+$('kzEn').onclick=function(){var k=document.querySelector('.kz'),off=k.classList.toggle('noen');enLabel();try{localStorage.setItem('kzEn',off?'0':'1')}catch(e){}ga('kazoekata_english',{on:!off})};
+$('kzOpts').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;var q=st.qs[st.i],good=b.getAttribute('data-a')===q[2];
+  Array.prototype.forEach.call($('kzOpts').children,function(x){x.disabled=true;if(x.getAttribute('data-a')===q[2])x.className='ok'});
   if(!good)b.className='ng';else st.ok++;
-  $('kzTip').innerHTML=(good?'⭕ せいかい！ ':'❌ ざんねん… '+(st.lv===0?'こたえは <b>'+q[2]+'</b>。':'こたえは '))+tipFor(q);$('kzTip').hidden=false;
+  $('kzTip').innerHTML=(good?'⭕ せいかい！ ':'❌ ざんねん… '+(st.lv===0?'こたえは <b>'+q[2]+'</b>。':'こたえは '))+tipFor(q)+'<span class="kz-en">'+(good?'Correct! ':'The answer is '+q[2]+' ('+ro(q[2])+'). ')+tipEn(q)+'</span>';$('kzTip').hidden=false;
   $('kzNext').textContent=st.i+1<st.qs.length?'つぎへ ▶':'けっかを みる ▶';$('kzNext').hidden=false});
 $('kzNext').onclick=function(){st.i++;if(st.i<st.qs.length)ask();else finish()};
 function finish(){
