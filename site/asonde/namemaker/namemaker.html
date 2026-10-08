@@ -1,83 +1,106 @@
 <style>
 .l-fixHeader,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
 .l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
-.nm{--teal:#2d7694;--teal-dark:#1c5468;--coral:#f0655a;--coral-dark:#d94b41;--tint:#eaf3f4;--ink:#2b3b42;--soft:#586a70;
+.nm{--teal:#2d7694;--teal-d:#1c5468;--coral:#f0655a;--coral-d:#d94b41;--sun:#ffc24b;--cream:#fff8ec;--tint:#eaf3f4;--ink:#2b3b42;--soft:#5d6d73;
   font-family:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;color:var(--ink);max-width:1000px;margin:0 auto;padding:20px 14px 10px;box-sizing:border-box}
 .nm *{box-sizing:border-box}
 .nm [hidden]{display:none!important}
-.nm-head{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;border-radius:24px;padding:22px;text-align:center;margin-bottom:16px}
-.nm-head .nm-eye{font-size:.72rem;letter-spacing:.2em;font-weight:700;opacity:.9}
-.nm-head h1{margin:6px 0 4px;font-size:1.45rem;font-weight:800;color:#fff;background:none;padding:0;border:none;line-height:1.35}
-.nm-head h1::before,.nm-head h1::after{display:none}
-.nm-head p{margin:4px 0 0;font-size:.88rem;line-height:1.6}
-.nm-head .nm-ok{display:inline-block;margin-top:10px;background:#fff;color:var(--teal-dark);border-radius:999px;padding:4px 14px;font-size:.78rem;font-weight:800}
-.nm-studio{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:800px){.nm-studio{grid-template-columns:1fr 1fr;align-items:start}.nm-out{position:sticky;top:calc(var(--wp-admin--admin-bar--height,0px) + 12px)}}
-.nm-box{background:#fff;border-radius:18px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-.nm-q{margin:0 0 16px}
-.nm-q>label,.nm-q>.nm-lab{display:block;font-weight:800;font-size:.95rem;margin-bottom:6px}
-.nm-q small{display:block;color:var(--soft);font-size:.78rem;margin-top:4px;line-height:1.5}
-.nm input[type=text],.nm select{width:100%;padding:11px 12px;border:2px solid #d5e3e6;border-radius:12px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink)}
-.nm input[type=text]:focus,.nm select:focus{outline:none;border-color:var(--teal)}
-.nm-kana{display:flex;gap:8px;align-items:center;margin-top:8px;background:var(--tint);border-radius:12px;padding:8px 10px}
-.nm-kana b{font-size:1.25rem;letter-spacing:.05em}
-.nm-kana span{color:var(--soft);font-size:.85rem}
-.nm-kana button{margin-left:auto}
-.nm-seg{display:flex;gap:6px;margin-bottom:6px}
-.nm-seg button{flex:1}
-.nm button{font-family:inherit;cursor:pointer;border-radius:999px;border:2px solid var(--teal);background:#fff;color:var(--teal);font-weight:800;font-size:.85rem;padding:7px 12px}
-.nm button.on{background:var(--teal);color:#fff}
-.nm-card{background:#fffdf7;border:3px solid #f3e3c3;border-radius:18px;padding:16px 16px 10px}
-.nm-card h2{margin:0 0 10px;font-size:1rem;color:var(--coral-dark);text-align:center;background:none;padding:0;border:none}
-.nm-card h2::before,.nm-card h2::after{display:none}
-.nm-line{display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed #eadfca}
+.nm h1,.nm h2,.nm h3{background:none!important;border:0!important;padding:0!important;color:inherit}
+.nm h1::before,.nm h1::after,.nm h2::before,.nm h2::after{display:none!important}
+.nm-head{position:relative;overflow:hidden;background:linear-gradient(135deg,#f0655a,#ff9b5e 55%,#ffc24b);color:#fff;border-radius:28px;padding:26px 20px 24px;text-align:center;margin-bottom:18px;box-shadow:0 14px 30px -14px rgba(217,75,65,.6)}
+.nm-head::before,.nm-head::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.18)}
+.nm-head::before{width:150px;height:150px;left:-40px;top:-50px}.nm-head::after{width:110px;height:110px;right:-30px;bottom:-40px}
+.nm-head a{position:relative;color:#fff;font-size:11px;text-decoration:underline}
+.nm-head .nm-eye{position:relative;font-size:.72rem;letter-spacing:.18em;font-weight:800;margin-top:6px}
+.nm-head h1{position:relative;margin:6px 0 2px!important;font-size:1.65rem!important;font-weight:900;line-height:1.25;color:#fff!important;text-shadow:0 2px 0 rgba(0,0,0,.12)}
+.nm-head .nm-jp{position:relative;display:block;font-size:1rem;font-weight:800;margin-bottom:6px}
+.nm-head p{position:relative;margin:6px auto 0;font-size:.9rem;line-height:1.6;max-width:560px}
+.nm-head .nm-ok{position:relative;display:inline-block;margin-top:12px;background:#fff;color:var(--coral-d);border-radius:999px;padding:5px 14px;font-size:.78rem;font-weight:800}
+.nm-studio{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:820px){.nm-studio{grid-template-columns:1fr 1fr;align-items:start}.nm-out{position:sticky;top:calc(var(--wp-admin--admin-bar--height,0px) + 12px)}}
+.nm-box{background:#fff;border-radius:24px;padding:20px 18px;box-shadow:0 10px 26px -14px rgba(40,60,70,.35)}
+.nm-q{margin:0 0 20px}
+.nm-q:last-of-type{margin-bottom:12px}
+.nm-lab{display:flex;align-items:center;gap:8px;font-weight:900;font-size:1rem;margin-bottom:8px}
+.nm-lab i{font-style:normal;flex:0 0 28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:.9rem}
+.nm-lab small{font-weight:700;color:var(--soft);font-size:.78rem}
+.nm input[type=text],.nm select{width:100%;padding:12px 14px;border:3px solid #e3ecee;border-radius:16px;font-size:17px;font-family:inherit;font-weight:700;background:#fff;color:var(--ink);margin:0}
+.nm input[type=text]:focus,.nm select:focus{outline:none;border-color:var(--sun)}
+.nm-fixnote{display:block;color:var(--soft);font-size:.76rem;margin-top:4px;line-height:1.5}
+.nm button{font-family:inherit;cursor:pointer;margin:0}
+.nm-seg{display:flex;gap:8px;margin-bottom:8px}
+.nm-seg button,.nm-tog button{flex:1;border-radius:999px;border:3px solid var(--teal);background:#fff;color:var(--teal);font-weight:800;font-size:.88rem;padding:8px 10px}
+.nm-seg button.on,.nm-tog button.on{background:var(--teal);color:#fff}
+.nm-chips{display:flex;flex-wrap:wrap;gap:7px}
+.nm-chips button{display:inline-flex;align-items:center;gap:5px;border:2px solid #ece3d3;background:var(--cream);border-radius:999px;padding:6px 11px 6px 8px;font-size:.9rem;font-weight:800;color:var(--ink);line-height:1.2;transition:transform .12s}
+.nm-chips button em{font-style:normal;font-size:1.25rem}
+.nm-chips button small{font-weight:600;color:var(--soft);font-size:.7rem}
+.nm-chips button:hover{transform:translateY(-1px)}
+.nm-chips button.on{background:var(--sun);border-color:#f0a92b;box-shadow:0 3px 0 #e0961c}
+.nm-age button{width:44px;height:44px;justify-content:center;padding:0;font-size:1rem}
+.nm-check{display:flex;align-items:center;gap:8px;font-weight:800;cursor:pointer}
+.nm-check input{width:20px;height:20px;accent-color:var(--teal)}
+.nm .nm-go{display:block;width:100%;border:0;border-radius:999px;background:var(--coral);color:#fff;font-size:1.05rem;font-weight:900;padding:14px;box-shadow:0 5px 0 var(--coral-d)}
+@media(min-width:820px){.nm .nm-go{display:none}}
+.nm-tag{position:relative;background:#fff;border-radius:22px;overflow:hidden;text-align:center;box-shadow:0 12px 28px -14px rgba(40,60,70,.45);border:3px solid #e94b3c;margin-bottom:14px}
+.nm-tag-top{background:#e94b3c;color:#fff;padding:10px 10px 8px;font-weight:900;font-size:1.25rem;letter-spacing:.06em;line-height:1.2}
+.nm-tag-top small{display:block;font-size:.75rem;font-weight:700;letter-spacing:.1em;opacity:.95}
+.nm-tag-name{font-size:clamp(2.2rem,8vw,3.2rem);font-weight:900;letter-spacing:.06em;padding:16px 10px 2px;line-height:1.2;word-break:break-all}
+.nm-tag-ro{font-size:1.05rem;font-weight:800;color:var(--teal-d);padding-bottom:12px;min-height:1.6em}
+.nm-tag-fix{display:flex;justify-content:center;gap:8px;align-items:center;border-top:2px dashed #f2d6d2;padding:8px;font-size:.78rem;color:var(--soft);font-weight:700}
+.nm-tag-fix button{border:2px solid var(--coral);background:#fff;color:var(--coral-d);border-radius:999px;font-weight:800;font-size:.78rem;padding:4px 10px}
+.nm-card{background:var(--cream);border-radius:22px;padding:16px 14px 8px;border:3px solid #f6e3bd}
+.nm-card h2{margin:0 0 8px!important;font-size:1rem!important;color:var(--coral-d)!important;text-align:center}
+.nm-line{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:2px dotted #ecd9b4}
 .nm-line:last-child{border-bottom:0}
-.nm-line .nm-say{flex:0 0 34px;height:34px;padding:0;border-width:2px;font-size:1rem}
-.nm-jp{font-size:1.2rem;font-weight:800;line-height:1.5}
-.nm-ro{color:var(--teal-dark);font-size:.9rem;margin-top:1px}
+.nm-line .nm-say{flex:0 0 38px;height:38px;border-radius:50%;border:0;background:#fff;color:var(--teal);font-size:1.05rem;box-shadow:0 3px 0 #cfe0e3;border:2px solid #cfe0e3!important;padding:0}
+.nm-jp{font-size:1.22rem;font-weight:900;line-height:1.5}
+.nm-ro{color:var(--teal-d);font-size:.92rem;font-weight:700}
 .nm-en{color:var(--soft);font-size:.82rem}
-.nm-tog{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:12px 0 4px}
+.nm-tog{display:flex;gap:8px;margin:12px 0 4px}
 .nm-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.nm-acts .nm-main{grid-column:1/-1;background:var(--coral);border-color:var(--coral);color:#fff;font-size:1rem;padding:12px}
-.nm-share{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
-.nm-share a,.nm-share button{display:inline-block;text-decoration:none;border-radius:999px;padding:7px 12px;font-size:.8rem;font-weight:800;color:#fff;border:0}
-.nm-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em;margin-top:6px}
-.nm .nm-go{display:block;width:100%;background:var(--coral);border-color:var(--coral);color:#fff;font-size:1rem;padding:12px}
-@media(min-width:800px){.nm .nm-go{display:none}}
-.nm-cta{margin-top:18px;background:linear-gradient(135deg,#fff3ee,#ffe9e2);border-radius:18px;padding:20px;text-align:center}
-.nm-cta p{margin:0 0 10px;line-height:1.6;font-size:.92rem}
-.nm-cta a{display:inline-block;background:var(--coral);color:#fff!important;text-decoration:none;font-weight:800;border-radius:999px;padding:12px 22px}
-.nm-learn{margin-top:18px;line-height:1.75;font-size:.92rem}
-.nm-learn h2{font-size:1.1rem;margin:18px 0 6px;color:var(--teal-dark);background:none;padding:0;border:none}
-.nm-learn h2::before,.nm-learn h2::after{display:none}
+.nm-acts button{border:3px solid var(--teal);background:#fff;color:var(--teal);border-radius:999px;font-weight:800;font-size:.9rem;padding:10px}
+.nm-acts .nm-main{grid-column:1/-1;background:var(--coral);border-color:var(--coral);color:#fff;font-size:1.05rem;padding:13px;box-shadow:0 5px 0 var(--coral-d)}
+.nm-share{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
+.nm-share a,.nm-share button{display:inline-block;text-decoration:none!important;border-radius:999px;padding:7px 13px;font-size:.8rem;font-weight:800;color:#fff!important;border:0}
+.nm-msg{text-align:center;font-size:.82rem;color:var(--soft);min-height:1.2em;margin-top:8px}
+.nm-cta{margin-top:22px;background:linear-gradient(135deg,#fff3ee,#ffe6dc);border-radius:22px;padding:22px;text-align:center}
+.nm-cta p{margin:0 0 12px;line-height:1.7;font-size:.94rem}
+.nm-cta a{display:inline-block;background:var(--coral);color:#fff!important;text-decoration:none!important;font-weight:900;border-radius:999px;padding:13px 24px;box-shadow:0 5px 0 var(--coral-d)}
+.nm-learn{margin-top:22px;background:#fff;border-radius:22px;padding:22px;line-height:1.8;font-size:.93rem;box-shadow:0 6px 16px rgba(0,0,0,.06)}
+.nm-learn h2{font-size:1.08rem!important;margin:16px 0 4px!important;color:var(--teal-d)!important}
+.nm-learn h2:first-child{margin-top:0!important}
 .nm-learn p{margin:0 0 8px}
 </style>
+
 <div class="nm">
   <div class="nm-head">
+    <a href="/asonde/">← Play &amp; Learn games</a>
     <div class="nm-eye">TOMODACHI JAPAN · PLAY &amp; LEARN</div>
-    <h1>Your Name in Japanese<br>Self-Introduction Maker</h1>
-    <p>Type your name. We'll write it in Japanese (katakana) and make your first Japanese self-introduction — with romaji and English!</p>
+    <h1>Your Name in Japanese</h1>
+    <span class="nm-jp">にほんごで じこしょうかい しよう！</span>
+    <p>Type your name and pick what you like. You get your name in katakana and your first Japanese self-introduction, with romaji, English and sound.</p>
     <span class="nm-ok">🏫 Free for classroom use · No sign-up</span>
   </div>
   <div class="nm-studio">
     <div class="nm-box">
-      <div class="nm-q"><label for="nmName">1. Your name</label>
+      <div class="nm-q"><label class="nm-lab" for="nmName"><i>1</i>Your name <small>なまえ</small></label>
         <input type="text" id="nmName" maxlength="24" placeholder="e.g. Emily, Lucas, Mia" autocomplete="off">
-        <div class="nm-kana"><b id="nmKana">―</b><span id="nmKanaRo"></span><button type="button" id="nmFix">✏️ Fix</button></div>
-        <div id="nmFixBox" hidden><input type="text" id="nmKanaIn" maxlength="20" placeholder="Type katakana (e.g. エミリー)" style="margin-top:8px"><small>Not quite right? Ask a Japanese friend or teacher and type it here.</small></div>
+        <div id="nmFixBox" hidden><input type="text" id="nmKanaIn" maxlength="20" placeholder="Type katakana (e.g. エミリー)" style="margin-top:8px"><span class="nm-fixnote">Not quite right? Ask a Japanese friend or teacher and type it here.</span></div>
       </div>
-      <div class="nm-q"><span class="nm-lab">2. Where?</span>
+      <div class="nm-q"><span class="nm-lab"><i>2</i>Where? <small>どこから？</small></span>
         <div class="nm-seg"><button type="button" class="on" data-place="from">I'm from…</button><button type="button" data-place="live">I live in…</button></div>
-        <select id="nmCountry"></select></div>
-      <div class="nm-q"><label for="nmAge">3. How old are you?</label><select id="nmAge"></select></div>
-      <div class="nm-q"><label for="nmFood">4. Favorite food</label><select id="nmFood"></select></div>
-      <div class="nm-q"><label for="nmLike">5. Something you like</label><select id="nmLike"></select></div>
-      <div class="nm-q"><label><input type="checkbox" id="nmStudy" checked> I'm learning Japanese</label></div>
+        <select id="nmCountry" aria-label="Country"></select></div>
+      <div class="nm-q"><span class="nm-lab"><i>3</i>How old are you? <small>なんさい？</small></span><div class="nm-chips nm-age" id="nmAgeChips"></div><select id="nmAge" hidden></select></div>
+      <div class="nm-q"><span class="nm-lab"><i>4</i>Favorite food <small>すきな たべもの</small></span><div class="nm-chips" id="nmFoodChips"></div><select id="nmFood" hidden></select></div>
+      <div class="nm-q"><span class="nm-lab"><i>5</i>Something you like <small>すきな もの</small></span><div class="nm-chips" id="nmLikeChips"></div><select id="nmLike" hidden></select></div>
+      <div class="nm-q"><label class="nm-check"><input type="checkbox" id="nmStudy" checked> I'm learning Japanese 📚</label></div>
       <button type="button" class="nm-go" id="nmGo">✨ See my self-introduction</button>
     </div>
     <div class="nm-out">
+      <div class="nm-tag"><div class="nm-tag-top">はじめまして！<small>HELLO, MY NAME IS</small></div><div class="nm-tag-name" id="nmKana">？</div><div class="nm-tag-ro" id="nmKanaRo"></div><div class="nm-tag-fix">Is this right? <button type="button" id="nmFix">✏️ Fix it</button></div></div>
       <div class="nm-card" id="nmCard"><h2>じこしょうかい · My Self-Introduction</h2><div id="nmLines"></div></div>
-      <div class="nm-tog"><button type="button" class="on" id="nmTogRo">Romaji</button><button type="button" class="on" id="nmTogEn">English</button><button type="button" id="nmAll">🔊 Listen to all</button></div>
+      <div class="nm-tog"><button type="button" class="on" id="nmTogRo">Romaji</button><button type="button" class="on" id="nmTogEn">English</button><button type="button" id="nmAll">🔊 Listen</button></div>
       <div class="nm-acts"><button type="button" class="nm-main" id="nmSave">📷 Save as picture</button><button type="button" id="nmSend">📤 Send</button><button type="button" id="nmPrint">🖨 Print</button></div>
       <div class="nm-msg" id="nmMsg"></div>
       <div class="nm-share" id="nmShare"></div>
@@ -102,9 +125,14 @@ var C=[['usa','the USA','アメリカ'],['canada','Canada','カナダ'],['uk','t
 var FOOD=[['sushi','sushi','すし'],['ramen','ramen','ラーメン'],['pizza','pizza','ピザ'],['curry','curry','カレー'],['onigiri','rice balls','おにぎり'],['udon','udon noodles','うどん'],['tempura','tempura','てんぷら'],['pasta','pasta','パスタ'],['burger','hamburgers','ハンバーガー'],['icecream','ice cream','アイスクリーム'],['chocolate','chocolate','チョコレート'],['strawberry','strawberries','いちご'],['apple','apples','りんご'],['banana','bananas','バナナ'],['mango','mangoes','マンゴー']];
 var LIKE=[['soccer','soccer','サッカー'],['basketball','basketball','バスケットボール'],['swimming','swimming','すいえい'],['dance','dancing','ダンス'],['piano','the piano','ピアノ'],['games','video games','ゲーム'],['anime','anime','アニメ'],['manga','manga','まんが'],['books','books','ほん'],['drawing','drawing','おえかき'],['music','music','おんがく'],['cats','cats','ねこ'],['dogs','dogs','いぬ'],['rabbits','rabbits','うさぎ'],['dinosaurs','dinosaurs','きょうりゅう'],['japan','Japan','にほん']];
 var AGE={3:'さんさい',4:'よんさい',5:'ごさい',6:'ろくさい',7:'ななさい',8:'はっさい',9:'きゅうさい',10:'じゅっさい',11:'じゅういっさい',12:'じゅうにさい',13:'じゅうさんさい',14:'じゅうよんさい',15:'じゅうごさい',16:'じゅうろくさい',17:'じゅうななさい',18:'じゅうはっさい'};
+var FE=['🍣','🍜','🍕','🍛','🍙','🥢','🍤','🍝','🍔','🍦','🍫','🍓','🍎','🍌','🥭'],LE=['⚽','🏀','🏊','💃','🎹','🎮','📺','📖','📚','🎨','🎵','🐱','🐶','🐰','🦖','🗾'];
+function chips(box,sel,list,em){box.innerHTML=list.map(function(x,i){return '<button type="button" data-v="'+i+'"><em>'+em[i]+'</em>'+x[2]+' <small>'+x[1].replace(/^the /,'')+'</small></button>'}).join('');
+  box.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.getAttribute('data-v'),on=sel.value!==v;sel.value=on?v:'';Array.prototype.forEach.call(box.children,function(c){c.classList.toggle('on',on&&c===b)});render()})}
 function opts(el,list,skip){el.innerHTML='<option value="">'+skip+'</option>'+list.map(function(x,i){return '<option value="'+i+'">'+x[1].replace(/^the /,'').replace(/^./,function(c){return c.toUpperCase()})+'  '+x[2]+'</option>'}).join('')}
 opts($('nmCountry'),C,'— skip —');opts($('nmFood'),FOOD,'— skip —');opts($('nmLike'),LIKE,'— skip —');
-$('nmAge').innerHTML='<option value="">— skip —</option>'+Object.keys(AGE).map(function(a){return '<option value="'+a+'">'+a+'  '+AGE[a]+'</option>'}).join('');
+$('nmAge').innerHTML='<option value="">— skip —</option>'+Object.keys(AGE).map(function(a){return '<option value="'+a+'">'+a+'</option>'}).join('');
+$('nmAgeChips').innerHTML=Object.keys(AGE).map(function(a){return '<button type="button" data-v="'+a+'">'+a+'</button>'}).join('');
+$('nmAgeChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.getAttribute('data-v'),on=$('nmAge').value!==v;$('nmAge').value=on?v:'';Array.prototype.forEach.call(this.children,function(c){c.classList.toggle('on',on&&c===b)});render()});
 // English letters -> katakana (rough guess; dictionary first)
 var KV={'':'アイウエオ',k:'カキクケコ',g:'ガギグゲゴ',s:'サシスセソ',z:'ザジズゼゾ',t:'タティトゥテト',d:'ダディドゥデド',n:'ナニヌネノ',h:'ハヒフヘホ',b:'バビブベボ',p:'パピプペポ',m:'マミムメモ',y:'ヤイユイェヨ',r:'ラリルレロ',w:'ワウィウウェウォ',f:'ファフィフフェフォ',v:'バビブベボ',j:'ジャジジュジェジョ',sh:'シャシシュシェショ',ch:'チャチチュチェチョ',ts:'ツァツィツツェツォ'};
 var MULTI={t:['タ','ティ','トゥ','テ','ト'],d:['ダ','ディ','ドゥ','デ','ド'],y:['ヤ','イ','ユ','イェ','ヨ'],w:['ワ','ウィ','ウ','ウェ','ウォ'],f:['ファ','フィ','フ','フェ','フォ'],j:['ジャ','ジ','ジュ','ジェ','ジョ'],sh:['シャ','シ','シュ','シェ','ショ'],ch:['チャ','チ','チュ','チェ','チョ'],ts:['ツァ','ツィ','ツ','ツェ','ツォ']};
@@ -165,7 +193,7 @@ function data(){
   return {kana:kana,nameRo:nameRo,L:L}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function render(){
-  var d=data();$('nmKana').textContent=d.kana||'―';$('nmKanaRo').textContent=d.nameRo?'('+d.nameRo+')':'';
+  var d=data();$('nmKana').textContent=d.kana||'？';$('nmKanaRo').textContent=d.nameRo||'Type your name!';
   $('nmLines').innerHTML=d.L.map(function(x,i){return '<div class="nm-line"><button type="button" class="nm-say" data-i="'+i+'" aria-label="Listen">🔊</button><div><div class="nm-jp">'+esc(x[0])+'</div>'+(st.ro?'<div class="nm-ro">'+esc(x[1])+'</div>':'')+(st.en?'<div class="nm-en">'+esc(x[2])+'</div>':'')+'</div></div>'}).join('');
   renderShare(d)}
 var voice=null;function pickVoice(){if(!window.speechSynthesis)return;var v=speechSynthesis.getVoices().filter(function(x){return /^ja/i.test(x.lang)});voice=v[0]||null}
@@ -208,6 +236,7 @@ $('nmShare').addEventListener('click',function(e){var a=e.target.closest('[data-
   if(m==='copy'){var l=location.origin+location.pathname;if(navigator.clipboard)navigator.clipboard.writeText(l).then(function(){msg('Link copied!')},function(){msg(l)});else msg(l)}});
 $('nmGo').onclick=function(){markMade('go');$('nmCard').scrollIntoView({behavior:'smooth',block:'start'})};
 $('nmCta').addEventListener('click',function(){ga('namemaker_cta')});
+chips($('nmFoodChips'),$('nmFood'),FOOD,FE);chips($('nmLikeChips'),$('nmLike'),LIKE,LE);
 render();
 })();
 </script>
