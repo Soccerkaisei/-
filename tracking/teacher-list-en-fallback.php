@@ -3,7 +3,8 @@
    まだ英語ページが無い先生の「日本語ページ」を、英語のラベルで並べる。
    英語ページがある先生（同じメールアドレス）は、元の自動一覧が英語のカードを出すので、ここでは出さない。
    元の自動一覧（優先度20）より先に動くように、優先度19にしている。
-   2026-10-09b：Polylangの言語しぼりこみで日本語ページが見つからなかったのを修正。 */
+   2026-10-09b：Polylangの言語しぼりこみで日本語ページが見つからなかったのを修正。
+   2026-10-09c：英語ページに直接カードがある、にけ先生は出さないようにした。 */
 
 add_filter( 'the_content', 'tj_teacher_list_en_fallback', 19 );
 
@@ -45,6 +46,9 @@ function tj_teacher_list_en_fallback( $content ) {
 		$nm     = (string) get_post_meta( $k->ID, '_tj_f_t-name', true );
 		$romaji = trim( (string) get_post_meta( $k->ID, '_tj_f_t-romaji', true ) );
 		if ( $nm === '' ) { $nm = str_replace( '先生', '', $k->post_title ); }
+		/* 英語ページに直接カードがある先生は、ここでは出さない（名前で指定。増えたらこのリストに足す） */
+		$skip = array( 'にけ', 'ニケ', 'nike' );
+		if ( in_array( $nm, $skip, true ) || in_array( strtolower( $romaji ), $skip, true ) || in_array( $k->post_name, $skip, true ) ) { continue; }
 		$en_name = $romaji !== '' ? ucwords( strtolower( $romaji ) ) . '-sensei' : $nm . ' sensei';
 
 		$img = $photo
