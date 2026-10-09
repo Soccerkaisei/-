@@ -15,67 +15,14 @@
     <p class="tjg-classok"><span class="nw">🏫 授業利用OK</span><span class="nw">・無料・登録不要</span></p>
   </div>
   <div class="tjg-grid">
-    <a class="tjg-card" href="/asonde-nengajo/" style="position:relative;">
-      <span style="position:absolute;top:10px;left:10px;z-index:2;background:#c8312b;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;">NEW</span>
-      <div class="tjg-photo">
-        <img decoding="async" src="/wp-content/uploads/2026/10/ng-card.webp?v=2" alt="年賀状メーカー｜子どもが作れる日本の年賀状（干支・写真入り）" loading="lazy">
-      </div>
-      <div class="tjg-body">
-        <span class="tjg-eng">New Year Card</span>
-        <h3><span class="nw">年賀状を</span><span class="nw">つくろう！</span></h3>
-        <p><span class="nw">写真も入れられるよ！</span><span class="nw">じいじばあばに送ろう。</span></p>
-      </div>
-    </a>
-    <a class="tjg-card" href="/asonde-kotoba-quiz/">
-      <div class="tjg-photo">
-        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_10_34.png" alt="ことばクイズ｜絵文字を見て日本語のことばを当てる子ども向けゲーム" loading="lazy">
-      </div>
-      <div class="tjg-body">
-        <span class="tjg-eng">Word Quiz</span>
-        <h3>ことばクイズ</h3>
-        <p><span class="nw">絵文字を見て、</span><span class="nw">言葉を当てよう。</span><span class="nw">3レベル。</span></p>
-      </div>
-    </a>
-    <a class="tjg-card" href="/asonde-nante-iu/">
-      <div class="tjg-photo">
-        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_11_39.png" alt="なんていう？クイズ｜場面に合う日本語のあいさつ・ことばを選ぶゲーム" loading="lazy">
-      </div>
-      <div class="tjg-body">
-        <span class="tjg-eng">What Do You Say?</span>
-        <h3><span class="nw">なんていう？</span><span class="nw">クイズ</span></h3>
-        <p><span class="nw">その場面に合う</span><span class="nw">言葉を選ぼう。</span></p>
-      </div>
-    </a>
-    <a class="tjg-card" href="/asonde-nihon-bunka/">
-      <div class="tjg-photo">
-        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月29日-21_03_10.png" alt="日本文化クイズ｜行事や食べものなど日本の文化を学べる子ども向けクイズ" loading="lazy">
-      </div>
-      <div class="tjg-body">
-        <span class="tjg-eng">Culture Quiz</span>
-        <h3><span class="nw">日本文化を</span><span class="nw">知ろう！</span></h3>
-        <p><span class="nw">★1〜★3のレベルに</span><span class="nw">挑戦しよう。</span></p>
-      </div>
-    </a>
-    <a class="tjg-card" href="/asonde-kanji-game/">
-      <div class="tjg-photo">
-        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_24_27.png" alt="漢字クイズ｜漢字の読みに挑戦する子ども向けゲーム" loading="lazy">
-      </div>
-      <div class="tjg-body">
-        <span class="tjg-eng">Kanji Quiz</span>
-        <h3>漢字クイズ</h3>
-        <p><span class="nw">読めるかな？</span><span class="nw">漢字に挑戦しよう。</span></p>
-      </div>
-    </a>
-    <a class="tjg-card" href="/asonde-teacher-shindan/">
-      <div class="tjg-photo">
-        <img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_16_48.png" alt="先生タイプ診断｜子どもに合うオンライン日本語の先生がわかる診断" loading="lazy">
-      </div>
-      <div class="tjg-body">
-        <span class="tjg-eng">Teacher Type</span>
-        <h3><span class="nw">先生タイプ</span><span class="nw">診断</span></h3>
-        <p><span class="nw">お子さまに</span><span class="nw">ぴったりの先生は？</span></p>
-      </div>
-    </a>
+    <a class="tjg-card" href="/asonde-nengajo/" style="position:relative;"><span style="position:absolute;top:10px;left:10px;z-index:2;background:#c8312b;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;">NEW</span><div class="tjg-photo"><img decoding="async" src="/wp-content/uploads/2026/10/ng-card.webp?v=2" alt="年賀状メーカー｜子どもが作れる日本の年賀状（干支・写真入り）" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">New Year Card</span><h3><span class="nw">年賀状を</span><span class="nw">つくろう！</span></h3><p><span class="nw">写真も入れられるよ！</span><span class="nw">じいじばあばに送ろう。</span></p></div></a>
+    <a class="tjg-card" href="/asonde-kazoekata/" style="position:relative;"><span style="position:absolute;top:10px;left:10px;z-index:2;background:#c8312b;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;">NEW</span><div class="tjg-photo"><img decoding="async" src="/wp-content/uploads/2026/10/kz-card.webp?v=1" alt="かぞえかたクイズ｜1こ・1ぽん・1ぴきなど日本語の数え方を絵で覚えるゲーム" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">Counting Words</span><h3><span class="nw">かぞえかた</span><span class="nw">クイズ</span></h3><p><span class="nw">1ぽん？1まい？</span><span class="nw">絵を見て答えよう。</span><span class="nw">英語つき。</span></p></div></a>
+    <a class="tjg-card" href="/en/your-name-in-japanese/" style="position:relative;"><span style="position:absolute;top:10px;left:10px;z-index:2;background:#c8312b;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.05em;">NEW</span><div class="tjg-photo"><img decoding="async" src="/wp-content/uploads/2026/10/nm-card.webp?v=1" alt="Your Name in Japanese｜名前をカタカナにして日本語で自己紹介" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">Your Name in Japanese</span><h3><span class="nw">日本語で</span><span class="nw">自己紹介</span></h3><p><span class="nw">名前をカタカナに！</span><span class="nw">英語・ローマ字・音声つき。</span></p></div></a>
+    <a class="tjg-card" href="/asonde-kotoba-quiz/"><div class="tjg-photo"><img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_10_34.png" alt="ことばクイズ｜絵文字を見て日本語のことばを当てる子ども向けゲーム" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">Word Quiz</span><h3>ことばクイズ</h3><p><span class="nw">絵文字を見て、</span><span class="nw">言葉を当てよう。</span><span class="nw">3レベル。</span></p></div></a>
+    <a class="tjg-card" href="/asonde-nante-iu/"><div class="tjg-photo"><img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_11_39.png" alt="なんていう？クイズ｜場面に合う日本語のあいさつ・ことばを選ぶゲーム" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">What Do You Say?</span><h3><span class="nw">なんていう？</span><span class="nw">クイズ</span></h3><p><span class="nw">その場面に合う</span><span class="nw">言葉を選ぼう。</span></p></div></a>
+    <a class="tjg-card" href="/asonde-nihon-bunka/"><div class="tjg-photo"><img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月29日-21_03_10.png" alt="日本文化クイズ｜行事や食べものなど日本の文化を学べる子ども向けクイズ" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">Culture Quiz</span><h3><span class="nw">日本文化を</span><span class="nw">知ろう！</span></h3><p><span class="nw">★1〜★3のレベルに</span><span class="nw">挑戦しよう。</span></p></div></a>
+    <a class="tjg-card" href="/asonde-kanji-game/"><div class="tjg-photo"><img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_24_27.png" alt="漢字クイズ｜漢字の読みに挑戦する子ども向けゲーム" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">Kanji Quiz</span><h3>漢字クイズ</h3><p><span class="nw">読めるかな？</span><span class="nw">漢字に挑戦しよう。</span></p></div></a>
+    <a class="tjg-card" href="/asonde-teacher-shindan/"><div class="tjg-photo"><img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_16_48.png" alt="先生タイプ診断｜子どもに合うオンライン日本語の先生がわかる診断" loading="lazy"></div><div class="tjg-body"><span class="tjg-eng">Teacher Type</span><h3><span class="nw">先生タイプ</span><span class="nw">診断</span></h3><p><span class="nw">お子さまに</span><span class="nw">ぴったりの先生は？</span></p></div></a>
   </div>
   <section class="tjg-parents">
     <span class="tjg-parents-eyebrow">FOR PARENTS</span>
