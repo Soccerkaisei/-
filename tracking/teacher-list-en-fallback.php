@@ -2,7 +2,8 @@
 /* ともだちじゃぱん：英語の先生一覧（/en/our-teachers/・ページ214）に、
    まだ英語ページが無い先生の「日本語ページ」を、英語のラベルで並べる。
    英語ページがある先生（同じメールアドレス）は、元の自動一覧が英語のカードを出すので、ここでは出さない。
-   元の自動一覧（優先度20）より先に動くように、優先度19にしている。 */
+   元の自動一覧（優先度20）より先に動くように、優先度19にしている。
+   2026-10-09b：Polylangの言語しぼりこみで日本語ページが見つからなかったのを修正。 */
 
 add_filter( 'the_content', 'tj_teacher_list_en_fallback', 19 );
 
@@ -31,6 +32,7 @@ function tj_teacher_list_en_fallback( $content ) {
 		'numberposts' => 50,
 		'orderby'     => 'menu_order title',
 		'order'       => 'ASC',
+		'lang'        => '',  /* Polylang：英語ページの上でも日本語の先生ページを探せるように、言語のしぼりこみを外す */
 	) );
 
 	$cards = '';
