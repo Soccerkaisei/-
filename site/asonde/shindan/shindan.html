@@ -1,0 +1,184 @@
+<style>
+.l-header,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
+.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
+.sd{--sky:#2f9be0;--sky-d:#1c78b8;--coral:#f0655a;--coral-d:#d94b41;--sun:#ffc24b;--ink:#2b3b42;--soft:#5f6f75;--line:#d9e9f5;
+  --t-hikarun:#2fae8f;--t-shota:#f0655a;--t-hii:#b06bdc;
+  font-family:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;color:var(--ink);
+  max-width:520px;margin:0 auto;padding:18px 14px 10px;box-sizing:border-box}
+.sd *{box-sizing:border-box}
+.sd [hidden]{display:none!important}
+.sd h1,.sd h2{background:none!important;border:0!important;padding:0!important;margin:0;color:var(--ink)!important}
+.sd h1::before,.sd h1::after,.sd h2::before,.sd h2::after{display:none!important}
+.sd button{font-family:inherit;cursor:pointer;margin:0}
+.sd-app{position:relative;background:linear-gradient(180deg,#e8f5ff 0%,#fff8ee 100%);border-radius:30px;overflow:hidden;box-shadow:0 18px 40px -20px rgba(28,120,184,.45);min-height:560px}
+.sd-app::before,.sd-app::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.sd-app::before{width:220px;height:220px;right:-70px;top:-80px;background:radial-gradient(circle,#ffe7a8,rgba(255,231,168,0) 70%)}
+.sd-app::after{width:260px;height:260px;left:-110px;bottom:-120px;background:radial-gradient(circle,#ffd6d1,rgba(255,214,209,0) 70%)}
+.sd-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0}
+.sd-top a{font-size:11px;color:var(--sky-d);text-decoration:underline}
+.sd-logo{font-size:.68rem;font-weight:800;letter-spacing:.18em;color:var(--sky-d)}
+.sd-body{position:relative;z-index:1;padding:14px 20px 24px}
+.sd-screen{animation:sdIn .45s ease both}
+@keyframes sdIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sd-title{text-align:center;margin:6px 0 14px}
+.sd-title small{display:block;font-size:.72rem;letter-spacing:.2em;color:var(--coral);font-weight:800}
+.sd-title b{display:block;font-size:1.9rem;font-weight:900;line-height:1.3}
+.sd-title span{display:block;font-size:.8rem;color:var(--soft);font-weight:700;margin-top:2px}
+.sd-hero{width:100%;aspect-ratio:16/10;border-radius:22px;overflow:hidden;box-shadow:0 10px 24px -12px rgba(0,0,0,.35);margin-bottom:16px}
+.sd-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.sd-faces{display:flex;justify-content:center;gap:10px;margin:0 0 14px}
+.sd-faces img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.sd-lead{text-align:center;font-size:.95rem;line-height:1.8;margin:0 0 6px;font-weight:700}
+.sd-time{text-align:center;font-size:.78rem;color:var(--soft);margin:0 0 16px}
+.sd-main{display:block;width:100%;border:0;border-radius:999px;background:linear-gradient(90deg,var(--coral),#ff8a5c);color:#fff;font-size:1.08rem;font-weight:900;padding:16px;box-shadow:0 6px 0 var(--coral-d);text-align:center;text-decoration:none!important}
+.sd-main:active{transform:translateY(3px);box-shadow:0 3px 0 var(--coral-d)}
+.sd-bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:4px 0 18px}
+.sd-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sky),#64c3ff);border-radius:99px;transition:width .4s ease}
+.sd-qno{font-size:.85rem;font-weight:800;letter-spacing:.08em;color:var(--sky-d)}
+.sd-qno em{font-style:normal;font-size:1.3rem;margin-left:2px}
+.sd-q{font-size:1.4rem;font-weight:900;line-height:1.55;margin:6px 0 18px;min-height:2.2em}
+.sd-opts{display:grid;gap:12px}
+.sd-opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:rgba(255,255,255,.85);border:2px solid #fff;border-radius:20px;padding:14px 16px;box-shadow:0 6px 16px -10px rgba(28,120,184,.5);transition:transform .15s,border-color .15s,background .15s;animation:sdIn .4s ease both}
+.sd-opt:nth-child(2){animation-delay:.06s}.sd-opt:nth-child(3){animation-delay:.12s}
+.sd-opt:hover{transform:translateY(-2px);border-color:#bfe2fa}
+.sd-opt i{flex:0 0 52px;height:52px;border-radius:16px;display:grid;place-items:center;font-style:normal;font-size:1.7rem;background:linear-gradient(135deg,#eaf6ff,#fff3dd)}
+.sd-opt b{font-size:1rem;font-weight:800;line-height:1.5;color:var(--ink)}
+.sd-opt.on{background:#fff;border-color:var(--sky);transform:scale(1.02)}
+.sd-opt.on i{background:var(--sky);filter:saturate(1.2)}
+.sd-opt:disabled{cursor:default}
+.sd-cheer{text-align:center;font-weight:900;color:var(--coral);min-height:1.6em;margin-top:12px}
+.sd-wait{text-align:center;padding-top:16px}
+.sd-ring{position:relative;width:230px;height:230px;margin:10px auto 26px}
+.sd-ring .sd-dots{position:absolute;inset:0;width:100%;height:100%;animation:sdSpin 2.4s linear infinite}
+.sd-ring .sd-dots circle{fill:none;stroke-linecap:round}
+@keyframes sdSpin{to{transform:rotate(360deg)}}
+.sd-photo{position:absolute;inset:26px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 10px 24px -10px rgba(0,0,0,.4)}
+.sd-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s}
+.sd-photo img.on{opacity:1}
+.sd-photo::after{content:"";position:absolute;inset:0;background:rgba(20,60,90,.35)}
+.sd-photo span{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1.5rem;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+.sd-photo span small{font-size:.75rem;font-weight:700;margin-bottom:4px}
+.sd-ok{z-index:3;position:absolute;inset:26px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:4.4rem;color:var(--sky);animation:sdPop .45s ease both}
+@keyframes sdPop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.sd-thanks{font-size:1.15rem;font-weight:900;margin:0 0 6px}
+.sd-wait p{color:var(--soft);font-size:.86rem;line-height:1.8;margin:0}
+.sd-res-h{text-align:center;font-size:1.5rem;font-weight:900;margin:2px 0 14px}
+.sd-card{position:relative;background:#fff;border-radius:26px;padding:22px 18px 18px;text-align:center;box-shadow:0 14px 30px -16px rgba(28,120,184,.5);border:3px solid var(--tc,#2f9be0)}
+.sd-card small{display:block;font-size:.72rem;letter-spacing:.2em;color:var(--soft);font-weight:800}
+.sd-avatar{width:150px;height:150px;margin:12px auto 10px;border-radius:50%;overflow:hidden;border:6px solid var(--tc,#2f9be0);box-shadow:0 8px 18px -8px rgba(0,0,0,.35)}
+.sd-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.sd-name{font-size:1.7rem;font-weight:900;color:var(--tc,#2f9be0)}
+.sd-quote{display:inline-block;background:#fff7e3;border-radius:16px;padding:8px 14px;margin:10px 0;font-weight:800;font-size:.95rem;line-height:1.6}
+.sd-desc{text-align:left;font-size:.92rem;line-height:1.85;margin:4px 0 6px}
+.sd-scores{display:grid;gap:8px;margin:14px 0 4px}
+.sd-sc{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:800}
+.sd-sc img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+.sd-sc span{flex:0 0 84px;text-align:left}
+.sd-sc u{flex:1;height:10px;border-radius:99px;background:#eef3f6;overflow:hidden;text-decoration:none}
+.sd-sc u i{display:block;height:100%;width:0;border-radius:99px;transition:width .8s ease .2s}
+.sd-sc em{flex:0 0 38px;text-align:right;font-style:normal;color:var(--soft)}
+.sd-acts{display:grid;gap:10px;margin-top:16px}
+.sd-sub{display:block;width:100%;border-radius:999px;padding:13px;font-weight:800;font-size:.95rem;text-align:center;text-decoration:none!important;border:3px solid var(--sky);background:#fff;color:var(--sky-d)!important}
+.sd-line{background:#06C755!important;border-color:#06C755!important;color:#fff!important}
+.sd-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em}
+@media (prefers-reduced-motion:reduce){.sd *{animation:none!important;transition:none!important}}
+</style>
+<div class="sd" data-ver="1009sd">
+ <div class="sd-app">
+  <div class="sd-top"><span class="sd-logo">TOMODACHI JAPAN</span><a href="/asonde/">← あそんでみよう</a></div>
+  <div class="sd-body">
+   <div class="sd-screen" id="sdIntro">
+    <div class="sd-title"><small>TEACHER TYPE</small><b>先生タイプ診断</b><span>Find your perfect Japanese teacher</span></div>
+    <div class="sd-hero"><img decoding="async" src="https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/ChatGPT-Image-2026年9月30日-22_16_48.png" alt="先生タイプ診断"></div>
+    <div class="sd-faces" id="sdFaces"></div>
+    <p class="sd-lead">7つの質問に答えるだけで、<br>お子さまに合いそうな先生がわかります。</p>
+    <p class="sd-time">⏱ 所要時間 約1分</p>
+    <button type="button" class="sd-main" id="sdStart">診断をはじめる ▶</button>
+   </div>
+   <div class="sd-screen" id="sdQuiz" hidden>
+    <div class="sd-qno">Question <em id="sdNo">01</em> / 07</div>
+    <div class="sd-bar"><i id="sdBar"></i></div>
+    <h2 class="sd-q" id="sdQ"></h2>
+    <div class="sd-opts" id="sdOpts"></div>
+    <div class="sd-cheer" id="sdCheer"></div>
+   </div>
+   <div class="sd-screen sd-wait" id="sdWait" hidden>
+    <div class="sd-ring"><svg class="sd-dots" viewBox="0 0 230 230" aria-hidden="true"><circle cx="115" cy="115" r="108" stroke="#cfe8fa" stroke-width="4" stroke-dasharray="1 9"></circle><circle cx="115" cy="115" r="108" stroke="#2f9be0" stroke-width="6" stroke-dasharray="1 13 1 13 1 13 1 13 1 13 1 13 1 400"></circle></svg>
+     <div class="sd-photo" id="sdPhoto"><span><small>あなたにぴったりの先生を</small>診断中…</span></div>
+     <div class="sd-ok" id="sdOk" hidden><svg viewBox="0 0 24 24" width="84" height="84" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#2f9be0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <p class="sd-thanks">ご回答ありがとうございます！</p>
+    <p>ともだちじゃぱんの先生の中から<br>お子さまに合う先生をさがしています</p>
+   </div>
+   <div class="sd-screen" id="sdRes" hidden>
+    <h2 class="sd-res-h">診断結果</h2>
+    <div class="sd-card" id="sdCard">
+     <small>YOUR TEACHER IS…</small>
+     <div class="sd-avatar" id="resultAvatar"></div>
+     <div class="sd-name" id="resultName"></div>
+     <div class="sd-quote" id="resultQuote"></div>
+     <p class="sd-desc" id="resultDesc"></p>
+     <div class="sd-scores" id="scoreWrap"></div>
+    </div>
+    <div class="sd-acts">
+     <a class="sd-main" id="ctaBtn" href="#">この先生の体験に申し込む</a>
+     <a class="sd-sub sd-line" id="lineBtn" target="_blank" rel="noopener" href="#">LINEでおくる</a>
+     <button type="button" class="sd-sub" id="shareBtn">🔗 ともだちにおしえる</button>
+     <div class="sd-msg" id="shareMsg"></div>
+     <button type="button" class="sd-sub" id="sdAgain">もう一度診断する</button>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var Q=[
+ {t:'お子さんはどんなタイプ？',o:[['🐢','のんびり、じっくり話すのが好き','hikarun'],['⚽','元気いっぱい、体を動かすのが好き','shota'],['🧸','甘えん坊、安心できる場所が好き','hii']]},
+ {t:'好きなものは？',o:[['🎎','日本の文化や工作','hikarun'],['📺','アニメ・マンガ・スポーツ','shota'],['🛋️','まったり系、おうち時間','hii']]},
+ {t:'保護者として先生に求めるものは？',o:[['🔍','じっくり見てくれる安心感','hikarun'],['🤝','子どもと対等に楽しんでくれる感じ','shota'],['😊','親子ともに笑顔になれる温かさ','hii']]},
+ {t:'オンライン授業で、どんな先生がいい？',o:[['👂','落ち着いて話を聞いてくれる先生','hikarun'],['🎉','一緒に好きな話で盛り上がれる先生','shota'],['🌷','優しく包んでくれる先生','hii']]},
+ {t:'好きな遊び方は？',o:[['✂️','のんびり工作やお絵描き','hikarun'],['🏃','外で元気に体を動かす','shota'],['🎮','おうちでまったりゲーム','hii']]},
+ {t:'宿題や勉強への向き合い方は？',o:[['✏️','時間をかけて丁寧にやる','hikarun'],['⚡','サクサク終わらせて遊びたい','shota'],['👫','誰かと一緒なら頑張れる','hii']]},
+ {t:'お子さんの性格に近いのは？',o:[['🌙','物静かで思いやりがある','hikarun'],['☀️','社交的でムードメーカー','shota'],['🍓','甘えん坊で愛され系','hii']]}
+];
+var T={
+ hikarun:{name:'ひかるん先生',quote:'ともだちといっしょに たのしくにほんごをはなそう！',desc:'日本の文化が好きで日本語教師の道へ。じっくり向き合って、お子さまの「話したい」気持ちを育てます。',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5411-2-scaled.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken',c:'#2fae8f'},
+ shota:{name:'しょーた先生',quote:'ともだちつくりに来ない？',desc:'言語交換アプリで生まれた「友達になりたい」という気持ちが原点。スポーツやアニメの話で自然と距離が縮まります。',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5792-1.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/shota/#taiken',c:'#f0655a'},
+ hii:{name:'ひい先生',quote:'よーし！いっしょに勝負しよう！',desc:'子どもも保護者も笑顔にしたい先生。あたたかく、安心できる雰囲気でお子さまを迎えます。',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/91503.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hii/#taiken',c:'#b06bdc'}
+};
+var KEYS=['hikarun','shota','hii'],CHEER=['なるほど！','いいね！','その調子！','らしさが出てきた！','いいチョイス！','あと少し！','ラストスパート！'];
+var cur=0,sc={},top='hikarun',timer=null;
+function ga(e,p){if(window.gtag)gtag('event',e,p||{})}
+function show(id){['sdIntro','sdQuiz','sdWait','sdRes'].forEach(function(x){$(x).hidden=x!==id});var el=$(id);el.style.animation='none';el.offsetHeight;el.style.animation='';
+  var r=document.querySelector('.sd').getBoundingClientRect();if(r.top<0)window.scrollBy({top:r.top-10,behavior:'smooth'})}
+function img(src,alt,cls){var i=document.createElement('img');i.src=src;i.alt=alt||'';i.decoding='async';if(cls)i.className=cls;return i}
+KEYS.forEach(function(k){$('sdFaces').appendChild(img(T[k].photo,T[k].name));$('sdPhoto').insertBefore(img(T[k].photo,''),$('sdPhoto').firstChild)});
+function start(){cur=0;sc={hikarun:0,shota:0,hii:0};show('sdQuiz');ask();ga('shindan_start')}
+function ask(){var q=Q[cur];$('sdNo').textContent=('0'+(cur+1)).slice(-2);$('sdBar').style.width=(cur/Q.length*100)+'%';$('sdQ').textContent=q.t;$('sdCheer').textContent='';
+  var w=$('sdOpts');w.innerHTML='';q.o.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='sd-opt';
+    var i=document.createElement('i');i.textContent=o[0];var t=document.createElement('b');t.textContent=o[1];b.appendChild(i);b.appendChild(t);
+    b.onclick=function(){pick(o[2],b)};w.appendChild(b)})}
+function pick(k,b){Array.prototype.forEach.call($('sdOpts').children,function(x){x.disabled=true});b.classList.add('on');sc[k]++;$('sdCheer').textContent=CHEER[Math.min(cur,CHEER.length-1)];
+  setTimeout(function(){cur++;if(cur<Q.length)ask();else{$('sdBar').style.width='100%';wait()}},550)}
+function wait(){show('sdWait');$('sdOk').hidden=true;var ims=$('sdPhoto').querySelectorAll('img'),n=0;ims[0].classList.add('on');
+  clearInterval(timer);timer=setInterval(function(){ims[n%ims.length].classList.remove('on');n++;ims[n%ims.length].classList.add('on')},500);
+  setTimeout(function(){clearInterval(timer);$('sdOk').hidden=false},2600);setTimeout(result,3400)}
+function result(){top='hikarun';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){mx=sc[k];top=k}});var t=T[top];
+  $('sdCard').style.setProperty('--tc',t.c);$('resultAvatar').innerHTML='';$('resultAvatar').appendChild(img(t.photo,t.name));
+  $('resultName').textContent=t.name;$('resultQuote').textContent='「'+t.quote+'」';$('resultDesc').textContent=t.desc;$('ctaBtn').href=t.url;
+  var w=$('scoreWrap');w.innerHTML='';KEYS.forEach(function(k){var p=Math.round(sc[k]/Q.length*100),r=document.createElement('div');r.className='sd-sc';
+    r.appendChild(img(T[k].photo,''));var s=document.createElement('span');s.textContent=T[k].name;r.appendChild(s);
+    var u=document.createElement('u'),i=document.createElement('i');i.style.background=T[k].c;u.appendChild(i);r.appendChild(u);
+    var e=document.createElement('em');e.textContent=p+'%';r.appendChild(e);w.appendChild(r);setTimeout(function(){i.style.width=p+'%'},60)});
+  var url=location.origin+location.pathname+'?utm_source=line&utm_medium=share&utm_campaign=teacher_shindan';
+  $('lineBtn').href='https://line.me/R/share?text='+encodeURIComponent('先生タイプ診断をやってみたら、わたしにぴったりの先生は「'+t.name+'」でした！あなたはどの先生？\n'+url);
+  $('shareMsg').textContent='';show('sdRes');ga('shindan_finish',{teacher:t.name})}
+$('sdStart').onclick=start;
+$('sdAgain').onclick=function(){show('sdIntro')};
+$('ctaBtn').addEventListener('click',function(){ga('shindan_cta',{teacher:T[top].name})});
+$('lineBtn').addEventListener('click',function(){ga('shindan_share',{method:'line',teacher:T[top].name})});
+$('shareBtn').onclick=function(){var d={title:'先生タイプ診断｜ともだちじゃぱん',text:'先生タイプ診断やってみたよ！あなたはどのタイプ？',url:location.origin+location.pathname},m=$('shareMsg');ga('shindan_share',{method:'share'});
+  if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){m.textContent='URLを コピーしました！'},function(){m.textContent=d.url})}else{m.textContent=d.url}};
+})();
+</script>
