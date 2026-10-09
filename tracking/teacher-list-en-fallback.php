@@ -1,9 +1,10 @@
 <?php
 /* ともだちじゃぱん：英語の先生一覧（/en/our-teachers/・ページ214）に、
    英語の先生ページがまだ1つも無いあいだだけ、日本語の先生ページ（親128）を英語のラベルで並べる。
+   元の自動一覧（優先度20）より先に動くように、優先度19にしている。
    英語の先生ページが1つでも公開されたら、このスニペットは何もしない（元の自動一覧が表示される）。 */
 
-add_filter( 'the_content', 'tj_teacher_list_en_fallback', 25 );
+add_filter( 'the_content', 'tj_teacher_list_en_fallback', 19 );
 
 function tj_teacher_list_en_fallback( $content ) {
 
@@ -65,5 +66,9 @@ function tj_teacher_list_en_fallback( $content ) {
 		. '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:1000px;margin:28px auto 0">'
 		. $cards . '</div></div></div>';
 
+	/* 元の一覧と同じく、差し込み口（<!--TJ_TEACHERS-->）があればそこにカードを入れる。無ければページの最後に足す */
+	if ( strpos( $content, '<!--TJ_TEACHERS-->' ) !== false ) {
+		return str_replace( '<!--TJ_TEACHERS-->', $cards, $content );
+	}
 	return $content . $section;
 }

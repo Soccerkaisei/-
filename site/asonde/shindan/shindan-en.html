@@ -81,7 +81,7 @@
 .sd-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em}
 @media (prefers-reduced-motion:reduce){.sd *{animation:none!important;transition:none!important}}
 </style>
-<div class="sd" data-ver="1009sd-en">
+<div class="sd" data-ver="1009sd2-en">
  <div class="sd-app">
   <div class="sd-top"><span class="sd-logo">TOMODACHI JAPAN</span></div>
   <div class="sd-body">
@@ -172,6 +172,7 @@ function result(){top='hikarun';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){
   var url=location.origin+location.pathname+'?utm_source=line&utm_medium=share&utm_campaign=teacher_shindan_en';
   $('lineBtn').href='https://line.me/R/share?text='+encodeURIComponent('I took the Tomodachi Japan teacher quiz and my match is '+t.name+'! Which teacher fits your child?\n'+url);
   $('shareMsg').textContent='';show('sdRes');ga('shindan_finish',{teacher:t.name})}
+if(window.parent!==window){var hs=function(){parent.postMessage({tjQuizHeight:Math.ceil(document.documentElement.scrollHeight)},'*')};if(window.ResizeObserver)new ResizeObserver(hs).observe(document.body);window.addEventListener('load',hs);setTimeout(hs,300);setTimeout(hs,1200);$('ctaBtn').target='_top';Array.prototype.forEach.call(document.querySelectorAll('.sd-top a'),function(x){x.target='_top'})}
 $('sdStart').onclick=start;
 $('sdAgain').onclick=function(){show('sdIntro')};
 $('ctaBtn').addEventListener('click',function(){ga('shindan_cta',{teacher:T[top].name})});
