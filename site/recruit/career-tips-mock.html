@@ -5,102 +5,113 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>教育キャリアコラム イメージ</title>
 <style>
-:root{--main:#f57c00;--text:#333;--sub:#777;--line:#eee;--bg:#fffffe;--soft:#fff6ec}
+:root{--text:#1d2433;--sub:#666;--bg:#fff6f4;--red:#f5333f;--orange:#f08a2c;--green:#6aad2b;--blue:#2f5fd0}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.7}
-.wrap{max-width:1000px;margin:0 auto;padding:32px 16px 48px}
-.mock{display:inline-block;font-size:12px;color:#fff;background:#999;border-radius:4px;padding:2px 8px;margin-bottom:12px}
-h1{font-size:26px;margin:0 0 4px}
-.h1sub{font-size:15px;color:var(--sub);margin:0 0 16px}
-.lead{background:var(--soft);border-radius:10px;padding:16px 18px;font-size:15px;margin-bottom:28px}
-.lead b{color:var(--main)}
-h2{font-size:18px;margin:0 0 14px;padding-left:10px;border-left:4px solid var(--main)}
-.doors{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}
-.door{display:block;text-decoration:none;color:inherit;border:2px solid var(--line);border-radius:12px;padding:18px 14px 14px;background:#fff;transition:.2s}
-.door:hover{border-color:var(--main)}
-.ico{font-size:30px;line-height:1}
-.door h3{font-size:16px;margin:10px 0 6px}
-.door p{font-size:13px;color:var(--sub);margin:0 0 12px}
-.door ul{margin:0 0 12px;padding:0;list-style:none;font-size:12.5px}
-.door li{padding:4px 0;border-top:1px dashed var(--line)}
-.door .go{font-size:13px;font-weight:bold;color:var(--main)}
-.list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
-.thumb{height:96px;background:linear-gradient(135deg,#ffe2c2,#ffd0a0)}
-.card .t{font-size:13.5px;font-weight:bold;padding:10px 12px 4px}
-.tag{display:inline-block;margin:0 12px 12px;font-size:11px;color:var(--main);border:1px solid var(--main);border-radius:20px;padding:0 8px}
-.note{font-size:12px;color:var(--sub);margin-top:6px}
-@media (max-width:760px){.doors{grid-template-columns:1fr 1fr}.list{grid-template-columns:1fr}h1{font-size:22px}}
-@media (max-width:420px){.doors{grid-template-columns:1fr}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.8}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 16px 56px}
+.mock{display:inline-block;font-size:12px;color:#fff;background:#999;border-radius:4px;padding:2px 8px}
+.head{text-align:center;margin:18px 0 36px}
+.head h1{font-size:40px;font-weight:900;letter-spacing:.04em;margin:0 0 14px;line-height:1.3}
+.head p{color:var(--sub);font-size:16px;margin:0}
+.doors{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.door{display:flex;flex-direction:column;background:#fff;border-radius:18px;border-top:6px solid var(--c);overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 0 rgba(0,0,0,.04);transition:transform .2s}
+.door:hover{transform:translateY(-3px)}
+.door img{width:100%;height:170px;object-fit:cover;display:block}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.en{color:var(--c);font-weight:800;font-size:13px;letter-spacing:.2em}
+.door h2{font-size:21px;font-weight:900;margin:6px 0 8px;line-height:1.45}
+.desc{color:var(--sub);font-size:14.5px;margin:0 0 14px}
+.door ul{list-style:none;margin:0 0 16px;padding:0;font-size:13.5px}
+.door li{padding:7px 0;border-top:1px solid #f0ecea}
+.door li::before{content:"・";color:var(--c)}
+.go{margin-top:auto;font-weight:bold;font-size:14px;color:var(--c)}
+.r{--c:var(--red)}.o{--c:var(--orange)}.g{--c:var(--green)}.b{--c:var(--blue)}
+h3{font-size:22px;font-weight:900;margin:56px 0 18px;text-align:center}
+.list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:150px;object-fit:cover;display:block}
+.card .t{font-size:14px;font-weight:bold;padding:12px 14px 6px;line-height:1.6}
+.tag{display:inline-block;margin:0 14px 14px;font-size:11.5px;font-weight:bold;color:var(--c);border:1.5px solid var(--c);border-radius:20px;padding:0 10px}
+.note{font-size:12px;color:var(--sub);text-align:center;margin-top:12px}
+@media (max-width:980px){.doors{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.doors,.list{grid-template-columns:1fr}.head h1{font-size:28px}.head p{font-size:14px;text-align:left}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <span class="mock">イメージ（実際のページではありません）</span>
 
-  <h1>教育キャリアコラム</h1>
-  <p class="h1sub">先生の退職・転職・在宅・開業の悩みに答える</p>
-
-  <div class="lead">
-    元教員のスタッフが多く働く教育スタートアップNIJINが、<b>働き方に迷う先生のため</b>に書いています。<br>
-    今の悩みに近い入口から、読みたい記事を探してください。
+  <div class="head">
+    <h1>教育キャリアコラム</h1>
+    <p>元教員のスタッフが多く働くNIJINが、働き方に迷う先生のために書いています。<br>今の悩みに近い入口から、読みたい記事を探してください。</p>
   </div>
 
-  <h2>悩みから探す</h2>
   <div class="doors">
-    <a class="door" href="#">
-      <div class="ico">🌧️</div>
-      <h3>辞めたい・迷っている</h3>
-      <p>辞めるか、続けるか。気持ちの整理から</p>
-      <ul>
-        <li>教員を辞めたいのは甘えではない</li>
-        <li>「辞めるのはもったいない」は本当？</li>
-        <li>教員の退職でやることリスト</li>
-      </ul>
-      <span class="go">まとめを見る →</span>
+    <a class="door r" href="#">
+      <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/%E3%82%84%E3%81%93%E3%81%9F%E3%82%93%E4%BF%9D%E8%AD%B7%E8%80%85%E3%81%A8%E8%AB%87%E7%AC%91%E9%A2%A8.jpg" alt="">
+      <div class="body">
+        <span class="en">RETHINK</span>
+        <h2>辞めたい・<br>迷っている</h2>
+        <p class="desc">辞めるか、続けるか。まずは気持ちの整理から。</p>
+        <ul>
+          <li>教員を辞めたいのは甘えではない</li>
+          <li>「辞めるのはもったいない」は本当？</li>
+          <li>教員の退職でやることリスト</li>
+        </ul>
+        <span class="go">まとめを見る →</span>
+      </div>
     </a>
-    <a class="door" href="#">
-      <div class="ico">🚪</div>
-      <h3>転職したい</h3>
-      <p>強みの伝え方、始める時期、仕事選び</p>
-      <ul>
-        <li>教師しか経験がない人の転職</li>
-        <li>教員の転職で伝わる強み7選</li>
-        <li>教員の転職はいつから始める？</li>
-      </ul>
-      <span class="go">まとめを見る →</span>
+    <a class="door o" href="#">
+      <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/05/%E6%8E%A1%E7%94%A8HP-%E8%81%B7%E7%A8%AE-17.jpg" alt="">
+      <div class="body">
+        <span class="en">CHANGE</span>
+        <h2>転職したい</h2>
+        <p class="desc">学校の経験は、外でも生きる。強みの伝え方と始め方。</p>
+        <ul>
+          <li>教師しか経験がない人の転職</li>
+          <li>教員の転職で伝わる強み7選</li>
+          <li>教員の転職はいつから始める？</li>
+        </ul>
+        <span class="go">まとめを見る →</span>
+      </div>
     </a>
-    <a class="door" href="#">
-      <div class="ico">🏠</div>
-      <h3>在宅で教育に関わりたい</h3>
-      <p>子育て中でも、副業でも、オンラインで</p>
-      <ul>
-        <li>教員免許を活かせる在宅ワーク7選</li>
-        <li>非常勤講師とは？常勤との違い</li>
-        <li>非常勤講師の副業</li>
-      </ul>
-      <span class="go">まとめを見る →</span>
+    <a class="door g" href="#">
+      <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%81%A7%E3%81%AF%E4%BA%8C%E5%85%90%E3%81%AE%E6%AF%8D-scaled.jpg" alt="">
+      <div class="body">
+        <span class="en">ONLINE</span>
+        <h2>在宅で教育に<br>関わりたい</h2>
+        <p class="desc">子育て中でも、副業でも。オンラインで子どもと関わる。</p>
+        <ul>
+          <li>教員免許を活かせる在宅ワーク7選</li>
+          <li>非常勤講師とは？常勤との違い</li>
+          <li>非常勤講師の副業</li>
+        </ul>
+        <span class="go">まとめを見る →</span>
+      </div>
     </a>
-    <a class="door" href="#">
-      <div class="ico">🏫</div>
-      <h3>教室を開きたい</h3>
-      <p>フリースクール・塾の開業と運営</p>
-      <ul>
-        <li>自宅でフリースクールを開業するには</li>
-        <li>フランチャイズ・開校支援を比べる前に</li>
-        <li>フリースクールの法人化は必要？</li>
-      </ul>
-      <span class="go">まとめを見る →</span>
+    <a class="door b" href="#">
+      <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/%E3%83%AA%E3%82%A2%E3%83%AB%E6%A0%A1%E6%95%99%E5%AE%A4%E3%81%AE%E9%96%8B%E6%A0%A1.webp" alt="">
+      <div class="body">
+        <span class="en">OPEN</span>
+        <h2>教室を開きたい</h2>
+        <p class="desc">フリースクール・塾を、自分の町で開く。</p>
+        <ul>
+          <li>自宅でフリースクールを開業するには</li>
+          <li>フランチャイズ・開校支援を比べる前に</li>
+          <li>フリースクールの法人化は必要？</li>
+        </ul>
+        <span class="go">まとめを見る →</span>
+      </div>
     </a>
   </div>
 
-  <h2>新着記事</h2>
+  <h3>新着記事</h3>
   <div class="list">
-    <div class="card"><div class="thumb"></div><div class="t">自宅でフリースクールを開業するには｜週1日・少人数で開く準備と注意点</div><span class="tag">教室を開きたい</span></div>
-    <div class="card"><div class="thumb"></div><div class="t">特別支援学校の教員を辞めたい先生へ｜支援の経験が生きる働き方7選</div><span class="tag">辞めたい・迷っている</span></div>
-    <div class="card"><div class="thumb"></div><div class="t">高校教員を辞めたいと感じたら｜進路指導・部活の負担と次の道の探し方</div><span class="tag">辞めたい・迷っている</span></div>
+    <div class="card b"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-freeschool-jitaku-kaigyo.jpg" alt=""><div class="t">自宅でフリースクールを開業するには｜週1日・少人数で開く準備と注意点</div><span class="tag">教室を開きたい</span></div>
+    <div class="card r"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-tokubetsushien-kyouin-yametai.jpg" alt=""><div class="t">特別支援学校の教員を辞めたい先生へ｜支援の経験が生きる働き方7選</div><span class="tag">辞めたい・迷っている</span></div>
+    <div class="card r"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-yametai-koukou.jpg" alt=""><div class="t">高校教員を辞めたいと感じたら｜進路指導・部活の負担と次の道の探し方</div><span class="tag">辞めたい・迷っている</span></div>
   </div>
-  <p class="note">※新着記事の一覧は今と同じです。記事ごとに、4つの入口のどれに入るかのラベルが付きます。</p>
+  <p class="note">※新着記事の一覧は今と同じ並びです。記事ごとに、入口と同じ色のラベルが付きます。</p>
 </div>
 </body>
 </html>
