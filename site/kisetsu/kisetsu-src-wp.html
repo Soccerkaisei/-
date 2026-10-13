@@ -105,6 +105,13 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
 .ks-panel .ks-ph.ph::before{content:none}
 .ks-hanami .ks-ph.ph{background-image:url(/wp-content/uploads/2026/10/ks-hanami.webp)}
 @media (max-width:560px){.ks-panel .ks-ph.ph{flex:0 0 200px}}
+
+.ks-ph.ph i{position:absolute;inset:0;background-size:cover;background-position:center;animation:ksSlide 9s infinite}
+.ks-ph.ph i+i{animation-delay:4.5s;opacity:0}
+@keyframes ksSlide{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}
+.ks-panel .ks-ph{position:relative}
+.ks-tanabata .ks-ph.ph i{background-image:url(/wp-content/uploads/2026/10/ks-hanabi.webp)}
+.ks-tanabata .ks-ph.ph i+i{background-image:url(/wp-content/uploads/2026/10/ks-yatai.webp)}
 </style></head><body>
 <div class="ks-mock">見本</div>
 
@@ -148,7 +155,7 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
   </article>
 
   <article class="ks-panel ks-tanabata">
-    <div class="ks-ph" data-k="夏"></div>
+    <div class="ks-ph ph" data-k="夏"><i></i><i></i></div>
     <div class="ks-in">
       <span class="ks-tag">夏 ・ 8月ごろ</span>
       <h3>夏祭りで、花火を見よう</h3>
