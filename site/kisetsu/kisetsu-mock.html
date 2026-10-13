@@ -33,7 +33,7 @@ body{font-family:'Zen Maru Gothic',sans-serif;color:#2b3b42;background:#fffaf2;l
 .ks-wb button{font:inherit;font-weight:900;font-size:17px;border:0;background:transparent;color:#586a70;padding:9px 20px;border-radius:999px;cursor:pointer;transition:background .3s,color .3s}
 .ks-wb button.on{color:#fff}
 .ks-wb button[data-s="spring"].on{background:#ec8aa5}.ks-wb button[data-s="summer"].on{background:#3f63c7}.ks-wb button[data-s="autumn"].on{background:#e2843a}.ks-wb button[data-s="winter"].on{background:#5b8fc9}
-.ks-win{--d:min(1000px,150vw);position:relative;height:calc(var(--d) * .36);overflow:hidden;margin:0 auto;max-width:100%}
+.ks-win{margin-bottom:10px!important;--d:min(1000px,150vw);position:relative;height:calc(var(--d) * .36);overflow:hidden;margin:0 auto;max-width:100%}
 .ks-wheel{position:absolute;left:50%;top:14px;width:var(--d);height:var(--d);margin-left:calc(var(--d) / -2);border-radius:50%;
 background:conic-gradient(from -45deg,#f7d9e2 0 90deg,#d3e3f7 90deg 180deg,#f7dcc4 180deg 270deg,#e6edf4 270deg 360deg);
 box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:transform 1.1s cubic-bezier(.65,0,.25,1)}
@@ -171,6 +171,13 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s,transform 1s}
 .rv.in{opacity:1;transform:none}
 @media (max-width:700px){.ks-intro{gap:18px}.ks-vt{font-size:20px}.ks-lines p{font-size:13.5px;line-height:2.3;letter-spacing:.02em}.ks-row,.ks-row.rev{flex-direction:column;gap:26px;margin:64px 0}.ks-blob{flex:none;width:88%}.ks-al{flex-wrap:wrap;gap:6%;row-gap:22px}.ks-al figure{flex:0 0 40%}}
+
+.ks-row{display:none}
+.ks-row.on{display:flex;animation:ksIn .7s ease}
+@keyframes ksIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.ks-row.on .rv{opacity:1;transform:none}
+.ks-poem{padding-top:10px}
+.ks-row{margin:30px 0 60px}
 </style></head><body>
 <div class="ks-mock">見本</div>
 
@@ -196,11 +203,10 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
       <div class="ks-q" style="transform:rotate(270deg)"><div><span class="n">冬</span><span class="m">お正月</span><div class="ks-pics"><b style="background-image:url(img/ks-yuki-to.webp)"></b><b style="background-image:url(img/ks-osechi.webp)"></b><b style="background-image:url(img/ks-ema.webp)"></b></div></div></div>
     </div>
   </div>
-  <div class="ks-wt" id="ksWt"></div>
 </section>
 
 <section class="ks-poem">
-  <div class="ks-row">
+  <div class="ks-row" data-s="spring">
     <div class="ks-blob rv" style="background-image:url(img/ks-hanami.webp)"></div>
     <div class="ks-tx rv">
       <span class="ks-en">Spring — Ohanami</span>
@@ -210,7 +216,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
       <span class="ks-when">4月ごろ</span>
     </div>
   </div>
-  <div class="ks-row rev">
+  <div class="ks-row" data-s="summer">
     <div class="ks-blob rv" style="background-image:url(img/ks-hanabi.webp)"></div>
     <div class="ks-tx rv">
       <span class="ks-en">Summer — Natsumatsuri</span>
@@ -220,7 +226,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
       <span class="ks-when">8月ごろ</span>
     </div>
   </div>
-  <div class="ks-row">
+  <div class="ks-row" data-s="autumn">
     <div class="ks-blob rv" style="background-image:url(img/ks-icho.webp)"></div>
     <div class="ks-tx rv">
       <span class="ks-en">Autumn — Tsukimi & Momiji</span>
@@ -230,7 +236,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
       <span class="ks-when">9〜11月ごろ</span>
     </div>
   </div>
-  <div class="ks-row rev">
+  <div class="ks-row" data-s="winter">
     <div class="ks-blob rv" style="background-image:url(img/ks-yuki-to.webp)"></div>
     <div class="ks-tx rv">
       <span class="ks-en">Winter — Oshogatsu</span>
@@ -272,7 +278,7 @@ var S={
  winter:{i:3,sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おせち","えま"],vt:"冬を、ともだちと。",po:["「冬」と聞いたら、","何を思い浮かべますか？","","雪？　おせち？　書き初め？","","海外に住んでいると、","日本のお正月は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ新しい年をむかえる、","ともだちがいます。","","「あけましておめでとう」を、","言い合える冬。"]}
 };
 var hero=document.getElementById("ksHero"),sub=document.getElementById("ksSub"),
- wheel=document.getElementById("ksWheel"),intro=document.getElementById("ksIntro"),vtEl=document.getElementById("ksVt"),lnEl=document.getElementById("ksLines"),wt=document.getElementById("ksWt"),ang=0,first=1;
+ wheel=document.getElementById("ksWheel"),intro=document.getElementById("ksIntro"),vtEl=document.getElementById("ksVt"),lnEl=document.getElementById("ksLines"),ang=0,first=1;
 function words(a){return '<div class="ks-words"><span class="k">出会えることば</span>'+a.map(function(x){return "<span>"+x+"</span>"}).join("")+"</div>"}
 function set(s){
  var o=S[s];
@@ -282,9 +288,9 @@ function set(s){
  var target=-o.i*90,cur=((ang%360)+360)%360,t=((target%360)+360)%360,diff=t-cur;
  if(diff>180)diff-=360;if(diff<=-180)diff+=360;ang+=diff;
  wheel.style.transform="rotate("+ang+"deg)";
- var fill=function(){wt.innerHTML="<h3>"+o.t+"</h3><p>"+o.p+"</p>"+words(o.w);wt.classList.remove("fade")};
  var poem=function(){vtEl.textContent=o.vt;lnEl.innerHTML=o.po.map(function(l){return l?"<p>"+l+"</p>":'<p class="gap"></p>'}).join("");intro.classList.remove("fade")};
- if(first){first=0;fill();poem()}else{wt.classList.add("fade");intro.classList.add("fade");setTimeout(fill,450);setTimeout(poem,500)}
+ [].forEach.call(document.querySelectorAll(".ks-row"),function(r){r.className=r.getAttribute("data-s")===s?"ks-row on":"ks-row"});
+ if(first){first=0;poem()}else{intro.classList.add("fade");setTimeout(poem,500)}
 }
 [].forEach.call(document.querySelectorAll(".ks-tabs button,.ks-wb button"),function(b){b.addEventListener("click",function(){set(b.getAttribute("data-s"))})});
 set("autumn");
