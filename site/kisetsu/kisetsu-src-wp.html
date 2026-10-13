@@ -178,6 +178,26 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-row.on .rv{opacity:1;transform:none}
 .ks-poem{padding-top:10px}
 .ks-row{margin:30px 0 60px}
+
+/* ===== 季節の時計（円のリデザイン） ===== */
+.ks-win{height:calc(var(--d) * .5 + 14px)!important}
+.ks-wheel{background:conic-gradient(from -45deg,#f6c9d6 0 90deg,#c4d9f6 90deg 180deg,#f6d0ae 180deg 270deg,#d9e4f0 270deg 360deg)!important;box-shadow:0 0 0 8px rgba(255,255,255,.9),0 30px 70px -30px rgba(43,59,66,.45)!important}
+.ks-wheel::before,.ks-wheel::after{width:2px!important;margin-left:-1px!important;background:rgba(255,255,255,.85)!important}
+.ks-ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.95) 0,rgba(255,255,255,.7) 22%,rgba(255,255,255,.15) 55%,rgba(255,255,255,0) 70%)}
+.ks-ring::after{content:"";position:absolute;inset:calc(var(--d) * .058);border-radius:50%;border:1.5px dashed rgba(255,255,255,.95)}
+.ks-mo{position:absolute;left:50%;top:50%;width:0;height:0}
+.ks-mo i{position:absolute;left:-24px;width:48px;top:calc(var(--d) * -.5 + var(--d) * .016);text-align:center;font-style:normal;font-family:'Shippori Mincho',serif;font-weight:800;font-size:max(11px,calc(var(--d) * .019));color:rgba(43,59,66,.6);letter-spacing:.05em}
+.ks-mo.ev i{color:var(--ac);transition:color 1.2s}
+.ks-mo.ev i::after{content:"";display:block;width:6px;height:6px;border-radius:50%;background:currentColor;margin:3px auto 0}
+.ks-q > div{top:calc(var(--d) * -.5 + var(--d) * .095)!important}
+.ks-q .m{display:inline-block!important;margin:0 0 calc(var(--d) * .01)!important;background:rgba(255,255,255,.85);padding:2px 12px;border-radius:999px;font-size:max(11px,calc(var(--d) * .015))!important}
+.ks-pin{position:absolute;left:50%;top:0;transform:translateX(-50%);width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:13px solid var(--ac);z-index:3;transition:border-color 1.2s}
+.ks-hub{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:calc(var(--d) * .36);height:calc(var(--d) * .18);border-radius:calc(var(--d) * .18) calc(var(--d) * .18) 0 0;background:#fff;box-shadow:0 -14px 34px -16px rgba(43,59,66,.35);text-align:center;padding-top:calc(var(--d) * .032);z-index:2}
+.ks-hub b{display:block;font-family:'Shippori Mincho',serif;font-weight:800;font-size:calc(var(--d) * .068);line-height:1;color:var(--ac);transition:color 1.2s}
+.ks-hub small{display:block;font-family:'Shippori Mincho',serif;letter-spacing:.35em;font-size:max(10px,calc(var(--d) * .014));color:#8a989c;margin-top:calc(var(--d) * .01)}
+.ks-hub span{display:block;font-weight:900;font-size:max(12px,calc(var(--d) * .018));color:#2b3b42;margin-top:calc(var(--d) * .006)}
+.ks-hub.fade b,.ks-hub.fade span,.ks-hub.fade small{opacity:0}
+.ks-hub b,.ks-hub span,.ks-hub small{transition:opacity .35s,color 1.2s}
 </style></head><body>
 <div class="ks-mock">見本</div>
 
@@ -196,12 +216,16 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
   <p>ともだちじゃぱんには、オンラインのメタバース校舎があります。1年を通して、日本の季節を感じるイベントを、日本の同世代のともだちと一緒に楽しめます。</p>
   <div class="ks-wb" id="ksWb"><button data-s="spring">春</button><button data-s="summer">夏</button><button data-s="autumn">秋</button><button data-s="winter">冬</button></div>
   <div class="ks-win">
+    <div class="ks-pin"></div>
     <div class="ks-wheel" id="ksWheel">
-      <div class="ks-q" style="transform:rotate(0deg)"><div><span class="n">春</span><span class="m">お花見</span><div class="ks-pics one"><b style="background-image:url(/wp-content/uploads/2026/10/ks-hanami.webp)"></b></div></div></div>
-      <div class="ks-q" style="transform:rotate(90deg)"><div><span class="n">夏</span><span class="m">夏祭り</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-hanabi.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-yatai.webp)"></b></div></div></div>
-      <div class="ks-q" style="transform:rotate(180deg)"><div><span class="n">秋</span><span class="m">お月見・紅葉</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-momiji.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-icho.webp)"></b></div></div></div>
-      <div class="ks-q" style="transform:rotate(270deg)"><div><span class="n">冬</span><span class="m">お正月</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-yuki-to.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-osechi.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-ema.webp)"></b></div></div></div>
+      <div class="ks-ring"></div>
+      <span class="ks-mo ev" style="transform:rotate(270deg)"><i>1月</i></span><span class="ks-mo" style="transform:rotate(300deg)"><i>2月</i></span><span class="ks-mo" style="transform:rotate(330deg)"><i>3月</i></span><span class="ks-mo ev" style="transform:rotate(0deg)"><i>4月</i></span><span class="ks-mo" style="transform:rotate(30deg)"><i>5月</i></span><span class="ks-mo" style="transform:rotate(60deg)"><i>6月</i></span><span class="ks-mo" style="transform:rotate(90deg)"><i>7月</i></span><span class="ks-mo ev" style="transform:rotate(120deg)"><i>8月</i></span><span class="ks-mo ev" style="transform:rotate(150deg)"><i>9月</i></span><span class="ks-mo" style="transform:rotate(180deg)"><i>10月</i></span><span class="ks-mo ev" style="transform:rotate(210deg)"><i>11月</i></span><span class="ks-mo" style="transform:rotate(240deg)"><i>12月</i></span>
+      <div class="ks-q" style="transform:rotate(0deg)"><div><span class="m">お花見</span><div class="ks-pics one"><b style="background-image:url(/wp-content/uploads/2026/10/ks-hanami.webp)"></b></div></div></div>
+      <div class="ks-q" style="transform:rotate(90deg)"><div><span class="m">夏祭り</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-hanabi.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-yatai.webp)"></b></div></div></div>
+      <div class="ks-q" style="transform:rotate(180deg)"><div><span class="m">お月見・紅葉</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-momiji.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-icho.webp)"></b></div></div></div>
+      <div class="ks-q" style="transform:rotate(270deg)"><div><span class="m">お正月</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-yuki-to.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-osechi.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-ema.webp)"></b></div></div></div>
     </div>
+    <div class="ks-hub" id="ksHub"><b></b><small></small><span></span></div>
   </div>
 </section>
 
@@ -272,13 +296,13 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 <script>
 (function(){
 var S={
- spring:{i:0,sub:"春は、桜の下でお花見しよう。",t:"春　お花見",p:"メタバース校舎の中庭に、桜が咲きます。ともだちと桜を見ながら、春のことばをたくさん使ってみよう。",w:["さくら","おはなみ","はるかぜ"],vt:"春を、ともだちと。",po:["「春」と聞いたら、","何を思い浮かべますか？","","桜？　お花見？　新しい教室？","","海外に住んでいると、","日本の春は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ桜を見上げる、","ともだちがいます。","","「きれいだね」を、","日本語で言い合える春。"]},
- summer:{i:1,sub:"夏は、夏祭りで花火を見よう。",t:"夏　夏祭り・花火",p:"メタバース校舎で夏祭り。ゆかたのアバターで屋台をまわって、夜空にあがる花火をともだちと見上げよう。",w:["なつまつり","はなび","ゆかた","やたい"],vt:"夏を、ともだちと。",po:["「夏」と聞いたら、","何を思い浮かべますか？","","花火？　屋台？　ゆかた？","","海外に住んでいると、","日本の夏祭りは、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ花火を見上げる、","ともだちがいます。","","「たーまやー！」を、","一緒に言える夏。"]},
- autumn:{i:2,sub:"秋は、お月見団子をいっしょにつくろう。",t:"秋　お月見・紅葉",p:"同じ時間にお月見団子づくり。住んでいる国はちがっても、見上げる月はおなじです。もみじやいちょうの色も、ことばにしてみよう。",w:["おつきみ","まんげつ","もみじ","いちょう"],vt:"秋を、ともだちと。",po:["「秋」と聞いたら、","何を思い浮かべますか？","","お月見？　もみじ？　いちょう？","","海外に住んでいると、","日本の秋は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ月を見上げる、","ともだちがいます。","","「まんまるだね」を、","日本語で言い合える秋。"]},
- winter:{i:3,sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おせち","えま"],vt:"冬を、ともだちと。",po:["「冬」と聞いたら、","何を思い浮かべますか？","","雪？　おせち？　書き初め？","","海外に住んでいると、","日本のお正月は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ新しい年をむかえる、","ともだちがいます。","","「あけましておめでとう」を、","言い合える冬。"]}
+ spring:{i:0,en:"SPRING",sub:"春は、桜の下でお花見しよう。",t:"春　お花見",p:"メタバース校舎の中庭に、桜が咲きます。ともだちと桜を見ながら、春のことばをたくさん使ってみよう。",w:["さくら","おはなみ","はるかぜ"],vt:"春を、ともだちと。",po:["「春」と聞いたら、","何を思い浮かべますか？","","桜？　お花見？　新しい教室？","","海外に住んでいると、","日本の春は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ桜を見上げる、","ともだちがいます。","","「きれいだね」を、","日本語で言い合える春。"]},
+ summer:{i:1,en:"SUMMER",sub:"夏は、夏祭りで花火を見よう。",t:"夏　夏祭り・花火",p:"メタバース校舎で夏祭り。ゆかたのアバターで屋台をまわって、夜空にあがる花火をともだちと見上げよう。",w:["なつまつり","はなび","ゆかた","やたい"],vt:"夏を、ともだちと。",po:["「夏」と聞いたら、","何を思い浮かべますか？","","花火？　屋台？　ゆかた？","","海外に住んでいると、","日本の夏祭りは、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ花火を見上げる、","ともだちがいます。","","「たーまやー！」を、","一緒に言える夏。"]},
+ autumn:{i:2,en:"AUTUMN",sub:"秋は、お月見団子をいっしょにつくろう。",t:"秋　お月見・紅葉",p:"同じ時間にお月見団子づくり。住んでいる国はちがっても、見上げる月はおなじです。もみじやいちょうの色も、ことばにしてみよう。",w:["おつきみ","まんげつ","もみじ","いちょう"],vt:"秋を、ともだちと。",po:["「秋」と聞いたら、","何を思い浮かべますか？","","お月見？　もみじ？　いちょう？","","海外に住んでいると、","日本の秋は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ月を見上げる、","ともだちがいます。","","「まんまるだね」を、","日本語で言い合える秋。"]},
+ winter:{i:3,en:"WINTER",sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おせち","えま"],vt:"冬を、ともだちと。",po:["「冬」と聞いたら、","何を思い浮かべますか？","","雪？　おせち？　書き初め？","","海外に住んでいると、","日本のお正月は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ新しい年をむかえる、","ともだちがいます。","","「あけましておめでとう」を、","言い合える冬。"]}
 };
 var hero=document.getElementById("ksHero"),sub=document.getElementById("ksSub"),
- wheel=document.getElementById("ksWheel"),intro=document.getElementById("ksIntro"),vtEl=document.getElementById("ksVt"),lnEl=document.getElementById("ksLines"),ang=0,first=1;
+ wheel=document.getElementById("ksWheel"),hub=document.getElementById("ksHub"),intro=document.getElementById("ksIntro"),vtEl=document.getElementById("ksVt"),lnEl=document.getElementById("ksLines"),ang=0,first=1;
 function words(a){return '<div class="ks-words"><span class="k">出会えることば</span>'+a.map(function(x){return "<span>"+x+"</span>"}).join("")+"</div>"}
 function set(s){
  var o=S[s];
@@ -290,7 +314,8 @@ function set(s){
  wheel.style.transform="rotate("+ang+"deg)";
  var poem=function(){vtEl.textContent=o.vt;lnEl.innerHTML=o.po.map(function(l){return l?"<p>"+l+"</p>":'<p class="gap"></p>'}).join("");intro.classList.remove("fade")};
  [].forEach.call(document.querySelectorAll(".ks-row"),function(r){r.className=r.getAttribute("data-s")===s?"ks-row on":"ks-row"});
- if(first){first=0;poem()}else{intro.classList.add("fade");setTimeout(poem,500)}
+ var hb=function(){var t=o.t.split("　");hub.children[0].textContent=t[0];hub.children[1].textContent=o.en;hub.children[2].textContent=t[1]||"";hub.classList.remove("fade")};
+ if(first){first=0;poem();hb()}else{intro.classList.add("fade");setTimeout(poem,500);hub.classList.add("fade");setTimeout(hb,380)}
 }
 [].forEach.call(document.querySelectorAll(".ks-tabs button,.ks-wb button"),function(b){b.addEventListener("click",function(){set(b.getAttribute("data-s"))})});
 set("autumn");
