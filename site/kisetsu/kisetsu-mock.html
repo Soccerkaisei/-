@@ -100,6 +100,11 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
 .ks-end .ks-h{color:#fff!important}
 .ks-end .ks-lead{color:#f3efe6}
 .ks-end .ks-btn.ks-sub2{background:#fff}
+
+.ks-panel .ks-ph.ph{flex-basis:40%;background-size:cover;background-position:center}
+.ks-panel .ks-ph.ph::before{content:none}
+.ks-hanami .ks-ph.ph{background-image:url(img/ks-hanami.webp)}
+@media (max-width:560px){.ks-panel .ks-ph.ph{flex:0 0 200px}}
 </style></head><body>
 <div class="ks-mock">見本</div>
 
@@ -120,7 +125,7 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
   <div class="ks-win">
     <div class="ks-wheel" id="ksWheel">
       <div class="ks-q" style="transform:rotate(0deg)"><div><span class="n">春</span><span class="m">お花見</span></div></div>
-      <div class="ks-q" style="transform:rotate(90deg)"><div><span class="n">夏</span><span class="m">七夕</span></div></div>
+      <div class="ks-q" style="transform:rotate(90deg)"><div><span class="n">夏</span><span class="m">夏祭り</span></div></div>
       <div class="ks-q" style="transform:rotate(180deg)"><div><span class="n">秋</span><span class="m">お月見</span></div></div>
       <div class="ks-q" style="transform:rotate(270deg)"><div><span class="n">冬</span><span class="m">お正月</span></div></div>
     </div>
@@ -133,7 +138,7 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
   <p class="ks-lead">開校後に予定している、季節のイベントです。<span style="display:inline-block">（内容・時期は変わることがあります）</span></p>
 
   <article class="ks-panel ks-hanami">
-    <div class="ks-ph" data-k="春"></div>
+    <div class="ks-ph ph" data-k="春"></div>
     <div class="ks-in">
       <span class="ks-tag">春 ・ 4月ごろ</span>
       <h3>桜の木の下で、お花見しよう</h3>
@@ -145,10 +150,10 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
   <article class="ks-panel ks-tanabata">
     <div class="ks-ph" data-k="夏"></div>
     <div class="ks-in">
-      <span class="ks-tag">夏 ・ 7月ごろ</span>
-      <h3>笹に、ねがいごとを書こう</h3>
-      <p>大きな笹に、日本語で書いた短冊をかざります。世界のあちこちに住むともだちの「ねがいごと」が、ひとつの笹にならびます。</p>
-      <div class="ks-words"><span><b>出会えることば</b></span><span>たんざく</span><span>ねがいごと</span><span>あまのがわ</span></div>
+      <span class="ks-tag">夏 ・ 8月ごろ</span>
+      <h3>夏祭りで、花火を見よう</h3>
+      <p>メタバース校舎で夏祭り。ゆかたのアバターで屋台をまわって、夜空にあがる花火をともだちと見上げます。「きれい！」「たーまやー！」夏のことばがいっぱいです。</p>
+      <div class="ks-words"><span><b>出会えることば</b></span><span>なつまつり</span><span>はなび</span><span>ゆかた</span><span>やたい</span></div>
     </div>
   </article>
 
@@ -184,7 +189,7 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
 (function(){
 var S={
  spring:{i:0,sub:"春は、桜の下でお花見しよう。",t:"春　お花見",p:"メタバース校舎の中庭に、桜が咲きます。ともだちと桜を見ながら、春のことばをたくさん使ってみよう。",w:["さくら","おはなみ","はるかぜ"]},
- summer:{i:1,sub:"夏は、笹にねがいごとを書こう。",t:"夏　七夕",p:"大きな笹に、日本語で書いた短冊をかざります。世界中のともだちのねがいごとが、ひとつの笹に。",w:["たんざく","ねがいごと","あまのがわ"]},
+ summer:{i:1,sub:"夏は、夏祭りで花火を見よう。",t:"夏　夏祭り・花火",p:"メタバース校舎で夏祭り。ゆかたのアバターで屋台をまわって、夜空にあがる花火をともだちと見上げよう。",w:["なつまつり","はなび","ゆかた","やたい"]},
  autumn:{i:2,sub:"秋は、お月見団子をいっしょにつくろう。",t:"秋　お月見",p:"画面のむこうのともだちと、同じ時間にお団子づくり。住んでいる国はちがっても、見上げる月はおなじです。",w:["おつきみ","まんげつ","すすき"]},
  winter:{i:3,sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おもち"]}
 };
