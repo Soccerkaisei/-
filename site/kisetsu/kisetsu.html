@@ -262,7 +262,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-back{font:inherit;font-weight:900;font-size:15px;color:var(--ac);background:#fff;border:2px solid var(--pc);padding:10px 24px;border-radius:999px;cursor:pointer;box-shadow:0 8px 18px -12px rgba(43,59,66,.4)}
 .ks-back:hover{background:var(--pc);color:#fff}
 </style>
-<div class="ks-root" data-ver="1013ks29">
+<div class="ks-root" data-ver="1013ks30">
 <section class="ks-hero" id="ksHero" data-s="autumn">
   <div class="ks-bg"><i data-s="spring"></i><i data-s="summer"></i><i data-s="autumn"></i><i data-s="winter"></i></div>
   <h1>海外にいても、<br><em><span style="display:inline-block">日本の四季を、</span><span style="display:inline-block">ともだちと。</span></em></h1>
@@ -296,7 +296,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
   </div>
   <h2 class="ks-yt">1年の季節イベント<small>開校後に予定しているイベントです（内容・時期は変わることがあります）</small></h2>
 <div class="ks-season" id="ksS-spring" data-s="spring">
-  <div class="ks-sh"><div class="ks-kj"><small>3月〜5月</small><b>春</b></div><dl class="ks-ml"><dt>3月</dt><dd>ひなまつり</dd><dt>4月</dt><dd>お花見</dd></dl><span class="ks-plan">開校後の予定</span></div>
+  <div class="ks-sh"><div class="ks-kj"><small>3月〜5月</small><b>春</b></div><dl class="ks-ml"><dt>3月</dt><dd>ひなまつり</dd><dt>4月</dt><dd>お花見</dd></dl></div>
   <div class="ks-row" data-s="spring">
     <div class="ks-blob rv" style="background-image:url(/wp-content/uploads/2026/10/ks-hanami.webp)"></div>
     <div class="ks-tx rv">
@@ -310,7 +310,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
   <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
 </div>
 <div class="ks-season" id="ksS-summer" data-s="summer">
-  <div class="ks-sh"><div class="ks-kj"><small>6月〜8月</small><b>夏</b></div><dl class="ks-ml"><dt>7月</dt><dd>七夕</dd><dt>8月</dt><dd>夏祭り</dd><dd>花火</dd></dl><span class="ks-plan">開校後の予定</span></div>
+  <div class="ks-sh"><div class="ks-kj"><small>6月〜8月</small><b>夏</b></div><dl class="ks-ml"><dt>7月</dt><dd>七夕</dd><dt>8月</dt><dd>夏祭り</dd><dd>花火</dd></dl></div>
   <div class="ks-row" data-s="summer">
     <div class="ks-blob rv" style="background-image:url(/wp-content/uploads/2026/10/ks-hanabi.webp)"></div>
     <div class="ks-tx rv">
@@ -326,7 +326,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
   <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
 </div>
 <div class="ks-season" id="ksS-autumn" data-s="autumn">
-  <div class="ks-sh"><div class="ks-kj"><small>9月〜11月</small><b>秋</b></div><dl class="ks-ml"><dt>9月</dt><dd>お月見（お月見団子づくり）</dd><dt>11月</dt><dd>紅葉</dd></dl><span class="ks-plan">開校後の予定</span></div>
+  <div class="ks-sh"><div class="ks-kj"><small>9月〜11月</small><b>秋</b></div><dl class="ks-ml"><dt>9月</dt><dd>お月見（お月見団子づくり）</dd><dt>11月</dt><dd>紅葉</dd></dl></div>
   <div class="ks-row" data-s="autumn">
     <div class="ks-blob rv" style="background-image:url(/wp-content/uploads/2026/10/ks-icho.webp)"></div>
     <div class="ks-tx rv">
@@ -342,7 +342,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
   <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
 </div>
 <div class="ks-season" id="ksS-winter" data-s="winter">
-  <div class="ks-sh"><div class="ks-kj"><small>12月〜2月</small><b>冬</b></div><dl class="ks-ml"><dt>1月</dt><dd>お正月</dd><dd>書き初め</dd><dd>初もうで</dd></dl><span class="ks-plan">開校後の予定</span></div>
+  <div class="ks-sh"><div class="ks-kj"><small>12月〜2月</small><b>冬</b></div><dl class="ks-ml"><dt>1月</dt><dd>お正月</dd><dd>書き初め</dd><dd>初もうで</dd></dl></div>
   <div class="ks-row" data-s="winter">
     <div class="ks-blob rv" style="background-image:url(/wp-content/uploads/2026/10/ks-yuki-to.webp)"></div>
     <div class="ks-tx rv">
@@ -405,7 +405,9 @@ function jump(){var r=document.getElementById("ksS-"+cur);if(!r)return;var h=doc
 [].forEach.call(document.querySelectorAll(".ks-wb button"),function(b){b.addEventListener("click",function(){cur=b.getAttribute("data-s")})});
 wheel.addEventListener("click",function(e){var b=wheel.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),a=Math.atan2(dx,-dy)*180/Math.PI,k=SK[Math.round((((a-ang)%360)+360)%360/90)%4];if(k!==cur){cur=k;set(k)}});
 hub.addEventListener("click",jump);
-[].forEach.call(document.querySelectorAll(".ks-back"),function(b){b.addEventListener("click",function(){var t=document.getElementById("ksWb"),h=document.querySelector(".l-header,#header"),off=(h&&getComputedStyle(h).position==="fixed"?h.offsetHeight:0)+16;window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off,behavior:"smooth"})})});
+function toClock(){var t=document.getElementById("ksWb"),h=document.querySelector(".l-header,#header"),off=(h&&getComputedStyle(h).position==="fixed"?h.offsetHeight:0)+16;window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off,behavior:"smooth"})}
+[].forEach.call(document.querySelectorAll(".ks-back,.ks-wb button"),function(b){b.addEventListener("click",toClock)});
+wheel.addEventListener("click",toClock);
 var rv=document.querySelectorAll(".rv");
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});[].forEach.call(rv,function(x){io.observe(x)})}else{[].forEach.call(rv,function(x){x.classList.add("in")})}
 })();
