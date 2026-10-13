@@ -121,8 +121,16 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
 
 .ks-tsukimi .ks-ph.ph i{background-image:url(/wp-content/uploads/2026/10/ks-icho.webp)}
 .ks-tsukimi .ks-ph.ph i+i{background-image:url(/wp-content/uploads/2026/10/ks-momiji.webp)}
+
+.ks-ph.ph3 i{animation:ksSlide3 12s infinite;opacity:1}
+.ks-ph.ph3 i:nth-child(2){animation-delay:-8s}
+.ks-ph.ph3 i:nth-child(3){animation-delay:-4s}
+@keyframes ksSlide3{0%,30%{opacity:1}35%,95%{opacity:0}100%{opacity:1}}
+.ks-shogatsu .ks-ph.ph i:nth-child(1){background-image:url(/wp-content/uploads/2026/10/ks-yuki-to.webp)}
+.ks-shogatsu .ks-ph.ph i:nth-child(2){background-image:url(/wp-content/uploads/2026/10/ks-osechi.webp)}
+.ks-shogatsu .ks-ph.ph i:nth-child(3){background-image:url(/wp-content/uploads/2026/10/ks-ema.webp)}
 </style>
-<div class="ks-root" data-ver="1013ks8">
+<div class="ks-root" data-ver="1013ks9">
 <section class="ks-hero" id="ksHero" data-s="autumn">
   <div class="ks-bg"><i data-s="spring"></i><i data-s="summer"></i><i data-s="autumn"></i><i data-s="winter"></i></div>
   <h1>海外にいても、<br><em><span style="display:inline-block">日本の四季を、</span><span style="display:inline-block">ともだちと。</span></em></h1>
@@ -183,12 +191,12 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
   </article>
 
   <article class="ks-panel ks-shogatsu">
-    <div class="ks-ph" data-k="冬"></div>
+    <div class="ks-ph ph ph3" data-k="冬"><i></i><i></i><i></i></div>
     <div class="ks-in">
       <span class="ks-tag">冬 ・ 1月ごろ</span>
-      <h3>お正月、書き初めをしよう</h3>
-      <p>新しい年のはじまりに、今年の目標を日本語で。「あけましておめでとう」を、ともだちと言い合える冬です。</p>
-      <div class="ks-words"><span><b>出会えることば</b></span><span>おしょうがつ</span><span>かきぞめ</span><span>おもち</span></div>
+      <h3>お正月、新しい年のねがいを書こう</h3>
+      <p>新しい年のはじまりに、今年の目標を書き初めで。おせち料理のひとつひとつにこめられた意味や、絵馬にねがいを書く日本のならわしも、ともだちと一緒に知っていきます。「あけましておめでとう」を言い合える冬です。</p>
+      <div class="ks-words"><span><b>出会えることば</b></span><span>おしょうがつ</span><span>かきぞめ</span><span>おせち</span><span>えま</span></div>
     </div>
   </article>
 </section>
@@ -206,7 +214,7 @@ var S={
  spring:{i:0,sub:"春は、桜の下でお花見しよう。",t:"春　お花見",p:"メタバース校舎の中庭に、桜が咲きます。ともだちと桜を見ながら、春のことばをたくさん使ってみよう。",w:["さくら","おはなみ","はるかぜ"]},
  summer:{i:1,sub:"夏は、夏祭りで花火を見よう。",t:"夏　夏祭り・花火",p:"メタバース校舎で夏祭り。ゆかたのアバターで屋台をまわって、夜空にあがる花火をともだちと見上げよう。",w:["なつまつり","はなび","ゆかた","やたい"]},
  autumn:{i:2,sub:"秋は、お月見団子をいっしょにつくろう。",t:"秋　お月見・紅葉",p:"同じ時間にお月見団子づくり。住んでいる国はちがっても、見上げる月はおなじです。もみじやいちょうの色も、ことばにしてみよう。",w:["おつきみ","まんげつ","もみじ","いちょう"]},
- winter:{i:3,sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おもち"]}
+ winter:{i:3,sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おせち","えま"]}
 };
 var hero=document.getElementById("ksHero"),sub=document.getElementById("ksSub"),
  wheel=document.getElementById("ksWheel"),wt=document.getElementById("ksWt"),ang=0,first=1;
