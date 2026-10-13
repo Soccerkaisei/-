@@ -254,15 +254,15 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-plan{position:absolute;top:14px;right:16px;font-size:12px;font-weight:900;color:#fff;background:var(--ac);padding:3px 12px;border-radius:999px}
 .ks-season .ks-row{display:flex!important;margin:26px 0 30px!important}
 .ks-season .ks-row .rv{opacity:1;transform:none}
-.ks-season:nth-of-type(even) .ks-row{flex-direction:row-reverse}
+.ks-season .ks-row,.ks-season .ks-row.rev{flex-direction:row!important;align-items:flex-start!important}.ks-season .ks-blob{margin-top:8px}
 .ks-season .ks-blob{flex-basis:40%}
-@media (max-width:700px){.ks-season .ks-row,.ks-season:nth-of-type(even) .ks-row{flex-direction:column}.ks-season .ks-blob{width:100%}.ks-plan{top:-14px;right:12px}}
+@media (max-width:700px){.ks-season .ks-row,.ks-season .ks-row.rev{flex-direction:column!important;align-items:center!important}.ks-season .ks-blob{width:100%}.ks-plan{top:-14px;right:12px}}
 .ks-season .ks-intro{margin:10px auto 34px;padding-top:30px;border-top:1px dashed var(--pc)}.ks-season .ks-intro .rv{opacity:1;transform:none}
 .ks-backw{text-align:center;padding:6px 0 24px}
 .ks-back{font:inherit;font-weight:900;font-size:15px;color:var(--ac);background:#fff;border:2px solid var(--pc);padding:10px 24px;border-radius:999px;cursor:pointer;box-shadow:0 8px 18px -12px rgba(43,59,66,.4)}
 .ks-back:hover{background:var(--pc);color:#fff}
 </style>
-<div class="ks-root" data-ver="1013ks31">
+<div class="ks-root" data-ver="1013ks32">
 <section class="ks-hero" id="ksHero" data-s="autumn">
   <div class="ks-bg"><i data-s="spring"></i><i data-s="summer"></i><i data-s="autumn"></i><i data-s="winter"></i></div>
   <h1>海外にいても、<br><em><span style="display:inline-block">日本の四季を、</span><span style="display:inline-block">ともだちと。</span></em></h1>
