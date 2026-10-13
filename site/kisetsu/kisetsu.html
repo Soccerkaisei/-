@@ -46,11 +46,11 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
 .ks-wheel::before,.ks-wheel::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:#fff;transform:rotate(45deg)}
 .ks-wheel::after{transform:rotate(-45deg)}
 .ks-q{position:absolute;left:50%;top:50%;width:0;height:0}
-.ks-q div{position:absolute;left:-110px;width:220px;top:calc(var(--d) / -2 + 34px);text-align:center}
+.ks-q > div{position:absolute;left:calc(var(--d) * -.31);width:calc(var(--d) * .62);top:calc(var(--d) * -.5 + var(--d) * .03);text-align:center}
 .ks-q .e{font-size:clamp(40px,7vw,64px);line-height:1.1;display:block}
-.ks-q .n{font-family:'Shippori Mincho',serif;font-size:clamp(64px,11vw,104px);font-weight:800;line-height:1;display:block}
+.ks-q .n{font-family:'Shippori Mincho',serif;font-size:calc(var(--d) * .07);font-weight:800;line-height:1;display:inline-block;vertical-align:middle}
 .ks-q:nth-child(1) .n{color:#d0607f}.ks-q:nth-child(2) .n{color:#3f63c7}.ks-q:nth-child(3) .n{color:#cf6a2c}.ks-q:nth-child(4) .n{color:#5b7fa8}
-.ks-q .m{font-size:14px;font-weight:900;color:#2b3b42;letter-spacing:.1em;display:block;margin-top:6px}
+.ks-q .m{font-size:max(12px,calc(var(--d) * .016));font-weight:900;color:#2b3b42;letter-spacing:.1em;display:inline-block;vertical-align:middle;margin-left:8px}
 .ks-wt{max-width:640px;margin:-34px auto 0;position:relative;background:#fff;border-radius:24px;padding:26px 26px 22px;box-shadow:0 16px 36px -18px rgba(43,59,66,.3);text-align:left;transition:opacity .35s,transform .35s}
 .ks-wt.fade{opacity:0;transform:translateY(10px)}
 .ks-wt h3{font-size:22px;font-weight:900;margin-bottom:6px}
@@ -129,8 +129,16 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
 .ks-shogatsu .ks-ph.ph i:nth-child(1){background-image:url(/wp-content/uploads/2026/10/ks-yuki-to.webp)}
 .ks-shogatsu .ks-ph.ph i:nth-child(2){background-image:url(/wp-content/uploads/2026/10/ks-osechi.webp)}
 .ks-shogatsu .ks-ph.ph i:nth-child(3){background-image:url(/wp-content/uploads/2026/10/ks-ema.webp)}
+
+.ks-pics{display:flex;justify-content:center;margin-top:calc(var(--d) * .012)}
+.ks-pics b{display:block;width:calc(var(--d) * .17);height:calc(var(--d) * .13);margin:0 calc(var(--d) * -.012);background:#fff center/cover no-repeat;border:calc(var(--d) * .006) solid #fff;border-radius:6px;box-shadow:0 6px 16px -6px rgba(43,59,66,.45)}
+.ks-pics b:nth-child(1){transform:rotate(-8deg) translateY(4px)}
+.ks-pics b:nth-child(2){transform:rotate(3deg) translateY(-4px);position:relative;z-index:1}
+.ks-pics b:nth-child(3){transform:rotate(9deg) translateY(6px)}
+.ks-pics b:nth-child(4){transform:rotate(-4deg) translateY(0)}
+.ks-pics.one b{width:calc(var(--d) * .26);height:calc(var(--d) * .15);transform:rotate(-3deg)}
 </style>
-<div class="ks-root" data-ver="1013ks9">
+<div class="ks-root" data-ver="1013ks10">
 <section class="ks-hero" id="ksHero" data-s="autumn">
   <div class="ks-bg"><i data-s="spring"></i><i data-s="summer"></i><i data-s="autumn"></i><i data-s="winter"></i></div>
   <h1>海外にいても、<br><em><span style="display:inline-block">日本の四季を、</span><span style="display:inline-block">ともだちと。</span></em></h1>
@@ -147,10 +155,10 @@ box-shadow:0 0 0 10px #fff,0 20px 50px -20px rgba(43,59,66,.35);transition:trans
   <div class="ks-wb" id="ksWb"><button data-s="spring">春</button><button data-s="summer">夏</button><button data-s="autumn">秋</button><button data-s="winter">冬</button></div>
   <div class="ks-win">
     <div class="ks-wheel" id="ksWheel">
-      <div class="ks-q" style="transform:rotate(0deg)"><div><span class="n">春</span><span class="m">お花見</span></div></div>
-      <div class="ks-q" style="transform:rotate(90deg)"><div><span class="n">夏</span><span class="m">夏祭り</span></div></div>
-      <div class="ks-q" style="transform:rotate(180deg)"><div><span class="n">秋</span><span class="m">お月見・紅葉</span></div></div>
-      <div class="ks-q" style="transform:rotate(270deg)"><div><span class="n">冬</span><span class="m">お正月</span></div></div>
+      <div class="ks-q" style="transform:rotate(0deg)"><div><span class="n">春</span><span class="m">お花見</span><div class="ks-pics one"><b style="background-image:url(/wp-content/uploads/2026/10/ks-hanami.webp)"></b></div></div></div>
+      <div class="ks-q" style="transform:rotate(90deg)"><div><span class="n">夏</span><span class="m">夏祭り</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-hanabi.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-yatai.webp)"></b></div></div></div>
+      <div class="ks-q" style="transform:rotate(180deg)"><div><span class="n">秋</span><span class="m">お月見・紅葉</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-momiji.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-icho.webp)"></b></div></div></div>
+      <div class="ks-q" style="transform:rotate(270deg)"><div><span class="n">冬</span><span class="m">お正月</span><div class="ks-pics"><b style="background-image:url(/wp-content/uploads/2026/10/ks-yuki-to.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-osechi.webp)"></b><b style="background-image:url(/wp-content/uploads/2026/10/ks-ema.webp)"></b></div></div></div>
     </div>
   </div>
   <div class="ks-wt" id="ksWt"></div>
