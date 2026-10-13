@@ -231,6 +231,26 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-go{display:inline-block;margin-top:6px;font-style:normal;font-weight:900;font-size:12px;color:#fff;background:var(--ac);padding:3px 12px;border-radius:999px;transition:background 1.2s;animation:ksGo 1.6s ease-in-out infinite}
 @keyframes ksGo{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 .ks-hub.fade .ks-go{opacity:1}
+
+/* ===== 1年の季節イベント（4つ並べる） ===== */
+.ks-season[data-s="spring"]{--ac:#c9577a;--pc:#f2a7bd}.ks-season[data-s="summer"]{--ac:#3a5fb8;--pc:#8fb3ea}.ks-season[data-s="autumn"]{--ac:#c4652a;--pc:#f0b37a}.ks-season[data-s="winter"]{--ac:#4f6f96;--pc:#9fc3c0}
+.ks-yt{text-align:center;font-family:'Shippori Mincho',serif;font-size:clamp(24px,3.6vw,32px);font-weight:800;color:#2b3b42;margin:30px 0 10px}
+.ks-yt small{display:block;font-family:inherit;font-size:13px;font-weight:700;color:#6b7b80;margin-top:8px;letter-spacing:0}
+.ks-season{position:relative;background:rgba(255,255,255,.6);border-top:5px solid var(--pc);border-radius:22px;padding:30px clamp(18px,4vw,44px) 10px;margin:34px 0;scroll-margin-top:90px}
+.ks-sh{display:flex;align-items:center;gap:clamp(16px,4vw,40px);flex-wrap:wrap}
+.ks-kj{text-align:center;flex:none}
+.ks-kj small{display:block;font-weight:900;font-size:15px;color:var(--ac);letter-spacing:.06em;transform:rotate(-6deg);margin-bottom:4px}
+.ks-kj b{display:flex;align-items:center;justify-content:center;width:clamp(96px,14vw,130px);aspect-ratio:1/.9;background:var(--pc);color:#fff;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(50px,8vw,72px);border-radius:58% 42% 52% 48%/52% 46% 54% 48%;animation:ksMorph 12s ease-in-out infinite}
+.ks-ml{margin:0;flex:1;min-width:160px}
+.ks-ml dt{font-weight:900;color:var(--ac);font-size:17px;margin-top:6px}
+.ks-ml dd{margin:2px 0 0;font-weight:700;color:#2b3b42;font-size:16px}
+.ks-ml dd::before{content:"・";color:var(--ac)}
+.ks-plan{position:absolute;top:14px;right:16px;font-size:12px;font-weight:900;color:#fff;background:var(--ac);padding:3px 12px;border-radius:999px}
+.ks-season .ks-row{display:flex!important;margin:26px 0 30px!important}
+.ks-season .ks-row .rv{opacity:1;transform:none}
+.ks-season:nth-of-type(even) .ks-row{flex-direction:row-reverse}
+.ks-season .ks-blob{flex-basis:40%}
+@media (max-width:700px){.ks-season .ks-row,.ks-season:nth-of-type(even) .ks-row{flex-direction:column}.ks-season .ks-blob{width:100%}.ks-plan{top:-14px;right:12px}}
 </style></head><body>
 <div class="ks-mock">見本</div>
 
@@ -244,7 +264,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
     <div class="ks-pin"></div>
     <div class="ks-wheel" id="ksWheel">
       <div class="ks-ring"></div>
-      <span class="ks-mo ev" style="transform:rotate(270deg)"><i>1月</i></span><span class="ks-mo" style="transform:rotate(300deg)"><i>2月</i></span><span class="ks-mo ev" style="transform:rotate(330deg)"><i>3月</i></span><span class="ks-mo ev" style="transform:rotate(0deg)"><i>4月</i></span><span class="ks-mo" style="transform:rotate(30deg)"><i>5月</i></span><span class="ks-mo" style="transform:rotate(60deg)"><i>6月</i></span><span class="ks-mo" style="transform:rotate(90deg)"><i>7月</i></span><span class="ks-mo ev" style="transform:rotate(120deg)"><i>8月</i></span><span class="ks-mo ev" style="transform:rotate(150deg)"><i>9月</i></span><span class="ks-mo" style="transform:rotate(180deg)"><i>10月</i></span><span class="ks-mo ev" style="transform:rotate(210deg)"><i>11月</i></span><span class="ks-mo" style="transform:rotate(240deg)"><i>12月</i></span>
+      <span class="ks-mo ev" style="transform:rotate(270deg)"><i>1月</i></span><span class="ks-mo" style="transform:rotate(300deg)"><i>2月</i></span><span class="ks-mo ev" style="transform:rotate(330deg)"><i>3月</i></span><span class="ks-mo ev" style="transform:rotate(0deg)"><i>4月</i></span><span class="ks-mo" style="transform:rotate(30deg)"><i>5月</i></span><span class="ks-mo" style="transform:rotate(60deg)"><i>6月</i></span><span class="ks-mo ev" style="transform:rotate(90deg)"><i>7月</i></span><span class="ks-mo ev" style="transform:rotate(120deg)"><i>8月</i></span><span class="ks-mo ev" style="transform:rotate(150deg)"><i>9月</i></span><span class="ks-mo" style="transform:rotate(180deg)"><i>10月</i></span><span class="ks-mo ev" style="transform:rotate(210deg)"><i>11月</i></span><span class="ks-mo" style="transform:rotate(240deg)"><i>12月</i></span>
       <div class="ks-q" style="transform:rotate(0deg)"><div><span class="m">ひなまつり・お花見</span><div class="ks-pics"><b style="background-image:url(img/ks-hina.webp)"></b><b style="background-image:url(img/ks-hanami.webp)"></b></div></div></div>
       <div class="ks-q" style="transform:rotate(90deg)"><div><span class="m">夏祭り</span><div class="ks-pics"><b style="background-image:url(img/ks-hanabi.webp)"></b><b style="background-image:url(img/ks-yatai.webp)"></b></div></div></div>
       <div class="ks-q" style="transform:rotate(180deg)"><div><span class="m">お月見・紅葉</span><div class="ks-pics"><b style="background-image:url(img/ks-momiji.webp)"></b><b style="background-image:url(img/ks-icho.webp)"></b></div></div></div>
@@ -261,6 +281,9 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 </section>
 
 <section class="ks-poem">
+  <h2 class="ks-yt">1年の季節イベント<small>開校後に予定しているイベントです（内容・時期は変わることがあります）</small></h2>
+<div class="ks-season" id="ksS-spring" data-s="spring">
+  <div class="ks-sh"><div class="ks-kj"><small>3月〜5月</small><b>春</b></div><dl class="ks-ml"><dt>3月</dt><dd>ひなまつり</dd><dt>4月</dt><dd>お花見</dd></dl><span class="ks-plan">開校後の予定</span></div>
   <div class="ks-row" data-s="spring">
     <div class="ks-blob rv" style="background-image:url(img/ks-hanami.webp)"></div>
     <div class="ks-tx rv">
@@ -271,6 +294,9 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
       <span class="ks-when">4月ごろ</span>
     </div>
   </div>
+</div>
+<div class="ks-season" id="ksS-summer" data-s="summer">
+  <div class="ks-sh"><div class="ks-kj"><small>6月〜8月</small><b>夏</b></div><dl class="ks-ml"><dt>7月</dt><dd>七夕</dd><dt>8月</dt><dd>夏祭り</dd><dd>花火</dd></dl><span class="ks-plan">開校後の予定</span></div>
   <div class="ks-row" data-s="summer">
     <div class="ks-blob rv" style="background-image:url(img/ks-hanabi.webp)"></div>
     <div class="ks-tx rv">
@@ -283,6 +309,9 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 
     </div>
   </div>
+</div>
+<div class="ks-season" id="ksS-autumn" data-s="autumn">
+  <div class="ks-sh"><div class="ks-kj"><small>9月〜11月</small><b>秋</b></div><dl class="ks-ml"><dt>9月</dt><dd>お月見（お月見団子づくり）</dd><dt>11月</dt><dd>紅葉</dd></dl><span class="ks-plan">開校後の予定</span></div>
   <div class="ks-row" data-s="autumn">
     <div class="ks-blob rv" style="background-image:url(img/ks-icho.webp)"></div>
     <div class="ks-tx rv">
@@ -295,6 +324,9 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 
     </div>
   </div>
+</div>
+<div class="ks-season" id="ksS-winter" data-s="winter">
+  <div class="ks-sh"><div class="ks-kj"><small>12月〜2月</small><b>冬</b></div><dl class="ks-ml"><dt>1月</dt><dd>お正月</dd><dd>書き初め</dd><dd>初もうで</dd></dl><span class="ks-plan">開校後の予定</span></div>
   <div class="ks-row" data-s="winter">
     <div class="ks-blob rv" style="background-image:url(img/ks-yuki-to.webp)"></div>
     <div class="ks-tx rv">
@@ -305,6 +337,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
       <span class="ks-when">1月ごろ</span>
     </div>
   </div>
+</div>
   <div class="ks-intro" id="ksIntro">
     <div class="ks-vt rv" id="ksVt"></div>
     <div class="ks-lines rv" id="ksLines"></div>
@@ -355,7 +388,7 @@ function set(s){
 [].forEach.call(document.querySelectorAll(".ks-tabs button,.ks-wb button"),function(b){b.addEventListener("click",function(){set(b.getAttribute("data-s"))})});
 set("autumn");
 var cur="autumn",SK=["spring","summer","autumn","winter"];
-function jump(){var r=document.querySelector(".ks-row.on");if(!r)return;var h=document.querySelector(".l-header,#header");var off=(h&&getComputedStyle(h).position==="fixed"?h.offsetHeight:0)+20;window.scrollTo({top:r.getBoundingClientRect().top+window.pageYOffset-off,behavior:"smooth"})}
+function jump(){var r=document.getElementById("ksS-"+cur);if(!r)return;var h=document.querySelector(".l-header,#header");var off=(h&&getComputedStyle(h).position==="fixed"?h.offsetHeight:0)+20;window.scrollTo({top:r.getBoundingClientRect().top+window.pageYOffset-off+0,behavior:"smooth"})}
 [].forEach.call(document.querySelectorAll(".ks-wb button"),function(b){b.addEventListener("click",function(){cur=b.getAttribute("data-s")})});
 wheel.addEventListener("click",function(e){var b=wheel.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),a=Math.atan2(dx,-dy)*180/Math.PI,k=SK[Math.round((((a-ang)%360)+360)%360/90)%4];if(k===cur){jump()}else{cur=k;set(k);setTimeout(jump,1000)}});
 hub.addEventListener("click",jump);
