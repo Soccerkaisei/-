@@ -226,8 +226,8 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-ws{padding-top:34px!important}
 @media (max-width:560px){.ks-hb span{display:table;margin:0 auto 6px}.ks-hero .ks-wb button{padding:8px 16px}}
 .ks-hwin .ks-wheel,.ks-hwin .ks-hub{cursor:pointer}
-.ks-hwin{height:calc(var(--d) * .5 + 104px)!important}
-.ks-hwin .ks-hub{height:calc(var(--d) * .18 + 90px)}
+.ks-hwin{height:calc(var(--d) * .5 + 136px)!important}
+.ks-hwin .ks-hub{height:calc(var(--d) * .18 + 122px)}
 .ks-go{display:inline-block;margin-top:6px;font-style:normal;font-weight:900;font-size:12px;color:#fff;background:var(--ac);padding:3px 12px;border-radius:999px;transition:background 1.2s;animation:ksGo 1.6s ease-in-out infinite}
 @keyframes ksGo{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 .ks-hub.fade .ks-go{opacity:1}
@@ -280,6 +280,9 @@ h2.ks-yt small{color:#6b7b80!important}
 .ks-ti .ph i+i{margin-left:-22px;transform:rotate(5deg)}
 .ks-ti .ph i:first-child{transform:rotate(-4deg)}
 @media (max-width:600px){.ks-tl::before{left:47px}.ks-tgh{margin-left:26px}.ks-tgh b{width:42px;height:42px;font-size:20px}.ks-ti .mo{flex-basis:34px;font-size:14px}.ks-ti .dt{margin:0 6px}.ks-ti .bd{padding:10px 12px;margin-right:6px}.ks-ti .bd b{font-size:15px}.ks-ti .bd small{font-size:12px}.ks-ti .ph i{width:54px;height:46px}.ks-ti .ph i+i{display:none}.ks-ti .ph{flex-basis:56px}}
+.ks-go2{display:block;width:max-content;margin:8px auto 0;font-style:normal;font-weight:900;font-size:12px;color:var(--ac);background:#fff;border:1.5px solid var(--ac);padding:3px 12px;border-radius:999px;cursor:pointer;transition:color 1.2s,border-color 1.2s}
+.ks-backw{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.ks-back.ks-year{background:var(--pc);color:#fff;border-color:var(--pc)}
 </style></head><body>
 <div class="ks-mock">見本</div>
 
@@ -299,7 +302,7 @@ h2.ks-yt small{color:#6b7b80!important}
       <div class="ks-q" style="transform:rotate(180deg)"><div><span class="m">お月見・紅葉</span><div class="ks-pics"><b style="background-image:url(img/ks-momiji.webp)"></b><b style="background-image:url(img/ks-icho.webp)"></b></div></div></div>
       <div class="ks-q" style="transform:rotate(270deg)"><div><span class="m">お正月</span><div class="ks-pics"><b style="background-image:url(img/ks-osechi.webp)"></b><b style="background-image:url(img/ks-ema.webp)"></b></div></div></div>
     </div>
-    <div class="ks-hub" id="ksHub"><b></b><small></small><span></span><em class="ks-go">イベントを見る ↓</em></div>
+    <div class="ks-hub" id="ksHub"><b></b><small></small><span></span><em class="ks-go">イベントを見る ↓</em><em class="ks-go2" id="ksGoY">年間スケジュールを見る</em></div>
   </div>
   <svg class="ks-edge" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30 Q50 0 100 30 Q150 60 200 30 Q250 0 300 30 Q350 60 400 30 Q450 0 500 30 Q550 60 600 30 Q650 0 700 30 Q750 60 800 30 Q850 0 900 30 Q950 60 1000 30 Q1050 0 1100 30 Q1150 60 1200 30 V60 H0Z"/></svg>
 </section>
@@ -326,7 +329,7 @@ h2.ks-yt small{color:#6b7b80!important}
       <span class="ks-when">4月ごろ</span>
     </div>
   </div>
-  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
+  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button><button type="button" class="ks-back ks-year">年間スケジュールを見る ↓</button></div>
 </div>
 <div class="ks-season" id="ksS-summer" data-s="summer">
   <div class="ks-sh"><div class="ks-kj"><small>6月〜8月</small><b>夏</b></div><dl class="ks-ml"><dt>6月</dt><dd>梅雨・あじさい</dd><dt>7月</dt><dd>七夕</dd><dt>8月</dt><dd>夏祭り・花火</dd></dl></div>
@@ -342,7 +345,7 @@ h2.ks-yt small{color:#6b7b80!important}
 
     </div>
   </div>
-  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
+  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button><button type="button" class="ks-back ks-year">年間スケジュールを見る ↓</button></div>
 </div>
 <div class="ks-season" id="ksS-autumn" data-s="autumn">
   <div class="ks-sh"><div class="ks-kj"><small>9月〜11月</small><b>秋</b></div><dl class="ks-ml"><dt>9月</dt><dd>お月見</dd><dt>10月</dt><dd>運動会・秋祭り</dd><dt>11月</dt><dd>紅葉・七五三</dd></dl></div>
@@ -358,7 +361,7 @@ h2.ks-yt small{color:#6b7b80!important}
 
     </div>
   </div>
-  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
+  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button><button type="button" class="ks-back ks-year">年間スケジュールを見る ↓</button></div>
 </div>
 <div class="ks-season" id="ksS-winter" data-s="winter">
   <div class="ks-sh"><div class="ks-kj"><small>12月〜2月</small><b>冬</b></div><dl class="ks-ml"><dt>12月</dt><dd>冬至・大みそか</dd><dt>1月</dt><dd>お正月</dd><dt>2月</dt><dd>節分</dd></dl></div>
@@ -372,9 +375,9 @@ h2.ks-yt small{color:#6b7b80!important}
       <span class="ks-when">1月ごろ</span>
     </div>
   </div>
-  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
+  <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button><button type="button" class="ks-back ks-year">年間スケジュールを見る ↓</button></div>
 </div>
-  <h2 class="ks-yt">1年の季節イベント<small>開校後に予定しているイベントです（内容・時期は変わることがあります）</small></h2>
+  <h2 class="ks-yt" id="ksYear">1年の季節イベント<small>開校後に予定しているイベントです（内容・時期は変わることがあります）</small></h2>
 <div class="ks-tl">
   <div class="ks-tg" data-s="spring"><div class="ks-tgh"><b>春</b><span>3月〜5月</span></div>
     <div class="ks-ti" data-s="spring"><span class="mo">3月</span><span class="dt"></span><span class="bd"><b>ひなまつり</b><small>ひな人形のことや、ひなまつりの歌を知ろう</small></span><span class="ph"><i style="background-image:url(img/ks-hina.webp)"></i></span></div>
@@ -440,7 +443,10 @@ function jump(){var r=document.getElementById("ksS-"+cur);if(!r)return;var off=t
 wheel.addEventListener("click",function(e){var b=wheel.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),a=Math.atan2(dx,-dy)*180/Math.PI,k=SK[Math.round((((a-ang)%360)+360)%360/90)%4];if(k!==cur){cur=k;set(k)}});
 hub.addEventListener("click",jump);
 function toClock(){var t=document.getElementById("ksWb"),off=topOff();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off,behavior:"smooth"})}
-[].forEach.call(document.querySelectorAll(".ks-back,.ks-wb button"),function(b){b.addEventListener("click",toClock)});
+[].forEach.call(document.querySelectorAll(".ks-back:not(.ks-year),.ks-wb button"),function(b){b.addEventListener("click",toClock)});
+function toYear(e){if(e)e.stopPropagation();var t=document.getElementById("ksYear");window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-topOff(),behavior:"smooth"})}
+document.getElementById("ksGoY").addEventListener("click",toYear);
+[].forEach.call(document.querySelectorAll(".ks-year"),function(b){b.addEventListener("click",toYear)});
 wheel.addEventListener("click",toClock);
 var rv=document.querySelectorAll(".rv");
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});[].forEach.call(rv,function(x){io.observe(x)})}else{[].forEach.call(rv,function(x){x.classList.add("in")})}
