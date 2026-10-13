@@ -251,7 +251,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-season:nth-of-type(even) .ks-row{flex-direction:row-reverse}
 .ks-season .ks-blob{flex-basis:40%}
 @media (max-width:700px){.ks-season .ks-row,.ks-season:nth-of-type(even) .ks-row{flex-direction:column}.ks-season .ks-blob{width:100%}.ks-plan{top:-14px;right:12px}}
-.ks-poem > .ks-intro{margin:10px auto 60px}
+.ks-season .ks-intro{margin:10px auto 34px;padding-top:30px;border-top:1px dashed var(--pc)}.ks-season .ks-intro .rv{opacity:1;transform:none}
 </style></head><body>
 
 <section class="ks-hero" id="ksHero" data-s="autumn">
@@ -380,7 +380,7 @@ function set(s){
  var target=-o.i*90,cur=((ang%360)+360)%360,t=((target%360)+360)%360,diff=t-cur;
  if(diff>180)diff-=360;if(diff<=-180)diff+=360;ang+=diff;
  wheel.style.transform="rotate("+ang+"deg)";
- var poem=function(){vtEl.textContent=o.vt;lnEl.innerHTML=o.po.map(function(l){return l?"<p>"+l+"</p>":'<p class="gap"></p>'}).join("");intro.classList.remove("fade")};
+ var poem=function(){var bx=document.getElementById("ksS-"+s);if(bx&&intro.parentNode!==bx)bx.appendChild(intro);vtEl.textContent=o.vt;lnEl.innerHTML=o.po.map(function(l){return l?"<p>"+l+"</p>":'<p class="gap"></p>'}).join("");intro.classList.remove("fade")};
  [].forEach.call(document.querySelectorAll(".ks-row"),function(r){r.className=r.getAttribute("data-s")===s?"ks-row on":"ks-row"});
  var hb=function(){var t=o.t.split("　");hub.children[0].textContent=t[0];hub.children[1].textContent=o.en;hub.children[2].textContent=t[1]||"";hub.children[3].textContent=t[0]+"のイベントを見る ↓";hub.classList.remove("fade")};
  if(first){first=0;poem();hb()}else{intro.classList.add("fade");setTimeout(poem,500);hub.classList.add("fade");setTimeout(hb,380)}
