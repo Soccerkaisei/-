@@ -262,7 +262,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-back{font:inherit;font-weight:900;font-size:15px;color:var(--ac);background:#fff;border:2px solid var(--pc);padding:10px 24px;border-radius:999px;cursor:pointer;box-shadow:0 8px 18px -12px rgba(43,59,66,.4)}
 .ks-back:hover{background:var(--pc);color:#fff}
 </style>
-<div class="ks-root" data-ver="1013ks30">
+<div class="ks-root" data-ver="1013ks31">
 <section class="ks-hero" id="ksHero" data-s="autumn">
   <div class="ks-bg"><i data-s="spring"></i><i data-s="summer"></i><i data-s="autumn"></i><i data-s="winter"></i></div>
   <h1>海外にいても、<br><em><span style="display:inline-block">日本の四季を、</span><span style="display:inline-block">ともだちと。</span></em></h1>
@@ -401,11 +401,12 @@ function set(s){
 [].forEach.call(document.querySelectorAll(".ks-tabs button,.ks-wb button"),function(b){b.addEventListener("click",function(){set(b.getAttribute("data-s"))})});
 set("autumn");
 var cur="autumn",SK=["spring","summer","autumn","winter"];
-function jump(){var r=document.getElementById("ksS-"+cur);if(!r)return;var h=document.querySelector(".l-header,#header");var off=(h&&getComputedStyle(h).position==="fixed"?h.offsetHeight:0)+20;window.scrollTo({top:r.getBoundingClientRect().top+window.pageYOffset-off+0,behavior:"smooth"})}
+function topOff(){var o=16,a=document.getElementById("wpadminbar");if(a&&getComputedStyle(a).position==="fixed")o+=a.offsetHeight;var f=document.querySelector(".l-fixHeader"),h=document.querySelector(".l-header"),hp=h?getComputedStyle(h).position:"";o+=Math.max(f?f.offsetHeight:0,(hp==="fixed"||hp==="sticky")?h.offsetHeight:0);return o}
+function jump(){var r=document.getElementById("ksS-"+cur);if(!r)return;var off=topOff();window.scrollTo({top:r.getBoundingClientRect().top+window.pageYOffset-off+0,behavior:"smooth"})}
 [].forEach.call(document.querySelectorAll(".ks-wb button"),function(b){b.addEventListener("click",function(){cur=b.getAttribute("data-s")})});
 wheel.addEventListener("click",function(e){var b=wheel.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),a=Math.atan2(dx,-dy)*180/Math.PI,k=SK[Math.round((((a-ang)%360)+360)%360/90)%4];if(k!==cur){cur=k;set(k)}});
 hub.addEventListener("click",jump);
-function toClock(){var t=document.getElementById("ksWb"),h=document.querySelector(".l-header,#header"),off=(h&&getComputedStyle(h).position==="fixed"?h.offsetHeight:0)+16;window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off,behavior:"smooth"})}
+function toClock(){var t=document.getElementById("ksWb"),off=topOff();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off,behavior:"smooth"})}
 [].forEach.call(document.querySelectorAll(".ks-back,.ks-wb button"),function(b){b.addEventListener("click",toClock)});
 wheel.addEventListener("click",toClock);
 var rv=document.querySelectorAll(".rv");
