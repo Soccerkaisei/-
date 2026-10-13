@@ -259,6 +259,28 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 h2.ks-yt::before,h2.ks-yt::after{display:none!important;content:none!important}
 h2.ks-yt small{color:#6b7b80!important}
 .ks-tx h3,.ks-album h3{color:#2b3b42!important}
+
+/* ===== 選んだ季節だけ表示＋縦軸カレンダー ===== */
+.ks-season{display:none}.ks-season.on{display:block;animation:ksIn .6s ease}
+.ks-poem .ks-yt{margin-top:70px}
+.ks-tg[data-s="spring"]{--ac:#c9577a;--pc:#f2a7bd}.ks-tg[data-s="summer"]{--ac:#3a5fb8;--pc:#8fb3ea}.ks-tg[data-s="autumn"]{--ac:#c4652a;--pc:#f0b37a}.ks-tg[data-s="winter"]{--ac:#4f6f96;--pc:#9fc3c0}
+.ks-tl{position:relative;max-width:760px;margin:26px auto 40px}
+.ks-tl::before{content:"";position:absolute;left:79px;top:10px;bottom:10px;width:3px;border-radius:3px;background:linear-gradient(#f2a7bd,#8fb3ea 35%,#f0b37a 65%,#9fc3c0)}
+.ks-tgh{display:flex;align-items:center;gap:10px;margin:22px 0 6px 58px;position:relative}
+.ks-tgh b{width:46px;height:46px;border-radius:50%;background:var(--pc);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;box-shadow:0 0 0 5px var(--bg,#fff)}
+.ks-tgh span{font-weight:900;color:var(--ac);font-size:14px}
+.ks-ti{display:flex;align-items:center;width:100%;text-align:left;font:inherit;border:0;background:none;padding:8px 0;cursor:pointer;color:inherit}
+.ks-ti .mo{flex:0 0 62px;text-align:right;font-weight:900;color:var(--ac);font-size:18px}
+.ks-ti .dt{flex:0 0 14px;height:14px;margin:0 11px;border-radius:50%;background:#fff;border:3px solid var(--pc);position:relative;z-index:1}
+.ks-ti .bd{flex:1;min-width:0;background:rgba(255,255,255,.75);border-radius:14px;padding:12px 16px;margin-right:10px;transition:background .2s,transform .2s}
+.ks-ti:hover .bd{background:#fff;transform:translateX(3px)}
+.ks-ti .bd b{display:block;font-size:17px;font-weight:900;color:#2b3b42}
+.ks-ti .bd small{display:block;font-size:13px;color:#5b6b70;margin-top:2px;line-height:1.6}
+.ks-ti .ph{display:flex;flex:0 0 128px;justify-content:flex-start}
+.ks-ti .ph i{width:76px;height:60px;border-radius:10px;background:#ddd center/cover no-repeat;box-shadow:0 6px 14px -8px rgba(0,0,0,.4);border:3px solid #fff}
+.ks-ti .ph i+i{margin-left:-22px;transform:rotate(5deg)}
+.ks-ti .ph i:first-child{transform:rotate(-4deg)}
+@media (max-width:600px){.ks-tl::before{left:47px}.ks-tgh{margin-left:26px}.ks-tgh b{width:42px;height:42px;font-size:20px}.ks-ti .mo{flex-basis:34px;font-size:14px}.ks-ti .dt{margin:0 6px}.ks-ti .bd{padding:10px 12px;margin-right:6px}.ks-ti .bd b{font-size:15px}.ks-ti .bd small{font-size:12px}.ks-ti .ph i{width:54px;height:46px}.ks-ti .ph i+i{display:none}.ks-ti .ph{flex-basis:56px}}
 </style></head><body>
 <div class="ks-mock">見本</div>
 
@@ -293,7 +315,6 @@ h2.ks-yt small{color:#6b7b80!important}
     <div class="ks-vt rv" id="ksVt"></div>
     <div class="ks-lines rv" id="ksLines"></div>
   </div>
-  <h2 class="ks-yt">1年の季節イベント<small>開校後に予定しているイベントです（内容・時期は変わることがあります）</small></h2>
 <div class="ks-season" id="ksS-spring" data-s="spring">
   <div class="ks-sh"><div class="ks-kj"><small>3月〜5月</small><b>春</b></div><dl class="ks-ml"><dt>3月</dt><dd>ひなまつり</dd><dt>4月</dt><dd>お花見</dd></dl></div>
   <div class="ks-row" data-s="spring">
@@ -354,16 +375,24 @@ h2.ks-yt small{color:#6b7b80!important}
   </div>
   <div class="ks-backw"><button type="button" class="ks-back">↑ ほかの季節を見る</button></div>
 </div>
-  <div class="ks-album rv">
-    <h3>季節のなかで、出会えることば</h3>
-    <p>開校後に予定しているイベントです。（内容・時期は変わることがあります）</p>
-    <div class="ks-al">
-      <figure><b style="background-image:url(img/ks-yatai.webp)"></b><figcaption>やたい<small>夏祭り</small></figcaption></figure>
-      <figure><b style="background-image:url(img/ks-momiji.webp)"></b><figcaption>もみじ<small>紅葉</small></figcaption></figure>
-      <figure><b style="background-image:url(img/ks-osechi.webp)"></b><figcaption>おせち<small>お正月</small></figcaption></figure>
-      <figure><b style="background-image:url(img/ks-ema.webp)"></b><figcaption>えま<small>初もうで</small></figcaption></figure>
-    </div>
+  <h2 class="ks-yt">1年の季節イベント<small>開校後に予定しているイベントです（内容・時期は変わることがあります）</small></h2>
+<div class="ks-tl">
+  <div class="ks-tg" data-s="spring"><div class="ks-tgh"><b>春</b><span>3月〜5月</span></div>
+    <button type="button" class="ks-ti" data-s="spring"><span class="mo">3月</span><span class="dt"></span><span class="bd"><b>ひなまつり</b><small>ひな人形のことや、ひなまつりの歌を知ろう</small></span><span class="ph"><i style="background-image:url(img/ks-hina.webp)"></i></span></button>
+    <button type="button" class="ks-ti" data-s="spring"><span class="mo">4月</span><span class="dt"></span><span class="bd"><b>お花見</b><small>メタバース校舎の中庭で、桜を見ながらおしゃべり</small></span><span class="ph"><i style="background-image:url(img/ks-hanami.webp)"></i></span></button>
   </div>
+  <div class="ks-tg" data-s="summer"><div class="ks-tgh"><b>夏</b><span>6月〜8月</span></div>
+    <button type="button" class="ks-ti" data-s="summer"><span class="mo">7月</span><span class="dt"></span><span class="bd"><b>七夕</b><small>みんなのねがいを短冊に書いて、かざろう</small></span><span class="ph"></span></button>
+    <button type="button" class="ks-ti" data-s="summer"><span class="mo">8月</span><span class="dt"></span><span class="bd"><b>夏祭り・花火</b><small>ゆかたのアバターで屋台めぐり。夜空の花火を見上げよう</small></span><span class="ph"><i style="background-image:url(img/ks-hanabi.webp)"></i><i style="background-image:url(img/ks-yatai.webp)"></i></span></button>
+  </div>
+  <div class="ks-tg" data-s="autumn"><div class="ks-tgh"><b>秋</b><span>9月〜11月</span></div>
+    <button type="button" class="ks-ti" data-s="autumn"><span class="mo">9月</span><span class="dt"></span><span class="bd"><b>お月見</b><small>同じ時間に、お月見団子をいっしょにつくろう</small></span><span class="ph"></span></button>
+    <button type="button" class="ks-ti" data-s="autumn"><span class="mo">11月</span><span class="dt"></span><span class="bd"><b>紅葉</b><small>もみじやいちょうの色を、ことばにしてみよう</small></span><span class="ph"><i style="background-image:url(img/ks-momiji.webp)"></i><i style="background-image:url(img/ks-icho.webp)"></i></span></button>
+  </div>
+  <div class="ks-tg" data-s="winter"><div class="ks-tgh"><b>冬</b><span>12月〜2月</span></div>
+    <button type="button" class="ks-ti" data-s="winter"><span class="mo">1月</span><span class="dt"></span><span class="bd"><b>お正月</b><small>書き初めで今年の目標を。おせちや初もうでのことも</small></span><span class="ph"><i style="background-image:url(img/ks-osechi.webp)"></i><i style="background-image:url(img/ks-ema.webp)"></i></span></button>
+  </div>
+</div>
 </section>
 
 <section class="ks-end">
@@ -393,6 +422,7 @@ function set(s){
  if(diff>180)diff-=360;if(diff<=-180)diff+=360;ang+=diff;
  wheel.style.transform="rotate("+ang+"deg)";
  var poem=function(){var bx=document.getElementById("ksS-"+s);if(bx&&intro.parentNode!==bx)bx.insertBefore(intro,bx.querySelector(".ks-backw"));vtEl.textContent=o.vt;lnEl.innerHTML=o.po.map(function(l){return l?"<p>"+l+"</p>":'<p class="gap"></p>'}).join("");intro.classList.remove("fade")};
+ [].forEach.call(document.querySelectorAll(".ks-season"),function(x){x.classList.toggle("on",x.getAttribute("data-s")===s)});
  [].forEach.call(document.querySelectorAll(".ks-row"),function(r){r.className=r.getAttribute("data-s")===s?"ks-row on":"ks-row"});
  var hb=function(){var t=o.t.split("　");hub.children[0].textContent=t[0];hub.children[1].textContent=o.en;hub.children[2].textContent=t[1]||"";hub.children[3].textContent=t[0]+"のイベントを見る ↓";hub.classList.remove("fade")};
  if(first){first=0;poem();hb()}else{intro.classList.add("fade");setTimeout(poem,500);hub.classList.add("fade");setTimeout(hb,380)}
@@ -408,6 +438,7 @@ hub.addEventListener("click",jump);
 function toClock(){var t=document.getElementById("ksWb"),off=topOff();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-off,behavior:"smooth"})}
 [].forEach.call(document.querySelectorAll(".ks-back,.ks-wb button"),function(b){b.addEventListener("click",toClock)});
 wheel.addEventListener("click",toClock);
+[].forEach.call(document.querySelectorAll(".ks-ti"),function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-s");if(k!==cur){cur=k;set(k)}toClock()})});
 var rv=document.querySelectorAll(".rv");
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});[].forEach.call(rv,function(x){io.observe(x)})}else{[].forEach.call(rv,function(x){x.classList.add("in")})}
 })();
