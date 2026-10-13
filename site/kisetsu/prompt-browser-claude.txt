@@ -1,9 +1,9 @@
 ともだちじゃぱん（https://tomodachi-japan.nijin.co.jp）のWordPressで、新しい固定ページを「下書き」で作ってください。公開はしないでください。
 
 【1】コードを取得する
-次のURLを開いて、表示されたテキストを最初から最後まで全部コピーしてください（108行あります）。
+次のURLを開いて、表示されたテキストを最初から最後まで全部コピーしてください（112行あります）。
 https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/kisetsu/kisetsu-codeeditor.txt
-※中に data-ver="1013ks28" という文字があるのが最新版です。無ければ5分ほど待って再読み込みしてください。
+※中に data-ver="1013ks29" という文字があるのが最新版です。無ければ5分ほど待って再読み込みしてください。
 
 【2】固定ページを新規作成する
 ・管理画面 →「固定ページ」→「新規追加」
