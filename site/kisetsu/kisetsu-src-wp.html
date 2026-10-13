@@ -389,7 +389,7 @@ function set(s){
 set("autumn");
 var cur="autumn",SK=["spring","summer","autumn","winter"];
 function jump(){var r=document.getElementById("ksS-"+cur);if(!r)return;var h=document.querySelector(".l-header,#header");var off=(h&&getComputedStyle(h).position==="fixed"?h.offsetHeight:0)+20;window.scrollTo({top:r.getBoundingClientRect().top+window.pageYOffset-off+0,behavior:"smooth"})}
-[].forEach.call(document.querySelectorAll(".ks-wb button"),function(b){b.addEventListener("click",function(){cur=b.getAttribute("data-s")})});
+[].forEach.call(document.querySelectorAll(".ks-wb button"),function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-s"),d=k===cur?0:1000;cur=k;setTimeout(jump,d)})});
 wheel.addEventListener("click",function(e){var b=wheel.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),a=Math.atan2(dx,-dy)*180/Math.PI,k=SK[Math.round((((a-ang)%360)+360)%360/90)%4];if(k===cur){jump()}else{cur=k;set(k);setTimeout(jump,1000)}});
 hub.addEventListener("click",jump);
 var rv=document.querySelectorAll(".rv");
