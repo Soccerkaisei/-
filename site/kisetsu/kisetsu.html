@@ -147,7 +147,8 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-edge path{fill:var(--bg);transition:fill 1.2s}
 .ks-ws h2{color:var(--ac)!important;transition:color 1.2s}
 .ks-poem{max-width:1040px;margin:0 auto;padding:30px 24px 40px}
-.ks-intro{display:flex;justify-content:center;gap:56px;align-items:flex-start;margin:20px auto 40px}
+.ks-intro{display:flex;justify-content:center;gap:56px;align-items:flex-start;margin:110px auto 40px;transition:opacity .5s}
+.ks-intro.fade{opacity:0}
 .ks-vt{writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-weight:800;font-size:30px;letter-spacing:.35em;color:var(--ac);transition:color 1.2s;white-space:nowrap}
 .ks-lines p{font-size:17px;line-height:2.5;color:#3b4a50;letter-spacing:.06em}
 .ks-lines p.gap{height:1.2em}
@@ -177,7 +178,7 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .rv.in{opacity:1;transform:none}
 @media (max-width:700px){.ks-intro{gap:18px}.ks-vt{font-size:20px}.ks-lines p{font-size:13.5px;line-height:2.3;letter-spacing:.02em}.ks-row,.ks-row.rev{flex-direction:column;gap:26px;margin:64px 0}.ks-blob{flex:none;width:88%}.ks-al{flex-wrap:wrap;gap:6%;row-gap:22px}.ks-al figure{flex:0 0 40%}}
 </style>
-<div class="ks-root" data-ver="1013ks11">
+<div class="ks-root" data-ver="1013ks12">
 <section class="ks-hero" id="ksHero" data-s="autumn">
   <div class="ks-bg"><i data-s="spring"></i><i data-s="summer"></i><i data-s="autumn"></i><i data-s="winter"></i></div>
   <h1>海外にいても、<br><em><span style="display:inline-block">日本の四季を、</span><span style="display:inline-block">ともだちと。</span></em></h1>
@@ -204,24 +205,6 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 </section>
 
 <section class="ks-poem">
-  <div class="ks-intro">
-    <div class="ks-vt rv">日本の四季を、ともだちと。</div>
-    <div class="ks-lines rv">
-      <p>「日本の季節」と言われたら、</p>
-      <p>何を思い浮かべますか？</p>
-      <p class="gap"></p>
-      <p>桜？　花火？　紅葉？　雪？</p>
-      <p class="gap"></p>
-      <p>海外に住んでいると、</p>
-      <p>それは少し、遠い景色かもしれません。</p>
-      <p class="gap"></p>
-      <p>でも、画面のむこうには、</p>
-      <p>同じ季節を楽しむ、ともだちがいます。</p>
-      <p class="gap"></p>
-      <p>ことばも、季節も。</p>
-      <p>ともだちと一緒なら、もっと近くなる。</p>
-    </div>
-  </div>
   <div class="ks-row">
     <div class="ks-blob rv" style="background-image:url(/wp-content/uploads/2026/10/ks-hanami.webp)"></div>
     <div class="ks-tx rv">
@@ -262,6 +245,10 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
       <span class="ks-when">1月ごろ</span>
     </div>
   </div>
+  <div class="ks-intro" id="ksIntro">
+    <div class="ks-vt rv" id="ksVt"></div>
+    <div class="ks-lines rv" id="ksLines"></div>
+  </div>
   <div class="ks-album rv">
     <h3>季節のなかで、出会えることば</h3>
     <p>開校後に予定しているイベントです。（内容・時期は変わることがあります）</p>
@@ -284,13 +271,13 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 <script>
 (function(){
 var S={
- spring:{i:0,sub:"春は、桜の下でお花見しよう。",t:"春　お花見",p:"メタバース校舎の中庭に、桜が咲きます。ともだちと桜を見ながら、春のことばをたくさん使ってみよう。",w:["さくら","おはなみ","はるかぜ"]},
- summer:{i:1,sub:"夏は、夏祭りで花火を見よう。",t:"夏　夏祭り・花火",p:"メタバース校舎で夏祭り。ゆかたのアバターで屋台をまわって、夜空にあがる花火をともだちと見上げよう。",w:["なつまつり","はなび","ゆかた","やたい"]},
- autumn:{i:2,sub:"秋は、お月見団子をいっしょにつくろう。",t:"秋　お月見・紅葉",p:"同じ時間にお月見団子づくり。住んでいる国はちがっても、見上げる月はおなじです。もみじやいちょうの色も、ことばにしてみよう。",w:["おつきみ","まんげつ","もみじ","いちょう"]},
- winter:{i:3,sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おせち","えま"]}
+ spring:{i:0,sub:"春は、桜の下でお花見しよう。",t:"春　お花見",p:"メタバース校舎の中庭に、桜が咲きます。ともだちと桜を見ながら、春のことばをたくさん使ってみよう。",w:["さくら","おはなみ","はるかぜ"],vt:"春を、ともだちと。",po:["「春」と聞いたら、","何を思い浮かべますか？","","桜？　お花見？　新しい教室？","","海外に住んでいると、","日本の春は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ桜を見上げる、","ともだちがいます。","","「きれいだね」を、","日本語で言い合える春。"]},
+ summer:{i:1,sub:"夏は、夏祭りで花火を見よう。",t:"夏　夏祭り・花火",p:"メタバース校舎で夏祭り。ゆかたのアバターで屋台をまわって、夜空にあがる花火をともだちと見上げよう。",w:["なつまつり","はなび","ゆかた","やたい"],vt:"夏を、ともだちと。",po:["「夏」と聞いたら、","何を思い浮かべますか？","","花火？　屋台？　ゆかた？","","海外に住んでいると、","日本の夏祭りは、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ花火を見上げる、","ともだちがいます。","","「たーまやー！」を、","一緒に言える夏。"]},
+ autumn:{i:2,sub:"秋は、お月見団子をいっしょにつくろう。",t:"秋　お月見・紅葉",p:"同じ時間にお月見団子づくり。住んでいる国はちがっても、見上げる月はおなじです。もみじやいちょうの色も、ことばにしてみよう。",w:["おつきみ","まんげつ","もみじ","いちょう"],vt:"秋を、ともだちと。",po:["「秋」と聞いたら、","何を思い浮かべますか？","","お月見？　もみじ？　いちょう？","","海外に住んでいると、","日本の秋は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ月を見上げる、","ともだちがいます。","","「まんまるだね」を、","日本語で言い合える秋。"]},
+ winter:{i:3,sub:"冬は、お正月に書き初めをしよう。",t:"冬　お正月",p:"新しい年のはじまりに、今年の目標を日本語で書いてみよう。「あけましておめでとう」を、ともだちと。",w:["おしょうがつ","かきぞめ","おせち","えま"],vt:"冬を、ともだちと。",po:["「冬」と聞いたら、","何を思い浮かべますか？","","雪？　おせち？　書き初め？","","海外に住んでいると、","日本のお正月は、","少し遠い景色かもしれません。","","でも、画面のむこうには、","同じ新しい年をむかえる、","ともだちがいます。","","「あけましておめでとう」を、","言い合える冬。"]}
 };
 var hero=document.getElementById("ksHero"),sub=document.getElementById("ksSub"),
- wheel=document.getElementById("ksWheel"),wt=document.getElementById("ksWt"),ang=0,first=1;
+ wheel=document.getElementById("ksWheel"),intro=document.getElementById("ksIntro"),vtEl=document.getElementById("ksVt"),lnEl=document.getElementById("ksLines"),wt=document.getElementById("ksWt"),ang=0,first=1;
 function words(a){return '<div class="ks-words"><span class="k">出会えることば</span>'+a.map(function(x){return "<span>"+x+"</span>"}).join("")+"</div>"}
 function set(s){
  var o=S[s];
@@ -301,7 +288,8 @@ function set(s){
  if(diff>180)diff-=360;if(diff<=-180)diff+=360;ang+=diff;
  wheel.style.transform="rotate("+ang+"deg)";
  var fill=function(){wt.innerHTML="<h3>"+o.t+"</h3><p>"+o.p+"</p>"+words(o.w);wt.classList.remove("fade")};
- if(first){first=0;fill()}else{wt.classList.add("fade");setTimeout(fill,450)}
+ var poem=function(){vtEl.textContent=o.vt;lnEl.innerHTML=o.po.map(function(l){return l?"<p>"+l+"</p>":'<p class="gap"></p>'}).join("");intro.classList.remove("fade")};
+ if(first){first=0;fill();poem()}else{wt.classList.add("fade");intro.classList.add("fade");setTimeout(fill,450);setTimeout(poem,500)}
 }
 [].forEach.call(document.querySelectorAll(".ks-tabs button,.ks-wb button"),function(b){b.addEventListener("click",function(){set(b.getAttribute("data-s"))})});
 set("autumn");
