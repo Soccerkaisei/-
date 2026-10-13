@@ -220,7 +220,9 @@ body[data-ks],.ks-root[data-ks]{background:var(--bg)!important;transition:backgr
 .ks-hb span{display:inline-block;background:var(--ac,#f0655a);color:#fff;text-shadow:none;padding:3px 12px;border-radius:999px;margin-right:8px;font-size:12px;letter-spacing:.06em;transition:background 1.2s}
 .ks-hero .ks-wb{position:relative;margin-bottom:10px;background:rgba(255,255,255,.95)}
 .ks-hwin{--d:min(600px,150vw)!important;width:auto;align-self:stretch;margin-left:-16px!important;margin-right:-16px!important;max-width:none!important;margin-bottom:0!important;z-index:2}
-.ks-hero .ks-edge{z-index:1}
+.ks-hero .ks-edge{z-index:3;pointer-events:none}
+.ks-hwin{height:calc(var(--d) * .5 + 64px)!important}
+.ks-hwin .ks-hub{height:calc(var(--d) * .18 + 50px)}
 .ks-ws{padding-top:34px!important}
 @media (max-width:560px){.ks-hb span{display:table;margin:0 auto 6px}.ks-hero .ks-wb button{padding:8px 16px}}
 </style></head><body>
