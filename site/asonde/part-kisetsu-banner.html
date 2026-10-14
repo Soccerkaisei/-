@@ -1,0 +1,29 @@
+<!-- あそんでみよう：季節のイベントページへのバナー（ゲームカード一覧の下、「保護者の方へ」の上に入れる） -->
+<a class="tjk-banner" href="/kisetsu/">
+  <span class="tjk-pics">
+    <i style="background-image:url(/wp-content/uploads/2026/10/ks-hina.webp)"></i>
+    <i style="background-image:url(/wp-content/uploads/2026/10/ks-tanabata.webp)"></i>
+    <i style="background-image:url(/wp-content/uploads/2026/10/ks-tsukimi.webp)"></i>
+    <i style="background-image:url(/wp-content/uploads/2026/10/ks-setsubun.webp)"></i>
+  </span>
+  <span class="tjk-tx">
+    <span class="tjk-eng">Seasons in Japan</span>
+    <b class="tjk-ttl"><span class="nw">日本の四季を、</span><span class="nw">ともだちと。</span></b>
+    <span class="tjk-p"><span class="nw">ひなまつり、七夕、お月見、節分…。</span><span class="nw">メタバース校舎で開校後に予定している、</span><span class="nw">1年の季節イベントを見てみよう。</span></span>
+    <span class="tjk-btn">季節のカレンダーを見る →</span>
+  </span>
+</a>
+<style>
+.tjk-banner{display:flex;align-items:center;gap:28px;max-width:960px;margin:36px auto 8px;padding:18px;background:#fff;border-radius:22px;box-shadow:0 14px 34px -18px rgba(43,59,66,.35);text-decoration:none!important;color:#2b3b42;transition:transform .2s,box-shadow .2s;box-sizing:border-box}
+.tjk-banner:hover{transform:translateY(-3px);box-shadow:0 20px 40px -18px rgba(43,59,66,.45)}
+.tjk-pics{flex:0 0 46%;display:grid;grid-template-columns:1fr 1fr;gap:6px;aspect-ratio:16/10}
+.tjk-pics i{border-radius:12px;background:#ddd center/cover no-repeat}
+.tjk-pics i:nth-child(1){border-top-left-radius:18px}.tjk-pics i:nth-child(2){border-top-right-radius:18px}.tjk-pics i:nth-child(3){border-bottom-left-radius:18px}.tjk-pics i:nth-child(4){border-bottom-right-radius:18px}
+.tjk-tx{flex:1;display:block}
+.tjk-eng{display:block;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#c4652a;font-weight:700}
+.tjk-ttl{display:block;font-size:clamp(22px,3vw,28px);font-weight:900;line-height:1.4;margin:6px 0 8px;color:#2b3b42}
+.tjk-p{display:block;font-size:14px;line-height:1.9;color:#586a70}
+.tjk-btn{display:inline-block;margin-top:14px;background:#e2843a;color:#fff;font-weight:900;font-size:15px;padding:10px 22px;border-radius:999px}
+.tjk-banner .nw{display:inline-block}
+@media (max-width:700px){.tjk-banner{flex-direction:column;align-items:stretch;gap:16px;margin:28px 16px 4px;padding:14px}.tjk-pics{flex:none}.tjk-tx{text-align:center}}
+</style>
