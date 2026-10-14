@@ -41,19 +41,19 @@ function buildReport() {
     if (r[4] > 0) row([r[0], r[1], r[4], cat_(r[0])]);
   });
 
-  // あそんでみよう（28日）
+  // あそんでみよう＋季節のイベント（28日）
   var asonde = {};
   values_('signup_pages_28d').slice(1).forEach(function (r) {
     var p = norm_(r[1]);
-    if (!/^\/asonde/.test(p)) return;
+    if (!/^\/(asonde|kisetsu)/.test(p)) return;
     var x = asonde[p] || (asonde[p] = { views: 0, users: 0, sessions: 0 });
     if (r[0] === 'page_view') { x.views += r[2]; x.users += r[3]; }
   });
   values_('landing_28d').slice(1).forEach(function (r) {
     var p = norm_(r[0]);
-    if (/^\/asonde/.test(p)) (asonde[p] || (asonde[p] = { views: 0, users: 0, sessions: 0 })).sessions += r[1];
+    if (/^\/(asonde|kisetsu)/.test(p)) (asonde[p] || (asonde[p] = { views: 0, users: 0, sessions: 0 })).sessions += r[1];
   });
-  section('あそんでみよう（GA4・28日）');
+  section('あそんでみよう・季節のイベント（GA4・28日）');
   row(['page', 'page_views', 'users', '入口になった回数']);
   Object.keys(asonde).sort(function (a, b) { return asonde[b].views - asonde[a].views; })
     .forEach(function (p) { row([p, asonde[p].views, asonde[p].users, asonde[p].sessions]); });
