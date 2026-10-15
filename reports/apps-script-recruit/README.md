@@ -21,7 +21,12 @@
 5. 保存して、関数「listGa4Properties」を選んで「実行」→ 許可
    - 実行ログに GA4 のプロパティが並ぶので、nijin.co.jp のものの数字をコピー
 6. `1_main.gs` の `GA4_PROPERTY_ID = ''` の '' の中に、その数字を入れて保存
-7. 関数「firstRun」を選んで「実行」
+7. 検索の数字は、アドオンで取り込む（Search Console の API は使いません）
+   - 「拡張機能」→「アドオン」→「アドオンを取得」→「Search Analytics for Sheets」をインストール
+   - 「拡張機能」→「Search Analytics for Sheets」→「Open Sidebar」→「Backups」タブ
+   - Verified Site：sc-domain:nijin.co.jp ／ Group By：Date, Query, Page ／ Filter：Page contains nijin.co.jp/recruit/
+   - 「Enable Backup」を押す（数字の入ったシートが自動でできます）
+8. 関数「firstRun」を選んで「実行」
    - 「日報」シートができれば完了。以降は毎朝6時台に自動で更新されます
 
 ## 毎週やること
@@ -30,7 +35,7 @@
 
 ## 注意
 - 使うGoogleアカウントに、採用サイトのGA4と Search Console（nijin.co.jp）の閲覧権限が必要です
-- Search Console の数字は2〜3日遅れて確定するので、2日前までの28日分を使っています
+- 検索の数字は、アドオンが書き込んだ最新日までの28日分を使っています（Search Console は2〜3日遅れて確定します）
 - 応募ボタンのクリックは、GA4の「拡張計測機能」の外部リンククリックを使っています。0のままなら、GA4の管理 → データストリーム → 拡張計測機能で「離脱クリック」がオンか確認してください
 - `SLACK_WEBHOOK_URL` に Slack の Incoming Webhook のURLを入れると、日報が毎朝 Slack にも届きます
 - 動いた記録は「_log」シートに残ります

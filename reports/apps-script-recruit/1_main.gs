@@ -102,47 +102,59 @@ function and_(xs) { return { andGroup: { expressions: xs } }; }
 function fmtDate_(s) { return s.slice(0, 4) + '-' + s.slice(4, 6) + '-' + s.slice(6, 8); }
 
 // ---------------- Search Console ----------------
+// アドオン「Search Analytics for Sheets」の Backups が毎日書き込むシートを読みます
+// （Backups の設定：Group By = Date, Query, Page ／ Filter = Page contains nijin.co.jp/recruit/）
 
 function updateSearchConsole() {
-  var site = 'sc-domain:' + HOST;
-  var end = daysAgo_(2);   // Search Console は2〜3日遅れて確定するので、2日前までを使う
-  var start = daysAgo_(29);
-  var filter = [{ filters: [{ dimension: 'page', operator: 'contains', expression: HOST + PATH_PREFIX }] }];
-  var q = gscQuery_(site, ['query'], start, end, filter);
-  writeSheet_('gsc_query_28d', ['query', 'clicks', 'impressions', 'ctr', 'position'], q);
-  writeSheet_('gsc_page_28d', ['page', 'clicks', 'impressions', 'ctr', 'position'],
-    gscQuery_(site, ['page'], start, end, filter));
+  var rows = loadSasRows_();
+  if (!rows.length) throw new Error('Search Analytics for Sheets のシートが見つかりません。アドオンの Backups を設定してください');
+  var maxDate = rows.reduce(function (m, r) { return r.date > m ? r.date : m; }, '');
+  var start = Utilities.formatDate(new Date(new Date(maxDate).getTime() - 27 * 864e5), 'UTC', 'yyyy-MM-dd');
+  var q = {}, p = {};
+  rows.forEach(function (r) {
+    if (r.date < start || r.date > maxDate) return;
+    if (r.page.indexOf(HOST + PATH_PREFIX) === -1) return;
+    add_(q, r.query, r); add_(p, r.page, r);
+  });
+  function toRows(m) {
+    return Object.keys(m).map(function (k) { var x = m[k]; return [k, x.c, x.i, x.i ? Math.round(x.c / x.i * 1000) / 10 : 0, x.i ? Math.round(x.p / x.i * 10) / 10 : 0]; })
+      .sort(function (a, b) { return b[1] - a[1] || b[2] - a[2]; });
+  }
+  var qr = toRows(q);
+  writeSheet_('gsc_query_28d', ['query', 'clicks', 'impressions', 'ctr', 'position'], qr);
+  writeSheet_('gsc_page_28d', ['page', 'clicks', 'impressions', 'ctr', 'position'], toRows(p));
 
   // 順位帯ごとの検索語の数を、毎日1行ずつ記録（推移を見るため）
   var a = 0, b = 0, c = 0, clicks = 0, imp = 0;
-  q.forEach(function (r) {
+  qr.forEach(function (r) {
     clicks += r[1]; imp += r[2];
     if (r[4] <= 3) a++; else if (r[4] <= 20) b++; else if (r[4] <= 100) c++;
   });
-  appendHistory_([daysAgo_(0), start + '〜' + end, a, b, c, clicks, imp]);
+  appendHistory_([daysAgo_(0), start + '〜' + maxDate, a, b, c, clicks, imp]);
 }
 
-function gscQuery_(site, dims, start, end, filterGroups) {
-  var url = 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent(site) + '/searchAnalytics/query';
-  var rows = [], startRow = 0, rowLimit = 25000;
-  while (true) {
-    var res = gscFetch_(url, { startDate: start, endDate: end, dimensions: dims, rowLimit: rowLimit, startRow: startRow, dimensionFilterGroups: filterGroups });
-    var batch = res.rows || [];
-    batch.forEach(function (r) { rows.push(r.keys.concat([r.clicks, r.impressions, Math.round(r.ctr * 1000) / 10, Math.round(r.position * 10) / 10])); });
-    if (batch.length < rowLimit) break;
-    startRow += rowLimit;
-  }
-  rows.sort(function (x, y) { return y[1] - x[1] || y[2] - x[2]; });
+// アドオンが作ったシート（見出しに Date / Query / Page / Clicks / Impressions / Position があるもの）を全部読む
+function loadSasRows_() {
+  var rows = [], seen = {};
+  SpreadsheetApp.getActiveSpreadsheet().getSheets().forEach(function (s) {
+    var v = s.getDataRange().getValues();
+    if (v.length < 2) return;
+    var h = v[0].map(String);
+    var c = { d: h.indexOf('Date'), q: h.indexOf('Query'), p: h.indexOf('Page'), cl: h.indexOf('Clicks'), im: h.indexOf('Impressions'), po: h.indexOf('Position') };
+    if (c.d < 0 || c.q < 0 || c.p < 0 || c.im < 0) return;
+    v.slice(1).forEach(function (r) {
+      var key = d_(r[c.d]) + '|' + r[c.q] + '|' + r[c.p];
+      if (seen[key]) return;
+      seen[key] = true;
+      rows.push({ date: d_(r[c.d]), query: String(r[c.q]), page: String(r[c.p]), clicks: +r[c.cl] || 0, imp: +r[c.im] || 0, pos: +r[c.po] || 0 });
+    });
+  });
   return rows;
 }
 
-function gscFetch_(url, body) {
-  var res = UrlFetchApp.fetch(url, {
-    method: 'post', contentType: 'application/json', payload: JSON.stringify(body),
-    headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() }, muteHttpExceptions: true
-  });
-  if (res.getResponseCode() !== 200) throw new Error('Search Console API ' + res.getResponseCode() + ': ' + res.getContentText().slice(0, 300));
-  return JSON.parse(res.getContentText());
+function add_(m, k, r) {
+  var x = m[k] || (m[k] = { c: 0, i: 0, p: 0 });
+  x.c += r.clicks; x.i += r.imp; x.p += r.pos * r.imp;
 }
 
 function appendHistory_(row) {
