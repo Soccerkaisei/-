@@ -1,0 +1,123 @@
+<title>11月 秋のショート動画</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
+<style>
+/* Layout: phone-shaped player on the left, post copy beside it; stacks to one column on phones */
+:root{
+  --bg:#fbf1e4; --surface:#fffaf3; --fg:#2b3b42; --muted:#6b7b80;
+  --accent:#c4652a; --red:#d9472b; --gold:#e9b31c; --line:#ecd9c3;
+  --display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  --body:"Zen Maru Gothic","Hiragino Sans","Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1f1a16; --surface:#2a231d; --fg:#f3e9dc; --muted:#b9a99a;
+  --accent:#f0a060; --red:#f07a5e; --gold:#f2c94c; --line:#43372c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1f1a16; --surface:#2a231d; --fg:#f3e9dc; --muted:#b9a99a;
+  --accent:#f0a060; --red:#f07a5e; --gold:#f2c94c; --line:#43372c; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.75}
+.wrap{max-width:980px;margin:0 auto;padding-block:32px 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:grid;gap:4px;margin-bottom:24px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(26px,5vw,38px);line-height:1.3;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:760px){.grid{grid-template-columns:minmax(0,1fr)}}
+.player{display:grid;gap:12px;justify-items:center}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.tabs button{font:inherit;font-weight:700;font-size:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);
+  padding:6px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.tabs button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+video{width:100%;max-width:360px;aspect-ratio:9/16;border-radius:22px;background:#000;display:block;
+  box-shadow:0 14px 40px rgba(120,60,20,.22)}
+.cut{font-size:13px;color:var(--muted);text-align:center;margin:0}
+section{display:grid;gap:10px;margin-bottom:28px}
+h2{font-family:var(--display);font-size:18px;font-weight:900;margin:0;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.copy{font:inherit;font-size:13px;font-weight:700;color:var(--accent);background:none;border:1.5px solid var(--accent);border-radius:999px;padding:3px 12px;cursor:pointer}
+.copy:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;white-space:pre-wrap;margin:0;font:inherit;overflow-wrap:anywhere}
+.box .en{color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:12.5px;letter-spacing:.06em}
+td.t{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700;color:var(--accent)}
+.split td{border-bottom:2px solid var(--red)}
+.note{font-size:13px;color:var(--muted);margin:0}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">ともだちじゃぱん ・ 季節のショート動画</span>
+    <h1>11月の日本は、紅葉の季節</h1>
+    <p class="sub">Instagramストーリーズ／YouTubeショート／TikTok用　1080×1920・30秒</p>
+  </header>
+
+  <div class="grid">
+    <div class="player">
+      <div class="tabs" role="group" aria-label="動画をえらぶ">
+        <button id="t-main" aria-pressed="true" data-src="kisetsu-2026-11.mp4" data-cut="本編 0:00〜0:30">本編 30秒</button>
+        <button id="t-s1" aria-pressed="false" data-src="kisetsu-2026-11-story1.mp4" data-cut="ストーリーズ1本目 0:00〜0:15">ストーリーズ①</button>
+        <button id="t-s2" aria-pressed="false" data-src="kisetsu-2026-11-story2.mp4" data-cut="ストーリーズ2本目 0:15〜0:30（リンクスタンプはこちらに）">ストーリーズ②</button>
+      </div>
+      <video id="v" src="kisetsu-2026-11.mp4" poster="still-1-hook.jpg" controls playsinline preload="metadata"></video>
+      <p class="cut" id="cut">本編 0:00〜0:30</p>
+    </div>
+
+    <div>
+      <section>
+        <h2>シーン構成</h2>
+        <table>
+          <thead><tr><th>時間</th><th>シーン</th><th>文字</th></tr></thead>
+          <tbody>
+            <tr><td class="t">0–4秒</td><td>つかみ</td><td>11月の日本は、紅葉の季節🍁</td></tr>
+            <tr><td class="t">4–9秒</td><td>日本の秋</td><td>赤いもみじ、黄色いいちょう。七五三のお祝いも。</td></tr>
+            <tr class="split"><td class="t">9–15秒</td><td>季節のことば</td><td>こんな“秋のことば”、知ってる？</td></tr>
+            <tr><td class="t">15–20秒</td><td>メタバース</td><td>メタバースの校舎でも、秋を感じよう（※イメージ）</td></tr>
+            <tr><td class="t">20–25秒</td><td>イベント</td><td>開校後は、ともだちと秋のイベントを予定しています</td></tr>
+            <tr><td class="t">25–30秒</td><td>しめ</td><td>海外にいても、日本の四季を、ともだちと。</td></tr>
+          </tbody>
+        </table>
+        <p class="note">赤い線の位置（15秒）でストーリーズを2本に分けています。</p>
+      </section>
+
+      <section>
+        <h2>投稿キャプション <button class="copy" id="c-cap" data-target="cap">コピー</button></h2>
+        <pre class="box" id="cap">11月の日本は、紅葉の季節🍁
+赤いもみじ、黄色いいちょう、七五三のちとせあめ。
+こんな「秋のことば」、知っていますか？
+ともだちじゃぱん（2026年12月開校）では、開校後にメタバース校舎で、ともだちと季節を感じるイベントを予定しています。
+季節のカレンダーは、プロフィールのリンクから。
+
+<span class="en">November in Japan means red maples, yellow ginkgo, and Shichi-Go-San 🍁
+After we open in December 2026, we're planning seasonal events with friends in our metaverse school — see the calendar via the link in our profile.</span></pre>
+      </section>
+
+      <section>
+        <h2>ハッシュタグ <button class="copy" id="c-tag" data-target="tag">コピー</button></h2>
+        <pre class="box" id="tag">#ともだちじゃぱん #紅葉 #七五三 #海外子育て #継承日本語</pre>
+      </section>
+
+      <section>
+        <h2>リンク先</h2>
+        <p class="box">https://tomodachi-japan.nijin.co.jp/kisetsu/</p>
+        <p class="note">七五三の写真・メタバース校舎の画面・ロゴは、いまは仮のイラストです。</p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+const v = document.getElementById("v"), cut = document.getElementById("cut");
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  v.src = b.dataset.src; cut.textContent = b.dataset.cut; v.play().catch(() => {});
+}));
+document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", () => {
+  const el = document.getElementById(b.dataset.target);
+  navigator.clipboard.writeText(el.innerText).then(() => { b.textContent = "コピーしました"; setTimeout(() => b.textContent = "コピー", 1600); })
+    .catch(() => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); });
+}));
+</script>
