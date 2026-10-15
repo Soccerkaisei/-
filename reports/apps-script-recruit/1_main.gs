@@ -143,12 +143,14 @@ function loadSasRows_() {
     var c = { d: h.indexOf('Date'), q: h.indexOf('Query'), p: h.indexOf('Page'), cl: h.indexOf('Clicks'), im: h.indexOf('Impressions'), po: h.indexOf('Position') };
     if (c.d < 0 || c.q < 0 || c.p < 0 || c.im < 0) return;
     v.slice(1).forEach(function (r) {
-      var key = d_(r[c.d]) + '|' + r[c.q] + '|' + r[c.p];
-      if (seen[key]) return;
-      seen[key] = true;
-      rows.push({ date: d_(r[c.d]), query: String(r[c.q]), page: String(r[c.p]), clicks: +r[c.cl] || 0, imp: +r[c.im] || 0, pos: +r[c.po] || 0 });
+      // ページ内の見出しへのリンク（#s1 など）は同じページとして1つにまとめる
+      var page = String(r[c.p]).replace(/#.*$/, '');
+      var row = { date: d_(r[c.d]), query: String(r[c.q]), page: page, clicks: +r[c.cl] || 0, imp: +r[c.im] || 0, pos: +r[c.po] || 0 };
+      var key = row.date + '|' + row.query + '|' + page;
+      if (!seen[key] || row.imp > seen[key].imp) seen[key] = row;
     });
   });
+  Object.keys(seen).forEach(function (k) { rows.push(seen[k]); });
   return rows;
 }
 
