@@ -15,6 +15,7 @@
 - 写真はDriveの「トモちゃん」フォルダの6枚を使用（img/tomo/ に縮小済み）。WordPressのメディアに同名でアップロードし、URLが https://nijin.co.jp/recruit/wp-content/uploads/2026/11/ と違う場合は本文内のURLを置き換えてください。
 - 家族写真（tomo-family.jpg）に赤ちゃんの顔が写っています。掲載してよいか本人に念のため確認。
 - エピソード欄の末尾「とても大きな影響でし)」は「とても大きな影響でした。」に直しています。
+- 🎬 青森十和田校のYouTube動画URLが未設定（build.py の youtube=dict(id=...) に動画IDを入れると、1問目の後にMOVIEカードが入る）。
 
 ## スタッフ一覧（/recruit/staff/）に追加するカード
 

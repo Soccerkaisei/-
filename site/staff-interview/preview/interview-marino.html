@@ -45,6 +45,17 @@ main{max-width:760px;margin:0 auto;padding:32px 16px 64px}h1{font-size:26px;line
   .sd-article a.sd-related-card{flex-direction:column;align-items:flex-start;}
   .sd-article a.sd-related-card img{width:100%;height:160px;}
 }
+.sd-article .sd-movie{margin:30px 0;}
+.sd-article .sd-movie a{display:flex;gap:18px;align-items:center;padding:16px;border:1px solid #FFE1CF;border-radius:12px;background:#FFF8EF;text-decoration:none !important;color:inherit;transition:box-shadow .2s ease,transform .2s ease;}
+.sd-article .sd-movie a:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px);}
+.sd-article .sd-movie__thumb{position:relative;flex:0 0 240px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.sd-article .sd-movie__thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.sd-article .sd-movie__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(232,71,59,.92);}
+.sd-article .sd-movie__play::after{content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;}
+.sd-article .sd-movie__label{display:inline-block;background:#E8473B;color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:2px 10px;border-radius:999px;}
+.sd-article .sd-movie__title{font-weight:800;color:var(--sd-navy);margin:8px 0 4px;line-height:1.6;}
+.sd-article .sd-movie__sub{margin:0;font-size:.88em;color:var(--sd-accent-dark);font-weight:700;}
+@media(max-width:600px){.sd-article .sd-movie a{flex-direction:column;align-items:stretch;}.sd-article .sd-movie__thumb{flex:none;width:100%;}}
 .sd-article .sd-point{border-left-color:#F39A1E;}
 .sd-article .sd-profile img{border:none;padding:4px;background:conic-gradient(#E8473B,#F39A1E,#F6C823,#E8473B);}
 .sd-article h2.sd-q{border-image:linear-gradient(90deg,#E8473B,#F39A1E,#F6C823) 1;}
@@ -71,6 +82,7 @@ main{max-width:760px;margin:0 auto;padding:32px 16px 64px}h1{font-size:26px;line
 </figure>
 <p>ダンス以外では、<span class="sd-mark">デザイナー</span>としてアパレルブランドの運営やグラフィックデザイン、SNSの企画・制作など、クリエイティブ分野でも活動しています。</p>
 <div class="sd-point">ダンサー、指導者、デザイナー、教育者。さまざまな領域を掛け合わせながら、表現の幅を広げ続けています。</div>
+<div class="sd-todo">🎬 YouTube待ち：NIJINアカデミー新神戸校の動画</div>
 <h2 class="sd-q">ニジンで働きたいと思ったきっかけは？</h2>
 <p>夫と、<span class="sd-mark">「ダンス×教育」を大切にしたダンススクール</span>「FRESHEST PEACE Dance School」を兵庫県神戸市で運営しています。</p>
 <p>ダンスを、ただ上達するためのものではなく、<span class="sd-mark">子どもたちが夢を持つきっかけ</span>になったり、「自分にもできる」という自信や自己肯定感を育てられるものにしたいと考えています。</p>

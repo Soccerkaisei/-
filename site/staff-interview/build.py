@@ -54,7 +54,18 @@ PALETTES = {
                  rgb_ov3="rgba(10,24,32", rgb_mark="rgba(191,226,242", rgb_line="rgba(207,233,242"),
 }
 
-EXTRA_CSS = (".sd-article .sd-point{border-left-color:#F39A1E;}\n"
+EXTRA_CSS = (".sd-article .sd-movie{margin:30px 0;}\n"
+             ".sd-article .sd-movie a{display:flex;gap:18px;align-items:center;padding:16px;border:1px solid #FFE1CF;border-radius:12px;background:#FFF8EF;text-decoration:none !important;color:inherit;transition:box-shadow .2s ease,transform .2s ease;}\n"
+             ".sd-article .sd-movie a:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px);}\n"
+             ".sd-article .sd-movie__thumb{position:relative;flex:0 0 240px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}\n"
+             ".sd-article .sd-movie__thumb img{width:100%;height:100%;object-fit:cover;display:block;}\n"
+             ".sd-article .sd-movie__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(232,71,59,.92);}\n"
+             ".sd-article .sd-movie__play::after{content:\"\";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;}\n"
+             ".sd-article .sd-movie__label{display:inline-block;background:#E8473B;color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:2px 10px;border-radius:999px;}\n"
+             ".sd-article .sd-movie__title{font-weight:800;color:var(--sd-navy);margin:8px 0 4px;line-height:1.6;}\n"
+             ".sd-article .sd-movie__sub{margin:0;font-size:.88em;color:var(--sd-accent-dark);font-weight:700;}\n"
+             "@media(max-width:600px){.sd-article .sd-movie a{flex-direction:column;align-items:stretch;}.sd-article .sd-movie__thumb{flex:none;width:100%;}}\n"
+             ".sd-article .sd-point{border-left-color:#F39A1E;}\n"
              ".sd-article .sd-profile img{border:none;padding:4px;background:conic-gradient(#E8473B,#F39A1E,#F6C823,#E8473B);}\n"
              ".sd-article h2.sd-q{border-image:linear-gradient(90deg,#E8473B,#F39A1E,#F6C823) 1;}\n"
              ".sd-article .sd-todo{margin:24px 0;padding:18px 22px;background:#fff8d6;border:2px dashed #e0b400;"
@@ -107,7 +118,7 @@ def mark(s):
 # ---------------------------------------------------------------------------
 ARTICLES = [
 dict(
-    slug="interview-nao", sheet="10/21なお", palette="nijin",
+    slug="interview-nao", youtube=dict(school="京都金閣寺校", id=None, title=None), sheet="10/21なお", palette="nijin",
     title="「できない」の先にある「やってみたい」を。子どもの歩幅で共に未来を探す。",
     description="塾講師として30年以上子どもたちと向き合い、我が子の不登校も経験した山﨑尚子さん。NIJINアカデミー京都金閣寺校の教室長として、「選べる」ことを大切にした居場所づくりに挑んでいます。子どもの「やってみたい」を支える仕事とやりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -163,7 +174,7 @@ dict(
            "「やりがい」の回答冒頭の文が「〜では、〜点にもあります」とねじれていたため「NIJINアカデミーでの難しさは、〜点にもあります」に整えています。"],
 ),
 dict(
-    slug="interview-tomo", sheet="11/4トモちゃん", palette="nijin",
+    slug="interview-tomo", youtube=dict(school="青森十和田校", id=None, title=None), sheet="11/4トモちゃん", palette="nijin",
     title="「夢中力」で未来を切り拓く｜日本画家が青森にリアル校を開く理由",
     description="青森県で15年にわたり美術教育に携わってきた日本画家・佐伯知美さん。「学校が苦痛だった」自身の経験と、親になって生まれた思いから、NIJINアカデミー青森十和田校の開校を決意。子どもの「夢中力」を引き出す教育と、NIJINで挑む新しい学びを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -231,7 +242,7 @@ dict(
            "エピソード欄の末尾「とても大きな影響でし)」は「とても大きな影響でした。」に直しています。"],
 ),
 dict(
-    slug="interview-marino", sheet="11/25マリノ", palette="nijin",
+    slug="interview-marino", youtube=dict(school="新神戸校", id=None, title=None), sheet="11/25マリノ", palette="nijin",
     title="プロダンサーがNIJINのSNSマネージャーに｜失敗を恐れない挑戦の毎日",
     description="台湾のダンスコンテスト「OSTA」優勝の実績を持つプロダンサーで、アパレルブランド「cLLe」も手がける岡野真梨乃さん。「ダンス×教育」への想いからNIJINに参画し、新神戸校の教室長とSNSマネージャーとして挑戦の毎日を送っています。失敗を恐れず挑戦できる文化と、チームで働く難しさ・やりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -289,7 +300,7 @@ dict(
            "その写真（/uploads/2026/05/リアル-新神戸-768x768.jpg）を本文1枚目とCTA背景に使っています。本人の写真が届いたら差し替え可。"],
 ),
 dict(
-    slug="interview-tucchii", sheet="11/11つっちー", palette="nijin",
+    slug="interview-tucchii", youtube=dict(school="宮城名取校", id=None, title=None), sheet="11/11つっちー", palette="nijin",
     title="「学び方は十人十色」宮城の塾講師がNIJINへ｜子どもに合った学びを届けたい",
     description="スーパーの店長を経て塾講師となり、「学び方は十人十色」と実感してきた土田一成さん。宮城県の学習塾「ハイパーラーニング」とフリースクールの提携をきっかけにNIJINに参画し、宮城名取校に携わっています。不登校とは思えないほど積極的な子どもたちとの出会いや、全国の先生の熱量に触れて感じたことを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -362,6 +373,25 @@ def placeholder_svg(label):
     return "data:image/svg+xml;charset=utf-8," + quote(svg)
 
 
+def movie(a, mode):
+    """リアル校のYouTube動画カード（ひとみんさん記事のMOVIEカードと同じ役割）"""
+    y = a["youtube"]
+    school = "NIJINアカデミー" + y["school"]
+    if not y["id"]:
+        if mode == "wp":
+            return [f"<!-- 🎬 YouTube待ち：{school}の動画URLが届いたらここにカードが入る -->"]
+        return [f'<div class="sd-todo">🎬 YouTube待ち：{html.escape(school)}の動画</div>']
+    title = y["title"] or f"{school}の様子"
+    return ['<div class="sd-movie">',
+            f'  <a href="https://www.youtube.com/watch?v={y["id"]}" target="_blank" rel="noopener">',
+            f'    <div class="sd-movie__thumb"><img src="https://i.ytimg.com/vi/{y["id"]}/hqdefault.jpg" alt="{html.escape(school)}の動画" loading="lazy"><span class="sd-movie__play"></span></div>',
+            '    <div class="sd-movie__body">',
+            '      <span class="sd-movie__label">MOVIE</span>',
+            f'      <p class="sd-movie__title">{html.escape(title)}</p>',
+            f'      <p class="sd-movie__sub">{html.escape(y["school"])}の様子を動画で見る →</p>',
+            "    </div>", "  </a>", "</div>"]
+
+
 def build(a, mode):
     """mode='wp' → WordPress貼り付け用 / 'preview' → ローカル確認用"""
     def img(key, label=""):
@@ -390,7 +420,9 @@ def build(a, mode):
             f'    <div class="sd-pf-nick">{html.escape(pf["nick"])}</div>',
             '    <div class="sd-pf-tags">' + "".join(f"<span>{html.escape(t)}</span>" for t in pf["tags"]) + "</div>",
             "  </div>", "</div>"]
-    for q, blocks in a["qa"]:
+    for qi, (q, blocks) in enumerate(a["qa"]):
+        if qi == 1 and a.get("youtube"):
+            out += movie(a, mode)
         out.append(f'<h2 class="sd-q">{html.escape(q)}</h2>')
         for b in blocks:
             kind = b[0]
@@ -463,7 +495,9 @@ def meta_md(a):
              f"| カテゴリ | {a['category']} |",
              f"| アイキャッチ | `{a['slug'].split('-',1)[1]}-eyecatch.png`（一覧カードと共通。ちひろさんと同様に作成） |",
              f"| 本文 | `out/{a['slug']}.html` を「カスタムHTML」ブロックに貼り付け |", "",
-             "## 要確認・メモ", ""] + [f"- {n}" for n in a["notes"]] + [
+             "## 要確認・メモ", ""] + [f"- {n}" for n in a["notes"]] + (
+             [f"- 🎬 {a['youtube']['school']}のYouTube動画URLが未設定（build.py の youtube=dict(id=...) に動画IDを入れると、1問目の後にMOVIEカードが入る）。"]
+             if a.get("youtube") and not a["youtube"]["id"] else []) + [
              "", "## スタッフ一覧（/recruit/staff/）に追加するカード", "",
              "インタビューカード一覧（`#interviewCardList`）の先頭に追加：", "", "```html", card_html(a), "```", ""]
     return "\n".join(lines)
