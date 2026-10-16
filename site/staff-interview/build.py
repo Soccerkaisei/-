@@ -118,7 +118,7 @@ def mark(s):
 # ---------------------------------------------------------------------------
 ARTICLES = [
 dict(
-    slug="interview-nao", youtube=dict(school="京都金閣寺校", id=None, title=None), sheet="10/21なお", palette="nijin",
+    slug="interview-nao", sheet="10/21なお", palette="nijin",
     title="「できない」の先にある「やってみたい」を。子どもの歩幅で共に未来を探す。",
     description="塾講師として30年以上子どもたちと向き合い、我が子の不登校も経験した山﨑尚子さん。NIJINアカデミー京都金閣寺校の教室長として、「選べる」ことを大切にした居場所づくりに挑んでいます。子どもの「やってみたい」を支える仕事とやりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -174,7 +174,7 @@ dict(
            "「やりがい」の回答冒頭の文が「〜では、〜点にもあります」とねじれていたため「NIJINアカデミーでの難しさは、〜点にもあります」に整えています。"],
 ),
 dict(
-    slug="interview-tomo", youtube=dict(school="青森十和田校", id=None, title=None), sheet="11/4トモちゃん", palette="nijin",
+    slug="interview-tomo", sheet="11/4トモちゃん", palette="nijin",
     title="「夢中力」で未来を切り拓く｜日本画家が青森にリアル校を開く理由",
     description="青森県で15年にわたり美術教育に携わってきた日本画家・佐伯知美さん。「学校が苦痛だった」自身の経験と、親になって生まれた思いから、NIJINアカデミー青森十和田校の開校を決意。子どもの「夢中力」を引き出す教育と、NIJINで挑む新しい学びを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -242,7 +242,7 @@ dict(
            "エピソード欄の末尾「とても大きな影響でし)」は「とても大きな影響でした。」に直しています。"],
 ),
 dict(
-    slug="interview-marino", youtube=dict(school="新神戸校", id=None, title=None), sheet="11/25マリノ", palette="nijin",
+    slug="interview-marino", sheet="11/25マリノ", palette="nijin",
     title="プロダンサーがNIJINのSNSマネージャーに｜失敗を恐れない挑戦の毎日",
     description="台湾のダンスコンテスト「OSTA」優勝の実績を持つプロダンサーで、アパレルブランド「cLLe」も手がける岡野真梨乃さん。「ダンス×教育」への想いからNIJINに参画し、新神戸校の教室長とSNSマネージャーとして挑戦の毎日を送っています。失敗を恐れず挑戦できる文化と、チームで働く難しさ・やりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -300,7 +300,7 @@ dict(
            "その写真（/uploads/2026/05/リアル-新神戸-768x768.jpg）を本文1枚目とCTA背景に使っています。本人の写真が届いたら差し替え可。"],
 ),
 dict(
-    slug="interview-tucchii", youtube=dict(school="宮城名取校", id=None, title=None), sheet="11/11つっちー", palette="nijin",
+    slug="interview-tucchii", sheet="11/11つっちー", palette="nijin",
     title="「学び方は十人十色」宮城の塾講師がNIJINへ｜子どもに合った学びを届けたい",
     description="スーパーの店長を経て塾講師となり、「学び方は十人十色」と実感してきた土田一成さん。宮城県の学習塾「ハイパーラーニング」とフリースクールの提携をきっかけにNIJINに参画し、宮城名取校に携わっています。不登校とは思えないほど積極的な子どもたちとの出会いや、全国の先生の熱量に触れて感じたことを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
