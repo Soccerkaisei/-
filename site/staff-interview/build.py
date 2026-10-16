@@ -112,7 +112,7 @@ dict(
     description="塾講師として30年以上子どもたちと向き合い、我が子の不登校も経験した山﨑尚子さん。NIJINアカデミー京都金閣寺校の教室長として、「選べる」ことを大切にした居場所づくりに挑んでいます。子どもの「やってみたい」を支える仕事とやりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
     card=dict(major="teacher", minor="リアル教室長", items=["京都金閣寺校 教室長", "不登校の中学生の学習サポート"],
-              name="山﨑 尚子さん（なお）", age="【年代を確認】"),
+              name="山﨑 尚子さん（なお）", age=""),
     images={},  # 写真フォルダ未提出
     profile=dict(img="profile", pos="50% 30%", alt="NIJINアカデミー 京都金閣寺校教室長 山﨑尚子さん",
                  name="山﨑 尚子（やまざき なおこ）さん", nick="塾講師歴30年以上",
@@ -160,7 +160,6 @@ dict(
     related=["hitomin", "shimejun"],
     cta=dict(CTA_REAL, bg="school", text="子どもの「やってみたい」に、いちばん近くで。<br>地域に学びの選択肢をつくる仲間を、NIJINは募集しています。"),
     notes=["写真フォルダ（スタッフインタビュー写真）に「なお」のフォルダがまだありません。写真6枚ほどの提出をお願いする（プロフィール用1枚＋本文用3枚＋CTA背景）。",
-           "年代の記載がないため、一覧カードの年代（meta-age）を本人に確認。",
            "「やりがい」の回答冒頭の文が「〜では、〜点にもあります」とねじれていたため「NIJINアカデミーでの難しさは、〜点にもあります」に整えています。"],
 ),
 dict(
@@ -435,6 +434,7 @@ def build(a, mode):
 def card_html(a):
     c = a["card"]
     name_short = c["name"]
+    age = f'        <p class="meta-age">{html.escape(c["age"])}</p>\n' if c["age"] else ""
     items = "\n".join(f'        <p class="meta-item">{html.escape(i)}</p>' for i in c["items"])
     eyecatch = UPLOAD + a["slug"].split("-", 1)[1] + "-eyecatch.png"
     full = a["profile"]["name"].split("（")[0].replace(" ", "")
@@ -449,8 +449,7 @@ def card_html(a):
       <div class="card-meta">
 {items}
         <p class="meta-name"><strong>{html.escape(c['name'])}</strong></p>
-        <p class="meta-age">{html.escape(c['age'])}</p>
-      </div>
+{age}      </div>
     </div>
   </a>"""
 
