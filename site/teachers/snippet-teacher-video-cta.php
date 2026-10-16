@@ -4,7 +4,9 @@
  * （Code Snippets に貼る・「フロントエンドのみ実行」）
  *
  * ・/teachers/〇〇/ のページだけで動く
- * ・YouTube の動画と、予約コーナー（#taiken）の両方があるページにだけ出る（動画がない先生には出ない）
+ * ・YouTube の動画と、Cal.com の予約（#taiken の中の予約バナー）の両方があるページにだけ出る
+ *   （動画がない先生、Cal.com が未設定で仮枠の先生には出ない）
+ * ・先生ページは先生紹介フォームから自動生成されるので、生成コードは触らずに表示側で足している
  * ・先生の名前は、上の「〇〇先生の無料体験に申し込む」ボタンから自動で取る
  * ・押した回数は GA4 に teacher_video_cta_click（teacher=ページ名）で記録
  */
@@ -21,6 +23,8 @@ add_action('wp_footer', function () {
 (function(){
 var ifr=document.querySelector('iframe[src*="youtube.com/embed"],iframe[src*="youtube-nocookie.com/embed"]'),taiken=document.getElementById("taiken");
 if(!ifr||!taiken||document.querySelector(".tjVideoCta"))return;
+/* Cal.com の予約が入っている先生だけ（予約カレンダーが未設定の仮枠には飛ばさない） */
+if(!taiken.querySelector('.tj-taiken-banner,a[href*="cal.com"]'))return;
 var name="この先生",hero=document.querySelector('a[href="#taiken"]');
 if(hero){var m=hero.textContent.match(/(\S+?先生)の/);if(m)name=m[1]}
 var box=document.createElement("div");box.className="tjVideoCta";
