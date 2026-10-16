@@ -1,0 +1,122 @@
+<div class="sd-article">
+<style>
+.sd-article{--sd-accent:#e46f1f;--sd-accent-dark:#b9561a;--sd-navy:#3d2614;--sd-sub:#8c6d58;line-height:2;color:#333;font-size:1.02em;}
+.sd-article p{margin:0 0 1.3em;}
+.sd-article .sd-lead{font-size:1.04em;margin:0 0 30px;}
+.sd-article .sd-catch{position:relative;margin:0 0 28px;padding:28px 24px;background:linear-gradient(135deg,#fdf1e7 0%,#fff 60%);border-left:6px solid var(--sd-accent);border-radius:8px;}
+.sd-article .sd-catch p{margin:0;font-size:clamp(20px,3.2vw,28px);font-weight:800;line-height:1.55;letter-spacing:.02em;color:var(--sd-navy);}
+.sd-article .sd-mark{background:linear-gradient(transparent 62%, #f8d3b5 62%);font-weight:700;padding:0 2px;}
+.sd-article .sd-point{position:relative;margin:24px 0;padding:18px 22px 18px 26px;background:#fdf1e7;border-left:5px solid var(--sd-accent);border-radius:0 10px 10px 0;font-weight:800;color:var(--sd-navy);font-size:1.03em;line-height:1.9;}
+.sd-article .sd-profile{display:flex;gap:18px;align-items:flex-start;background:#fdf5ee;border:1px solid #f4dcc8;border-radius:12px;padding:20px;margin:0 0 34px;flex-wrap:wrap;}
+.sd-article .sd-profile img{width:120px;height:120px;object-fit:cover;object-position:50% 30%;border-radius:50%;flex:0 0 auto;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.sd-article .sd-profile .sd-pf-body{flex:1;min-width:220px;}
+.sd-article .sd-profile .sd-pf-name{font-size:18px;font-weight:800;color:var(--sd-navy);margin-bottom:2px;}
+.sd-article .sd-profile .sd-pf-nick{font-size:13px;color:var(--sd-accent-dark);font-weight:700;margin-bottom:8px;}
+.sd-article .sd-profile .sd-pf-tags{font-size:.9em;color:var(--sd-sub);}
+.sd-article .sd-profile .sd-pf-tags span{display:inline-block;background:#f9e0cb;color:var(--sd-accent-dark);border-radius:999px;padding:3px 12px;margin:2px 4px 2px 0;font-weight:700;font-size:.92em;}
+.sd-article h2.sd-q{position:relative;font-size:clamp(19px,2.5vw,24px);font-weight:800;line-height:1.5;margin:52px 0 24px;padding:0 0 14px 44px;border-bottom:2px solid #f4dcc8;}
+.sd-article h2.sd-q::before{content:"Q";position:absolute;left:0;top:-2px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--sd-accent);color:#fff;font-weight:800;font-size:.9em;border-radius:50%;}
+.sd-article figure.sd-fig{margin:30px 0;}
+.sd-article figure.sd-fig img{width:100%;height:auto;border-radius:10px;display:block;}
+.sd-article figure.sd-fig figcaption{margin-top:8px;font-size:.85em;color:var(--sd-sub);text-align:center;}
+.sd-article .sd-message{margin:26px 0;padding:24px 26px;background:#fdf1e7;border-radius:10px;font-weight:700;color:var(--sd-navy);font-size:1.05em;line-height:2;}
+.sd-article .sd-cta{position:relative;overflow:hidden;background:#2a1a0f;color:#fff;border-radius:16px;padding:48px 26px;text-align:center;margin:52px 0 8px;box-shadow:0 14px 34px rgba(42,26,15,.28);}
+.sd-article .sd-cta__bg{position:absolute;inset:-12px;z-index:0;background-image:linear-gradient(120deg,rgba(52,30,16,.46) 0%,rgba(228,111,31,.22) 45%,rgba(32,20,12,.56) 100%);background-size:cover;background-position:center 55%;filter:blur(4px) brightness(.95) saturate(1.08);}
+.sd-article .sd-cta::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 88% 12%,rgba(248,211,181,.30),transparent 55%);pointer-events:none;}
+.sd-article .sd-cta__eyebrow{position:relative;z-index:2;display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(244,220,200,.55);color:#fde8d7;font-size:12px;font-weight:bold;letter-spacing:.05em;padding:5px 16px;border-radius:30px;margin-bottom:16px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.sd-article .sd-cta p{position:relative;z-index:2;margin:0;font-size:clamp(16px,2.2vw,19px);font-weight:700;line-height:1.9;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);}
+.sd-article .sd-cta a.sd-btn{position:relative;z-index:2;display:inline-block;background:var(--sd-accent);color:#fff !important;text-decoration:none !important;font-weight:800;padding:15px 40px;border-radius:999px;font-size:1.05em;margin-top:22px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 10px 24px rgba(42,26,15,.35);}
+.sd-article .sd-cta a.sd-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(228,111,31,.45);background:var(--sd-accent-dark);}
+.sd-article .sd-related{margin:44px 0 8px;}
+.sd-article .sd-related h3{font-size:18px;font-weight:800;color:var(--sd-navy);margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid #f4dcc8;}
+.sd-article a.sd-related-card{display:flex;gap:16px;align-items:center;padding:16px;border:1px solid #f4dcc8;border-radius:10px;margin-bottom:14px;text-decoration:none !important;color:inherit;transition:box-shadow .2s ease,transform .2s ease;}
+.sd-article a.sd-related-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px);}
+.sd-article a.sd-related-card img{width:110px;height:110px;object-fit:cover;border-radius:8px;flex:0 0 auto;}
+.sd-article a.sd-related-card .sd-rel-body{flex:1;min-width:0;}
+.sd-article a.sd-related-card .sd-rel-title{font-weight:800;color:var(--sd-navy);font-size:1.02em;margin:0 0 6px;}
+.sd-article a.sd-related-card .sd-rel-desc{font-size:.88em;color:var(--sd-sub);margin:0;line-height:1.7;}
+@media(max-width:600px){
+  .sd-article h2.sd-q{padding-left:40px;}
+  .sd-article .sd-profile{flex-direction:column;align-items:center;text-align:center;}
+  .sd-article a.sd-related-card{flex-direction:column;align-items:flex-start;}
+  .sd-article a.sd-related-card img{width:100%;height:160px;}
+}
+.sd-article .sd-todo{margin:24px 0;padding:18px 22px;background:#fff8d6;border:2px dashed #e0b400;border-radius:10px;color:#6b5500;font-weight:700;}
+</style>
+
+<p class="sd-lead">1992年生まれ、兵庫県神戸市出身の岡野真梨乃さん。小学生の頃からダンスを始め、高校生でLOCK DANCEに憧れたことをきっかけにプロダンサーを志しました。台湾のダンスコンテスト<span class="sd-mark">「OSTA」での優勝</span>をはじめ、国内外の大会で多数入賞。現在はパフォーマンスや舞台公演への出演、審査員など幅広く活動しています。</p>
+<p class="sd-lead">2025年7月にはアパレルブランド「cLLe」の実店舗を神戸・三宮にオープンし、グラフィックやSNSなどデザインの分野にも活動を広げています。そして今、特に力を入れているのが<span class="sd-mark">「ダンス×教育」</span>。ダンススクールの運営や高校ダンス部の指導、神戸市のフリースクールの教室長などを通して子どもたちの可能性を広げながら、NIJINでは<span class="sd-mark">SNSマネージャー</span>として新たな挑戦を続けています。</p>
+<!-- 📷 写真待ち：プロフィール写真（正方形に近い顔写真） -->
+<div class="sd-profile">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/marino-profile.jpg" alt="NIJIN SNSマネージャー 岡野真梨乃さん">
+  <div class="sd-pf-body">
+    <div class="sd-pf-name">岡野 真梨乃（おかの まりの）さん</div>
+    <div class="sd-pf-nick">プロダンサー／アパレルブランド「cLLe」代表</div>
+    <div class="sd-pf-tags"><span>SNSマネージャー</span><span>FRESHEST PEACE Dance School 運営</span></div>
+  </div>
+</div>
+<h2 class="sd-q">いまは、どのようなお仕事をしていますか？</h2>
+<p>現在は、<span class="sd-mark">ダンサー</span>としてパフォーマンスや舞台公演への出演、ダンスコンテストの審査員など幅広く活動しています。</p>
+<p>また、ダンスインストラクターや<span class="sd-mark">高校ダンス部のコーチ</span>として、子どもたちや学生へのダンス指導にも携わっています。</p>
+<!-- 📷 写真待ち：子どもたちにダンスを指導する岡野さん -->
+<figure class="sd-fig">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/marino-dance.jpg" alt="子どもたちにダンスを指導する岡野さん" loading="lazy">
+  <figcaption>ダンスを通して、子どもたちの「できた」を育てる</figcaption>
+</figure>
+<p>ダンス以外では、<span class="sd-mark">デザイナー</span>としてアパレルブランドの運営やグラフィックデザイン、SNSの企画・制作など、クリエイティブ分野でも活動しています。</p>
+<div class="sd-point">ダンサー、指導者、デザイナー、教育者。さまざまな領域を掛け合わせながら、表現の幅を広げ続けています。</div>
+<h2 class="sd-q">ニジンで働きたいと思ったきっかけは？</h2>
+<p>夫と、<span class="sd-mark">「ダンス×教育」を大切にしたダンススクール</span>「FRESHEST PEACE Dance School」を兵庫県神戸市で運営しています。</p>
+<p>ダンスを、ただ上達するためのものではなく、<span class="sd-mark">子どもたちが夢を持つきっかけ</span>になったり、「自分にもできる」という自信や自己肯定感を育てられるものにしたいと考えています。</p>
+<div class="sd-point">そんな「ダンス×教育」を通して子どもたちの可能性を広げたいという想いと、NIJINの理念が重なり、強く共感しました。</div>
+<h2 class="sd-q">ニジンで働いて一番心動かされた出来事/エピソードを教えてください</h2>
+<p>NIJINに入って一番印象に残っているのは、タツローさんをはじめ、<span class="sd-mark">スタッフのみなさんが常に挑戦し続けている姿</span>です。一週間に何度もピッチに挑戦したり、人前に立って登壇したり。オンラインで働いているのに、こんなにも熱量の高い組織があるんだと驚きました。</p>
+<p>そして、NIJINに入って大きく変わったのが<span class="sd-mark">「失敗」に対する考え方</span>です。NIJINでは、失敗することを恐れるのではなく、「まずやってみる。うまくいかなければ、試行錯誤してまたやり直せばいい」という考え方が根付いています。だからこそ、たくさんの挑戦を任せてもらえます。</p>
+<p>今、私は<span class="sd-mark">SNSマネージャー</span>という新しい役割に挑戦しています。投稿して終わりではなく、毎日数字を見て、分析する。仮説を立てて、実行する。結果を検証して、振り返り、また次の施策を考える。その繰り返しです。</p>
+<!-- 📷 写真待ち：SNSの数字を分析する岡野さん -->
+<figure class="sd-fig">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/marino-sns.jpg" alt="SNSの数字を分析する岡野さん" loading="lazy">
+  <figcaption>SNSマネージャーとして、毎日数字と向き合う</figcaption>
+</figure>
+<p>もちろん、思ったような結果が出ないこともあります。でも、それも「失敗」ではなく、<span class="sd-mark">次の挑戦につながる一つのデータ</span>。</p>
+<div class="sd-point">挑戦して、失敗して、考えて、また挑戦する。そのサイクルを毎日のように経験できる環境だからこそ、自分自身も日々成長していると感じています。</div>
+<h2 class="sd-q">仕事のむずかしさややりがいについて教えてください</h2>
+<p>まだまだNIJINに参画したばかりで、どんどん変化し、進化していくNIJINについていくのに必死な毎日です。</p>
+<p>そして、私自身が難しさを感じていることの一つが<span class="sd-mark">「誰かと協力すること」</span>です。これまで私は、「自分でやった方が早い」「自分がやればいい」と、何でも一人で抱え込んでしまうことが多くありました。</p>
+<p>でもNIJINに入って、少しずつその考え方が変わってきています。チームでお互いにフォローし合い、それぞれの得意なことを活かしながら仕事を進めていく。そして何より、<span class="sd-mark">「この人になら安心して任せられる」と思える仲間</span>がいることを知りました。みなさん本当にそれぞれ違った強みや高い専門性を持っていて、一緒に仕事をするだけで、毎日驚きと学びがあります。</p>
+<div class="sd-point">全部自分でやるのではなく、仲間を信頼して任せること。そして、自分も誰かから「任せたい」と思ってもらえる存在になること。今はそこにも、NIJINで働く難しさと大きなやりがいを感じています。</div>
+<h2 class="sd-q">これからニジンで挑戦したいことはなんですか？</h2>
+<p>今は、NIJINアカデミーのメタバースで学ぶ子どもたちと直接関わる機会がまだ少ないので、これからは<span class="sd-mark">もっと子どもたちと関わっていきたい</span>です。私自身、子どもたちと関わることが大好きです。</p>
+<p>私の笑顔や働きかけを通して、子どもたちが「やってみたい！」「挑戦してみたい！」と思える瞬間を増やし、<span class="sd-mark">一人ひとりの主体性をどんどん引き出していきたい</span>です。</p>
+<!-- 📷 写真待ち：笑顔の岡野さん -->
+<figure class="sd-fig">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/marino-smile.jpg" alt="笑顔の岡野さん" loading="lazy">
+  <figcaption>子どもたちの「やってみたい！」を、笑顔で引き出したい</figcaption>
+</figure>
+<div class="sd-point">今はSNSという立場からNIJINの魅力を届けていますが、いつかはもっと近くで、子どもたちの挑戦や成長にも関わってみたい。担任にも、挑戦してみたいな（笑）。</div>
+<h2 class="sd-q">読者に向けてメッセージをお願いします！</h2>
+<div class="sd-message">NIJINに入って、能力が格段に上がりました。<br><br>未経験でも、全然大丈夫です！ワクワクした気持ちで飛び込んで来てください！</div>
+<div class="sd-related">
+  <h3>あわせて読みたい｜NIJINで挑戦する仲間の声</h3>
+  <a href="https://nijin.co.jp/recruit/interview-chihiro/" class="sd-related-card">
+    <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/ちひろ.png" alt="進藤千尋（ちひろ）さん" loading="lazy">
+    <div class="sd-rel-body">
+      <p class="sd-rel-title">美大卒アート講師がNIJIN教室長に｜好きを仕事にする転身ストーリー</p>
+      <p class="sd-rel-desc">子ども向けアート教室を開業し、町屋南千住校の教室長に。アートを通じて子どもの「好き」を見つける仕事を語る、ちひろさんのインタビュー。</p>
+    </div>
+  </a>
+  <a href="https://nijin.co.jp/recruit/interview-issa/" class="sd-related-card">
+    <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/05/%E6%8E%A1%E7%94%A8HP-%E8%81%B7%E7%A8%AE-17.jpg" alt="伊佐隆（いっさ）さん" loading="lazy">
+    <div class="sd-rel-body">
+      <p class="sd-rel-title">【民間企業×NIJIN】兼業で実現する自分らしい働き方とキャリア成長</p>
+      <p class="sd-rel-desc">本業とNIJINを掛け合わせ、成長を加速させるパラレルキャリア。メタバース担任・教室長を務める、いっささんのインタビュー。</p>
+    </div>
+  </a>
+</div>
+<div class="sd-cta">
+  <div class="sd-cta__bg"></div>
+  <span class="sd-cta__eyebrow">NIJIN スタッフ 募集中</span>
+  <p>未経験からでも、挑戦はここから始まる。<br>あなたの「好き」や「得意」を教育に活かす仲間を、NIJINは募集しています。</p>
+  <a class="sd-btn" href="https://nijin.co.jp/recruit/positions/">募集職種を見る →</a>
+</div>
+</div>

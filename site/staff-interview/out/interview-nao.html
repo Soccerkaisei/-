@@ -1,0 +1,123 @@
+<div class="sd-article">
+<style>
+.sd-article{--sd-accent:#2e8b67;--sd-accent-dark:#1f6b4e;--sd-navy:#1f3a2f;--sd-sub:#6a8579;line-height:2;color:#333;font-size:1.02em;}
+.sd-article p{margin:0 0 1.3em;}
+.sd-article .sd-lead{font-size:1.04em;margin:0 0 30px;}
+.sd-article .sd-catch{position:relative;margin:0 0 28px;padding:28px 24px;background:linear-gradient(135deg,#eaf6f0 0%,#fff 60%);border-left:6px solid var(--sd-accent);border-radius:8px;}
+.sd-article .sd-catch p{margin:0;font-size:clamp(20px,3.2vw,28px);font-weight:800;line-height:1.55;letter-spacing:.02em;color:var(--sd-navy);}
+.sd-article .sd-mark{background:linear-gradient(transparent 62%, #bfe6d3 62%);font-weight:700;padding:0 2px;}
+.sd-article .sd-point{position:relative;margin:24px 0;padding:18px 22px 18px 26px;background:#eaf6f0;border-left:5px solid var(--sd-accent);border-radius:0 10px 10px 0;font-weight:800;color:var(--sd-navy);font-size:1.03em;line-height:1.9;}
+.sd-article .sd-profile{display:flex;gap:18px;align-items:flex-start;background:#f1f9f5;border:1px solid #cfe9dc;border-radius:12px;padding:20px;margin:0 0 34px;flex-wrap:wrap;}
+.sd-article .sd-profile img{width:120px;height:120px;object-fit:cover;object-position:50% 30%;border-radius:50%;flex:0 0 auto;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.sd-article .sd-profile .sd-pf-body{flex:1;min-width:220px;}
+.sd-article .sd-profile .sd-pf-name{font-size:18px;font-weight:800;color:var(--sd-navy);margin-bottom:2px;}
+.sd-article .sd-profile .sd-pf-nick{font-size:13px;color:var(--sd-accent-dark);font-weight:700;margin-bottom:8px;}
+.sd-article .sd-profile .sd-pf-tags{font-size:.9em;color:var(--sd-sub);}
+.sd-article .sd-profile .sd-pf-tags span{display:inline-block;background:#d6efe2;color:var(--sd-accent-dark);border-radius:999px;padding:3px 12px;margin:2px 4px 2px 0;font-weight:700;font-size:.92em;}
+.sd-article h2.sd-q{position:relative;font-size:clamp(19px,2.5vw,24px);font-weight:800;line-height:1.5;margin:52px 0 24px;padding:0 0 14px 44px;border-bottom:2px solid #cfe9dc;}
+.sd-article h2.sd-q::before{content:"Q";position:absolute;left:0;top:-2px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--sd-accent);color:#fff;font-weight:800;font-size:.9em;border-radius:50%;}
+.sd-article figure.sd-fig{margin:30px 0;}
+.sd-article figure.sd-fig img{width:100%;height:auto;border-radius:10px;display:block;}
+.sd-article figure.sd-fig figcaption{margin-top:8px;font-size:.85em;color:var(--sd-sub);text-align:center;}
+.sd-article .sd-message{margin:26px 0;padding:24px 26px;background:#eaf6f0;border-radius:10px;font-weight:700;color:var(--sd-navy);font-size:1.05em;line-height:2;}
+.sd-article .sd-cta{position:relative;overflow:hidden;background:#15281f;color:#fff;border-radius:16px;padding:48px 26px;text-align:center;margin:52px 0 8px;box-shadow:0 14px 34px rgba(21,40,31,.28);}
+.sd-article .sd-cta__bg{position:absolute;inset:-12px;z-index:0;background-image:linear-gradient(120deg,rgba(22,44,34,.46) 0%,rgba(46,139,103,.22) 45%,rgba(14,28,22,.56) 100%);background-size:cover;background-position:center 55%;filter:blur(4px) brightness(.95) saturate(1.08);}
+.sd-article .sd-cta::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 88% 12%,rgba(191,230,211,.30),transparent 55%);pointer-events:none;}
+.sd-article .sd-cta__eyebrow{position:relative;z-index:2;display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(207,233,220,.55);color:#dff3e9;font-size:12px;font-weight:bold;letter-spacing:.05em;padding:5px 16px;border-radius:30px;margin-bottom:16px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.sd-article .sd-cta p{position:relative;z-index:2;margin:0;font-size:clamp(16px,2.2vw,19px);font-weight:700;line-height:1.9;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);}
+.sd-article .sd-cta a.sd-btn{position:relative;z-index:2;display:inline-block;background:var(--sd-accent);color:#fff !important;text-decoration:none !important;font-weight:800;padding:15px 40px;border-radius:999px;font-size:1.05em;margin-top:22px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 10px 24px rgba(21,40,31,.35);}
+.sd-article .sd-cta a.sd-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(46,139,103,.45);background:var(--sd-accent-dark);}
+.sd-article .sd-related{margin:44px 0 8px;}
+.sd-article .sd-related h3{font-size:18px;font-weight:800;color:var(--sd-navy);margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid #cfe9dc;}
+.sd-article a.sd-related-card{display:flex;gap:16px;align-items:center;padding:16px;border:1px solid #cfe9dc;border-radius:10px;margin-bottom:14px;text-decoration:none !important;color:inherit;transition:box-shadow .2s ease,transform .2s ease;}
+.sd-article a.sd-related-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px);}
+.sd-article a.sd-related-card img{width:110px;height:110px;object-fit:cover;border-radius:8px;flex:0 0 auto;}
+.sd-article a.sd-related-card .sd-rel-body{flex:1;min-width:0;}
+.sd-article a.sd-related-card .sd-rel-title{font-weight:800;color:var(--sd-navy);font-size:1.02em;margin:0 0 6px;}
+.sd-article a.sd-related-card .sd-rel-desc{font-size:.88em;color:var(--sd-sub);margin:0;line-height:1.7;}
+@media(max-width:600px){
+  .sd-article h2.sd-q{padding-left:40px;}
+  .sd-article .sd-profile{flex-direction:column;align-items:center;text-align:center;}
+  .sd-article a.sd-related-card{flex-direction:column;align-items:flex-start;}
+  .sd-article a.sd-related-card img{width:100%;height:160px;}
+}
+.sd-article .sd-todo{margin:24px 0;padding:18px 22px;background:#fff8d6;border:2px dashed #e0b400;border-radius:10px;color:#6b5500;font-weight:700;}
+</style>
+
+<p class="sd-lead">京都府出身の山﨑尚子さん。大学卒業後、<span class="sd-mark">塾講師として30年以上</span>、多くの子どもたちや保護者と関わってきました。そのころから不登校の問題に取り組んできましたが、やがて<span class="sd-mark">我が子の不登校</span>を経験します。</p>
+<p class="sd-lead">さまざまな居場所や支援の場を探す中で、子どもたちや保護者が本当に必要としている場所とはどんなところなのかを深く考えるように。「居場所だけでいいのか。将来への不安にはどう応えるのか」。その答えを探す中でNIJINに出会い、現在は<span class="sd-mark">NIJINアカデミー京都金閣寺校</span>の教室長を務めています。</p>
+<!-- 📷 写真待ち：プロフィール写真（正方形に近い顔写真） -->
+<div class="sd-profile">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/nao-profile.jpg" alt="NIJINアカデミー 京都金閣寺校教室長 山﨑尚子さん">
+  <div class="sd-pf-body">
+    <div class="sd-pf-name">山﨑 尚子（やまざき なおこ）さん</div>
+    <div class="sd-pf-nick">塾講師歴30年以上</div>
+    <div class="sd-pf-tags"><span>京都金閣寺校 教室長</span><span>中学生の学習サポート</span></div>
+  </div>
+</div>
+<h2 class="sd-q">いまは、どのようなお仕事をしていますか？</h2>
+<p>NIJINアカデミーのリアル教室として、<span class="sd-mark">京都金閣寺校</span>を開校しました。また、不登校の中学生の学習の悩みにも対応しています。</p>
+<p>教室では、子どもたちの<span class="sd-mark">「好き」が未来を支える力になる</span>という思いのもと、不登校の子どもたちが安心して過ごし、自分らしく学べる場をつくっています。実験やアート、調理、さまざまな体験学習など、子どもたちが「やってみたい」と思える活動を一緒に考え、取り組んでいます。</p>
+<!-- 📷 写真待ち：京都金閣寺校での体験学習の様子 -->
+<figure class="sd-fig">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/nao-school.jpg" alt="京都金閣寺校での体験学習の様子" loading="lazy">
+  <figcaption>京都金閣寺校での体験学習。子どもたちの「やってみたい」から活動が生まれる</figcaption>
+</figure>
+<p>大切にしているのは、子どもの思いや興味を尊重すること。大人が「これをやりなさい」と決めるのではなく、子ども自身が選び、試し、時には失敗しながら学んでいけるように関わっています。一方で、今まで知らなかったことや、新しいことに挑戦するきっかけをつくることも大切にしています。</p>
+<div class="sd-point">活動を通して人と出会い、誰かと一緒に取り組む楽しさや、人とのつながりを感じられる場でありたいと思っています。</div>
+<h2 class="sd-q">ニジンで働きたいと思ったきっかけは？</h2>
+<p>ここで働きたいと思った一番の理由は、<span class="sd-mark">「選べる」ということを大切にしている場所</span>だったからです。</p>
+<p>どんなことをするのか、どんなペースで進むのか、そして時には「今は選ばない」ということも含めて、子ども自身が選択できる。しかも、どの選択をしても誰かに責められることがない。その安心感に大きな魅力を感じました。</p>
+<p>オンラインでつながれる環境があることで、自分の心理的安全性を守りながら、一人ひとりに合ったペースで少しずつ一歩を進めることもできます。そして、子どもが「やってみたい」と思ったときには、その気持ちを全力で応援してくれる。さらに、全国の子どもたちやさまざまな人とつながることで、学校や地域だけでは得られない視野や世界が広がっていく。</p>
+<!-- 📷 写真待ち：子どもたちと一緒に活動する山﨑さん -->
+<figure class="sd-fig">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/nao-activity.jpg" alt="子どもたちと一緒に活動する山﨑さん" loading="lazy">
+  <figcaption>子どもが選び、試し、時には失敗しながら学んでいく</figcaption>
+</figure>
+<div class="sd-point">そんな環境だからこそ、ここで子どもたちと一緒に学び、歩んでいきたいと思いました。</div>
+<h2 class="sd-q">ニジンで働いて一番心動かされた出来事/エピソードを教えてください</h2>
+<p>とても正義感が強く、納得できないことがあると、その怒りを激しく表してしまう子がいました。一つのことに気持ちがとらわれると感情をコントロールすることが難しくなり、その状態が長く続くこともありました。周りの子どもたちも、そんな時には少し距離をとるようになっていました。</p>
+<p>私は、まず<span class="sd-mark">その子が感じていることや考えていることを受け止める</span>ことを大切にしました。怒ること自体を否定するのではなく、「その気持ちは大切にしながら、どう伝えたら相手に届くのか、どう表したら自分も周りも過ごしやすいのか」を一緒に考えることを続けました。</p>
+<p>ある時、ニュースを見て「許せない」と強い怒りを感じ、また感情にとらわれてしまったことがありました。でもその時、その子は<span class="sd-mark">自分から少しその場を離れ、落ち着いてからこちらへ戻ってきた</span>のです。その姿を見た時、とても大きな成長を感じました。</p>
+<div class="sd-point">自分の感情をコントロールし、自分自身を動かすことは、大人にとっても簡単なことではありません。だからこそ、その子が自分の力で一歩を選ぼうとしている姿に、強く心を動かされました。</div>
+<h2 class="sd-q">仕事のむずかしさややりがいについて教えてください</h2>
+<p>NIJINアカデミーでの難しさは、一人ひとりの子どもと向き合うことに加え、<span class="sd-mark">さまざまな業務を柔軟に担うことが求められる</span>点にもあります。子どもと関わることだけでなく、新しいことへの挑戦や、人とのつながりを広げることなど、求められる役割は多岐にわたります。</p>
+<p>それぞれに意味がある一方で、すべてを一人で抱え続けるのではなく、得意なことや役割を分担しながら、それぞれが力を発揮できる環境も大切なのではないかと感じています。長く子どもたちに向き合っていくためにも、挑戦することと、無理なく続けられることの両方を大切にできる働き方が必要だと思います。</p>
+<p>そして、仕事の本質的な難しさは、やはり<span class="sd-mark">子ども一人ひとりの思いをくみ取り、それを未来へつなげていくこと</span>です。その子が本当は何を望んでいるのか、何を伝えようとしているのか。言葉にならない思いも含めて真摯に向き合い、理解していくことは簡単ではありません。また、集団の中で、それぞれの思いを尊重しながら人と関わっていけるよう支えることにも難しさがあります。</p>
+<div class="sd-point">それでも、子どもたちが楽しそうに笑っている姿を見ると、「この仕事をしていてよかった」と感じます。その笑顔や小さな変化に立ち会えることが、何よりのやりがいです。</div>
+<!-- 📷 写真待ち：教室で笑顔を見せる子どもたちと山﨑さん -->
+<figure class="sd-fig">
+  <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/nao-smile.jpg" alt="教室で笑顔を見せる子どもたちと山﨑さん" loading="lazy">
+  <figcaption>子どもたちの笑顔や小さな変化に立ち会えることが、何よりのやりがい</figcaption>
+</figure>
+<h2 class="sd-q">これからニジンで挑戦したいことはなんですか？</h2>
+<p>これから挑戦したいのは、<span class="sd-mark">私自身も社会とのつながりをもっと広げていくこと</span>です。</p>
+<p>これまで子どもたちと関わる中で、人との出会いや、学校や地域という枠を越えてさまざまな人とつながることが、子どもたちの世界を広げることにつながると感じてきました。一方で、私自身は日々の教室での関わりに集中するあまり、社会との接点を十分につくれていないと感じることもあります。</p>
+<p>だからこそ、これからは企業や地域の方、さまざまな分野で活動している大人たちとつながり、子どもたちが実際の社会や多様な価値観に触れられる機会を増やしていきたいです。ただ人とつながるだけではなく、「こんな生き方があるんだ」「こんなことをしている人がいるんだ」と、<span class="sd-mark">子どもたちが新しい世界を知り、自分の「やってみたい」を見つけるきっかけ</span>をつくっていきたいと思っています。</p>
+<div class="sd-point">そのためにも、まずは私自身が一歩踏み出し、知らない世界に出会っていきたいです。</div>
+<h2 class="sd-q">読者に向けてメッセージをお願いします！</h2>
+<div class="sd-message">子どもには、一人ひとり違ったペースがあり、興味を持つことも、心が動く瞬間もそれぞれ違います。「今はやりたくない」という選択も含めて、その子自身が選ぶことを大切にしていきたいと思っています。<br><br>大人から見ると小さな一歩に見えても、その子にとっては大きな挑戦かもしれません。だからこそ、すぐに結果を求めるのではなく、その子の「やってみたい」に耳を傾け、安心して挑戦できる環境を一緒につくっていけたらと思います。<br><br>子どもたちが自分らしく歩んでいくために、私たち大人も子どもの可能性を決めつけず、一緒に悩み、一緒に喜びながら、その歩みを支えていけたらうれしいです。</div>
+<div class="sd-related">
+  <h3>あわせて読みたい｜NIJINで挑戦する仲間の声</h3>
+  <a href="https://nijin.co.jp/recruit/interview-hitomin/" class="sd-related-card">
+    <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/04/hitomin.jpg" alt="中村瞳（ひとみん）さん" loading="lazy">
+    <div class="sd-rel-body">
+      <p class="sd-rel-title">不登校の息子とつくるフリースクール｜越谷校 教室長</p>
+      <p class="sd-rel-desc">「学校に行けない＝不幸」という価値観を社会からなくしたい。保育士10年の経験を持つ越谷校教室長、ひとみんさんのインタビュー。</p>
+    </div>
+  </a>
+  <a href="https://nijin.co.jp/recruit/interview-shimejun/" class="sd-related-card">
+    <img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/02/1765643251264-0-e1779690589259.jpg" alt="大橋潤子（しめじゅん）さん" loading="lazy">
+    <div class="sd-rel-body">
+      <p class="sd-rel-title">二人の息子の母が選んだ、オルタナティブスクールの教室長</p>
+      <p class="sd-rel-desc">「不登校」という選択をリスペクトする社会へ。世田谷下高井戸8D校教室長、しめじゅんさんのインタビュー。</p>
+    </div>
+  </a>
+</div>
+<div class="sd-cta">
+  <div class="sd-cta__bg"></div>
+  <span class="sd-cta__eyebrow">NIJINアカデミー リアル教室長 募集中</span>
+  <p>子どもの「やってみたい」に、いちばん近くで。<br>地域に学びの選択肢をつくる仲間を、NIJINは募集しています。</p>
+  <a class="sd-btn" href="https://nijin.co.jp/recruit/nijinacademy-real/">教室長の募集を見る →</a>
+</div>
+</div>

@@ -1,0 +1,198 @@
+
+			
+<div class="sd-article">
+<style>
+.sd-article{--sd-accent:#d6447a;--sd-accent-dark:#b02f61;--sd-navy:#3a1f2b;--sd-sub:#8a6975;line-height:2;color:#333;font-size:1.02em;}
+.sd-article p{margin:0 0 1.3em;}
+.sd-article .sd-lead{font-size:1.04em;margin:0 0 30px;}
+.sd-article .sd-catch{position:relative;margin:0 0 28px;padding:28px 24px;background:linear-gradient(135deg,#fdeef3 0%,#fff 60%);border-left:6px solid var(--sd-accent);border-radius:8px;}
+.sd-article .sd-catch p{margin:0;font-size:clamp(20px,3.2vw,28px);font-weight:800;line-height:1.55;letter-spacing:.02em;color:var(--sd-navy);}
+.sd-article .sd-mark{background:linear-gradient(transparent 62%, #f6c9da 62%);font-weight:700;padding:0 2px;}
+.sd-article .sd-point{position:relative;margin:24px 0;padding:18px 22px 18px 26px;background:#fdeef3;border-left:5px solid var(--sd-accent);border-radius:0 10px 10px 0;font-weight:800;color:var(--sd-navy);font-size:1.03em;line-height:1.9;}
+.sd-article .sd-profile{display:flex;gap:18px;align-items:flex-start;background:#fdf2f6;border:1px solid #f5d6e3;border-radius:12px;padding:20px;margin:0 0 34px;flex-wrap:wrap;}
+.sd-article .sd-profile img{width:120px;height:120px;object-fit:cover;object-position:78% 35%;border-radius:50%;flex:0 0 auto;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.sd-article .sd-profile .sd-pf-body{flex:1;min-width:220px;}
+.sd-article .sd-profile .sd-pf-name{font-size:18px;font-weight:800;color:var(--sd-navy);margin-bottom:2px;}
+.sd-article .sd-profile .sd-pf-nick{font-size:13px;color:var(--sd-accent-dark);font-weight:700;margin-bottom:8px;}
+.sd-article .sd-profile .sd-pf-tags{font-size:.9em;color:var(--sd-sub);}
+.sd-article .sd-profile .sd-pf-tags span{display:inline-block;background:#f8dce8;color:var(--sd-accent-dark);border-radius:999px;padding:3px 12px;margin:2px 4px 2px 0;font-weight:700;font-size:.92em;}
+.sd-article h2.sd-q{position:relative;font-size:clamp(19px,2.5vw,24px);font-weight:800;line-height:1.5;margin:52px 0 24px;padding:0 0 14px 44px;border-bottom:2px solid #f5d6e3;}
+.sd-article h2.sd-q::before{content:"Q";position:absolute;left:0;top:-2px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--sd-accent);color:#fff;font-weight:800;font-size:.9em;border-radius:50%;}
+.sd-article figure.sd-fig{margin:30px 0;}
+.sd-article figure.sd-fig img{width:100%;height:auto;border-radius:10px;display:block;}
+.sd-article figure.sd-fig figcaption{margin-top:8px;font-size:.85em;color:var(--sd-sub);text-align:center;}
+.sd-article .sd-message{margin:26px 0;padding:24px 26px;background:#fdeef3;border-radius:10px;font-weight:700;color:var(--sd-navy);font-size:1.05em;line-height:2;}
+.sd-article .sd-cta{position:relative;overflow:hidden;background:#2a1620;color:#fff;border-radius:16px;padding:48px 26px;text-align:center;margin:52px 0 8px;box-shadow:0 14px 34px rgba(42,22,32,.28);}
+.sd-article .sd-cta__bg{position:absolute;inset:-12px;z-index:0;background-image:linear-gradient(120deg,rgba(50,22,36,.46) 0%,rgba(214,68,122,.22) 45%,rgba(34,16,24,.56) 100%),url('https://nijin.co.jp/recruit/wp-content/uploads/2026/10/%E7%94%BA%E5%B1%8B%E5%8D%97%E5%8D%83%E4%BD%8F%E6%A0%A1.jpg');background-size:cover;background-position:center 55%;filter:blur(4px) brightness(.95) saturate(1.08);}
+.sd-article .sd-cta::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 88% 12%,rgba(246,201,218,.30),transparent 55%);pointer-events:none;}
+.sd-article .sd-cta__eyebrow{position:relative;z-index:2;display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(246,214,227,.55);color:#fbe0ea;font-size:12px;font-weight:bold;letter-spacing:.05em;padding:5px 16px;border-radius:30px;margin-bottom:16px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.sd-article .sd-cta p{position:relative;z-index:2;margin:0;font-size:clamp(16px,2.2vw,19px);font-weight:700;line-height:1.9;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);}
+.sd-article .sd-cta a.sd-btn{position:relative;z-index:2;display:inline-block;background:var(--sd-accent);color:#fff !important;text-decoration:none !important;font-weight:800;padding:15px 40px;border-radius:999px;font-size:1.05em;margin-top:22px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 10px 24px rgba(42,22,32,.35);}
+.sd-article .sd-cta a.sd-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(214,68,122,.45);background:var(--sd-accent-dark);}
+.sd-article .sd-related{margin:44px 0 8px;}
+.sd-article .sd-related h3{font-size:18px;font-weight:800;color:var(--sd-navy);margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid #f5d6e3;}
+.sd-article a.sd-related-card{display:flex;gap:16px;align-items:center;padding:16px;border:1px solid #f5d6e3;border-radius:10px;margin-bottom:14px;text-decoration:none !important;color:inherit;transition:box-shadow .2s ease,transform .2s ease;}
+.sd-article a.sd-related-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px);}
+.sd-article a.sd-related-card img{width:110px;height:110px;object-fit:cover;border-radius:8px;flex:0 0 auto;}
+.sd-article a.sd-related-card .sd-rel-body{flex:1;min-width:0;}
+.sd-article a.sd-related-card .sd-rel-title{font-weight:800;color:var(--sd-navy);font-size:1.02em;margin:0 0 6px;}
+.sd-article a.sd-related-card .sd-rel-desc{font-size:.88em;color:var(--sd-sub);margin:0;line-height:1.7;}
+@media(max-width:600px){
+  .sd-article h2.sd-q{padding-left:40px;}
+  .sd-article .sd-profile{flex-direction:column;align-items:center;text-align:center;}
+  .sd-article a.sd-related-card{flex-direction:column;align-items:flex-start;}
+  .sd-article a.sd-related-card img{width:100%;height:160px;}
+}
+</style>
+
+<p class="sd-lead">1991年生まれ、北海道札幌市出身の進藤千尋さん。多摩美術大学グラフィックデザイン学科を卒業後、民間企業勤務を経て、東京都荒川区で子ども向けアート教室「アトリエキラリ」を開業。水彩画やアクリル画、レジンなど<span class="sd-mark">70種類以上のアート表現</span>を通じて、子どもたちと関わってきました。</p>
+<p class="sd-lead">自身も小学生の頃、学校に行けない時期があり、<span class="sd-mark">絵を描くことに救われた経験</span>を持つ進藤さん。そんな経験から、子どもたちがアートを通じて自分らしく過ごせる場所をつくりたいという想いでNIJINアカデミーに参画し、現在は町屋南千住校の教室長を務めています。</p>
+<div class="sd-profile">
+  <img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/%E6%95%99%E5%AE%A4%E9%95%B7.jpg" alt="NIJINアカデミー 町屋南千住校教室長 進藤千尋さん" >
+  <div class="sd-pf-body">
+    <div class="sd-pf-name">進藤 千尋（しんどう ちひろ）さん</div>
+    <div class="sd-pf-nick">アトリエキラリ 主宰</div>
+    <div class="sd-pf-tags"><span>町屋南千住校 教室長</span><span>イラストサークル 先生</span></div>
+  </div>
+</div>
+<h2 class="sd-q">いまは、どのようなお仕事をしていますか？</h2>
+<p>現在は、NIJINアカデミーの<span class="sd-mark">リアル校舎とメタバース校舎の両方</span>で、アートを通じて子どもたちと関わっています。</p>
+<p>1つ目は、町屋南千住校の教室長です。毎週金曜日9時半〜14時半に校舎を開放し、アートを軸とした体験型の学びを提供しています。レジンや染め物、シーリングスタンプなど70種類以上の表現を通じて、子どもたちが自分の「好き」を見つけ、夢中になれることを大切にしています。</p>
+<figure class="sd-fig">
+  <img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/%E7%94%BA%E5%B1%8B%E5%8D%97%E5%8D%83%E4%BD%8F%E6%A0%A1.jpg" alt="町屋南千住校でTシャツに絵の具で絵を描く子どもたち" loading="lazy" >
+  <figcaption>町屋南千住校でのアート体験。子どもたちが思い思いにTシャツへ絵を描く</figcaption>
+</figure>
+<p>今後は美術館や公園など、教室の外での体験も増やしていきたいと考えています。</p>
+<p>2つ目は、メタバース校舎のイラストサークルの先生です。現在10名の生徒が所属し、毎週火曜日と水曜日に活動しています。お絵かきゲームや合作でのポスター制作など、絵を通じて仲間とつながる時間を楽しんでいます。</p>
+<div class="sd-point">今後はコンテストへの応募や、プロのアーティストへのインタビュー、実際に会いに行く企画など、子どもたちの世界が広がる活動にも挑戦していきたいです。</div>
+<h2 class="sd-q">ニジンで働きたいと思ったきっかけは？</h2>
+<p>私自身、子どもの頃に学校が好きになれず、<span class="sd-mark">居心地の悪さを感じていた経験</span>があります。だからこそ、学校が合わない、学校が好きではないと感じている子どもたちの力になりたいと思い、NIJINへの参画を決めました。</p>
+<p>学校が合わないからといって、その子に「好きなもの」がないわけではありません。私自身、アートという「好きなもの」に出会い、それが心の支えになった経験があります。</p>
+<figure class="sd-fig">
+  <img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88.jpg" alt="水彩絵の具で描かれた作品と画材" loading="lazy" >
+  <figcaption>進藤さん自身も、アートに救われてきた一人</figcaption>
+</figure>
+<p>だからこそ、子どもたちにも自分の「好き」を見つけ、それを伸ばしていってほしいと思っています。同じような思いを経験した自分だからこそ、子どもたちに寄り添い、学校以外にも自分らしく学び、安心して過ごせる場所があることを伝えていきたいと思っています。</p>
+<div class="sd-point">学校が合わなくても、「好きなもの」が、その子の心の支えになる。</div>
+<h2 class="sd-q">ニジンで働いて一番心動かされた出来事/エピソードを教えてください</h2>
+<p>一番心を動かされたのは、タツロー校長が会議で話していた<span class="sd-mark">「子どもをどう見るか」</span>というお話です。</p>
+<p>印象的だったのは、「絵が好きな子に、一緒に絵を描こうと誘う。それだけでは、その子を本当に理解し、その子の主体を引き出すことにはならない」という言葉でした。</p>
+
+<p>絵は単なる創作活動ではなく、その子が世界をどう見ているのか、何を感じ、何を考えているのかが表れるもの。大切なのは、絵が上手だとか、表現が個性的だとか、そういった表面的な評価ではなく、その表現の奥にある、その子自身の内面を見ようとすることなのだと。</p>
+<p>私はこれまでアート教室で子どもたちと関わる中で、一人ひとりの表現の違いや面白さを感じてきました。でも、その奥にあるものをどこまで見つめ、言葉にできていただろうかと、ハッとさせられました。</p>
+<div class="sd-point">絵を通じて、その子がどんな世界を見ているのかを知る。そして、その子の考えや感じ方に触れながら、心を通わせていく。</div>
+<h2 class="sd-q">仕事のむずかしさややりがいについて教えてください</h2>
+<p>仕事の難しさは、正直、日々感じています。</p>
+<p>NIJINには、目指す目的のためなら、自分で考えてどんどん挑戦していいという文化があります。これまで、ある程度決められた枠組みの中で学び、働いてきた私にとっては、<span class="sd-mark">自由だからこその難しさ</span>を感じることも多いです。</p>
+<p>ただ、その自由さこそがNIJINで働く面白さでもあると思っています。自分がいいと思ったことを、自分の責任で形にしていける。決められた仕事をこなすのではなく、目的から逆算して、自分で考え、行動できる環境です。</p>
+<p>一方で、行動すること自体がゴールではなく、成果につなげることが求められます。どれだけ頑張っても、方向性が違えば結果にはつながらない。だからこそ、数字や成果に向き合いながら、試行錯誤を重ねていくことの大切さを感じています。</p>
+<div class="sd-point">まだまだ難しさを感じる毎日ですが、自分の挑戦が形になり、成果につながったときには、大きなやりがいを感じられるのだと思います。</div>
+<figure class="sd-fig">
+  <img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/%E6%A0%A1%E9%95%B7%E3%81%A8%E6%95%99%E5%AE%A4%E9%95%B7.jpg" alt="タツロー校長と進藤さんがアトリエで笑顔の2ショット" loading="lazy" >
+  <figcaption>タツロー校長とアトリエにて</figcaption>
+</figure>
+<h2 class="sd-q">これからニジンで挑戦したいことはなんですか？</h2>
+<p>現在は、リアル校舎の教室長とメタバース校舎のイラストサークルの先生として、アートを通じて子どもたちと関わっています。これから挑戦していきたいのは、<span class="sd-mark">アートを通じて、子どもたちと社会をつなぐこと</span>です。</p>
+<p>例えば、マルシェに出店して自分たちの絵やイラストを販売してみたり、コンテストに応募してみたり。私の美大時代の友人には現代アーティストとして活動している人もいるので、子どもたちが実際にインタビューをしたり、対談したりする機会もつくってみたいです。</p>
+<p>また、子どもたちが好きなVTuberやイラストレーター、憧れの絵師さんなど、普段は画面越しに見ている人たちと直接交流できるような企画にも挑戦したいと思っています。</p>
+<div class="sd-point">自分の「好き」が、誰かとの出会いや新しい世界につながっていく。そんな体験を子どもたちと一緒に楽しみながら、私自身も成長していきたいです。</div>
+<h2 class="sd-q">読者に向けてメッセージをお願いします！</h2>
+<div class="sd-message">NIJINは、自分自身の固定観念が何度も覆される場所だと思います。<br><br>私自身、まだ参画して3ヶ月ほどですが、「こんな考え方があるんだ！」「こんな世界があるんだ！」と驚かされることが何度もありました。これまで当たり前だと思っていたことが、実はそうではなかったと気づく。その一つひとつが、自分の殻を破り、新しい可能性を広げるきっかけになっていると感じています。<br><br>もちろん、簡単なことばかりではありません。日々、成長痛を感じることもあります。それでも、NIJINに入ってよかったと心から思っています。<br><br>今の自分から一歩踏み出したい方、これまでの枠にとらわれず、新しい教育に挑戦してみたい方。ぜひ、NIJINで一緒に挑戦しませんか？子どもたちと一緒に、私たち自身も成長していける。そんな仲間が増えたら嬉しいです。</div>
+<div class="sd-related">
+  <h3>あわせて読みたい｜NIJINで挑戦する仲間の声</h3>
+  <a href="https://nijin.co.jp/recruit/interview-aotari/" class="sd-related-card">
+    <img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/07/aotari-featured-1200x675-1.jpg" alt="青田梨沙（あおたり）さん" loading="lazy" >
+    <div class="sd-rel-body">
+      <p class="sd-rel-title">元中学校教員が教育スタートアップへ転職｜NIJIN</p>
+      <p class="sd-rel-desc">公立中学校の英語科教員から美容業界を経て、NIJINで再び教育の道へ。メタバース担任として、教師とビジネスの二刀流で子どもの「やりたい」を社会につなぐ、あおたりさんのインタビュー。</p>
+    </div>
+  </a>
+  <a href="https://nijin.co.jp/recruit/nike/" class="sd-related-card">
+    <img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/06/IMG_2227-1024x968.jpeg" alt="廣井裕子（にけ）さん" loading="lazy" width="1024" data-aspectratio="1024/968" >
+    <div class="sd-rel-body">
+      <p class="sd-rel-title">NIJINでカタチにする、理想の教育。リモートだからできること。</p>
+      <p class="sd-rel-desc">リモートで広がった自分の可能性。理想の教育をNIJINで実現します。メタバース担任、にけさんのインタビュー。</p>
+    </div>
+  </a>
+</div>
+<div class="sd-cta">
+  <div class="sd-cta__bg"></div>
+  <span class="sd-cta__eyebrow">NIJINアカデミー リアル教室長 募集中</span>
+  <p>「好き」を仕事にする自由を、ここで。<br>自分の得意を活かして教える仲間を、NIJINは募集しています。</p>
+  <a class="sd-btn" href="https://nijin.co.jp/recruit/nijinacademy-real/">教室長の募集を見る →</a>
+</div>
+</div>
+
+
+<!--[googlesitekit-end-of-content]-->
+
+		</div>
+		<div class="p-articleFoot">
+	<div class="p-articleMetas -bottom">
+			<div class="p-articleMetas__termList c-categoryList">
+					<a class="c-categoryList__link hov-flash-up" href="https://nijin.co.jp/recruit/category/staff-interview/" data-cat-id="9">
+				スタッフインタビュー			</a>
+					<a class="c-categoryList__link hov-flash-up" href="https://nijin.co.jp/recruit/category/staff-interview/%e3%83%aa%e3%82%a2%e3%83%ab%e6%95%99%e5%ae%a4/" data-cat-id="13">
+				リアル教室			</a>
+			</div>
+	</div>
+</div>
+<div class="c-shareBtns -bottom -style-icon">
+			<div class="c-shareBtns__message">
+			<span class="__text">
+				この記事をシェアする			</span>
+		</div>
+		<ul class="c-shareBtns__list">
+							<li class="c-shareBtns__item -facebook">
+				<a class="c-shareBtns__btn " href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnijin.co.jp%2Frecruit%2Finterview-chihiro%2F" title="Facebookでシェア" onclick="javascript:window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=800,width=600');return false;" target="_blank" role="button" tabindex="0">
+					<i class="snsicon c-shareBtns__icon icon-facebook" aria-hidden="true"></i>
+				</a>
+			</li>
+							<li class="c-shareBtns__item -twitter-x">
+				<a class="c-shareBtns__btn " href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnijin.co.jp%2Frecruit%2Finterview-chihiro%2F&#038;text=%E7%BE%8E%E5%A4%A7%E5%8D%92%E3%82%A2%E3%83%BC%E3%83%88%E8%AC%9B%E5%B8%AB%E3%81%8CNIJIN%E6%95%99%E5%AE%A4%E9%95%B7%E3%81%AB%EF%BD%9C%E5%A5%BD%E3%81%8D%E3%82%92%E4%BB%95%E4%BA%8B%E3%81%AB%E3%81%99%E3%82%8B%E8%BB%A2%E8%BA%AB%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC&#038;hashtags=NIJIN%2C%E6%8E%A1%E7%94%A8" title="X(Twitter)でシェア" onclick="javascript:window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" target="_blank" role="button" tabindex="0">
+					<i class="snsicon c-shareBtns__icon icon-twitter-x" aria-hidden="true"></i>
+				</a>
+			</li>
+																				<li class="c-shareBtns__item -copy">
+				<button class="c-urlcopy c-plainBtn c-shareBtns__btn " data-clipboard-text="https://nijin.co.jp/recruit/interview-chihiro/" title="URLをコピーする">
+					<span class="c-urlcopy__content">
+						<svg xmlns="http://www.w3.org/2000/svg" class="swl-svg-copy c-shareBtns__icon -to-copy" width="1em" height="1em" viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false"><path d="M38,5.5h-9c0-2.8-2.2-5-5-5s-5,2.2-5,5h-9c-2.2,0-4,1.8-4,4v33c0,2.2,1.8,4,4,4h28c2.2,0,4-1.8,4-4v-33
+				C42,7.3,40.2,5.5,38,5.5z M24,3.5c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S22.9,3.5,24,3.5z M38,42.5H10v-33h5v3c0,0.6,0.4,1,1,1h16
+				c0.6,0,1-0.4,1-1v-3h5L38,42.5z"/><polygon points="24,37 32.5,28 27.5,28 27.5,20 20.5,20 20.5,28 15.5,28 "/></svg>						<svg xmlns="http://www.w3.org/2000/svg" class="swl-svg-copied c-shareBtns__icon -copied" width="1em" height="1em" viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false"><path d="M38,5.5h-9c0-2.8-2.2-5-5-5s-5,2.2-5,5h-9c-2.2,0-4,1.8-4,4v33c0,2.2,1.8,4,4,4h28c2.2,0,4-1.8,4-4v-33
+				C42,7.3,40.2,5.5,38,5.5z M24,3.5c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S22.9,3.5,24,3.5z M38,42.5H10v-33h5v3c0,0.6,0.4,1,1,1h16
+				c0.6,0,1-0.4,1-1v-3h5V42.5z"/><polygon points="31.9,20.2 22.1,30.1 17.1,25.1 14.2,28 22.1,35.8 34.8,23.1 "/></svg>					</span>
+				</button>
+				<div class="c-copyedPoppup">URLをコピーしました！</div>
+			</li>
+			</ul>
+
+	</div>
+<div class="c-shareBtns -fix -style-icon">
+		<ul class="c-shareBtns__list">
+							<li class="c-shareBtns__item -facebook">
+				<a class="c-shareBtns__btn " href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnijin.co.jp%2Frecruit%2Finterview-chihiro%2F" title="Facebookでシェア" onclick="javascript:window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=800,width=600');return false;" target="_blank" role="button" tabindex="0">
+					<i class="snsicon c-shareBtns__icon icon-facebook" aria-hidden="true"></i>
+				</a>
+			</li>
+							<li class="c-shareBtns__item -twitter-x">
+				<a class="c-shareBtns__btn " href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fnijin.co.jp%2Frecruit%2Finterview-chihiro%2F&#038;text=%E7%BE%8E%E5%A4%A7%E5%8D%92%E3%82%A2%E3%83%BC%E3%83%88%E8%AC%9B%E5%B8%AB%E3%81%8CNIJIN%E6%95%99%E5%AE%A4%E9%95%B7%E3%81%AB%EF%BD%9C%E5%A5%BD%E3%81%8D%E3%82%92%E4%BB%95%E4%BA%8B%E3%81%AB%E3%81%99%E3%82%8B%E8%BB%A2%E8%BA%AB%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC&#038;hashtags=NIJIN%2C%E6%8E%A1%E7%94%A8" title="X(Twitter)でシェア" onclick="javascript:window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" target="_blank" role="button" tabindex="0">
+					<i class="snsicon c-shareBtns__icon icon-twitter-x" aria-hidden="true"></i>
+				</a>
+			</li>
+																				<li class="c-shareBtns__item -copy">
+				<button class="c-urlcopy c-plainBtn c-shareBtns__btn " data-clipboard-text="https://nijin.co.jp/recruit/interview-chihiro/" title="URLをコピーする">
+					<span class="c-urlcopy__content">
+						<svg xmlns="http://www.w3.org/2000/svg" class="swl-svg-copy c-shareBtns__icon -to-copy" width="1em" height="1em" viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false"><path d="M38,5.5h-9c0-2.8-2.2-5-5-5s-5,2.2-5,5h-9c-2.2,0-4,1.8-4,4v33c0,2.2,1.8,4,4,4h28c2.2,0,4-1.8,4-4v-33
+				C42,7.3,40.2,5.5,38,5.5z M24,3.5c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S22.9,3.5,24,3.5z M38,42.5H10v-33h5v3c0,0.6,0.4,1,1,1h16
+				c0.6,0,1-0.4,1-1v-3h5L38,42.5z"/><polygon points="24,37 32.5,28 27.5,28 27.5,20 20.5,20 20.5,28 15.5,28 "/></svg>						<svg xmlns="http://www.w3.org/2000/svg" class="swl-svg-copied c-shareBtns__icon -copied" width="1em" height="1em" viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false"><path d="M38,5.5h-9c0-2.8-2.2-5-5-5s-5,2.2-5,5h-9c-2.2,0-4,1.8-4,4v33c0,2.2,1.8,4,4,4h28c2.2,0,4-1.8,4-4v-33
+				C42,7.3,40.2,5.5,38,5.5z M24,3.5c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S22.9,3.5,24,3.5z M38,42.5H10v-33h5v3c0,0.6,0.4,1,1,1h16
+				c0.6,0,1-0.4,1-1v-3h5V42.5z"/><polygon points="31.9,20.2 22.1,30.1 17.1,25.1 14.2,28 22.1,35.8 34.8,23.1 "/></svg>					</span>
+				</button>
+				<div class="c-copyedPoppup">URLをコピーしました！</div>
+			</li>
+			</ul>
+
+	</div>
+		<div id="after_article" class="l-articleBottom">
+					</div>
+			</article>
