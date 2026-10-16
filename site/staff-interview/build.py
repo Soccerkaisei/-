@@ -31,6 +31,11 @@ BASE = {
     "rgba(34,16,24": "rgb_ov3", "rgba(246,201,218": "rgb_mark", "rgba(246,214,227": "rgb_line",
 }
 PALETTES = {
+    # NIJINロゴの赤・オレンジ・黄（きょーこ・じゅりたろう・にけ記事と同じ色）
+    "nijin": dict(accent="#E8473B", dark="#C7372C", navy="#3b2620", sub="#8a6c62", tint="#FFF3E4",
+                  mark="#FBE08A", line="#FFE1CF", pf="#FFF8EF", tag="#FFE1CF", cta="#2b1a14", eyebrow="#FFE9C2",
+                  rgb_cta="rgba(43,26,20", rgb_ov1="rgba(60,30,20", rgb_accent="rgba(232,71,59",
+                  rgb_ov3="rgba(34,18,12", rgb_mark="rgba(246,200,35", rgb_line="rgba(255,225,207"),
     "green": dict(accent="#2e8b67", dark="#1f6b4e", navy="#1f3a2f", sub="#6a8579", tint="#eaf6f0",
                   mark="#bfe6d3", line="#cfe9dc", pf="#f1f9f5", tag="#d6efe2", cta="#15281f", eyebrow="#dff3e9",
                   rgb_cta="rgba(21,40,31", rgb_ov1="rgba(22,44,34", rgb_accent="rgba(46,139,103",
@@ -49,7 +54,10 @@ PALETTES = {
                  rgb_ov3="rgba(10,24,32", rgb_mark="rgba(191,226,242", rgb_line="rgba(207,233,242"),
 }
 
-EXTRA_CSS = (".sd-article .sd-todo{margin:24px 0;padding:18px 22px;background:#fff8d6;border:2px dashed #e0b400;"
+EXTRA_CSS = (".sd-article .sd-point{border-left-color:#F39A1E;}\n"
+             ".sd-article .sd-profile img{border:none;padding:4px;background:conic-gradient(#E8473B,#F39A1E,#F6C823,#E8473B);}\n"
+             ".sd-article h2.sd-q{border-image:linear-gradient(90deg,#E8473B,#F39A1E,#F6C823) 1;}\n"
+             ".sd-article .sd-todo{margin:24px 0;padding:18px 22px;background:#fff8d6;border:2px dashed #e0b400;"
              "border-radius:10px;color:#6b5500;font-weight:700;}\n")
 
 # 「あわせて読みたい」に使う既存記事
@@ -99,7 +107,7 @@ def mark(s):
 # ---------------------------------------------------------------------------
 ARTICLES = [
 dict(
-    slug="interview-nao", sheet="10/21なお", palette="green",
+    slug="interview-nao", sheet="10/21なお", palette="nijin",
     title="「できない」の先にある「やってみたい」を。子どもの歩幅で共に未来を探す。",
     description="塾講師として30年以上子どもたちと向き合い、我が子の不登校も経験した山﨑尚子さん。NIJINアカデミー京都金閣寺校の教室長として、「選べる」ことを大切にした居場所づくりに挑んでいます。子どもの「やってみたい」を支える仕事とやりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -156,7 +164,7 @@ dict(
            "「やりがい」の回答冒頭の文が「〜では、〜点にもあります」とねじれていたため「NIJINアカデミーでの難しさは、〜点にもあります」に整えています。"],
 ),
 dict(
-    slug="interview-tomo", sheet="11/4トモちゃん", palette="indigo",
+    slug="interview-tomo", sheet="11/4トモちゃん", palette="nijin",
     title="「夢中力」で未来を切り拓く｜日本画家が青森にリアル校を開く理由",
     description="青森県で15年にわたり美術教育に携わってきた日本画家・佐伯知美さん。「学校が苦痛だった」自身の経験と、親になって生まれた思いから、NIJINアカデミー青森十和田校の開校を決意。子どもの「夢中力」を引き出す教育と、NIJINで挑む新しい学びを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -224,7 +232,7 @@ dict(
            "エピソード欄の末尾「とても大きな影響でし)」は「とても大きな影響でした。」に直しています。"],
 ),
 dict(
-    slug="interview-marino", sheet="11/25マリノ", palette="orange",
+    slug="interview-marino", sheet="11/25マリノ", palette="nijin",
     title="プロダンサーがNIJINのSNSマネージャーに｜失敗を恐れない挑戦の毎日",
     description="台湾のダンスコンテスト「OSTA」優勝の実績を持つプロダンサーで、アパレルブランド「cLLe」も手がける岡野真梨乃さん。「ダンス×教育」への想いからNIJINに参画し、SNSマネージャーとして挑戦の毎日を送っています。失敗を恐れず挑戦できる文化と、チームで働く難しさ・やりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ 【カテゴリを確認：サポートメンバー系】",
@@ -282,7 +290,7 @@ dict(
            "一覧のフィルターは「サポートメンバー」に入れる想定（data-minor=\"SNSマネージャー\"）。WordPressのカテゴリも合わせて確認。"],
 ),
 dict(
-    slug="interview-tucchii", sheet="11/11つっちー", palette="blue",
+    slug="interview-tucchii", sheet="11/11つっちー", palette="nijin",
     title="「学び方は十人十色」宮城の塾講師がNIJINへ｜子どもに合った学びを届けたい",
     description="スーパーの店長を経て塾講師となり、「学び方は十人十色」と実感してきた土田一成さん。宮城県の学習塾「ハイパーラーニング」とフリースクールの提携をきっかけにNIJINに参画。不登校とは思えないほど積極的な子どもたちとの出会いや、全国の先生の熱量に触れて感じたことを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
