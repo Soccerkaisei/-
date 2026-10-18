@@ -1,0 +1,404 @@
+<style>
+article.nj-article{--nj-main:#fc3131;--nj-main-d:#d92626;--nj-soft:#fff0f0;--nj-soft2:#fff8f8;--nj-line:#f3d3d3;--nj-ink:#2b2b2b;--nj-sub:#666;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;font-size:16px;line-height:1.95;color:var(--nj-ink);word-break:break-word;}
+article.nj-article p{margin:0 0 1.2em;}
+article.nj-article a{color:var(--nj-main-d);text-decoration:underline;text-underline-offset:2px;}
+article.nj-article a:focus-visible{outline:3px solid var(--nj-main);outline-offset:2px;border-radius:2px;}
+article.nj-article h2{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:800;line-height:1.5;color:#222;background:none;border:none;border-left:6px solid var(--nj-main);border-bottom:1px solid var(--nj-line);border-radius:0;padding:8px 0 10px 14px;margin:56px 0 22px;}
+article.nj-article h2::before,article.nj-article h2::after{content:none;display:none;}
+article.nj-article h2 .h2no{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--nj-main-d);color:#fff;font-weight:800;font-size:15px;font-family:Georgia,serif;box-shadow:0 4px 10px -4px rgba(217,38,38,.5);}
+article.nj-article strong{font-weight:700;background:linear-gradient(transparent 62%, var(--nj-soft) 62%);padding:0 1px;}
+article.nj-article .summary-box{background:#fff;border:1px solid var(--nj-line);border-radius:14px;padding:0;margin:22px 0;overflow:hidden;box-shadow:0 6px 20px -16px rgba(40,20,20,.35);}
+article.nj-article .summary-box .sb-head{background:var(--nj-ink);color:#fff;font-weight:800;font-size:14px;padding:11px 20px;letter-spacing:.02em;}
+article.nj-article .summary-box ul{list-style:none;margin:0;padding:14px 20px 16px;}
+article.nj-article .summary-box li{position:relative;padding:6px 0 6px 30px;font-size:15px;line-height:1.75;margin:0;}
+article.nj-article .summary-box li::before{content:"✓";position:absolute;left:0;top:6px;width:21px;height:21px;border-radius:50%;background:var(--nj-soft);color:var(--nj-main-d);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;}
+article.nj-article .pull{margin:28px 0;padding:20px 24px;border-left:5px solid var(--nj-main);background:linear-gradient(90deg,var(--nj-soft) 0%, transparent 100%);border-radius:0 12px 12px 0;font-size:19px;font-weight:800;line-height:1.7;color:#222;}
+article.nj-article h3{font-size:18px;font-weight:800;line-height:1.6;color:var(--nj-main-d);background:none;border:none;padding:0;margin:34px 0 12px;}
+article.nj-article h3::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--nj-main);margin-right:9px;vertical-align:middle;position:static;}
+article.nj-article h3::after{content:none;display:none;}
+article.nj-article ul,article.nj-article ol{margin:0 0 1.2em;padding-left:1.4em;}
+article.nj-article li{margin:5px 0;}
+article.nj-article .meta{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13px;color:var(--nj-sub);margin:0 0 16px;}
+article.nj-article .lead{background:#fff;border:1px solid var(--nj-line);border-top:5px solid var(--nj-main);border-radius:10px;padding:22px 24px 12px;box-shadow:0 2px 10px rgba(217,38,38,.06);}
+article.nj-article .lead .big{display:block;font-size:19px;font-weight:800;line-height:1.7;color:#222;margin-bottom:12px;}
+article.nj-article .nj-btn{display:inline-block;background:var(--nj-main-d);color:#fff !important;text-decoration:none !important;font-weight:700;font-size:15px;line-height:1.5;text-align:center;padding:13px 26px;border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.14);}
+article.nj-article .nj-btn:hover{filter:brightness(1.07);}
+article.nj-article .cta-mini{display:flex;align-items:center;flex-wrap:wrap;gap:14px 20px;background:var(--nj-soft);border:1px solid var(--nj-line);border-radius:12px;padding:18px 22px;margin:28px 0;}
+article.nj-article .cta-mini__txt{flex:1 1 280px;font-size:15px;line-height:1.75;}
+article.nj-article .cta-mini__txt b{display:block;font-size:16.5px;color:var(--nj-main-d);margin-bottom:2px;}
+article.nj-article .toc{background:#fafafa;border:1px solid #ececec;border-radius:10px;padding:16px 24px 10px;margin:28px 0;}
+article.nj-article .toc .toc__t{font-weight:800;margin:0 0 6px;}
+article.nj-article .toc ol{margin:0 0 6px;padding-left:22px;}
+article.nj-article .toc li{margin:4px 0;font-size:15px;}
+article.nj-article .toc a{color:var(--nj-ink);text-decoration:none;}
+article.nj-article .toc a:hover{color:var(--nj-main-d);text-decoration:underline;}
+article.nj-article .data{background:var(--nj-soft);border-left:5px solid var(--nj-main);border-radius:6px;padding:14px 18px 12px;margin:20px 0;font-size:15px;line-height:1.85;}
+article.nj-article .data .num{display:inline-block;font-size:26px;font-weight:800;line-height:1.3;color:var(--nj-main-d);margin-right:8px;}
+article.nj-article .point{background:#fff;border:2px dashed var(--nj-main);border-radius:10px;padding:14px 18px 6px;margin:22px 0;}
+article.nj-article .point b{color:var(--nj-main-d);}
+article.nj-article .note{background:#f5f6f8;border-left:5px solid #9aa3ad;border-radius:6px;padding:14px 18px 6px;margin:22px 0;font-size:15px;}
+article.nj-article .src{font-size:12.5px;line-height:1.7;color:#777;margin:8px 0 0;word-break:break-all;}
+article.nj-article .src a{color:#777;}
+article.nj-article .tbl-wrap{overflow-x:auto;margin:20px 0;-webkit-overflow-scrolling:touch;}
+article.nj-article table.cmp{border-collapse:collapse;width:100%;min-width:600px;font-size:14.5px;line-height:1.7;}
+article.nj-article table.cmp th,article.nj-article table.cmp td{border:1px solid #ead9d9;padding:10px 12px;text-align:left;vertical-align:top;}
+article.nj-article table.cmp thead th{background:var(--nj-main-d);color:#fff;border-color:var(--nj-main-d);font-weight:700;}
+article.nj-article table.cmp tbody th{background:var(--nj-soft);color:var(--nj-ink);font-weight:800;}
+article.nj-article table.cmp tbody td{background:#fff;}
+article.nj-article table.cmp tbody tr:nth-child(even) td{background:var(--nj-soft2);}
+article.nj-article figure.ph{margin:24px 0;text-align:center;}
+article.nj-article figure.ph img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08);margin:0;}
+article.nj-article figure.zukai{margin:24px 0;background:#fff;border:1px solid #eee;border-radius:12px;padding:16px 12px 10px;text-align:center;}
+article.nj-article figure.zukai svg{max-width:100%;height:auto;}
+article.nj-article figure.zukai figcaption{font-size:13px;color:#666;margin-top:8px;line-height:1.6;}
+article.nj-article .svg-t{font-size:15px;fill:#333;}
+article.nj-article .svg-s{font-size:13px;fill:#555;}
+article.nj-article .svg-b{font-size:15px;font-weight:700;fill:#333;}
+article.nj-article .svg-main{fill:var(--nj-main);}
+article.nj-article table.cmp.kv{min-width:0;}
+article.nj-article table.cmp.kv tbody th{width:7.5em;white-space:nowrap;}
+article.nj-article .tbl-wrap.scroll::before{content:"← 横にスクロールできます →";display:none;font-size:12px;color:#888;text-align:right;margin-bottom:4px;}
+article.nj-article .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:18px 0;}
+article.nj-article .two>div{border-radius:10px;padding:14px 18px 8px;font-size:15px;}
+article.nj-article .two .ok{background:var(--nj-soft);border:1px solid var(--nj-line);}
+article.nj-article .two .care{background:#f5f6f8;border:1px solid #e3e6ea;}
+article.nj-article .two h4{margin:0 0 6px;font-size:16px;}
+article.nj-article .steps{list-style:none;padding:0;margin:20px 0;counter-reset:s;}
+article.nj-article .steps li{position:relative;counter-increment:s;padding:12px 14px 12px 60px;margin:10px 0;background:#fff;border:1px solid var(--nj-line);border-radius:10px;font-size:15px;line-height:1.75;}
+article.nj-article .steps li::before{content:counter(s);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:var(--nj-main-d);color:#fff;font-weight:800;text-align:center;line-height:32px;}
+article.nj-article .steps b{color:var(--nj-main-d);}
+article.nj-article .voice{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--nj-line);border-left:5px solid var(--nj-main);border-radius:10px;padding:18px 20px 6px;margin:22px 0;}
+article.nj-article .voice__ph{flex:0 0 84px;width:84px;height:84px;border-radius:50%;overflow:hidden;background:#eee;}
+article.nj-article .voice__ph img{width:100%;height:100%;object-fit:cover;display:block;}
+article.nj-article .voice__body{flex:1;min-width:0;}
+article.nj-article .voice .voice__name{font-weight:800;color:var(--nj-main-d);margin:0 0 2px;font-size:16px;}
+article.nj-article .voice .voice__tag{font-size:12.5px;color:var(--nj-sub);margin:0 0 8px;line-height:1.6;}
+article.nj-article .voice p{font-size:15px;margin:0 0 .8em;}
+article.nj-article .faq{margin:18px 0;}
+article.nj-article .faq details{background:#fff;border:1px solid var(--nj-line);border-radius:10px;padding:4px 18px;margin:10px 0;}
+article.nj-article .faq summary{cursor:pointer;font-weight:800;font-size:15.5px;padding:12px 0;color:#222;list-style:none;position:relative;padding-right:28px;}
+article.nj-article .faq summary::-webkit-details-marker{display:none;}
+article.nj-article .faq summary::after{content:"+";position:absolute;right:2px;top:10px;font-size:20px;color:var(--nj-main-d);font-weight:800;}
+article.nj-article .faq details[open] summary::after{content:"−";}
+article.nj-article .faq summary::before{content:"Q";display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:var(--nj-main-d);color:#fff;font-size:13px;margin-right:10px;vertical-align:middle;}
+article.nj-article .faq .a{padding:0 0 14px 32px;font-size:14.5px;line-height:1.85;color:var(--nj-ink);}
+article.nj-article .cta{position:relative;overflow:hidden;isolation:isolate;background:#2a2020;color:#fff;border-radius:14px;padding:30px 24px 26px;text-align:center;margin:44px 0;}
+article.nj-article .cta::before{content:"";position:absolute;inset:-24px;z-index:-2;background:url('https://nijin.co.jp/recruit/wp-content/uploads/2026/04/採用HP-職種-3.jpg') center 30%/cover no-repeat;filter:blur(9px);}
+article.nj-article .cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(25,20,22,.62) 0%,rgba(15,12,14,.74) 100%);}
+article.nj-article .cta p{color:#fff;margin:0 0 6px;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+article.nj-article .cta .cta__t{font-size:19px;font-weight:800;line-height:1.6;}
+article.nj-article .cta .nj-btn{background:var(--nj-main-d);color:#fff !important;margin-top:14px;box-shadow:0 3px 0 rgba(0,0,0,.25);}
+article.nj-article .cta small{display:block;margin-top:14px;font-size:12.5px;line-height:1.7;color:#fff;opacity:.95;text-shadow:0 1px 6px rgba(0,0,0,.55);}
+article.nj-article .relhead{font-size:16px;font-weight:800;color:#222;margin:44px 0 12px;}
+article.nj-article .relcard{display:flex;gap:16px;border:1px solid #e6e6e6;border-radius:12px;overflow:hidden;margin:12px 0;text-decoration:none;color:var(--nj-ink);background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.04);}
+article.nj-article .relcard:hover{border-color:var(--nj-main);}
+article.nj-article .relcard__thumb{flex:0 0 128px;width:128px;min-height:104px;overflow:hidden;background:#eee;}
+article.nj-article .relcard__thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+article.nj-article .relcard__body{padding:12px 16px 12px 0;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;}
+article.nj-article .relcard__title{font-size:15px;font-weight:800;color:var(--nj-main-d);display:block;margin-bottom:5px;line-height:1.55;}
+article.nj-article .relcard__excerpt{font-size:12.5px;color:#666;display:block;line-height:1.65;}
+article.nj-article .navlist{list-style:none;padding:0;margin:18px 0;}
+article.nj-article .navlist li{background:#fff;border:1px solid var(--nj-line);border-radius:10px;padding:14px 18px;margin:10px 0;}
+article.nj-article .navlist .nl-t{font-weight:800;font-size:15.5px;color:#222;display:block;margin-bottom:4px;}
+article.nj-article .navlist .nl-t a{color:var(--nj-main-d);text-decoration:none;}
+article.nj-article .navlist .nl-t a:hover{text-decoration:underline;}
+article.nj-article .navlist .nl-d{font-size:14px;color:var(--nj-sub);line-height:1.7;}
+article.nj-article .sources{font-size:13.5px;line-height:1.8;color:#555;}
+article.nj-article .sources li{word-break:break-all;}
+@media (max-width:600px){
+article.nj-article .tbl-wrap.scroll::before{display:block;}
+article.nj-article h2{font-size:20px;margin-top:46px;}
+article.nj-article h2 .h2no{width:30px;height:30px;font-size:14px;}
+article.nj-article .pull{font-size:17px;padding:16px 18px;}
+article.nj-article .lead{padding:18px 16px 8px;}
+article.nj-article .lead .big{font-size:17.5px;}
+article.nj-article .cta-mini{padding:16px;}
+article.nj-article .cta{padding:26px 16px 22px;}
+article.nj-article .relcard__thumb{flex-basis:96px;width:96px;}
+article.nj-article .voice{flex-direction:column;align-items:center;text-align:center;padding:20px 16px 10px;}
+article.nj-article .voice__ph{width:72px;height:72px;}
+}
+article.nj-article figure.ph figcaption{font-size:13px;color:#666;margin-top:8px;line-height:1.6;}
+article.nj-article figure.nj-yt{margin:26px auto;max-width:480px;text-align:center;}
+article.nj-article figure.nj-yt img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.12);}
+article.nj-article figure.nj-yt figcaption{font-size:13.5px;color:#444;margin-top:8px;line-height:1.6;font-weight:700;}
+article.nj-article .chk{list-style:none;padding:0;margin:18px 0;}
+article.nj-article .chk li{position:relative;background:#fff;border:1px solid var(--nj-line);border-radius:10px;padding:11px 14px 11px 46px;margin:8px 0;font-size:15px;line-height:1.75;}
+article.nj-article .chk li::before{content:"";position:absolute;left:14px;top:14px;width:18px;height:18px;border:2px solid var(--nj-main-d);border-radius:4px;background:#fff;}
+article.nj-article .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0 4px;text-align:left;}
+article.nj-article .flow>div{background:var(--nj-soft2);border:1.5px solid var(--nj-main);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.7;}
+article.nj-article .flow>div b{display:block;color:var(--nj-main-d);font-size:15px;margin-bottom:4px;}
+</style>
+<article class="nj-article">
+
+<div class="meta">執筆：NIJIN 採用チーム／読了目安：13分</div>
+
+<div class="lead">
+<span class="big">教員3年目で辞めたいと感じるのは、甘えではありません。条件付採用と初任者研修の1年を終え、初めての異動が視野に入る節目だからです。答えを急がず、「残る・学校を移る・外へ出る・両方に関わる」を、自分の軸で比べてから決めれば間に合います。</span>
+<p>この記事では、教育公務員特例法と地方公務員法の条文、東京都教育委員会の公開資料、厚生労働省の統計で確かめたことだけをもとに、3年目ならではの事情を整理します。「辞めるのが正解」と言う記事ではありません。残る道も、外へ出る道も、同じ重さで並べます。</p>
+</div>
+
+<div class="toc">
+<p class="toc__t">目次</p>
+<ol>
+<li><a href="#sec1">教員3年目で辞めたい｜先に結論</a></li>
+<li><a href="#sec2">3年目に「辞めたい」が強くなる3つの節目</a></li>
+<li><a href="#sec3">「石の上にも三年」と、どう向き合うか</a></li>
+<li><a href="#sec4">しんどさを3つに分けて、キャリアの軸を見つける</a></li>
+<li><a href="#sec5">残る・移る・出る・両方に関わる｜4つの道の比較表</a></li>
+<li><a href="#sec6">3年目の転職｜第二新卒として動く前に確かめること</a></li>
+<li><a href="#sec7">学校の外で、自分のやりたい教育をするという道</a></li>
+<li><a href="#sec8">よくある質問</a></li>
+<li><a href="#sec9">まとめ｜3年目は、軸を言葉にする年</a></li>
+</ol>
+</div>
+
+<div class="summary-box">
+<div class="sb-head">この記事で分かること</div>
+<ul>
+<li>3年目に「辞めたい」が強くなる理由（条件付採用と初任者研修のあと、初めての異動）と、その根拠</li>
+<li>「石の上にも三年」という言葉との向き合い方</li>
+<li>しんどさを3つに分けて、自分の軸を見つける方法</li>
+<li>残る／学校を移る／外へ出る／両方に関わる、の比較表</li>
+<li>3年目で転職を考えるときの窓口と、年度末までの動き方</li>
+</ul>
+</div>
+
+<h2 id="sec1"><span class="h2no">1</span>教員3年目で辞めたい｜先に結論</h2>
+<p>授業も学級も、ひととおり回せるようになった。けれど、学校の決まりや進め方に「自分のやりたい教育と違う」と感じる場面が増え、来年度の異動の話も聞こえてくる。3年目は、そんな年ではないでしょうか。</p>
+<p>先に結論をお伝えします。</p>
+<ul>
+<li><strong>3年目で迷うのは、節目に立っているからです。</strong>法律が定める「最初の1年」の支えが終わり、初めての異動が現実の話になる時期です。</li>
+<li><strong>「3年は続けるべき」に、制度上の根拠はありません。</strong>大切なのは年数ではなく、何がしんどくて、何をしたいのかを言葉にすることです。</li>
+<li><strong>道は4つあります。</strong>①残る、②学校を移る、③学校の外へ出る、④学校にいながら外にも関わる。どれが正解かは、人によって違います。</li>
+</ul>
+<p>初任の方は<a href="https://nijin.co.jp/recruit/kyouin-yametai-shonin/">教員を辞めたい初任の先生へ</a>、2年目の方は<a href="https://nijin.co.jp/recruit/kyouin-2nenme-yametai/">教員2年目で辞めたいと思ったときに</a>、5年目の方は<a href="https://nijin.co.jp/recruit/kyouin-5nenme-tenshoku/">教員5年目の転職</a>をご覧ください。ここでは「3年目ならでは」に絞ります。</p>
+
+<h2 id="sec2"><span class="h2no">2</span>3年目に「辞めたい」が強くなる3つの節目</h2>
+<figure class="nj-fig nj-gem" style="margin:22px 0;"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/kyouin-3nenme-yametai-classroom-after-school.jpg" width="1024" height="572" alt="教員3年目で辞めたいと感じ、放課後の教室の窓辺で来年度のことを考える20代の先生（イメージ）" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;" class="lazyload" ><noscript><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/kyouin-3nenme-yametai-classroom-after-school.jpg" width="1024" height="572" alt="教員3年目で辞めたいと感じ、放課後の教室の窓辺で来年度のことを考える20代の先生（イメージ）" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"></noscript><figcaption style="font-size:13px;color:#666;margin-top:6px;line-height:1.7;">最初の1年の支えを離れ、初めての異動が見えてくる3年目は、働き方を考え直しやすい節目です（イメージ）。</figcaption></figure>
+<p>「教員 3年目 しんどい」と検索したくなる背景には、制度の節目があります。公式の資料で確かめられた範囲で見ていきます。</p>
+
+<h3>節目① 「最初の1年」の支えが終わっている</h3>
+<p>地方公務員法第22条は、職員の採用をすべて条件付とし、6か月を良好な成績で勤務したときに正式のものになると定めています。公立学校の教諭などは、教育公務員特例法第12条で、この「6か月」が「1年」と読み替えられます。</p>
+<p>同法第23条は、採用の日から1年間の実践的な研修（初任者研修）を行うこと、学校の中から指導教員を命じることも定めています。つまり、<strong>法律が決めている「見習いの期間」と「指導教員のつく研修」は、どちらも1年目まで</strong>です。</p>
+<p>3年目の先生は、その支えを離れて2回目の年度を回しています。任される仕事は増えるのに、立ち止まって相談する場は減っている。しんどさが表に出やすいのは、そのためかもしれません。</p>
+<p class="src">出典：e-Gov法令検索「地方公務員法」<a href="https://laws.e-gov.go.jp/law/325AC0000000261" target="_blank" rel="noopener">laws.e-gov.go.jp</a>／「教育公務員特例法」<a href="https://laws.e-gov.go.jp/law/324AC0000000001" target="_blank" rel="noopener">laws.e-gov.go.jp</a></p>
+
+<h3>節目② 初めての異動が、現実の話になる</h3>
+<p>異動の決まりは自治体ごとに違います。例として東京都教育委員会の資料を見ると、小・中学校の異動は「現任校に3年以上勤務する者を異動の対象とし、6年に達した者を必異動とする」とされています。自分で異動先に応募する公立小中学校教員公募も、原則として現任校に3年以上勤務している教員が対象です。</p>
+<p>東京都の例でいえば、初任校で3年目を終える先生は、「異動の対象」に入りはじめる位置にいます。<strong>次の学校で一から関係をつくる前に、「そもそも自分はどう働きたいのか」を考えたくなるのは自然なことです。</strong>新規採用の先生に別の決まりがあるかどうかも含めて、お勤めの自治体の決まりは管理職か教育委員会に確かめてください。</p>
+<p class="src">出典：東京都教育委員会 公開資料「第4章 任用（2 任用（異動））」<a href="https://www.kyoiku.metro.tokyo.lg.jp/documents/d/kyoiku/02_03_04_3" target="_blank" rel="noopener">kyoiku.metro.tokyo.lg.jp（PDF）</a>／「令和8年度（令和9年4月1日異動）公立小中学校教員公募の実施について」<a href="https://www.kyoiku.metro.tokyo.lg.jp/staff/personnel/screening/public_offering/recruiting" target="_blank" rel="noopener">kyoiku.metro.tokyo.lg.jp</a></p>
+
+<h3>節目③ 仕事の全体が見えて、「やりたい教育」とのずれに気づく</h3>
+<p>1年目は目の前の授業で手いっぱい。2年目は2回目の行事で少し見通しが立つ。3年目になると、学校の1年の流れと、物事の決まり方が見えてきます。</p>
+<p>見えるからこそ、「この行事は何のためだろう」「この子に合うやり方は別にあるのに」と気づきます。これは力がついた証拠でもあります。学校が悪いのでも、先生がわがままなのでもありません。大勢の子どもを同じ時間割で支える学校の仕組みと、目の前の一人に合わせたいという思いが、ぶつかる場面があるというだけです。</p>
+
+<div class="tbl-wrap scroll">
+<table class="cmp">
+<thead><tr><th>節目</th><th>公式資料で確かめられること</th><th>3年目の先生に起きやすいこと</th></tr></thead>
+<tbody>
+<tr><th scope="row">採用と研修</th><td>条件付採用は教諭などの場合1年。初任者研修は採用の日から1年間で、指導教員がつく</td><td>支えを離れて2回目の年度。任される仕事が増える</td></tr>
+<tr><th scope="row">異動</th><td>東京都の例：現任校3年以上が異動の対象、6年で必異動。公募も現任校3年以上が対象</td><td>初めての異動が現実の話になる</td></tr>
+<tr><th scope="row">仕事の見え方</th><td>（制度ではなく、経験による変化です）</td><td>学校の1年の流れが見え、やりたい教育とのずれに気づく</td></tr>
+</tbody>
+</table>
+</div>
+<p class="src">東京都は一例です。異動の年数や決まりは自治体ごとに違います。</p>
+
+<h2 id="sec3"><span class="h2no">3</span>「石の上にも三年」と、どう向き合うか</h2>
+<p>「とりあえず3年は続けなさい」。そう言われた経験のある先生は多いでしょう。「石の上にも三年」は、つらくても辛抱して続ければ報われる、という意味で使われることわざです。励ましとして受け取れるときもあれば、重荷になるときもあります。</p>
+<p>押さえておきたいのは、<strong>「3年」は制度が決めた区切りではない</strong>ということです。2章で見たとおり、法律が教員の「見習いの期間」としているのは1年です。3年たたないと一人前と認められない、3年たたないと辞められない、という決まりは、確かめた条文のどこにもありません。</p>
+
+<div class="data"><span class="num">33.8％</span>令和4年3月に大学を卒業して就職した人のうち、就職後3年以内に離職した人の割合です（厚生労働省）。事業所からハローワークへの雇用保険の届け出をもとにした集計で、公立学校の先生の数字そのものではありません。それでも、社会に出て3年のうちに職場を変える人は珍しくない、ということは分かります。
+<p class="src">出典：厚生労働省「新規学卒就職者の離職状況（令和4年3月卒業者）を公表します」<a href="https://www.mhlw.go.jp/stf/houdou/0000177553_00010.html" target="_blank" rel="noopener">mhlw.go.jp</a></p></div>
+
+<p>一方で、3年という時間に意味がないわけでもありません。年度を3回くり返すと、同じ行事や単元を「前より良くする」経験ができます。大事なのは、<strong>「あと何年がまんするか」ではなく、「この3年で何を得て、次の1年で何を確かめたいか」</strong>に問いを置きかえることです。</p>
+
+<figure class="zukai">
+<div class="flow">
+<div><b>問いを置きかえる①</b>「3年もたなかったら恥ずかしい」→「3年で、何ができるようになったか」</div>
+<div><b>問いを置きかえる②</b>「あと何年がまんすればいいか」→「次の1年で、何を確かめたいか」</div>
+<div><b>問いを置きかえる③</b>「辞めるか、続けるか」→「何がしんどくて、何をしたいのか」</div>
+</div>
+<figcaption>「石の上にも三年」に縛られないための、問いの置きかえ。年数ではなく、中身で考えます。</figcaption>
+</figure>
+<p class="src">この図は、公的な資料にもとづくものではなく、考えを整理するための一例です。</p>
+
+<h2 id="sec4"><span class="h2no">4</span>しんどさを3つに分けて、キャリアの軸を見つける</h2>
+<figure class="nj-fig nj-gem" style="margin:22px 0;"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/kyouin-3nenme-yametai-sticky-notes-desk.jpg" width="1024" height="572" alt="教員の3年目に辞めたい気持ちを整理するため、自宅の机で付箋を3つの山に分けて書き出す先生（イメージ）" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;" class="lazyload" ><noscript><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/kyouin-3nenme-yametai-sticky-notes-desk.jpg" width="1024" height="572" alt="教員の3年目に辞めたい気持ちを整理するため、自宅の机で付箋を3つの山に分けて書き出す先生（イメージ）" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"></noscript><figcaption style="font-size:13px;color:#666;margin-top:6px;line-height:1.7;">しんどい場面とうれしかった場面を書き出して分けると、手放したくないものと変えたいものが見えてきます（イメージ）。</figcaption></figure>
+<p>初めての異動の前に考えておきたいのが、キャリアの軸です。むずかしい言葉に聞こえますが、要は<strong>「これだけは手放したくないもの」と「これは変えたいもの」</strong>のことです。見つける近道は、いまのしんどさを分けることです。</p>
+
+<figure class="zukai">
+<div class="flow">
+<div><b>A 「この学校」がしんどい</b>学年の方針、職員室の人間関係、通勤、いまの分掌。場所が変われば変わるもの<br>→ 異動で解けることがあります</div>
+<div><b>B 「この働き方」がしんどい</b>時間の使い方、仕事の決まり方、やりたい教育ができない感覚。学校が変わっても残りやすいもの<br>→ 学校の外や、両方に関わる道も比べます</div>
+<div><b>C 体と心がしんどい</b>眠れない、食べられない、朝に涙が出る<br>→ 進路より先に、休むことと相談を</div>
+</div>
+<figcaption>しんどさを3つに分ける。Aが多いなら異動、Bが多いなら働き方そのもの、Cがあるならまず健康を考えます。</figcaption>
+</figure>
+
+<p>紙に、この1か月で「しんどい」と感じた場面を10個書き、A・B・Cの印をつけてみてください。続けて、「うれしかった場面」も10個書きます。子どもの変化を見た瞬間なのか、授業を工夫する時間なのか、同僚と行事をつくった経験なのか。<strong>しんどさの中身が「変えたいもの」、うれしさの中身が「手放したくないもの」</strong>です。</p>
+<p>Cにあてはまる方は、軸を考えるより先に休んでください。医療機関や、公立学校共済組合などの相談窓口を頼ってかまいません。「向いていないのでは」と感じている方は<a href="https://nijin.co.jp/recruit/kyouin-muitenai/">「教員に向いてない」と感じたら</a>も参考になります。</p>
+<div class="note"><p>A・B・Cの分け方は、公的な資料にもとづくものではなく、考えを整理するための一例です。体調については、ご自身で判断せず医療機関にご相談ください。</p></div>
+
+<h2 id="sec5"><span class="h2no">5</span>残る・移る・出る・両方に関わる｜4つの道の比較表</h2>
+<p>軸が少し見えてきたら、道を並べます。3年目の先生が選べる道は、大きく4つです。</p>
+<div class="tbl-wrap scroll">
+<table class="cmp">
+<thead><tr><th>道</th><th>具体的な形</th><th>良いところ</th><th>気をつけたいところ</th><th>合いやすいしんどさ</th></tr></thead>
+<tbody>
+<tr><th scope="row">①残る</th><td>いまの学校で、学年や分掌の希望を伝えながら続ける</td><td>身分と収入が変わらない。子どもや同僚との関係を生かせる</td><td>何がしんどいのかを分けないままだと、同じ悩みが続きやすい</td><td>Aが中心で、来年度に変えられる見込みがある</td></tr>
+<tr><th scope="row">②学校を移る</th><td>異動を希望する、公募に応募する。他の自治体や私立学校の採用を受ける</td><td>教員を続けながら環境を変えられる</td><td>決まりと時期は自治体ごと。移った先が合うとは限らない</td><td>Aが中心</td></tr>
+<tr><th scope="row">③学校の外へ出る</th><td>教育に関わる会社やスクール、教育以外の仕事へ</td><td>働く時間・場所・仕事の中身を選び直せる</td><td>収入と安定の形が変わる。退職の時期と手続きを確かめる必要がある</td><td>Bが中心</td></tr>
+<tr><th scope="row">④両方に関わる</th><td>教員を続けながら、学校の外の学びの場や、許可を受けた兼業に関わる</td><td>辞めずに、外の世界とやりたい教育を試せる</td><td>公立学校の先生の兼業には許可などの決まりがある。時間の負担が増える</td><td>Bがあるが、まだ決めきれない</td></tr>
+</tbody>
+</table>
+</div>
+<p>4つは、1つを選んだら戻れないものではありません。①を続けながら④で外を知る。②で環境を変えてから考え直す。<strong>行き来しながら決めてよい</strong>のです。</p>
+
+<h3>残る道・移る道を選ぶなら、学校の外に仲間を持つ</h3>
+<p>学校に残るときに効くのは、職員室の外に相談相手を持つことです。小学校の先生なら、授業を「見る・見せる・語り合う」ことで授業力を磨くオンラインコミュニティ<a href="https://jugyoterrace.nijin.co.jp/" target="_blank" rel="noopener">授業てらす</a>があります。中学校の先生なら、学級経営・特別活動・授業づくりの実践を現役の先生と学び合う、無料のオンラインコミュニティ<a href="https://msterrace.nijin.co.jp/" target="_blank" rel="noopener">中学校てらす</a>があります。「やりたい教育」を学校の中で形にしたい方は、<a href="https://nijin.co.jp/recruit/kyouin-yaritai-kyouiku-dekinai/">やりたい教育が学校でできない先生へ</a>もご覧ください。</p>
+
+<h3>両方に関わる道には、決まりがある</h3>
+<p>地方公務員法第38条は、職員が報酬を得て事業や事務に従事するには任命権者の許可が要ると定めています。教育公務員特例法第17条は、教育に関する他の職を兼ねたり、教育に関する他の事業や事務に従事したりすることを、本務の遂行に支障がないと任命権者（県費負担教職員は市町村の教育委員会）が認める場合にできる、としています。</p>
+<p>何が認められるかは任命権者の判断です。関わる前に、必ず管理職に相談してください。くわしくは<a href="https://nijin.co.jp/recruit/teacher-side-job-rules/">現職教員は副業できる？</a>にまとめています。</p>
+
+<div class="cta-mini">
+<div class="cta-mini__txt"><b>学校の外の教育の仕事を、まず見てみる</b>在宅でクラスを持つ先生、1対1の専任サポートなど、NIJINの募集職種を一覧で確かめられます。</div>
+<a class="nj-btn" href="https://nijin.co.jp/recruit/">募集職種を見る →</a>
+</div>
+
+<h2 id="sec6"><span class="h2no">6</span>3年目の転職｜第二新卒として動く前に確かめること</h2>
+<figure class="nj-fig nj-gem" style="margin:22px 0;"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/kyouin-3nenme-yametai-library-planner.jpg" width="1024" height="572" alt="3年目の教員が転職を考え、休日の図書館の席で手帳を開いて年度末までの予定を確かめる様子（イメージ）" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;" class="lazyload" ><noscript><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/kyouin-3nenme-yametai-library-planner.jpg" width="1024" height="572" alt="3年目の教員が転職を考え、休日の図書館の席で手帳を開いて年度末までの予定を確かめる様子（イメージ）" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"></noscript><figcaption style="font-size:13px;color:#666;margin-top:6px;line-height:1.7;">異動の希望を出す時期と転職を考える時期は重なりやすいため、年度末から逆算して予定を確かめます（イメージ）。</figcaption></figure>
+<p>「教員 3年目 転職」と調べると、「第二新卒」という言葉をよく見かけます。ただ、この言葉が指す範囲は求人によって違います。自分があてはまるかは、求人ごとの応募条件で確かめるのが確実です。</p>
+
+<h3>若い人の就職を支える公的な窓口</h3>
+<p>厚生労働省は、若い人向けの専門のハローワークを設けています。「新卒応援ハローワーク」は、就職活動中の学生・生徒や、卒業後おおむね3年以内の人の就職を支援する窓口です。「わかものハローワーク」は、正社員での就職を目指す、おおむね35歳未満の若者を支援する窓口です。</p>
+<p>在職中の先生が利用できる内容は、窓口に確かめてください。「民間の転職サービスしか道がない」わけではない、と知っておくだけでも、気持ちが少し楽になります。</p>
+<p class="src">出典：厚生労働省「若者への就職支援」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/jakunen/index.html" target="_blank" rel="noopener">mhlw.go.jp</a></p>
+
+<h3>年度末から逆算する｜異動の希望と重なる時期に注意</h3>
+<p>学級や授業を年度の途中で離れることに抵抗がある先生は多いでしょう。3月末の退職を前提に、秋からの動き方を並べます。3年目は、<strong>異動の希望を出す時期と、転職を考える時期が重なりやすい</strong>のが特徴です。</p>
+<div class="tbl-wrap scroll">
+<table class="cmp">
+<thead><tr><th>時期</th><th>すること</th><th>ひとこと</th></tr></thead>
+<tbody>
+<tr><th scope="row">いますぐ</th><td>しんどさを3つに分ける。「手放したくないもの」「変えたいもの」を書く</td><td>決めるのはまだ先でかまいません</td></tr>
+<tr><th scope="row">秋</th><td>異動や公募の希望の出し方と締め切りを、管理職に聞く。学校の外の仕事を調べ、話を聞く</td><td>残る道・移る道の締め切りも、この時期に確かめます</td></tr>
+<tr><th scope="row">退職の申し出</th><td>外へ出ると決めたら、管理職に伝える。期限と書類を確かめる</td><td>時期は自治体ごとに違うため、月は書いていません</td></tr>
+<tr><th scope="row">冬〜年度末</th><td>引き継ぎ、退職の手続き、健康保険や年金の確認</td><td>学年のまとめと重なります。早めに一覧にします</td></tr>
+</tbody>
+</table>
+</div>
+<p>退職の申し出の期限は、自治体や学校法人ごとに決まっています。考え方は<a href="https://nijin.co.jp/recruit/teacher-resignation-end-of-school-year/">教員の退職はいつ言う？</a>に、20代の転職全般は<a href="https://nijin.co.jp/recruit/teacher-career-change-20s/">教員から転職｜20代で辞めても大丈夫？</a>と<a href="https://nijin.co.jp/recruit/young-teacher-career-change/">「教員辞めたい」20代の先生へ</a>にまとめています。退職手当や退職後の給付は、勤務先の給与担当に確かめてください。</p>
+
+<h3>外へ出ても、教員免許は残る</h3>
+<p>「辞めたら、もう先生には戻れないのでは」という不安もよく聞きます。文部科学省によると、教員免許更新制は令和4年7月1日に発展的に解消されました。再び公立学校で働くには採用選考を受けることになりますが、<strong>学校の外へ出ることは、教育に戻る道を閉ざすことと同じではありません。</strong>免許状の扱いは都道府県の教育委員会に、採用の条件は各自治体の実施要項で確かめてください。戻り方は<a href="https://nijin.co.jp/recruit/kyouin-fukki-blank/">ブランクから教育に復帰する方法</a>も参考になります。</p>
+<p class="src">出典：文部科学省「教員免許更新制（アーカイブ）」<a href="https://www.mext.go.jp/a_menu/shotou/koushin/index.htm" target="_blank" rel="noopener">mext.go.jp</a></p>
+
+<h2 id="sec7"><span class="h2no">7</span>学校の外で、自分のやりたい教育をするという道</h2>
+<p>元公務員から起業家になったタツロー校長の話を、動画で紹介します。</p>
+<figure class="nj-yt" style="margin:26px auto;max-width:480px;text-align:center;"><a href="https://www.youtube.com/watch?v=Ocp9WatnAC8" target="_blank" rel="noopener" style="display:block;position:relative;"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://i.ytimg.com/vi/Ocp9WatnAC8/hqdefault.jpg" alt="【起業に学歴いる？】不登校・元公務員から起業家になったタツロー校長に問う" width="480" height="360" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.12);" class="lazyload" ><noscript><img decoding="async" src="https://i.ytimg.com/vi/Ocp9WatnAC8/hqdefault.jpg" alt="【起業に学歴いる？】不登校・元公務員から起業家になったタツロー校長に問う" width="480" height="360" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.12);"></noscript><span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:44px;background:#fc3131;border-radius:12px;color:#fff;font-size:22px;line-height:44px;text-align:center;">&#9654;</span></a><figcaption style="font-size:13.5px;color:#444;margin-top:8px;line-height:1.6;font-weight:700;">▶ タツロー校長｜【起業に学歴いる？】不登校・元公務員から起業家になったタツロー校長に問う</figcaption></figure>
+<p>「学校の働き方は見直したい。でも、子どもと関わる仕事は手放したくない」。そんな3年目の先生には、学校の外で教育を続ける道もあります。その一つとしてNIJINを紹介します。</p>
+<p>NIJINは、不登校や学校が合わない小中学生が学ぶ「NIJINアカデミー」などを運営する会社です。<a href="https://nijin.co.jp/recruit/positions/">募集ポジション一覧</a>には、次の職種が載っています。</p>
+<ul>
+<li><strong>NIJINアカデミーの先生（メタバースクラス担任）</strong>：インターネット上の校舎で8人の少人数クラスを担任。完全在宅で週3日から、契約は業務委託です。</li>
+<li><strong>専任サポート（1対1の先生）</strong>：1人の子に伴走します。週1日から、契約は業務委託です。</li>
+<li><strong>ニジ高（NIJIN高等学院）の先生</strong>：契約は業務委託で、副業・兼業もできます。</li>
+</ul>
+<p>良いことだけではありません。先生の仕事の多くは業務委託で、報酬は担当する仕事の組み合わせなどで決まります。公立学校の安定とは性質が違い、収入が上がる、楽になると約束できる道ではありません。条件は募集ページで確かめてください。</p>
+
+<div class="voice">
+<div class="voice__ph"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/宣材写真_20260401.jpg" alt="森川陸さん（りく）のインタビュー記事の写真" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/宣材写真_20260401.jpg" alt="森川陸さん（りく）のインタビュー記事の写真" loading="lazy"></noscript></div>
+<div class="voice__body">
+<p class="voice__name">森川 陸さん（りく）</p>
+<p class="voice__tag">川崎市の公立中学校で社会科教員として3年間勤務／「先生キャリアコーチ」事業代表</p>
+<p>「社会に出ていく子どもたちを育てる立場でありながら、自分自身が社会について十分に理解できていないことに違和感を抱くようになりました。」</p>
+<p><a href="https://nijin.co.jp/recruit/interview-riku/">森川さんのインタビューを読む</a></p>
+</div>
+</div>
+<p>森川さんは3年間の教員生活のあと、教育系のスタートアップへ転職し、いまは九州の私立学校で教壇に立ちながら事業をつくっています。学校を離れたあと、形を変えて学校にも関わり続けている人です。</p>
+
+<div class="voice">
+<div class="voice__ph"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/07/aotari-featured-1200x675-1.jpg" alt="青田梨沙さん（あおたり）のインタビュー記事の写真" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/07/aotari-featured-1200x675-1.jpg" alt="青田梨沙さん（あおたり）のインタビュー記事の写真" loading="lazy"></noscript></div>
+<div class="voice__body">
+<p class="voice__name">青田 梨沙さん（あおたり）</p>
+<p class="voice__tag">神奈川県の公立中学校で英語科教諭として3年間勤務／メタバース担任・企業連携</p>
+<p>「NIJINアカデミーで子どもたちと関わる中で、教員を辞めてから感じることのできなかった、子どもの成長に心を大きく動かされる感覚を思い出しました。」</p>
+<p><a href="https://nijin.co.jp/recruit/interview-aotari/">青田さんのインタビューを読む</a></p>
+</div>
+</div>
+<p>青田さんは、教員の仕事に幸せとやりがいを感じながらも、学校の外の広い世界を経験したいと退職し、美容業界の会社へ転職しました。そのあとNIJINと出会い、教育の世界に戻っています。<strong>3年で外へ出た人も、学校を否定して出たわけではありません。</strong>一度離れてから戻る道があることも、2人の歩みから分かります。</p>
+
+<h3>決める前に、だれかと整理したいとき</h3>
+<p>残るか、移るか、出るか。一人で考えて堂々めぐりになるなら、話しながら整理する方法があります。</p>
+
+<div class="nj-biz" style="display:flex;flex-wrap:wrap;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;margin:28px 0;background:#fff;"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/カフェでコーチング-768x513.jpg" alt="先生キャリアコーチの面談の様子" loading="lazy" style="flex:1 1 220px;width:220px;max-width:100%;height:auto;min-height:170px;max-height:260px;object-fit:cover;display:block;" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/カフェでコーチング-768x513.jpg" alt="先生キャリアコーチの面談の様子" loading="lazy" style="flex:1 1 220px;width:220px;max-width:100%;height:auto;min-height:170px;max-height:260px;object-fit:cover;display:block;"></noscript><div style="flex:2 1 280px;padding:16px 20px;"><span style="display:inline-block;font-size:12px;font-weight:bold;color:#fff;background:#fc3131;border-radius:4px;padding:2px 8px;">NIJINの事業</span><span style="display:block;font-size:18px;font-weight:bold;color:#222;margin:8px 0 4px;line-height:1.5;">先生キャリアコーチ</span><span style="display:block;font-size:14px;color:#555;line-height:1.8;">教員のキャリア転換に特化した、伴走型のコーチングです。「体験して選ぶ」を掲げ、コーチング・メンタリング・キャリアダイブの3つのプログラムで、強みを知り、実際の働き方を体験します。転職するか決めていない段階でも相談でき、教員を続けるか新しい道へ進むかは自分で選びます。</span><a href="https://senseicoach.nijin.co.jp/" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;background:#fc3131;color:#fff;text-decoration:none;font-weight:bold;font-size:14px;padding:10px 22px;border-radius:30px;">先生キャリアコーチを見る →</a></div></div>
+
+<p>代表の森川さんは公式サイトで、「3年目の夏、教員を辞めて転職しようと決めた。でも、何も分からなかった。」と当時をふり返っています。よくある質問には、平日の夜や土日など学校勤務に合わせて日程を調整でき、無理に転職をすすめることはない、と書かれています。</p>
+
+<h2 id="sec8"><span class="h2no">8</span>よくある質問</h2>
+<div class="faq">
+<details><summary>教員3年目で辞めたいと思うのは、甘えでしょうか？</summary><div class="a">甘えではありません。法律が定める条件付採用と初任者研修の1年を終え、初めての異動が視野に入る節目です。立ち止まって考えるのは自然なことです。体の不調が続いているときは、判断より先に医療機関や相談窓口を頼ってください。</div></details>
+<details><summary>「石の上にも三年」と言われます。3年は続けたほうがよいですか？</summary><div class="a">「3年」は制度が決めた区切りではありません。教員の条件付採用の期間は、法律では1年です。年数よりも、この3年で何を得て、何がしんどく、何をしたいのかを言葉にできているかで考えてみてください。</div></details>
+<details><summary>異動してから考えるのと、異動の前に動くのと、どちらがよいですか？</summary><div class="a">しんどさの中身によります。「この学校」が原因なら、異動で解けることがあります。「この働き方」が原因なら、学校が変わっても残りやすいでしょう。分けてから比べるのがおすすめです。異動の決まりは自治体ごとに違うため、管理職に確かめてください。</div></details>
+<details><summary>3年目で異動の希望は出せますか？</summary><div class="a">自治体によります。東京都の資料では、小・中学校は現任校に3年以上勤務する人を異動の対象としています。お勤めの自治体の年数と、希望の出し方・締め切りは、管理職か教育委員会に確かめてください。</div></details>
+<details><summary>教員3年目は、第二新卒として転職できますか？</summary><div class="a">「第二新卒」が指す範囲は求人ごとに違うため、応募条件で確かめてください。公的な窓口としては、卒業後おおむね3年以内の人を支援する新卒応援ハローワークや、おおむね35歳未満の若者を支援するわかものハローワークがあります。</div></details>
+<details><summary>辞めたあと、また先生に戻れますか？</summary><div class="a">教員免許更新制は令和4年7月1日に発展的に解消されました。再び公立学校で働くには採用選考を受けることになります。免許状の扱いは都道府県の教育委員会に、採用の条件は各自治体の実施要項で確かめてください。</div></details>
+<details><summary>辞めずに、学校の外の教育に関わることはできますか？</summary><div class="a">公立学校の先生が報酬を得て働くには、任命権者の許可が必要です。教育に関する他の事業などは、本務に支障がないと任命権者が認める場合に従事できると法律で定められています。関わる前に、管理職に相談してください。</div></details>
+</div>
+
+<h2 id="sec9"><span class="h2no">9</span>まとめ｜3年目は、軸を言葉にする年</h2>
+<p>教員3年目は、条件付採用と初任者研修という「最初の1年」の支えを離れ、初めての異動が現実の話になる年です。「辞めたい」と感じるのは、その節目に立っているからです。</p>
+<p>「石の上にも三年」は、制度が決めた区切りではありません。大切なのは年数ではなく、しんどさを「この学校」「この働き方」「体と心」に分け、手放したくないものと変えたいものを言葉にすることです。</p>
+<p>道は4つあります。残る。学校を移る。学校の外へ出る。両方に関わる。どれを選んでも、3年間子どもの前に立ってきた経験は生きます。異動の希望を出す前のいまが、軸を言葉にするのにちょうどよい時期です。</p>
+
+<div class="cta">
+<p class="cta__t">学校の外にも、先生として働く道があります。<br>在宅で、少人数のクラスや1人の子に伴走する仕事です。</p>
+<a class="nj-btn" href="https://studio.nijin.app/recruit/apply">エントリーする →</a>
+<small>まず仕事の内容を知りたい方は<a href="https://nijin.co.jp/recruit/positions/" style="color:#fff;">募集ポジション一覧</a>と<a href="https://nijin.co.jp/recruit/" style="color:#fff;">NIJINの採用サイト</a>をご覧ください。</small>
+</div>
+
+<h3 class="relhead">あわせて読みたい｜若手の先生のキャリア</h3>
+<a class="relcard" href="https://nijin.co.jp/recruit/kyouin-2nenme-yametai/">
+<div class="relcard__thumb"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-2nenme-yametai.jpg" alt="教員2年目で辞めたいと思ったときに" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-2nenme-yametai.jpg" alt="教員2年目で辞めたいと思ったときに" loading="lazy"></noscript></div>
+<div class="relcard__body"><span class="relcard__title">教員2年目で辞めたいと思ったときに｜続ける・移る・離れるの3つの道</span><span class="relcard__excerpt">初任者研修を終えたばかりの2年目に絞って整理した記事です。</span></div>
+</a>
+<a class="relcard" href="https://nijin.co.jp/recruit/kyouin-5nenme-tenshoku/">
+<div class="relcard__thumb"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-5nenme-tenshoku.jpg" alt="教員5年目の転職、今がいい？" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-5nenme-tenshoku.jpg" alt="教員5年目の転職、今がいい？" loading="lazy"></noscript></div>
+<div class="relcard__body"><span class="relcard__title">教員5年目の転職、今がいい？続ける・移る・外へ出るを落ち着いて比べる</span><span class="relcard__excerpt">もう少し先の5年目で動く場合の、強み・時期・お金の考え方です。</span></div>
+</a>
+<a class="relcard" href="https://nijin.co.jp/recruit/kyouin-yaritai-kyouiku-dekinai/">
+<div class="relcard__thumb"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-yaritai-kyouiku-dekinai.jpg" alt="やりたい教育が学校でできない先生へ" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-yaritai-kyouiku-dekinai.jpg" alt="やりたい教育が学校でできない先生へ" loading="lazy"></noscript></div>
+<div class="relcard__body"><span class="relcard__title">やりたい教育が学校でできない先生へ｜自分らしく教える場所の探し方</span><span class="relcard__excerpt">学校の中と外で、やりたい教育を形にする場所を探す記事です。</span></div>
+</a>
+<a class="relcard" href="https://nijin.co.jp/recruit/kyouin-konomamade-iinoka/">
+<div class="relcard__thumb"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-konomamade-iinoka.jpg" alt="教員はこのままでいいのか" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nj-ec-kyouin-konomamade-iinoka.jpg" alt="教員はこのままでいいのか" loading="lazy"></noscript></div>
+<div class="relcard__body"><span class="relcard__title">教員はこのままでいいのか｜もやもやの正体を言葉にする5つの問いかけ</span><span class="relcard__excerpt">迷いそのものを、問いに答えながら整理できます。</span></div>
+</a>
+
+<h3 class="relhead">あわせて読みたい｜3年間の教員経験から、学校の外へ出た人の声</h3>
+<a class="relcard" href="https://nijin.co.jp/recruit/interview-riku/">
+<div class="relcard__thumb"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/宣材写真_20260401.jpg" alt="公立中学校で3年間勤めた森川陸さん" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/08/宣材写真_20260401.jpg" alt="公立中学校で3年間勤めた森川陸さん" loading="lazy"></noscript></div>
+<div class="relcard__body"><span class="relcard__title">学校と社会の“壁”を壊すために、最短最速で実現できるNIJINを選んだ</span><span class="relcard__excerpt">川崎市の公立中学校で3年間勤めたあと転職し、「先生キャリアコーチ」を立ち上げた森川陸さんのインタビュー。</span></div>
+</a>
+<a class="relcard" href="https://nijin.co.jp/recruit/interview-aotari/">
+<div class="relcard__thumb"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://nijin.co.jp/recruit/wp-content/uploads/2026/07/aotari-featured-1200x675-1.jpg" alt="公立中学校で3年間勤めた青田梨沙さん" loading="lazy" class="lazyload" ><noscript><img decoding="async" src="https://nijin.co.jp/recruit/wp-content/uploads/2026/07/aotari-featured-1200x675-1.jpg" alt="公立中学校で3年間勤めた青田梨沙さん" loading="lazy"></noscript></div>
+<div class="relcard__body"><span class="relcard__title">「私には、社会を変える力なんてないと思っていた」元中学校教員が、教師とビジネスの二刀流で子どもの挑戦を社会につなぐまで</span><span class="relcard__excerpt">神奈川県の公立中学校で3年間勤め、民間企業を経て教育に戻った青田梨沙さんのインタビュー。</span></div>
+</a>
+
+<div class="note">本記事は一般的な情報提供を目的としており、個別の勤務条件・お金・健康状態についての判断を示すものではありません。異動と退職の手続きは勤務先や任命権者の教育委員会へ、就職の相談はハローワークへ、体調は医療機関へご相談ください。制度と数字は記事作成時に公式資料で確認したものです（離職状況は令和4年3月卒業者、東京都の公募は令和8年度）。</div>
+
+<ul class="sources">
+<li>e-Gov法令検索「地方公務員法」（第22条 条件付採用、第38条 営利企業への従事等の制限）<a href="https://laws.e-gov.go.jp/law/325AC0000000261" target="_blank" rel="noopener">laws.e-gov.go.jp</a></li>
+<li>e-Gov法令検索「教育公務員特例法」（第12条 条件付任用、第17条 兼職及び他の事業等の従事、第23条 初任者研修）<a href="https://laws.e-gov.go.jp/law/324AC0000000001" target="_blank" rel="noopener">laws.e-gov.go.jp</a></li>
+<li>東京都教育委員会 公開資料「第4章 任用（2 任用（異動））」<a href="https://www.kyoiku.metro.tokyo.lg.jp/documents/d/kyoiku/02_03_04_3" target="_blank" rel="noopener">kyoiku.metro.tokyo.lg.jp（PDF）</a></li>
+<li>東京都教育委員会「令和8年度（令和9年4月1日異動）公立小中学校教員公募の実施について」<a href="https://www.kyoiku.metro.tokyo.lg.jp/staff/personnel/screening/public_offering/recruiting" target="_blank" rel="noopener">kyoiku.metro.tokyo.lg.jp</a></li>
+<li>厚生労働省「新規学卒就職者の離職状況（令和4年3月卒業者）を公表します」<a href="https://www.mhlw.go.jp/stf/houdou/0000177553_00010.html" target="_blank" rel="noopener">mhlw.go.jp</a>／「新規学卒者の離職状況」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000137940.html" target="_blank" rel="noopener">mhlw.go.jp</a></li>
+<li>厚生労働省「若者への就職支援」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/jakunen/index.html" target="_blank" rel="noopener">mhlw.go.jp</a></li>
+<li>文部科学省「教員免許更新制（アーカイブ）」<a href="https://www.mext.go.jp/a_menu/shotou/koushin/index.htm" target="_blank" rel="noopener">mext.go.jp</a></li>
+<li>先生キャリアコーチ <a href="https://senseicoach.nijin.co.jp/" target="_blank" rel="noopener">senseicoach.nijin.co.jp</a>／授業てらす <a href="https://jugyoterrace.nijin.co.jp/" target="_blank" rel="noopener">jugyoterrace.nijin.co.jp</a>／中学校てらす <a href="https://msterrace.nijin.co.jp/" target="_blank" rel="noopener">msterrace.nijin.co.jp</a></li>
+<li>NIJIN 採用サイト <a href="https://nijin.co.jp/recruit/">nijin.co.jp/recruit/</a>／募集ポジション一覧 <a href="https://nijin.co.jp/recruit/positions/">nijin.co.jp/recruit/positions/</a></li>
+</ul>
+
+</article>
