@@ -20,3 +20,4 @@
 | 8 | フリースクールの経営は成り立つ？ | [freeschool-keiei.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/freeschool-keiei.md) |
 | 9 | 教室の空き時間を活用する方法 | [kyoshitsu-akijikan-katsuyo.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/kyoshitsu-akijikan-katsuyo.md) |
 | 10 | オルタナティブスクールの求人の探し方 | [alternative-school-kyujin.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/alternative-school-kyujin.md) |
+| 11 | 「畑違い」を言い換える（大阪・東京・転職の壁の3本。言葉の置き換えだけ） | [hatachigai-iikae.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/hatachigai-iikae.md) |
