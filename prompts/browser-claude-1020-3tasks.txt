@@ -1,0 +1,46 @@
+ともだちじゃぱんのWordPressで、次の3つをお願いします。指示にないところには触らないでください。
+途中でエラーが出たり、指示と画面が違ったりしたら、そこで止めて、その内容をそのまま報告してください。
+
+【1】先生タイプ診断のメニュー表示を直す
+1. 固定ページ「先生タイプ診断」（https://tomodachi-japan.nijin.co.jp/asonde-teacher-shindan/）を編集で開き、
+   右上の︙メニューから「コードエディター」に切りかえる
+2. 次の文字を探す
+   .l-header,.l-footer,.p-breadcrumb,.l-header__bar,
+3. 次のように書きかえる（「.l-fixHeader,」を1つ足すだけ）
+   .l-header,.l-fixHeader,.l-footer,.p-breadcrumb,.l-header__bar,
+   ※すでに「.l-fixHeader,」が入っていたら、何もしないで次へ
+4. 「保存」を押して、ビジュアルエディターに戻す
+
+【2】先生ページに「動画の下の体験ボタン」スニペットを追加する
+1. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーする
+   https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/teachers/snippet-teacher-video-cta-paste.txt
+   ※中に「tjVideoCta」「tj-taiken-banner」という文字があれば最新版です
+2. 管理画面 →「スニペット」→「新規追加」
+   ※すでに「先生ページ 動画の下に体験ボタン」があれば、新しく作らずにそれを開いてコードを入れかえる
+3. タイトル：先生ページ 動画の下に体験ボタン
+4. 種類は「PHP」のまま、コード欄に1でコピーしたものをそのまま全部貼る（何も足したり消したりしない）
+5. 実行場所は「フロントエンドのみで実行」を選び、「変更を保存して有効化」を押す
+
+【3】季節の演出スニペットを最新版に入れかえる
+1. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーする
+   https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/kisetsu/snippet-kisetsu-season-paste.txt
+   ※中に「tjRocket」「data-sync」という文字があれば最新版です
+2. 管理画面 →「スニペット」の一覧から、前に入れた季節の演出のスニペット
+   （コードに「今月の日本」が入っているもの）を開く
+   ※新しく追加はしないでください（2つあると演出が二重になります）
+3. コード欄の中身を全部消して、1でコピーしたものをそのまま全部貼る
+4. 実行場所は「フロントエンドのみで実行」のまま、「変更を保存」を押す（有効のままにする）
+
+確認（シークレットウィンドウで）：
+・先生タイプ診断をパソコン幅で開いて下までスクロールしても、上にサイトのメニューが出てこない
+・https://tomodachi-japan.nijin.co.jp/teachers/hikarun/ の「はじめまして。」の動画のすぐ下に
+  「ひかるん先生と、無料で話してみる →」のボタンが出て、押すとページ下の予約コーナーに移動する
+・https://tomodachi-japan.nijin.co.jp/teachers/hii/ にも「ひい先生と、無料で話してみる →」が出る
+・https://tomodachi-japan.nijin.co.jp/teachers/shota/ （動画なし）には出ない
+・https://tomodachi-japan.nijin.co.jp/kisetsu/ で「夏」を選ぶと花火が上がり、「冬」を選ぶと雪に変わる
+  （「春」は桜、「秋」はもみじ）
+・トップページで、もみじが降っている（10月なので）
+・トップページ左下に「今月の日本」のバッジが1つだけ出ている（2つ出ていたら報告）
+・スマホ幅でも、バッジが下の固定ボタンに重なっていない
+
+報告には、うまくいったこと・うまくいかなかったことを分けて書いてください。
