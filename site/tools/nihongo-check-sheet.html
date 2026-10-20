@@ -1,0 +1,368 @@
+<title>日本語チェックシート</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* Layout: teacher's input panel (left) + live A4-ish sheet preview (right); stacks on phones. The sheet itself is "paper" and keeps fixed light colors in both themes. */
+:root{
+  --bg:#f3f6f7; --panel:#ffffff; --fg:#22343b; --soft:#5f727a; --line:#dbe4e7;
+  --accent:#e2843a; --accent-ink:#ffffff; --teal:#2b6f82; --chip:#eef4f6; --focus:#2b6f82;
+  --display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121b1f; --panel:#1a262b; --fg:#e4edf0; --soft:#9db0b7; --line:#2c3d44;
+  --accent:#f0954c; --accent-ink:#1a1206; --teal:#7cc2d4; --chip:#22333a; --focus:#7cc2d4; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121b1f; --panel:#1a262b; --fg:#e4edf0; --soft:#9db0b7; --line:#2c3d44;
+  --accent:#f0954c; --accent-ink:#1a1206; --teal:#7cc2d4; --chip:#22333a; --focus:#7cc2d4; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14px;line-height:1.6}
+.wrap{max-width:1240px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:16px}
+header.top h1{font-family:var(--display);font-size:22px;margin:0;text-wrap:balance}
+header.top p{margin:0;color:var(--soft)}
+.grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:18px;min-width:0}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+legend{font-family:var(--display);font-weight:700;font-size:15px;margin-bottom:6px;padding:0}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--soft);font-weight:500;min-width:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input[type=text],input[type=date],input[type=url],textarea,select{font:inherit;font-size:14px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%;min-width:0}
+textarea{resize:vertical;min-height:64px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{font:inherit;font-size:13px;border:0;background:transparent;color:var(--fg);padding:6px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--teal);color:var(--panel)}
+.area{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-top:1px dashed var(--line)}
+.area:first-of-type{border-top:0;padding-top:0}
+.area-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.area-h b{font-family:var(--display);font-size:15px}
+.area-h small{color:var(--soft)}
+.lv{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.lv button{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--chip);color:var(--fg);border-radius:8px;padding:6px 0;cursor:pointer}
+.lv button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.desc{font-size:12px;color:var(--soft);min-height:2.6em}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:700;border-radius:999px;padding:10px 18px;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.status{font-size:12px;color:var(--soft);min-height:1.4em}
+.example{font-size:12px;background:var(--chip);color:var(--soft);border-radius:8px;padding:8px 10px}
+.preview-col{display:flex;flex-direction:column;gap:10px;min-width:0}
+.preview-box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;overflow:hidden;min-width:0}
+.scaler{transform-origin:top left}
+.modal{position:fixed;inset:0;background:rgba(10,20,24,.6);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));z-index:20}
+.modal-in{background:var(--panel);border-radius:14px;padding:16px;max-width:560px;width:100%;max-height:100%;overflow:auto;display:flex;flex-direction:column;gap:10px}
+.modal-in img{width:100%;border:1px solid var(--line);border-radius:8px}
+
+/* ---------- the sheet (paper; fixed colors) ---------- */
+.sheet{width:760px;background:#ffffff;color:#24363d;font-family:"Noto Sans JP","Hiragino Sans",sans-serif;font-size:13px;line-height:1.65;padding:34px 38px 30px;border-radius:6px;position:relative}
+.sheet *{box-sizing:border-box}
+.sh-band{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #2b6f82;padding-bottom:12px}
+.sh-brand{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;font-weight:900;color:#2b6f82;font-size:15px;letter-spacing:.06em}
+.sh-brand span{color:#d9534f}
+.sh-kind{font-size:11px;color:#6b7d84;letter-spacing:.12em}
+.sh-title{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;font-weight:900;font-size:28px;margin:16px 0 4px;color:#1f3a44}
+.sh-meta{display:flex;flex-wrap:wrap;gap:4px 18px;color:#5d7077;font-size:12.5px}
+.sh-meta b{color:#24363d;font-weight:700}
+.sh-top{display:grid;grid-template-columns:300px 1fr;gap:18px;margin-top:18px;align-items:center}
+.sh-radar svg{width:300px;height:300px;display:block}
+.sh-stage{display:flex;flex-direction:column;gap:10px}
+.sh-badge{display:inline-flex;align-items:center;gap:12px}
+.sh-badge .ring{width:84px;height:84px;border-radius:50%;background:#fdf1e6;border:3px solid #e2843a;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Zen Maru Gothic",sans-serif;color:#b8601f;line-height:1.1}
+.sh-badge .ring b{font-size:26px;font-weight:900}
+.sh-badge .ring small{font-size:10px}
+.sh-badge .lbl{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:22px;color:#1f3a44}
+.sh-badge .lbl small{display:block;font-size:11px;color:#6b7d84;font-weight:700;font-family:"Noto Sans JP",sans-serif}
+.sh-good{background:#f2f8fa;border-radius:10px;padding:12px 14px}
+.sh-good h3,.sh-sec h3{margin:0 0 6px;font-family:"Zen Maru Gothic",sans-serif;font-size:15px;color:#2b6f82}
+.sh-good ul{margin:0;padding-left:1.2em}
+.sh-table{margin-top:18px;border-top:1px solid #dfe8eb}
+.sh-tr{display:grid;grid-template-columns:120px 110px 1fr;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #dfe8eb}
+.sh-tr .nm{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:15px}
+.sh-tr .nm small{display:block;font-family:"Noto Sans JP",sans-serif;font-weight:400;font-size:10.5px;color:#6b7d84}
+.sh-dots{display:flex;gap:5px}
+.sh-dots i{width:16px;height:16px;border-radius:50%;background:#e6eef1;display:block}
+.sh-dots i.on{background:#e2843a}
+.sh-sec{margin-top:18px}
+.sh-next{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sh-next .c{border:2px solid #f3c79f;border-radius:12px;padding:12px 14px;background:#fffaf5}
+.sh-next .c .t{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:16px;color:#b8601f}
+.sh-next .c p{margin:4px 0 0}
+.sh-next .c .home{margin-top:8px;font-size:12px;color:#4e6168;background:#ffffff;border-radius:8px;padding:6px 8px}
+.sh-comment{background:#f2f8fa;border-radius:10px;padding:12px 14px;white-space:pre-wrap}
+.sh-cta{margin-top:18px;background:#2b6f82;color:#ffffff;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.sh-cta b{font-family:"Zen Maru Gothic",sans-serif;font-size:16px}
+.sh-cta .u{font-size:12px;opacity:.9;word-break:break-all}
+.sh-foot{margin-top:14px;display:flex;justify-content:space-between;font-size:11px;color:#7d8f95}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>日本語チェックシート</h1>
+    <p>体験レッスンのあと、レベルを選んでコメントを書くだけで、保護者に渡せるシートができます。</p>
+  </header>
+
+  <div class="grid">
+    <form class="panel" id="form" autocomplete="off">
+      <div class="example" id="exampleNote">いま入っているのは例です。お子さんの情報に書きかえてください。</div>
+
+      <fieldset>
+        <legend>シートの言語</legend>
+        <div class="seg" role="group" aria-label="シートの言語">
+          <button type="button" id="langJa" aria-pressed="true">日本語</button>
+          <button type="button" id="langEn" aria-pressed="false">English</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>お子さんのこと</legend>
+        <div class="row2">
+          <label class="f">名前（よび方）<input type="text" id="name"></label>
+          <label class="f">年齢・学年<input type="text" id="age"></label>
+        </div>
+        <div class="row2">
+          <label class="f">住んでいる国・地域<input type="text" id="country"></label>
+          <label class="f">体験した日<input type="date" id="date"></label>
+        </div>
+        <label class="f">担当した先生<input type="text" id="teacher"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>5つの力（1〜5で選ぶ）</legend>
+        <div id="areas"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>先生から</legend>
+        <label class="f">できていたこと（空欄なら自動で入ります）<textarea id="good" rows="3"></textarea></label>
+        <label class="f">先生からのひとこと<textarea id="comment" rows="4"></textarea></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>シートの最後の案内</legend>
+        <label class="f">案内するページのURL<input type="url" id="url"></label>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" class="btn primary" id="savePng">画像で保存（PNG）</button>
+        <button type="button" class="btn" id="copyText">メール用の文章をコピー</button>
+        <button type="button" class="btn" id="reset">新しく作る</button>
+      </div>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+      <textarea id="copyFallback" rows="6" hidden aria-label="コピー用の文章"></textarea>
+    </form>
+
+    <section class="preview-col" aria-label="シートのプレビュー">
+      <div class="preview-box" id="previewBox"><div class="scaler" id="scaler"></div></div>
+    </section>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-in">
+    <b>画像ができました</b>
+    <p style="margin:0;color:var(--soft)">この画面では保存ボタンが使えないため、画像を長押し（パソコンは右クリック）して保存してください。</p>
+    <img id="modalImg" alt="日本語チェックシートの画像">
+    <button type="button" class="btn" id="modalClose">閉じる</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+(function(){
+const AREAS=[
+ {k:"listen",ja:"きく",jaSub:"聞く力",en:"Listening",
+  ja5:["かんたんなあいさつや、名前をよばれると反応できる","ゆっくり話せば、身近なことば（色・数・食べもの）がわかる","先生の指示や短いお話を聞いて、だいたいわかる","ふつうの速さの会話や、絵本の読み聞かせがわかる","学年相当のお話や説明を聞いて、内容を話せる"],
+  en5:["Responds to simple greetings and to their name","Understands familiar words (colours, numbers, food) when spoken slowly","Mostly follows the teacher's instructions and short stories","Understands conversation at natural speed and picture books read aloud","Understands grade-level stories and explanations and can retell them"],
+  homeJa:"日本語の絵本の読み聞かせや、日本語の歌・アニメを1日10分。",homeEn:"Read a Japanese picture book together, or enjoy Japanese songs or anime for 10 minutes a day."},
+ {k:"speak",ja:"はなす",jaSub:"話す力",en:"Speaking",
+  ja5:["あいさつや「はい・いいえ」で答えられる","単語や短いことばで、好きなものを伝えられる","「〜がすき」「〜したい」など、短い文で話せる","理由や気持ちをつけて、会話のキャッチボールができる","経験したことを順番に、まとまりのある話ができる"],
+  en5:["Can greet and answer yes or no","Can share favourite things with single words or short phrases","Can speak in short sentences such as \"I like…\" and \"I want to…\"","Can keep a conversation going, adding reasons and feelings","Can talk about their experiences in a clear, ordered way"],
+  homeJa:"ごはんのときに「きょう、いちばん楽しかったことは？」と日本語で1つ聞いてみる。",homeEn:"At dinner, ask one question in Japanese: \"What was the most fun thing today?\""},
+ {k:"read",ja:"よむ",jaSub:"読む力",en:"Reading",
+  ja5:["ひらがなに興味があり、いくつか読める","ひらがなが読める","カタカナも読めて、短い文が読める","学年相当の漢字をふくむ文を、声に出して読める","学年相当の文章を読んで、内容がわかる"],
+  en5:["Is interested in hiragana and can read a few","Can read hiragana","Can also read katakana, and short sentences","Can read aloud sentences with grade-level kanji","Can read and understand grade-level texts"],
+  homeJa:"お家の物にひらがなカードをはって、見つけたら読むあそび。",homeEn:"Stick hiragana cards on things around the house and read them aloud when you find them."},
+ {k:"write",ja:"かく",jaSub:"書く力",en:"Writing",
+  ja5:["なぞり書きができる","ひらがなで自分の名前が書ける","ひらがな・カタカナで、単語や短い文が書ける","学年相当の漢字を使って、短い文が書ける","自分の考えや出来事を、まとまった文章で書ける"],
+  en5:["Can trace letters","Can write their name in hiragana","Can write words and short sentences in hiragana and katakana","Can write short sentences using grade-level kanji","Can write their ideas and experiences in connected sentences"],
+  homeJa:"家族への一言メッセージを、日本語で書いてみる（1行でOK）。",homeEn:"Write a one-line message in Japanese to someone in the family."},
+ {k:"enjoy",ja:"たのしむ",jaSub:"日本語でつながる気持ち",en:"Enjoying Japanese",
+  ja5:["少しはずかしいけれど、画面の前で参加できる","先生の問いかけに、笑顔や身ぶりでこたえられる","自分から日本語で話そうとする場面がある","日本語のゲームや会話を楽しんで、もっとやりたがる","日本語で、ともだちと進んでやりとりを楽しめる"],
+  en5:["A little shy, but stays engaged in front of the screen","Responds to the teacher with smiles and gestures","Sometimes starts speaking in Japanese on their own","Enjoys Japanese games and conversation and asks for more","Happily chats and plays with friends in Japanese"],
+  homeJa:"日本語で話せたら、まずたくさんほめる。まちがいは直さず、正しく言い直して聞かせる。",homeEn:"Praise every try. Instead of correcting mistakes, simply say it back the right way."}
+];
+const PRIORITY=["speak","read","write","listen","enjoy"];
+const STAGES=[
+ {max:1.5,ja:"はじめの一歩",en:"First steps"},
+ {max:2.5,ja:"なれてきた",en:"Getting comfortable"},
+ {max:3.5,ja:"ぐんぐん",en:"Growing fast"},
+ {max:4.5,ja:"しっかり",en:"Confident"},
+ {max:9,ja:"のびのび",en:"Free and fluent"}];
+const today=new Date();const iso=today.getFullYear()+"-"+String(today.getMonth()+1).padStart(2,"0")+"-"+String(today.getDate()).padStart(2,"0");
+const EXAMPLE={lang:"ja",name:"そうたくん",age:"7さい（小学1年生）",country:"フランス",date:iso,teacher:"ひかるん先生",
+ levels:{listen:4,speak:3,read:3,write:2,enjoy:4},good:"",
+ comment:"はじめは少し緊張していましたが、すきな電車の話になると、目をかがやかせて日本語でたくさん教えてくれました。聞く力がとても育っています。次は、話したいことを「文」で伝える練習をしていきましょう。",
+ url:"https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken",example:true};
+const KEY="tj-checksheet-v1";
+let S;
+try{S=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){S=null}
+if(!S||!S.levels)S=JSON.parse(JSON.stringify(EXAMPLE));
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---------- form ---------- */
+const areasEl=$("areas");
+AREAS.forEach(a=>{
+  const d=document.createElement("div");d.className="area";
+  d.innerHTML='<div class="area-h"><b>'+a.ja+'</b><small>'+a.jaSub+'</small></div><div class="lv" role="group" aria-label="'+a.ja+'のレベル">'+
+    [1,2,3,4,5].map(n=>'<button type="button" id="lv-'+a.k+'-'+n+'" data-k="'+a.k+'" data-n="'+n+'" aria-pressed="false">'+n+'</button>').join("")+
+    '</div><div class="desc" id="desc-'+a.k+'"></div>';
+  areasEl.appendChild(d);
+});
+areasEl.addEventListener("click",e=>{const b=e.target.closest("button[data-k]");if(!b)return;S.levels[b.dataset.k]=+b.dataset.n;touched();});
+const FIELDS=["name","age","country","date","teacher","good","comment","url"];
+FIELDS.forEach(f=>{$(f).value=S[f]||"";$(f).addEventListener("input",()=>{S[f]=$(f).value;touched();});});
+function setLang(l){S.lang=l;touched();}
+$("langJa").onclick=()=>setLang("ja");$("langEn").onclick=()=>setLang("en");
+$("reset").onclick=()=>{S={lang:S.lang,name:"",age:"",country:"",date:iso,teacher:S.teacher||"",levels:{listen:3,speak:3,read:3,write:3,enjoy:3},good:"",comment:"",url:S.url||EXAMPLE.url,example:false};
+  FIELDS.forEach(f=>$(f).value=S[f]||"");touched();$("status").textContent="新しいシートにしました。";};
+function touched(){if(S.example){S.example=false;}persist();render();}
+
+/* ---------- sheet logic ---------- */
+function avg(){const v=AREAS.map(a=>S.levels[a.k]||1);return v.reduce((x,y)=>x+y,0)/v.length}
+function stage(){const a=avg();return STAGES.find(s=>a<=s.max)}
+function nextAreas(){
+  const c=AREAS.filter(a=>(S.levels[a.k]||1)<5);
+  c.sort((x,y)=>(S.levels[x.k]-S.levels[y.k])||(PRIORITY.indexOf(x.k)-PRIORITY.indexOf(y.k)));
+  return c.slice(0,2);
+}
+function strengths(){
+  const c=AREAS.slice().sort((x,y)=>(S.levels[y.k]-S.levels[x.k])||(PRIORITY.indexOf(x.k)-PRIORITY.indexOf(y.k)));
+  return c.slice(0,2);
+}
+function txt(a,n,lang){return (lang==="en"?a.en5:a.ja5)[n-1]}
+function radar(){
+  const cx=150,cy=150,R=104,n=AREAS.length;
+  const pt=(i,r)=>{const ang=(-90+i*360/n)*Math.PI/180;return [cx+r*Math.cos(ang),cy+r*Math.sin(ang)]};
+  let g="";
+  for(let ring=1;ring<=5;ring++){g+='<polygon points="'+AREAS.map((_,i)=>pt(i,R*ring/5).join(",")).join(" ")+'" fill="'+(ring===5?"#f6fafb":"none")+'" stroke="#d7e3e7" stroke-width="1"/>';}
+  AREAS.forEach((_,i)=>{const p=pt(i,R);g+='<line x1="'+cx+'" y1="'+cy+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="#d7e3e7" stroke-width="1"/>';});
+  const poly=AREAS.map((a,i)=>pt(i,R*(S.levels[a.k]||1)/5).join(",")).join(" ");
+  g+='<polygon points="'+poly+'" fill="rgba(226,132,58,.28)" stroke="#e2843a" stroke-width="2.5" stroke-linejoin="round"/>';
+  AREAS.forEach((a,i)=>{const p=pt(i,R*(S.levels[a.k]||1)/5);g+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="4.5" fill="#e2843a"/>';});
+  AREAS.forEach((a,i)=>{const p=pt(i,R+24);const anchor=Math.abs(p[0]-cx)<8?"middle":(p[0]>cx?"start":"end");
+    const name=S.lang==="en"?a.en:a.ja;
+    g+='<text x="'+p[0]+'" y="'+(p[1]+4)+'" text-anchor="'+anchor+'" font-size="'+(S.lang==="en"?11:13)+'" font-weight="700" fill="#2b6f82" font-family="Zen Maru Gothic, Noto Sans JP, sans-serif">'+esc(name)+' '+(S.levels[a.k]||1)+'</text>';});
+  return '<svg viewBox="-20 -6 340 312" role="img" aria-label="5つの力のレーダーチャート">'+g+'</svg>';
+}
+function sheetHTML(){
+  const en=S.lang==="en";const st=stage();const a=avg();
+  const nm=S.name||(en?"Your child":"お子さん");
+  const d=S.date?(en?new Date(S.date+"T00:00").toLocaleDateString("en-GB",{year:"numeric",month:"long",day:"numeric"}):S.date.replace(/^(\d+)-0?(\d+)-0?(\d+)$/,"$1年$2月$3日")):"";
+  const goodLines=(S.good||"").trim()?S.good.trim().split(/\n+/):strengths().map(x=>txt(x,S.levels[x.k],S.lang));
+  const nx=nextAreas();
+  const L=en?{kind:"TRIAL LESSON REPORT",title:"Japanese Check Sheet",name:"Name",age:"Age / grade",country:"Lives in",date:"Trial date",teacher:"Teacher",
+      overall:"Overall stage",now:"What "+nm+" can do now",table:"Five areas",next:"Next steps to grow",home:"At home:",comment:"Message from the teacher",
+      cta:"With dedicated one-to-one support, we can start from these next steps at "+nm+"'s own pace.",
+      lvl:"Level"}
+    :{kind:"体験レッスン レポート",title:"日本語チェックシート",name:"なまえ",age:"年齢・学年",country:"住んでいるところ",date:"体験した日",teacher:"担当",
+      overall:"いまのステージ",now:"いま、できていること",table:"5つの力",next:"次にのばすところ",home:"おうちでできること：",comment:"先生からのひとこと",
+      cta:"専任サポートなら、このシートをもとに、"+nm+"のペースで「次にのばすところ」から始められます。",lvl:"レベル"};
+  const meta=[[L.name,S.name],[L.age,S.age],[L.country,S.country],[L.date,d],[L.teacher,S.teacher]].filter(x=>x[1]).map(x=>'<span>'+esc(x[0])+'：<b>'+esc(x[1])+'</b></span>').join("");
+  const rows=AREAS.map(x=>{const n=S.levels[x.k]||1;return '<div class="sh-tr"><div class="nm">'+esc(en?x.en:x.ja)+(en?"":'<small>'+esc(x.jaSub)+'</small>')+'</div><div class="sh-dots" aria-label="'+L.lvl+' '+n+'">'+[1,2,3,4,5].map(i=>'<i class="'+(i<=n?"on":"")+'"></i>').join("")+'</div><div>'+esc(txt(x,n,S.lang))+'</div></div>'}).join("");
+  const next=nx.length?nx.map(x=>{const n=S.levels[x.k]||1;return '<div class="c"><div class="t">'+esc(en?x.en:x.ja)+' '+n+' → '+(n+1)+'</div><p>'+esc(txt(x,n+1,S.lang))+'</p><div class="home"><b>'+esc(L.home)+'</b> '+esc(en?x.homeEn:x.homeJa)+'</div></div>'}).join("")
+    :'<div class="c"><p>'+esc(en?"All five areas are at the top level. Let's keep enjoying Japanese with friends!":"5つの力がすべて最高レベルです。ともだちと日本語をもっと楽しもう！")+'</p></div>';
+  return '<div class="sheet">'+
+    '<div class="sh-band"><div class="sh-brand">ともだち<span>じゃぱん</span></div><div class="sh-kind">'+L.kind+'</div></div>'+
+    '<div class="sh-title">'+esc(L.title)+'</div><div class="sh-meta">'+meta+'</div>'+
+    '<div class="sh-top"><div class="sh-radar">'+radar()+'</div><div class="sh-stage">'+
+      '<div class="sh-badge"><div class="ring"><b>'+a.toFixed(1)+'</b><small>/ 5</small></div><div class="lbl"><small>'+esc(L.overall)+'</small>'+esc(en?st.en:st.ja)+'</div></div>'+
+      '<div class="sh-good"><h3>'+esc(L.now)+'</h3><ul>'+goodLines.map(g=>'<li>'+esc(g)+'</li>').join("")+'</ul></div>'+
+    '</div></div>'+
+    '<div class="sh-table">'+rows+'</div>'+
+    '<div class="sh-sec"><h3>'+esc(L.next)+'</h3><div class="sh-next">'+next+'</div></div>'+
+    ((S.comment||"").trim()?'<div class="sh-sec"><h3>'+esc(L.comment)+'</h3><div class="sh-comment">'+esc(S.comment.trim())+'</div></div>':"")+
+    '<div class="sh-cta"><b>'+esc(L.cta)+'</b>'+(S.url?'<span class="u">'+esc(S.url)+'</span>':"")+'</div>'+
+    '<div class="sh-foot"><span>ともだちじゃぱん｜tomodachi-japan.nijin.co.jp</span><span>'+esc(d)+'</span></div>'+
+  '</div>';
+}
+function plainText(){
+  const en=S.lang==="en";const st=stage();const nx=nextAreas();
+  const nm=S.name||(en?"your child":"お子さん");
+  const lines=[];
+  if(en){
+    lines.push("Japanese Check Sheet — "+(S.name||""));
+    lines.push("Overall stage: "+st.en+" ("+avg().toFixed(1)+" / 5)");lines.push("");
+    AREAS.forEach(a=>lines.push("・"+a.en+" "+S.levels[a.k]+"/5: "+txt(a,S.levels[a.k],"en")));
+    lines.push("");lines.push("Next steps to grow:");
+    nx.forEach(a=>{lines.push("・"+a.en+": "+txt(a,S.levels[a.k]+1,"en"));lines.push("  At home: "+a.homeEn)});
+    if((S.comment||"").trim()){lines.push("");lines.push("Message from the teacher:");lines.push(S.comment.trim())}
+    lines.push("");lines.push("With dedicated one-to-one support, we can start from these next steps at "+nm+"'s own pace.");
+  }else{
+    lines.push("日本語チェックシート（"+(S.name||"")+"）");
+    lines.push("いまのステージ："+st.ja+"（"+avg().toFixed(1)+" / 5）");lines.push("");
+    AREAS.forEach(a=>lines.push("・"+a.ja+" "+S.levels[a.k]+"/5："+txt(a,S.levels[a.k],"ja")));
+    lines.push("");lines.push("次にのばすところ：");
+    nx.forEach(a=>{lines.push("・"+a.ja+"："+txt(a,S.levels[a.k]+1,"ja"));lines.push("　おうちでできること："+a.homeJa)});
+    if((S.comment||"").trim()){lines.push("");lines.push("先生からのひとこと：");lines.push(S.comment.trim())}
+    lines.push("");lines.push("専任サポートなら、このシートをもとに、"+nm+"のペースで「次にのばすところ」から始められます。");
+  }
+  if(S.url)lines.push(S.url);
+  return lines.join("\n");
+}
+
+/* ---------- render ---------- */
+const scaler=$("scaler"),box=$("previewBox");
+function fit(){const sh=scaler.firstElementChild;if(!sh)return;const w=box.clientWidth-32;const s=Math.min(1,w/760);
+  scaler.style.transform="scale("+s+")";scaler.style.width="760px";box.style.height=(sh.offsetHeight*s+32)+"px";}
+function render(){
+  $("langJa").setAttribute("aria-pressed",S.lang!=="en");$("langEn").setAttribute("aria-pressed",S.lang==="en");
+  AREAS.forEach(a=>{for(let n=1;n<=5;n++)$("lv-"+a.k+"-"+n).setAttribute("aria-pressed",S.levels[a.k]===n);
+    $("desc-"+a.k).textContent=S.levels[a.k]+"："+txt(a,S.levels[a.k],"ja");});
+  $("exampleNote").hidden=!S.example;
+  scaler.innerHTML=sheetHTML();fit();
+}
+try{new ResizeObserver(fit).observe(box)}catch(e){window.addEventListener("resize",fit)}
+render();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+
+/* ---------- export ---------- */
+let downloads=null;
+(async()=>{try{downloads=window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){downloads=null}})();
+function fileName(){const n=(S.name||"").replace(/[\\/:*?"<>|\s]+/g,"");return (S.lang==="en"?"Japanese-check-sheet":"日本語チェックシート")+(n?"_"+n:"")+".png"}
+$("savePng").onclick=async()=>{
+  const st=$("status");st.textContent="画像を作っています…";
+  if(typeof html2canvas!=="function"){st.textContent="画像を作る部品が読み込めませんでした。ページを再読み込みしてください。";return}
+  const host=document.createElement("div");host.style.cssText="position:fixed;left:-10000px;top:0;width:760px";host.innerHTML=sheetHTML();document.body.appendChild(host);
+  try{
+    if(document.fonts&&document.fonts.ready)await document.fonts.ready;
+    const canvas=await html2canvas(host.firstElementChild,{scale:2,backgroundColor:"#ffffff",useCORS:true,logging:false});
+    const blob=await new Promise(r=>canvas.toBlob(r,"image/png"));
+    if(downloads){
+      try{await downloads.save({filename:fileName(),data:blob});st.textContent="保存しました。メールやLINEに添付して送れます。";}
+      catch(err){const c=err&&err.code;
+        if(c==="declined"){st.textContent="保存をキャンセルしました。"}
+        else if(c==="rate_limited"){st.textContent="保存の確認画面がすでに開いています。少し待ってからもう一度押してください。"}
+        else{showModal(blob);st.textContent=""}}
+    }else{showModal(blob);st.textContent=""}
+  }catch(e){st.textContent="画像を作れませんでした。もう一度押してください。"}
+  finally{host.remove()}
+};
+let lastUrl=null;
+function showModal(blob){if(lastUrl)URL.revokeObjectURL(lastUrl);lastUrl=URL.createObjectURL(blob);$("modalImg").src=lastUrl;$("modal").hidden=false;$("modalClose").focus();}
+$("modalClose").onclick=()=>{$("modal").hidden=true};
+$("modal").addEventListener("click",e=>{if(e.target.id==="modal")$("modal").hidden=true});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("modal").hidden=true});
+$("copyText").onclick=()=>{
+  const t=plainText();const st=$("status");const fb=$("copyFallback");
+  const fallback=()=>{fb.hidden=false;fb.value=t;fb.focus();fb.select();st.textContent="下の文章を選んだ状態にしました。コピーして使ってください。"};
+  try{navigator.clipboard.writeText(t).then(()=>{fb.hidden=true;st.textContent="コピーしました。メールに貼りつけて使えます。"},fallback)}catch(e){fallback()}
+};
+$("form").addEventListener("submit",e=>e.preventDefault());
+})();
+</script>
