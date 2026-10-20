@@ -1,4 +1,6 @@
 <style>
+.l-header,.l-fixHeader,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
+.l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
 .sd{--sky:#2f9be0;--sky-d:#1c78b8;--coral:#f0655a;--coral-d:#d94b41;--sun:#ffc24b;--ink:#2b3b42;--soft:#5f6f75;--line:#d9e9f5;
   --t-hikarun:#2fae8f;--t-shota:#f0655a;--t-hii:#b06bdc;
   font-family:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;color:var(--ink);
@@ -68,6 +70,12 @@
 .sd-name{font-size:1.7rem;font-weight:900;color:var(--tc,#2f9be0)}
 .sd-quote{display:inline-block;background:#fff7e3;border-radius:16px;padding:8px 14px;margin:10px 0;font-weight:800;font-size:.95rem;line-height:1.6}
 .sd-desc{text-align:left;font-size:.92rem;line-height:1.85;margin:4px 0 6px}
+.sd-video{max-width:520px;margin:18px auto 0;text-align:center}
+.sd-video p{margin:0 0 10px;font-weight:900;font-size:.95rem;color:#2b3b42}
+.sd-vbox{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;background:#222 center/cover no-repeat;cursor:pointer;box-shadow:0 12px 28px -14px rgba(0,0,0,.45)}
+.sd-vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sd-vbox b{position:absolute;left:50%;top:50%;width:66px;height:46px;margin:-23px 0 0 -33px;border-radius:14px;background:rgba(230,33,23,.92)}
+.sd-vbox b::after{content:"";position:absolute;left:27px;top:14px;border-left:16px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
 .sd-scores{display:grid;gap:8px;margin:14px 0 4px}
 .sd-sc{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:800}
 .sd-sc img{width:30px;height:30px;border-radius:50%;object-fit:cover}
@@ -81,7 +89,7 @@
 .sd-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em}
 @media (prefers-reduced-motion:reduce){.sd *{animation:none!important;transition:none!important}}
 </style>
-<div class="sd" data-ver="1009sd2-en">
+<div class="sd" data-ver="1021sd3-en">
  <div class="sd-app">
   <div class="sd-top"><span class="sd-logo">TOMODACHI JAPAN</span></div>
   <div class="sd-body">
@@ -117,6 +125,7 @@
      <p class="sd-desc" id="resultDesc"></p>
      <div class="sd-scores" id="scoreWrap"></div>
     </div>
+    <div class="sd-video" id="resultVideo" hidden></div>
     <div class="sd-acts">
      <a class="sd-main" id="ctaBtn" href="#">Book a free trial with this teacher</a>
      <a class="sd-sub sd-line" id="lineBtn" target="_blank" rel="noopener" href="#">Share on LINE</a>
@@ -141,9 +150,9 @@ var Q=[
  {t:'Which sounds most like your child?',o:[['🌙','Quiet and caring','hikarun'],['☀️','Outgoing, lights up the room','shota'],['🍓','Sweet and easy to love','hii']]}
 ];
 var T={
- hikarun:{name:'Hikarun-sensei',quote:'Let\'s have fun speaking Japanese with friends!',desc:'Became a Japanese teacher out of a love for Japanese culture. Takes time with each child and grows their wish to speak.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5411-2-scaled.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken',c:'#2fae8f'},
+ hikarun:{name:'Hikarun-sensei',quote:'Let\'s have fun speaking Japanese with friends!',desc:'Became a Japanese teacher out of a love for Japanese culture. Takes time with each child and grows their wish to speak.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5411-2-scaled.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken',video:'Ovx81XwDcVo',c:'#2fae8f'},
  shota:{name:'Shota-sensei',quote:'Want to come make some friends?',desc:'Started from wanting to make friends on a language exchange app. Talks about sports and anime, so kids open up naturally.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5792-1.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/shota/#taiken',c:'#f0655a'},
- hii:{name:'Hii-sensei',quote:'Okay! Let\'s take each other on!',desc:'Wants both kids and parents to smile. Welcomes your child with a warm, safe atmosphere.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/91503.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hii/#taiken',c:'#b06bdc'}
+ hii:{name:'Hii-sensei',quote:'Okay! Let\'s take each other on!',desc:'Wants both kids and parents to smile. Welcomes your child with a warm, safe atmosphere.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/91503.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hii/#taiken',video:'3pzoljSTL8Q',c:'#b06bdc'}
 };
 var KEYS=['hikarun','shota','hii'],CHEER=['I see!','Nice!','Keep going!','We are getting to know them!','Great choice!','Almost there!','Last one!'];
 var cur=0,sc={},top='hikarun',timer=null;
@@ -164,6 +173,7 @@ function wait(){show('sdWait');$('sdOk').hidden=true;var ims=$('sdPhoto').queryS
   setTimeout(function(){clearInterval(timer);$('sdOk').hidden=false},2600);setTimeout(result,3400)}
 function result(){top='hikarun';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){mx=sc[k];top=k}});var t=T[top];
   $('sdCard').style.setProperty('--tc',t.c);$('resultAvatar').innerHTML='';$('resultAvatar').appendChild(img(t.photo,t.name));
+  var rv=$('resultVideo');if(t.video){rv.innerHTML='<p>🎬 Meet '+t.name+'</p><div class="sd-vbox" role="button" aria-label="Play video" style="background-image:url(https://i.ytimg.com/vi/'+t.video+'/hqdefault.jpg)"><b></b></div>';rv.hidden=false;rv.querySelector('.sd-vbox').onclick=function(){this.innerHTML='<iframe src="https://www.youtube.com/embed/'+t.video+'?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';this.onclick=null;ga('shindan_video_play',{teacher:t.name})}}else{rv.innerHTML='';rv.hidden=true}
   $('resultName').textContent=t.name;$('resultQuote').textContent='“'+t.quote+'”';$('resultDesc').textContent=t.desc;$('ctaBtn').href=t.url;
   var w=$('scoreWrap');w.innerHTML='';KEYS.forEach(function(k){var p=Math.round(sc[k]/Q.length*100),r=document.createElement('div');r.className='sd-sc';
     r.appendChild(img(T[k].photo,''));var s=document.createElement('span');s.textContent=T[k].name;r.appendChild(s);
