@@ -24,7 +24,7 @@
   <!-- 土田 一成さん（つっちー） -->
   <a href="https://nijin.co.jp/recruit/interview-tucchii/" class="employee-card" data-major="teacher" data-minor="リアル教室長">
     <div class="card-label">リアル教室長</div>
-    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/tucchii-eyecatch.png" alt="土田一成（つっちー）さん"></div>
+    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/tucchii-eyecatch.png" alt="土田一成（つっちー）さん"></div>
     <div class="card-content">
       <h3 class="card-title">「学び方は十人十色」宮城の塾講師がNIJINへ｜子どもに合った学びを届けたい</h3>
       <div class="card-meta">

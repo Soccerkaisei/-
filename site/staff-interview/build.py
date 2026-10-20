@@ -19,7 +19,7 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-UPLOAD = "https://nijin.co.jp/recruit/wp-content/uploads/2026/11/"
+UPLOAD = "https://nijin.co.jp/recruit/wp-content/uploads/2026/10/"
 CSS_TMPL = open(os.path.join(HERE, "article.css.tmpl"), encoding="utf-8").read()
 
 # ちひろさん記事のピンク配色 → 人ごとの配色に置き換える

@@ -25,7 +25,7 @@
   <!-- 岡野 真梨乃さん（マリノ） -->
   <a href="https://nijin.co.jp/recruit/interview-marino/" class="employee-card" data-major="teacher" data-minor="リアル教室長">
     <div class="card-label">リアル教室長</div>
-    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/marino-eyecatch.png" alt="岡野真梨乃（マリノ）さん"></div>
+    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/marino-eyecatch.png" alt="岡野真梨乃（マリノ）さん"></div>
     <div class="card-content">
       <h3 class="card-title">プロダンサーがNIJINのSNSマネージャーに｜失敗を恐れない挑戦の毎日</h3>
       <div class="card-meta">

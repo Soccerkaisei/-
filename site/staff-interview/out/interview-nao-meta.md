@@ -11,7 +11,7 @@
 
 ## 要確認・メモ
 
-- 写真はDriveの「なお」フォルダの6枚を使用（img/nao/ に縮小済み、HEICはJPEGに変換）。WordPressのメディアに同名でアップロードし、URLが https://nijin.co.jp/recruit/wp-content/uploads/2026/11/ と違う場合は本文内のURLを置き換えてください。
+- 写真はDriveの「なお」フォルダの6枚を使用（img/nao/ に縮小済み、HEICはJPEGに変換）。WordPressのメディアに同名でアップロードし、URLが https://nijin.co.jp/recruit/wp-content/uploads/2026/10/ と違う場合は本文内のURLを置き換えてください。
 - 子どもの顔はすべてスタンプ・ぼかし済みの写真です（本人から「そのまま使えるもの」として提出）。
 - CTA背景の写真（nao-school.jpg）に写っている男性が誰か未確認のため、キャプションでは名前を出していません。
 - 「やりがい」の回答冒頭の文が「〜では、〜点にもあります」とねじれていたため「NIJINアカデミーでの難しさは、〜点にもあります」に整えています。
@@ -24,7 +24,7 @@
   <!-- 山﨑 尚子さん（なお） -->
   <a href="https://nijin.co.jp/recruit/interview-nao/" class="employee-card" data-major="teacher" data-minor="リアル教室長">
     <div class="card-label">リアル教室長</div>
-    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/11/nao-eyecatch.png" alt="山﨑尚子（なお）さん"></div>
+    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nao-eyecatch.png" alt="山﨑尚子（なお）さん"></div>
     <div class="card-content">
       <h3 class="card-title">「できない」の先にある「やってみたい」を。子どもの歩幅で共に未来を探す。</h3>
       <div class="card-meta">
