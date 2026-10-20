@@ -30,3 +30,4 @@
 2026-10-20,https://nijin.co.jp/recruit/osaka-kyoin-tenshoku/,言葉の置き換え（畑違い→異業種）
 2026-10-20,https://nijin.co.jp/recruit/tokyo-kyoin-tenshoku/,言葉の置き換え（畑違い→異業種）
 2026-10-20,https://nijin.co.jp/recruit/tennshokunokabe/,言葉の置き換え（畑違い→異業種）
+2026-10-20,https://nijin.co.jp/recruit/kyouin-career-plan/,リライト（パーツを追加）
