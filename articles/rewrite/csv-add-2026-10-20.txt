@@ -2,11 +2,8 @@
 2026-10-20,https://nijin.co.jp/recruit/freeschool-kaigyo-muzukashii/,リライト（パーツを追加）
 2026-10-20,https://nijin.co.jp/recruit/freeschool-kyoin-menkyo/,リライト（パーツを追加）
 2026-10-20,https://nijin.co.jp/recruit/futoukou-nicchu-juku-ibasho/,リライト（パーツを追加）
-2026-10-20,https://nijin.co.jp/recruit/kyoiku-npo-de-hataraku/,リライト（パーツを追加）
 2026-10-20,https://nijin.co.jp/recruit/futoko-shien-shigoto/,リライト（パーツを追加）
 2026-10-20,https://nijin.co.jp/recruit/kosodate-kyoiku-shigoto/,リライト（パーツを追加）
-2026-10-20,https://nijin.co.jp/recruit/kyouin-fukki-blank/,リライト（パーツを追加）
-2026-10-20,https://nijin.co.jp/recruit/kyouin-saiyoshiken-ochita/,リライト（パーツを追加）
 2026-10-20,https://nijin.co.jp/recruit/metaverse-sensei/,リライト（パーツを追加）
 2026-10-20,https://nijin.co.jp/recruit/mikeiken-kyoiku-tenshoku/,リライト（パーツを追加）
 2026-10-20,https://nijin.co.jp/recruit/teacher-side-job-rules/,リライト（パーツを追加）
@@ -30,4 +27,4 @@
 2026-10-20,https://nijin.co.jp/recruit/osaka-kyoin-tenshoku/,言葉の置き換え（畑違い→異業種）
 2026-10-20,https://nijin.co.jp/recruit/tokyo-kyoin-tenshoku/,言葉の置き換え（畑違い→異業種）
 2026-10-20,https://nijin.co.jp/recruit/tennshokunokabe/,言葉の置き換え（畑違い→異業種）
-2026-10-20,https://nijin.co.jp/recruit/kyouin-career-plan/,リライト（パーツを追加）
+2026-10-21,https://nijin.co.jp/recruit/kyouin-career-plan/,リライト（パーツを追加）
