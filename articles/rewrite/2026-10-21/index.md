@@ -15,7 +15,7 @@
 | 3 | 教員から民間企業へ転職できる？ | [teacher-career-change-private-sector.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/teacher-career-change-private-sector.md) |
 | 4 | 教員を辞めたい初任の先生へ | [kyouin-yametai-shonin.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/kyouin-yametai-shonin.md) |
 | 5 | 「教員辞めたい」30代の先生へ | [kyouin-yametai-30dai.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/kyouin-yametai-30dai.md) |
-| 6 | 教員のキャリアプランの描き方 | [kyouin-career-plan.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/kyouin-career-plan.md) |
+| 6 | 教員のキャリアプランの描き方（差し替え版・10/20に追加） | [kyouin-career-plan.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/kyouin-career-plan.md) |
 | 7 | やりたい教育が学校でできない先生へ | [kyouin-yaritai-kyouiku-dekinai.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/kyouin-yaritai-kyouiku-dekinai.md) |
 | 8 | フリースクールの経営は成り立つ？ | [freeschool-keiei.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/freeschool-keiei.md) |
 | 9 | 教室の空き時間を活用する方法 | [kyoshitsu-akijikan-katsuyo.md](https://raw.githubusercontent.com/soccerkaisei/-/claude/zealous-maxwell-8k1300/articles/rewrite/2026-10-21/kyoshitsu-akijikan-katsuyo.md) |
