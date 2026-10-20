@@ -1,0 +1,35 @@
+ともだちじゃぱんのWordPressで、英語版の「先生タイプ診断」ページを作ってください。指示にないところには触らないでください。
+途中でエラーが出たり、指示と画面が違ったりしたら、そこで止めて、その内容をそのまま報告してください。
+
+【1】英語のページを作る（日本語版の翻訳として）
+1. 管理画面 →「固定ページ」→ 一覧から「先生タイプ診断」（https://tomodachi-japan.nijin.co.jp/asonde-teacher-shindan/）を探す
+2. その行の、言語の列にある英語（🇬🇧/EN）の「＋」を押して、英語の翻訳ページを新規作成する
+   ※すでに英語のページがある場合は、新しく作らずにそれを開いて報告する
+3. タイトル：Teacher Match Quiz
+4. パーマリンク（スラッグ）：teacher-match-quiz
+5. 右上の︙メニューから「コードエディター」に切りかえ、本文を全部消す
+6. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーして、本文にそのまま貼る（何も足したり消したりしない）
+   https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/asonde/shindan/shindan-en-codeeditor.txt
+   ※中に「1021sd3-en」という文字があれば最新版です
+7. 右側の「ページ属性」のテンプレートなどは、日本語版「先生タイプ診断」と同じ設定にそろえる
+8. Yoast SEO 欄
+   ・SEOタイトル：Which Japanese Teacher Fits Your Child? Free Teacher Match Quiz | Tomodachi Japan
+   ・メタディスクリプション：Answer 7 quick questions and find the Japanese teacher who best fits your child. Watch their intro video and book a free online trial lesson. For kids living outside Japan.
+9. 「公開」を押す
+
+【2】英語のメニューに追加する
+1. 管理画面 →「外観」→「メニュー」
+2. 英語用のメニュー（Polylangで English に割り当てられているもの）を選ぶ
+3. 【1】で作った「Teacher Match Quiz」を追加し、表示名は「Teacher Quiz」にする
+   ※日本語のメニューで「あそんでみよう」がある位置と、なるべく同じ位置に置く
+4. 「メニューを保存」を押す
+
+確認（シークレットウィンドウで）：
+・https://tomodachi-japan.nijin.co.jp/en/teacher-match-quiz/ が開き、英語の診断が最後までできる
+・結果画面で、ひかるん先生・ひい先生が出たときは自己紹介動画のサムネイルが出て、押すと再生される
+・「Book a free trial with this teacher」を押すと、先生のページの予約コーナーに移動する
+・パソコン幅で下までスクロールしても、上にサイトのメニューが出てこない
+・英語のトップページ（https://tomodachi-japan.nijin.co.jp/en/）のメニューに「Teacher Quiz」が出ている
+・日本語版の先生タイプ診断は、今までどおり日本語で動いている
+
+報告には、うまくいったこと・うまくいかなかったことを分けて書き、作ったページのURLを書いてください。
