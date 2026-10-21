@@ -119,6 +119,7 @@ def mark(s):
 ARTICLES = [
 dict(
     slug="interview-nao", sheet="10/21なお", palette="nijin",
+    seo_title="不登校の子の居場所をつくる｜塾講師30年の京都の教室長インタビュー", keyphrase="不登校 居場所",
     title="「できない」の先にある「やってみたい」を。子どもの歩幅で共に未来を探す。",
     description="塾講師として30年以上子どもたちと向き合い、我が子の不登校も経験した山﨑尚子さん。NIJINアカデミー京都金閣寺校の教室長として、「選べる」ことを大切にした居場所づくりに挑んでいます。子どもの「やってみたい」を支える仕事とやりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -179,6 +180,7 @@ dict(
 ),
 dict(
     slug="interview-tomo", sheet="11/4トモちゃん", palette="nijin",
+    seo_title="日本画家が青森でフリースクール開校｜美術教育15年の教室長インタビュー", keyphrase="フリースクール 開校",
     title="「夢中力」で未来を切り拓く｜日本画家が青森にリアル校を開く理由",
     description="青森県で15年にわたり美術教育に携わってきた日本画家・佐伯知美さん。「学校が苦痛だった」自身の経験と、親になって生まれた思いから、NIJINアカデミー青森十和田校の開校を決意。子どもの「夢中力」を引き出す教育と、NIJINで挑む新しい学びを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -247,6 +249,7 @@ dict(
 ),
 dict(
     slug="interview-marino", sheet="11/25マリノ", palette="nijin", eyecatch="__MARINO_COVER_URL__",
+    seo_title="プロダンサーがNIJINの教室長に｜ダンス×教育で子どもの自信を育てる", keyphrase="ダンス 教育",
     title="ダンスで子どもの自信を育てる｜プロダンサーがNIJINの教室長に",
     description="台湾のダンスコンテスト「OSTA」優勝の実績を持つプロダンサーで、アパレルブランド「cLLe」も手がける岡野真梨乃さん。「ダンス×教育」への想いからNIJINに参画し、新神戸校の教室長とSNS・採用担当として挑戦の毎日を送っています。失敗を恐れず挑戦できる文化と、チームで働く難しさ・やりがいを語るインタビューです。",
     category="スタッフインタビュー ＞ リアル教室",
@@ -498,6 +501,7 @@ def meta_md(a):
              f"| タイトル（{n_title}字） | {a['title']} |",
              f"| スラッグ | `{a['slug']}` → https://nijin.co.jp/recruit/{a['slug']}/ |",
              f"| メタディスクリプション（{len(a['description'])}字） | {a['description']} |",
+             *( [f"| SEOタイトル（Yoast・{len(a['seo_title'])}字） | {a['seo_title']} |", f"| フォーカスキーフレーズ（Yoast） | {a['keyphrase']} |"] if a.get('seo_title') else []),
              f"| カテゴリ | {a['category']} |",
              f"| アイキャッチ | `{a.get('eyecatch') or a['slug'].split('-',1)[1] + '-eyecatch.jpg'}`（一覧カードと共通。プロフィール写真を4:3に切り抜き。写真がない人は要作成） |",
              f"| 本文 | `out/{a['slug']}.html` を「カスタムHTML」ブロックに貼り付け |", "",
