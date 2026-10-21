@@ -471,7 +471,7 @@ def card_html(a):
     name_short = c["name"]
     age = f'        <p class="meta-age">{html.escape(c["age"])}</p>\n' if c["age"] else ""
     items = "\n".join(f'        <p class="meta-item">{html.escape(i)}</p>' for i in c["items"])
-    eyecatch = UPLOAD + a["slug"].split("-", 1)[1] + "-eyecatch.png"
+    eyecatch = UPLOAD + a["slug"].split("-", 1)[1] + "-eyecatch.jpg"
     full = a["profile"]["name"].split("（")[0].replace(" ", "")
     nick = c["name"].split("（")[1].rstrip("）")
     alt = f"{full}（{nick}）さん"
@@ -497,7 +497,7 @@ def meta_md(a):
              f"| スラッグ | `{a['slug']}` → https://nijin.co.jp/recruit/{a['slug']}/ |",
              f"| メタディスクリプション（{len(a['description'])}字） | {a['description']} |",
              f"| カテゴリ | {a['category']} |",
-             f"| アイキャッチ | `{a['slug'].split('-',1)[1]}-eyecatch.png`（一覧カードと共通。ちひろさんと同様に作成） |",
+             f"| アイキャッチ | `{a['slug'].split('-',1)[1]}-eyecatch.jpg`（一覧カードと共通。プロフィール写真を4:3に切り抜き。写真がない人は要作成） |",
              f"| 本文 | `out/{a['slug']}.html` を「カスタムHTML」ブロックに貼り付け |", "",
              "## 要確認・メモ", ""] + [f"- {n}" for n in a["notes"]] + (
              [f"- 🎬 {a['youtube']['school']}のYouTube動画URLが未設定（build.py の youtube=dict(id=...) に動画IDを入れると、1問目の後にMOVIEカードが入る）。"]

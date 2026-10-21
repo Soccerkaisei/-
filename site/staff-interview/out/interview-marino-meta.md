@@ -6,7 +6,7 @@
 | スラッグ | `interview-marino` → https://nijin.co.jp/recruit/interview-marino/ |
 | メタディスクリプション（159字） | 台湾のダンスコンテスト「OSTA」優勝の実績を持つプロダンサーで、アパレルブランド「cLLe」も手がける岡野真梨乃さん。「ダンス×教育」への想いからNIJINに参画し、新神戸校の教室長とSNSマネージャーとして挑戦の毎日を送っています。失敗を恐れず挑戦できる文化と、チームで働く難しさ・やりがいを語るインタビューです。 |
 | カテゴリ | スタッフインタビュー ＞ リアル教室 |
-| アイキャッチ | `marino-eyecatch.png`（一覧カードと共通。ちひろさんと同様に作成） |
+| アイキャッチ | `marino-eyecatch.jpg`（一覧カードと共通。プロフィール写真を4:3に切り抜き。写真がない人は要作成） |
 | 本文 | `out/interview-marino.html` を「カスタムHTML」ブロックに貼り付け |
 
 ## 要確認・メモ
@@ -25,7 +25,7 @@
   <!-- 岡野 真梨乃さん（マリノ） -->
   <a href="https://nijin.co.jp/recruit/interview-marino/" class="employee-card" data-major="teacher" data-minor="リアル教室長">
     <div class="card-label">リアル教室長</div>
-    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/marino-eyecatch.png" alt="岡野真梨乃（マリノ）さん"></div>
+    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/marino-eyecatch.jpg" alt="岡野真梨乃（マリノ）さん"></div>
     <div class="card-content">
       <h3 class="card-title">プロダンサーがNIJINのSNSマネージャーに｜失敗を恐れない挑戦の毎日</h3>
       <div class="card-meta">

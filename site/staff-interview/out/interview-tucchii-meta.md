@@ -6,7 +6,7 @@
 | スラッグ | `interview-tucchii` → https://nijin.co.jp/recruit/interview-tucchii/ |
 | メタディスクリプション（156字） | スーパーの店長を経て塾講師となり、「学び方は十人十色」と実感してきた土田一成さん。宮城県の学習塾「ハイパーラーニング」とフリースクールの提携をきっかけにNIJINに参画し、宮城名取校に携わっています。不登校とは思えないほど積極的な子どもたちとの出会いや、全国の先生の熱量に触れて感じたことを語るインタビューです。 |
 | カテゴリ | スタッフインタビュー ＞ リアル教室 |
-| アイキャッチ | `tucchii-eyecatch.png`（一覧カードと共通。ちひろさんと同様に作成） |
+| アイキャッチ | `tucchii-eyecatch.jpg`（一覧カードと共通。プロフィール写真を4:3に切り抜き。写真がない人は要作成） |
 | 本文 | `out/interview-tucchii.html` を「カスタムHTML」ブロックに貼り付け |
 
 ## 要確認・メモ
@@ -24,7 +24,7 @@
   <!-- 土田 一成さん（つっちー） -->
   <a href="https://nijin.co.jp/recruit/interview-tucchii/" class="employee-card" data-major="teacher" data-minor="リアル教室長">
     <div class="card-label">リアル教室長</div>
-    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/tucchii-eyecatch.png" alt="土田一成（つっちー）さん"></div>
+    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/tucchii-eyecatch.jpg" alt="土田一成（つっちー）さん"></div>
     <div class="card-content">
       <h3 class="card-title">「学び方は十人十色」宮城の塾講師がNIJINへ｜子どもに合った学びを届けたい</h3>
       <div class="card-meta">

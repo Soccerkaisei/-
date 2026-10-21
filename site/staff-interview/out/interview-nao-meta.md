@@ -6,7 +6,7 @@
 | スラッグ | `interview-nao` → https://nijin.co.jp/recruit/interview-nao/ |
 | メタディスクリプション（127字） | 塾講師として30年以上子どもたちと向き合い、我が子の不登校も経験した山﨑尚子さん。NIJINアカデミー京都金閣寺校の教室長として、「選べる」ことを大切にした居場所づくりに挑んでいます。子どもの「やってみたい」を支える仕事とやりがいを語るインタビューです。 |
 | カテゴリ | スタッフインタビュー ＞ リアル教室 |
-| アイキャッチ | `nao-eyecatch.png`（一覧カードと共通。ちひろさんと同様に作成） |
+| アイキャッチ | `nao-eyecatch.jpg`（一覧カードと共通。プロフィール写真を4:3に切り抜き。写真がない人は要作成） |
 | 本文 | `out/interview-nao.html` を「カスタムHTML」ブロックに貼り付け |
 
 ## 要確認・メモ
@@ -24,7 +24,7 @@
   <!-- 山﨑 尚子さん（なお） -->
   <a href="https://nijin.co.jp/recruit/interview-nao/" class="employee-card" data-major="teacher" data-minor="リアル教室長">
     <div class="card-label">リアル教室長</div>
-    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nao-eyecatch.png" alt="山﨑尚子（なお）さん"></div>
+    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/nao-eyecatch.jpg" alt="山﨑尚子（なお）さん"></div>
     <div class="card-content">
       <h3 class="card-title">「できない」の先にある「やってみたい」を。子どもの歩幅で共に未来を探す。</h3>
       <div class="card-meta">

@@ -6,7 +6,7 @@
 | スラッグ | `interview-tomo` → https://nijin.co.jp/recruit/interview-tomo/ |
 | メタディスクリプション（131字） | 青森県で15年にわたり美術教育に携わってきた日本画家・佐伯知美さん。「学校が苦痛だった」自身の経験と、親になって生まれた思いから、NIJINアカデミー青森十和田校の開校を決意。子どもの「夢中力」を引き出す教育と、NIJINで挑む新しい学びを語るインタビューです。 |
 | カテゴリ | スタッフインタビュー ＞ リアル教室 |
-| アイキャッチ | `tomo-eyecatch.png`（一覧カードと共通。ちひろさんと同様に作成） |
+| アイキャッチ | `tomo-eyecatch.jpg`（一覧カードと共通。プロフィール写真を4:3に切り抜き。写真がない人は要作成） |
 | 本文 | `out/interview-tomo.html` を「カスタムHTML」ブロックに貼り付け |
 
 ## 要確認・メモ
@@ -24,7 +24,7 @@
   <!-- 佐伯 知美さん（トモちゃん） -->
   <a href="https://nijin.co.jp/recruit/interview-tomo/" class="employee-card" data-major="teacher" data-minor="リアル教室長">
     <div class="card-label">リアル教室長</div>
-    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/tomo-eyecatch.png" alt="佐伯知美（トモちゃん）さん"></div>
+    <div class="img-wrapper"><img src="https://nijin.co.jp/recruit/wp-content/uploads/2026/10/tomo-eyecatch.jpg" alt="佐伯知美（トモちゃん）さん"></div>
     <div class="card-content">
       <h3 class="card-title">「夢中力」で未来を切り拓く｜日本画家が青森にリアル校を開く理由</h3>
       <div class="card-meta">
