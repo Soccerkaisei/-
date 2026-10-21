@@ -10,7 +10,7 @@
 5. 右上の︙メニューから「コードエディター」に切りかえ、本文を全部消す
 6. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーして、本文にそのまま貼る（何も足したり消したりしない）
    https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/asonde/shindan/shindan-en-codeeditor.txt
-   ※中に「1021sd3-en」という文字があれば最新版です
+   ※中に「1022sd4-en」という文字があれば最新版です
 7. 右側の「ページ属性」のテンプレートなどは、日本語版「先生タイプ診断」と同じ設定にそろえる
 8. Yoast SEO 欄
    ・SEOタイトル：Which Japanese Teacher Fits Your Child? Free Teacher Match Quiz | Tomodachi Japan
