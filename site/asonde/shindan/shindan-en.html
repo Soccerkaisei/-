@@ -85,11 +85,10 @@
 .sd-sc em{flex:0 0 38px;text-align:right;font-style:normal;color:var(--soft)}
 .sd-acts{display:grid;gap:10px;margin-top:16px}
 .sd-sub{display:block;width:100%;border-radius:999px;padding:13px;font-weight:800;font-size:.95rem;text-align:center;text-decoration:none!important;border:3px solid var(--sky);background:#fff;color:var(--sky-d)!important}
-.sd-line{background:#06C755!important;border-color:#06C755!important;color:#fff!important}
 .sd-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em}
 @media (prefers-reduced-motion:reduce){.sd *{animation:none!important;transition:none!important}}
 </style>
-<div class="sd" data-ver="1021sd3-en">
+<div class="sd" data-ver="1022sd4-en">
  <div class="sd-app">
   <div class="sd-top"><span class="sd-logo">TOMODACHI JAPAN</span></div>
   <div class="sd-body">
@@ -128,7 +127,6 @@
     <div class="sd-video" id="resultVideo" hidden></div>
     <div class="sd-acts">
      <a class="sd-main" id="ctaBtn" href="#">Book a free trial with this teacher</a>
-     <a class="sd-sub sd-line" id="lineBtn" target="_blank" rel="noopener" href="#">Share on LINE</a>
      <button type="button" class="sd-sub" id="shareBtn">🔗 Share with friends</button>
      <div class="sd-msg" id="shareMsg"></div>
      <button type="button" class="sd-sub" id="sdAgain">Take the quiz again</button>
@@ -179,14 +177,11 @@ function result(){top='hikarun';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){
     r.appendChild(img(T[k].photo,''));var s=document.createElement('span');s.textContent=T[k].name;r.appendChild(s);
     var u=document.createElement('u'),i=document.createElement('i');i.style.background=T[k].c;u.appendChild(i);r.appendChild(u);
     var e=document.createElement('em');e.textContent=p+'%';r.appendChild(e);w.appendChild(r);setTimeout(function(){i.style.width=p+'%'},60)});
-  var url=location.origin+location.pathname+'?utm_source=line&utm_medium=share&utm_campaign=teacher_shindan_en';
-  $('lineBtn').href='https://line.me/R/share?text='+encodeURIComponent('I took the Tomodachi Japan teacher quiz and my match is '+t.name+'! Which teacher fits your child?\n'+url);
   $('shareMsg').textContent='';show('sdRes');ga('shindan_finish',{teacher:t.name})}
 if(window.parent!==window){var hs=function(){parent.postMessage({tjQuizHeight:Math.ceil(document.documentElement.scrollHeight)},'*')};if(window.ResizeObserver)new ResizeObserver(hs).observe(document.body);window.addEventListener('load',hs);setTimeout(hs,300);setTimeout(hs,1200);$('ctaBtn').target='_top';Array.prototype.forEach.call(document.querySelectorAll('.sd-top a'),function(x){x.target='_top'})}
 $('sdStart').onclick=start;
 $('sdAgain').onclick=function(){show('sdIntro')};
 $('ctaBtn').addEventListener('click',function(){ga('shindan_cta',{teacher:T[top].name})});
-$('lineBtn').addEventListener('click',function(){ga('shindan_share',{method:'line',teacher:T[top].name})});
 $('shareBtn').onclick=function(){var d={title:'Teacher match quiz | Tomodachi Japan',text:'I took the teacher match quiz! Which teacher fits your child?',url:location.origin+location.pathname},m=$('shareMsg');ga('shindan_share',{method:'share'});
   if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){m.textContent='Link copied!'},function(){m.textContent=d.url})}else{m.textContent=d.url}};
 })();
