@@ -1,15 +1,15 @@
 ともだちじゃぱんのWordPressで、次の3つをお願いします。指示にないところには触らないでください。
 途中でエラーが出たり、指示と画面が違ったりしたら、そこで止めて、その内容をそのまま報告してください。
 
-【1】先生タイプ診断のメニュー表示を直す
-1. 固定ページ「先生タイプ診断」（https://tomodachi-japan.nijin.co.jp/asonde-teacher-shindan/）を編集で開き、
+【1】先生タイプ診断を最新版に入れかえる（ひかるん先生を外し、メニュー表示も直した版）
+1. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーする
+   https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/asonde/shindan/shindan-codeeditor.txt
+   ※中に「1023sd5」という文字があれば最新版です
+2. 固定ページ「先生タイプ診断」（https://tomodachi-japan.nijin.co.jp/asonde-teacher-shindan/）を編集で開き、
    右上の︙メニューから「コードエディター」に切りかえる
-2. 次の文字を探す
-   .l-header,.l-footer,.p-breadcrumb,.l-header__bar,
-3. 次のように書きかえる（「.l-fixHeader,」を1つ足すだけ）
-   .l-header,.l-fixHeader,.l-footer,.p-breadcrumb,.l-header__bar,
-   ※すでに「.l-fixHeader,」が入っていたら、何もしないで次へ
+3. 本文を全部消して、1でコピーしたものをそのまま全部貼る（何も足したり消したりしない）
 4. 「保存」を押して、ビジュアルエディターに戻す
+   ※タイトル・パーマリンク・Yoast などページの設定は変えない
 
 【2】先生ページに「動画の下の体験ボタン」スニペットを追加する
 1. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーする
@@ -32,10 +32,9 @@
 4. 実行場所は「フロントエンドのみで実行」のまま、「変更を保存」を押す（有効のままにする）
 
 確認（シークレットウィンドウで）：
+・先生タイプ診断に出てくる先生が「しょーた先生」「ひい先生」の2人だけになっている（ひかるん先生が出てこない）
 ・先生タイプ診断をパソコン幅で開いて下までスクロールしても、上にサイトのメニューが出てこない
-・https://tomodachi-japan.nijin.co.jp/teachers/hikarun/ の「はじめまして。」の動画のすぐ下に
-  「ひかるん先生と、無料で話してみる →」のボタンが出て、押すとページ下の予約コーナーに移動する
-・https://tomodachi-japan.nijin.co.jp/teachers/hii/ にも「ひい先生と、無料で話してみる →」が出る
+・https://tomodachi-japan.nijin.co.jp/teachers/hii/ の動画のすぐ下に「ひい先生と、無料で話してみる →」が出る
 ・https://tomodachi-japan.nijin.co.jp/teachers/shota/ （動画なし）には出ない
 ・https://tomodachi-japan.nijin.co.jp/kisetsu/ で「夏」を選ぶと花火が上がり、「冬」を選ぶと雪に変わる
   （「春」は桜、「秋」はもみじ）

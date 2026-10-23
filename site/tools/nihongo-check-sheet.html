@@ -203,11 +203,11 @@ const STAGES=[
  {max:4.5,ja:"しっかり",en:"Confident"},
  {max:9,ja:"のびのび",en:"Free and fluent"}];
 const today=new Date();const iso=today.getFullYear()+"-"+String(today.getMonth()+1).padStart(2,"0")+"-"+String(today.getDate()).padStart(2,"0");
-const EXAMPLE={lang:"ja",name:"そうたくん",age:"7さい（小学1年生）",country:"フランス",date:iso,teacher:"ひかるん先生",
+const EXAMPLE={lang:"ja",name:"そうたくん",age:"7さい（小学1年生）",country:"フランス",date:iso,teacher:"ひい先生",
  levels:{listen:4,speak:3,read:3,write:2,enjoy:4},good:"",
  comment:"はじめは少し緊張していましたが、すきな電車の話になると、目をかがやかせて日本語でたくさん教えてくれました。聞く力がとても育っています。次は、話したいことを「文」で伝える練習をしていきましょう。",
- url:"https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken",example:true};
-const KEY="tj-checksheet-v1";
+ url:"https://tomodachi-japan.nijin.co.jp/teachers/hii/#taiken",example:true};
+const KEY="tj-checksheet-v2";
 let S;
 try{S=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){S=null}
 if(!S||!S.levels)S=JSON.parse(JSON.stringify(EXAMPLE));

@@ -1,3 +1,5 @@
+【保留中】英語で対応できる先生がいないため、公開しないこと（2026-10-22 決定）
+
 ともだちじゃぱんのWordPressで、英語版の「先生タイプ診断」ページを作ってください。指示にないところには触らないでください。
 途中でエラーが出たり、指示と画面が違ったりしたら、そこで止めて、その内容をそのまま報告してください。
 
@@ -10,7 +12,7 @@
 5. 右上の︙メニューから「コードエディター」に切りかえ、本文を全部消す
 6. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーして、本文にそのまま貼る（何も足したり消したりしない）
    https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/asonde/shindan/shindan-en-codeeditor.txt
-   ※中に「1022sd4-en」という文字があれば最新版です
+   ※中に「1023sd5-en」という文字があれば最新版です
 7. 右側の「ページ属性」のテンプレートなどは、日本語版「先生タイプ診断」と同じ設定にそろえる
 8. Yoast SEO 欄
    ・SEOタイトル：Which Japanese Teacher Fits Your Child? Free Teacher Match Quiz | Tomodachi Japan
@@ -26,7 +28,7 @@
 
 確認（シークレットウィンドウで）：
 ・https://tomodachi-japan.nijin.co.jp/en/teacher-match-quiz/ が開き、英語の診断が最後までできる
-・結果画面で、ひかるん先生・ひい先生が出たときは自己紹介動画のサムネイルが出て、押すと再生される
+・結果画面で、ひい先生が出たときは自己紹介動画のサムネイルが出て、押すと再生される
 ・「Book a free trial with this teacher」を押すと、先生のページの予約コーナーに移動する
 ・パソコン幅で下までスクロールしても、上にサイトのメニューが出てこない
 ・英語のトップページ（https://tomodachi-japan.nijin.co.jp/en/）のメニューに「Teacher Quiz」が出ている

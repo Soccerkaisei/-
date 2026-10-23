@@ -2,7 +2,7 @@
 .l-header,.l-fixHeader,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
 .l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
 .sd{--sky:#2f9be0;--sky-d:#1c78b8;--coral:#f0655a;--coral-d:#d94b41;--sun:#ffc24b;--ink:#2b3b42;--soft:#5f6f75;--line:#d9e9f5;
-  --t-hikarun:#2fae8f;--t-shota:#f0655a;--t-hii:#b06bdc;
+  --t-shota:#f0655a;--t-hii:#b06bdc;
   font-family:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;color:var(--ink);
   max-width:520px;margin:0 auto;padding:18px 14px 10px;box-sizing:border-box}
 .sd *{box-sizing:border-box}
@@ -89,7 +89,7 @@
 .sd-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em}
 @media (prefers-reduced-motion:reduce){.sd *{animation:none!important;transition:none!important}}
 </style>
-<div class="sd" data-ver="1009sd2">
+<div class="sd" data-ver="1023sd5">
  <div class="sd-app">
   <div class="sd-top"><span class="sd-logo">TOMODACHI JAPAN</span><a href="/asonde/">← あそんでみよう</a></div>
   <div class="sd-body">
@@ -141,27 +141,26 @@
 (function(){
 var $=function(i){return document.getElementById(i)};
 var Q=[
- {t:'お子さんはどんなタイプ？',o:[['🐢','のんびり、じっくり話すのが好き','hikarun'],['⚽','元気いっぱい、体を動かすのが好き','shota'],['🧸','甘えん坊、安心できる場所が好き','hii']]},
- {t:'好きなものは？',o:[['🎎','日本の文化や工作','hikarun'],['📺','アニメ・マンガ・スポーツ','shota'],['🛋️','まったり系、おうち時間','hii']]},
- {t:'保護者として先生に求めるものは？',o:[['🔍','じっくり見てくれる安心感','hikarun'],['🤝','子どもと対等に楽しんでくれる感じ','shota'],['😊','親子ともに笑顔になれる温かさ','hii']]},
- {t:'オンライン授業で、どんな先生がいい？',o:[['👂','落ち着いて話を聞いてくれる先生','hikarun'],['🎉','一緒に好きな話で盛り上がれる先生','shota'],['🌷','優しく包んでくれる先生','hii']]},
- {t:'好きな遊び方は？',o:[['✂️','のんびり工作やお絵描き','hikarun'],['🏃','外で元気に体を動かす','shota'],['🎮','おうちでまったりゲーム','hii']]},
- {t:'宿題や勉強への向き合い方は？',o:[['✏️','時間をかけて丁寧にやる','hikarun'],['⚡','サクサク終わらせて遊びたい','shota'],['👫','誰かと一緒なら頑張れる','hii']]},
- {t:'お子さんの性格に近いのは？',o:[['🌙','物静かで思いやりがある','hikarun'],['☀️','社交的でムードメーカー','shota'],['🍓','甘えん坊で愛され系','hii']]}
+ {t:'お子さんはどんなタイプ？',o:[['⚽','元気いっぱい、体を動かすのが好き','shota'],['🧸','甘えん坊、安心できる場所が好き','hii']]},
+ {t:'好きなものは？',o:[['📺','アニメ・マンガ・スポーツ','shota'],['🛋️','まったり系、おうち時間','hii']]},
+ {t:'保護者として先生に求めるものは？',o:[['🤝','子どもと対等に楽しんでくれる感じ','shota'],['😊','親子ともに笑顔になれる温かさ','hii']]},
+ {t:'オンライン授業で、どんな先生がいい？',o:[['🎉','一緒に好きな話で盛り上がれる先生','shota'],['🌷','優しく包んでくれる先生','hii']]},
+ {t:'好きな遊び方は？',o:[['🏃','外で元気に体を動かす','shota'],['🎮','おうちでまったりゲーム','hii']]},
+ {t:'宿題や勉強への向き合い方は？',o:[['⚡','サクサク終わらせて遊びたい','shota'],['👫','誰かと一緒なら頑張れる','hii']]},
+ {t:'お子さんの性格に近いのは？',o:[['☀️','社交的でムードメーカー','shota'],['🍓','甘えん坊で愛され系','hii']]}
 ];
 var T={
- hikarun:{name:'ひかるん先生',quote:'ともだちといっしょに たのしくにほんごをはなそう！',desc:'日本の文化が好きで日本語教師の道へ。じっくり向き合って、お子さまの「話したい」気持ちを育てます。',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5411-2-scaled.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken',video:'Ovx81XwDcVo',c:'#2fae8f'},
  shota:{name:'しょーた先生',quote:'ともだちつくりに来ない？',desc:'言語交換アプリで生まれた「友達になりたい」という気持ちが原点。スポーツやアニメの話で自然と距離が縮まります。',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5792-1.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/shota/#taiken',c:'#f0655a'},
  hii:{name:'ひい先生',quote:'よーし！いっしょに勝負しよう！',desc:'子どもも保護者も笑顔にしたい先生。あたたかく、安心できる雰囲気でお子さまを迎えます。',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/91503.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hii/#taiken',video:'3pzoljSTL8Q',c:'#b06bdc'}
 };
-var KEYS=['hikarun','shota','hii'],CHEER=['なるほど！','いいね！','その調子！','らしさが出てきた！','いいチョイス！','あと少し！','ラストスパート！'];
-var cur=0,sc={},top='hikarun',timer=null;
+var KEYS=['shota','hii'],CHEER=['なるほど！','いいね！','その調子！','らしさが出てきた！','いいチョイス！','あと少し！','ラストスパート！'];
+var cur=0,sc={},top='shota',timer=null;
 function ga(e,p){if(window.gtag)gtag('event',e,p||{})}
 function show(id){['sdIntro','sdQuiz','sdWait','sdRes'].forEach(function(x){$(x).hidden=x!==id});var el=$(id);el.style.animation='none';el.offsetHeight;el.style.animation='';
   var r=document.querySelector('.sd').getBoundingClientRect();if(r.top<0)window.scrollBy({top:r.top-10,behavior:'smooth'})}
 function img(src,alt,cls){var i=document.createElement('img');i.src=src;i.alt=alt||'';i.decoding='async';if(cls)i.className=cls;return i}
 KEYS.forEach(function(k){$('sdFaces').appendChild(img(T[k].photo,T[k].name));$('sdPhoto').insertBefore(img(T[k].photo,''),$('sdPhoto').firstChild)});
-function start(){cur=0;sc={hikarun:0,shota:0,hii:0};show('sdQuiz');ask();ga('shindan_start')}
+function start(){cur=0;sc={shota:0,hii:0};show('sdQuiz');ask();ga('shindan_start')}
 function ask(){var q=Q[cur];$('sdNo').textContent=('0'+(cur+1)).slice(-2);$('sdBar').style.width=(cur/Q.length*100)+'%';$('sdQ').textContent=q.t;$('sdCheer').textContent='';
   var w=$('sdOpts');w.innerHTML='';q.o.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='sd-opt';
     var i=document.createElement('i');i.textContent=o[0];var t=document.createElement('b');t.textContent=o[1];b.appendChild(i);b.appendChild(t);
@@ -171,7 +170,7 @@ function pick(k,b){Array.prototype.forEach.call($('sdOpts').children,function(x)
 function wait(){show('sdWait');$('sdOk').hidden=true;var ims=$('sdPhoto').querySelectorAll('img'),n=0;ims[0].classList.add('on');
   clearInterval(timer);timer=setInterval(function(){ims[n%ims.length].classList.remove('on');n++;ims[n%ims.length].classList.add('on')},500);
   setTimeout(function(){clearInterval(timer);$('sdOk').hidden=false},2600);setTimeout(result,3400)}
-function result(){top='hikarun';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){mx=sc[k];top=k}});var t=T[top];
+function result(){top='shota';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){mx=sc[k];top=k}});var t=T[top];
   $('sdCard').style.setProperty('--tc',t.c);$('resultAvatar').innerHTML='';$('resultAvatar').appendChild(img(t.photo,t.name));
   var rv=$('resultVideo');if(t.video){rv.innerHTML='<p>🎬 '+t.name+'の自己紹介</p><div class="sd-vbox" role="button" aria-label="動画を再生" style="background-image:url(https://i.ytimg.com/vi/'+t.video+'/hqdefault.jpg)"><b></b></div>';rv.hidden=false;rv.querySelector('.sd-vbox').onclick=function(){this.innerHTML='<iframe src="https://www.youtube.com/embed/'+t.video+'?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';this.onclick=null;ga('shindan_video_play',{teacher:t.name})}}else{rv.innerHTML='';rv.hidden=true}
   $('resultName').textContent=t.name;$('resultQuote').textContent='「'+t.quote+'」';$('resultDesc').textContent=t.desc;$('ctaBtn').href=t.url;

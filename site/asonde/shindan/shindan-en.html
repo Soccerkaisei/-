@@ -2,7 +2,7 @@
 .l-header,.l-fixHeader,.l-footer,.p-breadcrumb,.l-header__bar,.p-fixBtnWrap,.l-page__mv,.c-pageTitle{display:none!important}
 .l-page,.l-container,.l-content{padding-top:0!important;margin-top:0!important}
 .sd{--sky:#2f9be0;--sky-d:#1c78b8;--coral:#f0655a;--coral-d:#d94b41;--sun:#ffc24b;--ink:#2b3b42;--soft:#5f6f75;--line:#d9e9f5;
-  --t-hikarun:#2fae8f;--t-shota:#f0655a;--t-hii:#b06bdc;
+  --t-shota:#f0655a;--t-hii:#b06bdc;
   font-family:"Zen Maru Gothic","M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;color:var(--ink);
   max-width:520px;margin:0 auto;padding:18px 14px 10px;box-sizing:border-box}
 .sd *{box-sizing:border-box}
@@ -88,7 +88,7 @@
 .sd-msg{text-align:center;font-size:.8rem;color:var(--soft);min-height:1.2em}
 @media (prefers-reduced-motion:reduce){.sd *{animation:none!important;transition:none!important}}
 </style>
-<div class="sd" data-ver="1022sd4-en">
+<div class="sd" data-ver="1023sd5-en">
  <div class="sd-app">
   <div class="sd-top"><span class="sd-logo">TOMODACHI JAPAN</span></div>
   <div class="sd-body">
@@ -139,27 +139,26 @@
 (function(){
 var $=function(i){return document.getElementById(i)};
 var Q=[
- {t:'What is your child like?',o:[['🐢','Calm, likes to talk things through slowly','hikarun'],['⚽','Full of energy, loves to move','shota'],['🧸','Cuddly, likes to feel safe','hii']]},
- {t:'What do they love?',o:[['🎎','Japanese culture and crafts','hikarun'],['📺','Anime, manga and sports','shota'],['🛋️','Relaxing, cozy time at home','hii']]},
- {t:'As a parent, what do you want most from a teacher?',o:[['🔍','Someone who watches closely and patiently','hikarun'],['🤝','Someone who has fun with kids as an equal','shota'],['😊','Warmth that makes both parent and child smile','hii']]},
- {t:'In online class, what kind of teacher is best?',o:[['👂','A calm teacher who really listens','hikarun'],['🎉','A teacher who gets excited about their interests','shota'],['🌷','A gentle teacher who makes them feel safe','hii']]},
- {t:'How do they like to play?',o:[['✂️','Crafts and drawing at their own pace','hikarun'],['🏃','Running around outside','shota'],['🎮','Video games at home','hii']]},
- {t:'How do they handle homework?',o:[['✏️','Takes time and does it carefully','hikarun'],['⚡','Finishes fast so they can play','shota'],['👫','Tries harder with someone beside them','hii']]},
- {t:'Which sounds most like your child?',o:[['🌙','Quiet and caring','hikarun'],['☀️','Outgoing, lights up the room','shota'],['🍓','Sweet and easy to love','hii']]}
+ {t:'What is your child like?',o:[['⚽','Full of energy, loves to move','shota'],['🧸','Cuddly, likes to feel safe','hii']]},
+ {t:'What do they love?',o:[['📺','Anime, manga and sports','shota'],['🛋️','Relaxing, cozy time at home','hii']]},
+ {t:'As a parent, what do you want most from a teacher?',o:[['🤝','Someone who has fun with kids as an equal','shota'],['😊','Warmth that makes both parent and child smile','hii']]},
+ {t:'In online class, what kind of teacher is best?',o:[['🎉','A teacher who gets excited about their interests','shota'],['🌷','A gentle teacher who makes them feel safe','hii']]},
+ {t:'How do they like to play?',o:[['🏃','Running around outside','shota'],['🎮','Video games at home','hii']]},
+ {t:'How do they handle homework?',o:[['⚡','Finishes fast so they can play','shota'],['👫','Tries harder with someone beside them','hii']]},
+ {t:'Which sounds most like your child?',o:[['☀️','Outgoing, lights up the room','shota'],['🍓','Sweet and easy to love','hii']]}
 ];
 var T={
- hikarun:{name:'Hikarun-sensei',quote:'Let\'s have fun speaking Japanese with friends!',desc:'Became a Japanese teacher out of a love for Japanese culture. Takes time with each child and grows their wish to speak.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5411-2-scaled.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hikarun/#taiken',video:'Ovx81XwDcVo',c:'#2fae8f'},
  shota:{name:'Shota-sensei',quote:'Want to come make some friends?',desc:'Started from wanting to make friends on a language exchange app. Talks about sports and anime, so kids open up naturally.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/IMG_5792-1.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/shota/#taiken',c:'#f0655a'},
  hii:{name:'Hii-sensei',quote:'Okay! Let\'s take each other on!',desc:'Wants both kids and parents to smile. Welcomes your child with a warm, safe atmosphere.',photo:'https://tomodachi-japan.nijin.co.jp/wp-content/uploads/2026/09/91503.jpg',url:'https://tomodachi-japan.nijin.co.jp/teachers/hii/#taiken',video:'3pzoljSTL8Q',c:'#b06bdc'}
 };
-var KEYS=['hikarun','shota','hii'],CHEER=['I see!','Nice!','Keep going!','We are getting to know them!','Great choice!','Almost there!','Last one!'];
-var cur=0,sc={},top='hikarun',timer=null;
+var KEYS=['shota','hii'],CHEER=['I see!','Nice!','Keep going!','We are getting to know them!','Great choice!','Almost there!','Last one!'];
+var cur=0,sc={},top='shota',timer=null;
 function ga(e,p){if(window.gtag)gtag('event',e,p||{})}
 function show(id){['sdIntro','sdQuiz','sdWait','sdRes'].forEach(function(x){$(x).hidden=x!==id});var el=$(id);el.style.animation='none';el.offsetHeight;el.style.animation='';
   var r=document.querySelector('.sd').getBoundingClientRect();if(r.top<0)window.scrollBy({top:r.top-10,behavior:'smooth'})}
 function img(src,alt,cls){var i=document.createElement('img');i.src=src;i.alt=alt||'';i.decoding='async';if(cls)i.className=cls;return i}
 KEYS.forEach(function(k){$('sdFaces').appendChild(img(T[k].photo,T[k].name));$('sdPhoto').insertBefore(img(T[k].photo,''),$('sdPhoto').firstChild)});
-function start(){cur=0;sc={hikarun:0,shota:0,hii:0};show('sdQuiz');ask();ga('shindan_start',{lang:'en'})}
+function start(){cur=0;sc={shota:0,hii:0};show('sdQuiz');ask();ga('shindan_start',{lang:'en'})}
 function ask(){var q=Q[cur];$('sdNo').textContent=('0'+(cur+1)).slice(-2);$('sdBar').style.width=(cur/Q.length*100)+'%';$('sdQ').textContent=q.t;$('sdCheer').textContent='';
   var w=$('sdOpts');w.innerHTML='';q.o.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='sd-opt';
     var i=document.createElement('i');i.textContent=o[0];var t=document.createElement('b');t.textContent=o[1];b.appendChild(i);b.appendChild(t);
@@ -169,7 +168,7 @@ function pick(k,b){Array.prototype.forEach.call($('sdOpts').children,function(x)
 function wait(){show('sdWait');$('sdOk').hidden=true;var ims=$('sdPhoto').querySelectorAll('img'),n=0;ims[0].classList.add('on');
   clearInterval(timer);timer=setInterval(function(){ims[n%ims.length].classList.remove('on');n++;ims[n%ims.length].classList.add('on')},500);
   setTimeout(function(){clearInterval(timer);$('sdOk').hidden=false},2600);setTimeout(result,3400)}
-function result(){top='hikarun';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){mx=sc[k];top=k}});var t=T[top];
+function result(){top='shota';var mx=-1;KEYS.forEach(function(k){if(sc[k]>mx){mx=sc[k];top=k}});var t=T[top];
   $('sdCard').style.setProperty('--tc',t.c);$('resultAvatar').innerHTML='';$('resultAvatar').appendChild(img(t.photo,t.name));
   var rv=$('resultVideo');if(t.video){rv.innerHTML='<p>🎬 Meet '+t.name+'</p><div class="sd-vbox" role="button" aria-label="Play video" style="background-image:url(https://i.ytimg.com/vi/'+t.video+'/hqdefault.jpg)"><b></b></div>';rv.hidden=false;rv.querySelector('.sd-vbox').onclick=function(){this.innerHTML='<iframe src="https://www.youtube.com/embed/'+t.video+'?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';this.onclick=null;ga('shindan_video_play',{teacher:t.name})}}else{rv.innerHTML='';rv.hidden=true}
   $('resultName').textContent=t.name;$('resultQuote').textContent='“'+t.quote+'”';$('resultDesc').textContent=t.desc;$('ctaBtn').href=t.url;
