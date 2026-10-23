@@ -2,6 +2,7 @@
 途中でエラーが出たり、指示と画面が違ったりしたら、そこで止めて、その内容をそのまま報告してください。
 
 【1】先生タイプ診断を最新版に入れかえる（ひかるん先生を外し、メニュー表示も直した版）
+※ページのコードに、すでに「1023sd5」が入っていれば、この【1】はとばして【2】へ
 1. 次のURLを開き、表示されたテキストを最初から最後まで全部コピーする
    https://raw.githubusercontent.com/soccerkaisei/-/claude/sharp-planck-9d0wtz/site/asonde/shindan/shindan-codeeditor.txt
    ※中に「1023sd5」という文字があれば最新版です
